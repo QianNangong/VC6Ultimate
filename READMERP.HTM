@@ -1,0 +1,1418 @@
+<html>
+<!----------------------------------------------------------------------------->
+<!--                          BEGIN HTML HEAD                                -->
+
+<head>
+<title>Microsoft Repository Readme</title>
+<meta name="MS-HAID" content="readmerp">
+</head>
+
+<body BGCOLOR="#FFFFFF" onclick="checkExpand()">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF"
+vlink="#660066"><!--                                           -->
+<!--                             END HEADER                                  -->
+<!----------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------->
+<!--                            BEGIN JSCRIPT                                -->
+<!--                                                                         -->
+<script language="JSCRIPT">
+
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           event.returnValue=false;
+        }
+     }
+  }
+
+</script>
+<!--                                                                         -->
+<!--                             END JSCRIPT                                 -->
+<!----------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------->
+<!--                         BEGIN README INTRO                              -->
+<!--                                                                         -->
+
+
+<h2>Microsoft Repository 2.0 Readme </h2>
+
+<p>© 1998 Microsoft Corporation. All rights reserved. </p>
+
+<p>Repository Readme includes updated information for the documentation provided with
+Microsoft® Visual Studio -- Development System for Windows and the Internet. The
+information in this document is more up-to-date than the information in the Help system.
+Many of the issues outlined in this document will be corrected in upcoming releases.</p>
+
+<p>For <i>general installation issues</i> on the Visual Studio 6.0 suite of products,
+including side by side product installation, see the <a href="install.htm"
+title="Jumps to the installation readme (install.htm).">Installation Notes</a> readme
+(install.htm).</p>
+
+<p>For other issues on the Help system of the Visual Studio suite of products, go to <font
+face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF"
+vlink="#660066"><a href="readmeDN.htm" title="Jumps to readmeDN.htm">MSDN&#153;, the
+Microsoft Developer Network Readme.</a></p>
+<!--                                                                         -->
+<!--                            END README INTRODUCTION                      -->
+<!----------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------->
+<!--                               BEGIN TOC                                 -->
+<!--                                                                         -->
+
+<h3>Contents </h3>
+<!------------------------------------------------------------------->
+<!--                         SECTION 1.0                           -->
+<!--                                                               -->
+
+<h5><a class="ex" href="#" title="Click to expand or collapse." id="Section1">Repository
+Overview</a></h5>
+<div id="Section1Child"><a href="#Topic_10">
+
+<p>What is Microsoft Repository?</a> </p>
+
+<p><font color="#FF0000" size="1" face="Verdana,Arial,Helvetica"><strong>NEW</strong></font>
+<a href="#Topic_11">What is New in Microsoft Repository 2.0</a> </p>
+
+<p><a href="#Topic_12">Important Information for Release 2.0 Customers</a></p>
+</div><!------------------------------------------------------------------->
+<!--                         SECTION 2.0                           -->
+<!--                                                               -->
+
+
+<h5><a class="ex" href="#" title="Click to expand or collapse." id="Section2">Installation</a></h5>
+<div id="Section2Child">
+
+<p><b>Important:</b>&nbsp;&nbsp;&nbsp;This section contains vital information about
+installing Repository 2.0. Please read all items carefully before you begin your
+installation.</p>
+<a href="#Topic_20">
+
+<p>Repository Installation Notes</a></p>
+
+<p><a href="#Topic_21">Repository Files on Your Hard Disk</a> </p>
+</div><!------------------------------------------------------------------->
+<!--                         SECTION 3.0                           -->
+<!--                                                               -->
+
+
+<h5><a class="ex" href="#" title="Click to expand or collapse." id="Section3">Repository
+2.0 Issues</a></h5>
+<div id="Section3Child"><a href="#Topic_30">
+
+<p>Differences between Repository 1.0 and Repository 2.0</a></p>
+<a href="#Topic_31">
+
+<p>Asynchronous Operation</a></p>
+<a href="#Topic_32">
+
+<p>SQL and API Types Used in Property Definitions</a></p>
+<a href="#Topic_33">
+
+<p>New Features</a></p>
+</div><!------------------------------------------------------------------->
+<!--                         SECTION 4.0                           -->
+<!--                                                               -->
+
+
+<h5><a class="ex" href="#" title="Click to expand or collapse." id="Section4">Limitations
+and More Information</a></h5>
+<div id="Section4Child"><a href="#Topic_40">
+
+<p>Known Limitations in Microsoft Repository 2.0</a></p>
+
+<p><a href="#Topic_41">For More Information</a> </p>
+</div><!--                                                                   -->
+<!--                           END CONTENTS TOC                              -->
+<!----------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------->
+<!--                             BEGIN CONTENTS                              -->
+<!--                                                                         -->
+<!--                                                                         -->
+<!------------------------------------------------------------------->
+<!--                         SECTION 1.0                           -->
+<!--                                                               -->
+
+
+<p><br>
+</p>
+
+<h3>Repository Overview</h3>
+
+<p><br>
+<!------------------------------------------------------><!--                     TOPIC 1.0                    --><!--                                                  --></p>
+
+<h4><a name="Topic_10"></a>What Is Microsoft Repository?</h4>
+
+<p>Microsoft Repository is an enabling technology for defining and populating information
+models. It is used by engineering and software development tools to share information
+about engineered artifacts. Engineered artifacts are things like software components,
+manufactured components, documents, maps, Web pages - anything about which you might want
+to share information that has complex structure. Microsoft Repository stores repository
+data in a relational database. Two database management systems are supported: Microsoft<i>®</i>
+SQL Server version 6.5 or later and the Microsoft Jet database engine version 3.0 or
+later. </p>
+
+<p><!------------------------------------------------------><!--                     TOPIC 1.1                    --><!--                                                  --></p>
+
+<h4><a name="Topic_11"></a></h4>
+
+<h4>What Is New in Microsoft Repository 2.0?</h4>
+
+<p>Microsoft Repository 2.0 contains significant enhancements in the areas of version
+management and team development while maintaining backward compatibility with Microsoft
+Repository 1.0 interfaces. </p>
+
+<p>The major areas of new functionality are: 
+
+<ul>
+  <li><b>Versioning of objects</b>: allows the repository user to maintain multiple versions
+    of repository objects. </li>
+  <li><b>Versioning of relationships</b>: allows the repository user to maintain multiple
+    versions of relationships between objects. </li>
+  <li><b>Workspace management</b>: provides a virtual repository for users in which they can
+    manipulate private versions of objects and relationships. A Checkin/Checkout model allows
+    users to control what information is visible in the users' workspaces and what changes are
+    made visible to other users. This new functionality is described in detail in the user
+    documentation and specifications that accompany the software. </li>
+</ul>
+
+<p><br>
+<!------------------------------------------------------><!--                     TOPIC 1.2                   --><!--                                                  --></p>
+
+<h4><a name="Topic_12"></a>Important Information for Release 2.0 Customers</h4>
+
+<p>Users should also be aware of the following: 
+
+<ul>
+  <li>Microsoft Repository 2.0 is backward-compatible with version 1.0 functionality and
+    interfaces. If all of the applications using a repository database use only version 1.0
+    functionality, no incompatibilities will occur. Likewise, if all the applications using a
+    repository database are version- and workspace-aware, they should be successful. Mixing
+    applications that are version-aware with applications that are not version- and
+    workspace-aware on the same repository database is not recommended. </li>
+  <li>The Microsoft Repository 2.0 SQL schema is an extension of the Microsoft Repository 1.0
+    schema because of the introduction of versioning. Applications that bypass repository
+    interfaces to access SQL tables directly may have to modify queries or provide views for
+    backward compatibility. </li>
+  <li>The migration wizard (MigRepV2.exe) converts Microsoft Repository underlying database
+    information from version 1.0 to version 2.0 (SQL to SQL, and Jet to Jet). You must have
+    the Microsoft Repository engine version 2.0 (V2 engine) registered before running the
+    migration wizard. Notice that the migration is one way only, from version 1.0 to version
+    2.0. </li>
+  <li>Microsoft Repository 2.0 provides no support for the WRITETHROUGH mode of transaction
+    execution. </li>
+  <li>Microsoft Repository 2.0 supports Intel x86 and Alpha platforms. </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p><br>
+<!-------------------------------------------------------------------><!--                         SECTION 2.0                           --><!--                                                               --></p>
+
+<h3>Installation</h3>
+<!------------------------------------------------------>
+<!--                     TOPIC 2.0                    -->
+<!--                                                  -->
+
+<h4><a name="Topic_20"></a>Repository Installation Notes</h4>
+
+<p>Microsoft Repository is installed during a Visual Basic installation. </p>
+
+<p>Microsoft Repository requires that the Data Access component be installed. By default,
+the Data Access component is installed during a Visual Basic installation. However, if you
+choose not to install the Data Access component, and then install a third party tool that
+uses Microsoft Repository, you will encounter the following error when starting Visual
+Basic 98:</p>
+
+<p><em>&quot;An error occurred while opening the Microsoft Repository database. Specified
+driver could not be loaded due to system error 126 (Microsoft Access Driver (*.MDB)).
+Microsoft Repository Add-in for Visual Basic is shutting down.&quot;</em></p>
+
+<p>To correct this problem, install the Data Access component.</p>
+
+<p><br>
+<!------------------------------------------------------><!--                     TOPIC 2.1                    --><!--                                                  --></p>
+
+<h4><a name="Topic_21"></a>Repository Files on Your Hard Disk</h4>
+
+<p>The following files will be added to the Windows SYSTEM (or SYSTEM32) directory: 
+
+<ul>
+  <li>REPUTIL.DLL - Utilities for the Repository engine </li>
+</ul>
+
+<p>The following files will be added to the &quot;Program Files\Common Files\Microsoft
+Shared\Repostry&quot; directory: 
+
+<ul>
+  <li>REPODBC.DLL - The Repository Engine</li>
+  <li>REPRC.DLL - Resources for the Repository Engine</li>
+  <li>REPBROWS.EXE - A basic Repository Browser</li>
+  <li>REPBRRC.DLL - Resources for the Repository Browser</li>
+  <li>MIGREPV2.EXE - The Migration Wizard User Interface</li>
+  <li>MIGV2RC.DLL - Resources for the Migration Wizard</li>
+  <li>MIGV2.DLL - The Migration Wizard Algorithm</li>
+  <li>REPCDLG.DLL - The Repository Common Dialog</li>
+  <li>REPCDLG.OCX - ActiveX controls for the Repository Common Dialog</li>
+  <li>REPCDRC.DLL - Resources for the Repository Common Dialog</li>
+</ul>
+
+<p>The following files will be added to the &quot;Program Files\Common Files\Microsoft
+Shared\Repostry\infoMdl&quot; directory: 
+
+<ul>
+  <li>REPCDE.DLL - The Component Description Information Model</li>
+  <li>REPCOM.DLL - The COM Information Model</li>
+  <li>REPDTM.DLL - The Data Type Information Model</li>
+  <li>REPGEN.DLL - The Generic Information Model</li>
+  <li>UML.DLL - The Unified Modeling Language (UML) Information Model</li>
+  <li>REPUMX.DLL - The UML Extension Information Model</li>
+  <li>REPVCM.DLL - The Visual Component Manager Model</li>
+</ul>
+
+<p>The following files will be added to the Visual Basic directory: 
+
+<ul>
+  <li>REPVB.DLL - The Repository Add-in for Visual Basic</li>
+  <li>REPVBRC.DLL - Resource file for Repository Add-in</li>
+  <li>REPVBTIM.DLL - Type definitions for the MDO Model</li>
+</ul>
+
+<p><!--                     TOPIC 2.2                    --><!--       --></p>
+
+<h3><a name="Topic_22"></a><font face="Verdana" size="2"><br>
+<!-------------------------------------------------------------------><!--                      SECTION 3.0                           --><!--                                                               --></h3>
+
+<h3>Repository 2.0 Issues</font></h3>
+</font><font face="Verdana" size="2"><!------------------------------------------------------>
+<!--                     TOPIC 3.0                   -->
+<!--                                                  -->
+
+
+<h4><a name="Topic_30"></a>Differences Between Repository 1.0 and Repository 2.0</h4>
+<b><font SIZE="4">
+
+<h5></font></b>Repository 1.0 Usage</h5>
+
+<p ALIGN="JUSTIFY">If the repository database was created using the Repository 1.0 engine
+and has been used for information model creation, population, and retrieval only through
+this engine, there will be some differences when you run the same application with the
+Repository 2.0 engine. The differences arise from the treatment of relationships, as
+listed below:</p>
+
+<ul>
+  <li>In Repository 1.0, if an application inserts a name-unique relationship with an existing
+    name, the name-uniqueness violation is caught immediately. In Repository 2.0, the
+    violation is caught immediately only if the existing relationship is in the cache (for
+    example, created as part of the same transaction or retrieved into the cache already).
+    Otherwise, the name-uniqueness validation occurs at commit time.</li>
+</ul>
+
+<ul>
+  <li>Enumerators in the Repository 1.0 engine, except those for relationship collections,
+    have static contents, so added items do not appear until a new enumerator is requested
+    from the collection. In the Repository 2.0 engine, enumerators are dynamic, so added items
+    appear immediately in the enumerator.</li>
+</ul>
+
+<ul>
+  <li>In Repository 1.0, if the insertion position in <strong>IRelationshipCol::Insert()</strong>
+    is larger than the current count of the collection, the call is treated as <strong>IRelationshipCol::Add()</strong>.
+    In Repository 2.0, if the specified insertion position is one greater than the current
+    count, then the call reduces to <strong>IRelationshipCol::Add()</strong>. For higher
+    insertion positions, the call returns an error since the user presumably made a mistake
+    (it would be bad programming in any case).</li>
+</ul>
+
+<ul>
+  <li>Invoking <strong>IRelationshipCol::Insert()</strong> on a nonsequenced or destination
+    collection results in an error in Repository 2.0. In Repository 1.0, the call performs <strong>IRelationshipCol::Add()</strong>
+    on the origin if the collection is sequenced.</li>
+</ul>
+<b><u>
+
+<p></u>Mixed-mode Repository 1.0 and Repository 2.0 Usage</b></p>
+
+<p ALIGN="left">It is conceivable that a Repository 1.0 application might be run on the
+Repository 2.0 engine, in which versioning operations are performed by other applications
+on the same repository. The engine of course has to respect the semantics of versioning,
+and some of those semantics will necessarily be visible to the nonversioning application.
+A Repository 1.0 application can <em>only</em> see these effects when operating on a
+repository database in which Repository 2.0 applications are performing version and
+workspace operations. These effects do not arise when all applications on a repository
+database are following Repository 1.0 semantics. In addition to the effects mentioned
+above, the following could arise:</p>
+
+<ul>
+  <li>A Repository 1.0 application can retrieve an object using <strong>get_Object()</strong>
+    (it gets the resolved version), delete it (the version is deleted), and still use <strong>get_Object()</strong>
+    a second time (the call resolves to a different version). </li>
+</ul>
+
+<ul>
+  <li>Since all objects are unfrozen in Repository 1.0, updates never failed in Repository
+    1.0. However, in Repository 2.0, all update operations (property and origin collection
+    updates) on a frozen version or a checked-out version will fail. </li>
+</ul>
+
+<ul>
+  <li>In Repository 2.0, a delete operation on a checked-out version or a version with a
+    successor will fail. Neither of these situations could arise in Repository 1.0.</li>
+</ul>
+
+<ul>
+  <li>In Repository 1.0, <strong>IRelationship::Delete()</strong> removes the relationship
+    entirely so that the relationship no longer exists at the origin or the destination
+    objects. In Repository 2.0, if we have navigated from the destination side, the
+    relationship from the origin version to any other versions of the destination continues to
+    exist after the deletion. If we have navigated from the origin side, the relationship from
+    that version to all versions of the destination in the relationship is removed. Similar
+    behavior holds true for <strong>IRelationshipCol::Remove()</strong> and <strong>ITargetObjectCol::Remove()</strong>.</li>
+</ul>
+
+<ul>
+  <li>In Repository 1.0, delete propagation stops at an object if it is the destination of
+    some other relationship of the same type. In Repository 2.0, in addition to this
+    condition, delete propagation stops at an unchangeable version (frozen or checked out to a
+    different workspace) and versions that have incoming relationships (of any type) from a
+    frozen origin (that is, no error).</li>
+</ul>
+<b><u>
+
+<p></u>SQL Tables</b> 
+
+<ul>
+  <li><p ALIGN="left">The Repository 2.0 SQL tables are extensively revised for versioning.
+    SQL views that match Repository 1.0 SQL queries executed on a repository database in which
+    all objects have one version should work with no change. </p>
+  </li>
+  <li><p ALIGN="left">Repository 1.0 SQL queries executed on a repository in which multiple
+    versions of objects exist will likely execute to completion, but their semantics should be
+    reviewed in light of versioning. In certain situations multiple versions of the same
+    object may be returned by the queries, which a Repository 1.0 application might not
+    expect.</p>
+  </li>
+  <li><font size="2"><p align="left">The table <strong>RTblSites</strong> does not have the <strong>NextLocalID</strong>
+    column in Repository 2.0.</p>
+    </font></li>
+  <li><p align="left">The table <strong>RTblClassDefs</strong> has a new column called <strong>VerPropDescs</strong>
+    where the class definition is stored in Repository 2.0. The column <strong>PropDescs</strong>
+    contains only null values and is no longer used. However, it is retained for
+    compatibility.</p>
+  </li>
+</ul>
+<b><u>
+
+<p></u>Miscellaneous</b> </p>
+
+<p ALIGN="JUSTIFY">The following table shows other differences between Repository 1.0 and
+Repository 2.0.</p>
+</font>
+
+<table BORDER="1" CELLSPACING="1" BORDERCOLOR="#000000" CELLPADDING="7" WIDTH="600">
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1"><b>Description</b></font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1"><b>V1 engine</b></font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1"><b>V2 engine</b></font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font color="#000000" face="Verdana" size="1">IRepositoryItem::get_Item()</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Out of range integer index
+    returns EREP_BADPARAMS.</font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Out of range integer index
+    returns DISP_E_BADINDEX.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">IRelationshipCol::Insert()</font><p><font
+    face="Verdana" size="1">ITargetObjectCol::Insert()</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Insert appends to the
+    collection if the collection is a nonsequenced. </font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Insert fails for nonsequenced
+    collections (EREP_COL_NOT-SEQUENCED) and destination collections (EREP_RELSHIP_ORGONLY).</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">IRelationshipCol::Move()</font><p><font
+    face="Verdana" size="1">ITargetObjectCol::Move()</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Fails with EREP_RELSHIP_
+    ORGONLY for nonsequenced and destination collections.</font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Fails with
+    EREP_COL_NOT-SEQUENCED for nonsequenced collections, and EREP_RELSHIP_ ORGONLY for
+    destination collections.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">IRepositoryObjectVersion::put_Name()</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Error
+    EREP_OBJ_NO-NAMING-RELSHIP is not added to the error queue.</font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Error REP_OBJ_NONAMING-RELSHIP
+    is added to the error queue.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">Unique naming collections: Item
+    B with name &quot;B&quot; is added multiple times to a unique naming collection </font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Error code is
+    EREP_RELSHIP_DUPENAME.</font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Error code is
+    EREP_RELSHIP_EXISTS.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">IRepositoryItem::get_Name()</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Succeeds on a non-naming
+    relationship (returns &quot;0&quot;).</font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Fails.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">IRelationshipCol::get_Item() </font><p><font
+    face="Verdana" size="1">ITargetObjectCol:: get_Item()</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Argument can be INTID, OBJID,
+    Index, or Name.</font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Argument can be OBJID, Index,
+    or Name.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">ExecuteQuery() on SQL Server</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Checks for INTID column in
+    result set. </font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Accepts more than just INTID
+    whenever implicit conversion is possible.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="343" VALIGN="TOP"><font face="Verdana" size="1">Refresh on object instances
+    collection</font></td>
+    <td WIDTH="300" VALIGN="TOP"><font face="Verdana" size="1">Refreshes properties and then
+    objects.</font></td>
+    <td WIDTH="272" VALIGN="TOP"><font face="Verdana" size="1">Refreshes objects and then
+    properties.</font></td>
+  </tr>
+</table>
+<font face="Verdana" size="2">
+
+<p>&nbsp;</p>
+<!------------------------------------------------------>
+<!--                     TOPIC 3.1                    -->
+<!--                                                  -->
+
+<h4><a name="Topic_31"></a>Asynchronous Operation</h4>
+
+<p ALIGN="left">Loading of object collections in response to <strong>IRepositoryODBC::ExecuteQuery()</strong>
+can be asynchronous. The calling thread should check to determine whether the load is
+complete. If the calling thread tries to read data, refresh the collection, or construct
+an enumerator while loading is in progress, it will be blocked until the load is complete.</p>
+<b><u>
+
+<h5></u>Flags </h5>
+
+<ul>
+  </b>
+  <li>For setting/clearing &quot;async&quot; option:</li>
+</ul>
+
+<dir>
+  <dir>
+    <dl>
+      <dt></font><font face="Courier New" size="2">RODBC_RESET_OPTIONS = 1&nbsp; // Reset all
+        options</font></dt>
+      <dt><font face="Courier New" size="2">RODBC_ASYNCH = 2
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Asynchronous query execution</font><font
+        face="Verdana" size="2"></dt>
+    </dl>
+    <u><b>
+  </dir>
+</dir>
+
+<ul>
+  </b></u>
+  <li>For loading status of object:</li>
+</ul>
+
+<blockquote>
+  <dl>
+    <dd><font face="Courier New" size="2">READY = 1
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+      Loading is complete</font></dd>
+    <dd><font face="Courier New" size="2">INPROGRESS = 2
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Loading in progress</font></dd>
+    <dd><font face="Courier New" size="2">CANCELLED = 3
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Loading has been
+      cancelled (by caller)</font></dd>
+    <dd><font face="Courier New" size="2">FAILED = 4
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//
+      Loading failed (reason unknown)</font></dd>
+  </dl>
+</blockquote>
+<b><u>
+
+<h5></u>New Interfaces </h5>
+
+<ul>
+  </b>
+  <li><strong>IObjectCol2</strong> -- inherits from <strong>IObjectCol</strong>. </li>
+</ul>
+
+<blockquote>
+  <p>Additional methods:</p>
+</blockquote>
+
+<blockquote>
+  <ul>
+    <li><strong>LoadStatus</strong>: Obtains the load status of the collection.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <h6>Signature</h6>
+  </blockquote>
+  <blockquote>
+    <dl>
+      <dt><strong>HRESULT LoadStatus(long</strong> *<em>piStatus</em><strong>)</strong>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;// Automation</dt>
+      <dt><strong>HRESULT get_LoadStatus(long</strong> *<em>piStatus</em><strong>)&nbsp;</strong>&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// COM</dt>
+    </dl>
+    <h6>Arguments</h6>
+  </blockquote>
+</blockquote>
+
+<ul>
+  <dl>
+    <dd><em>piStatus</em> </dd>
+    <dd>[out, retval] </dd>
+    <dd>One of READY/INPROGRESS/CANCELLED/FAILED.</dd>
+  </dl>
+</ul>
+
+<blockquote>
+  <blockquote>
+    <h6>Return value</h6>
+  </blockquote>
+</blockquote>
+
+<ul>
+  <dl>
+    <dd>S_OK if successful, EREP_BADPARAMS if no output argument is provided.</dd>
+  </dl>
+</ul>
+
+<blockquote>
+  <ul>
+    <li><strong>Cancel</strong>: Requests the cancellation of the ongoing load operation.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <h6>Signature</h6>
+  </blockquote>
+  <blockquote>
+    <p><strong>HRESULT</strong> <strong>Cancel()</strong></p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <h6>Return value</h6>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <dl>
+    <dd>S_OK.</dd>
+  </dl>
+</blockquote>
+
+<ul>
+  <li><strong>IRepositoryODBC2</strong> -- inherits from <strong>IRepositoryODBC</strong>. </li>
+</ul>
+
+<blockquote>
+  <p>Additional methods:<ul>
+    <li><strong>GetOption: </strong>Obtains the value of the load option.</li>
+  </ul>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <h6>Signature</h6>
+    <p><strong>HRESULT</strong> <strong>GetOption(long</strong> <em>iOption</em>, <strong>VARIANT</strong>
+    *<em>psValue</em><strong>)</strong></p>
+  </blockquote>
+  <dl>
+    <dd><h6>Arguments</font></h6>
+      <font face="Verdana" size="2"></dd>
+    <dd><em>iOption</em>&nbsp;</dd>
+    <dd>[in] </dd>
+    <dd>RODBC_ASYNCH.</dd>
+    <dd>&nbsp;</dd>
+    <dd><em>psValue</em> </dd>
+    <dd>[out, retval] </dd>
+    <dd>VARIANT_TRUE or VARIANT_FALSE, depending upon whether the RODBC_ASYNCH option has been
+      set.</dd>
+    <dd>&nbsp;</dd>
+    <dd><h6>Return value</font></h6>
+      <font face="Verdana" size="2"></dd>
+    <dd>S_OK if successful, EREP_BADPARAMS if any other option is specified.</dd>
+  </dl>
+</blockquote>
+
+<blockquote>
+  <dir>
+    <li><strong>SetOption: </strong>Sets the option for loading the collection. The async flag
+      can be set if and only if the underlying database system supports the async operation.</li>
+  </dir>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <dl>
+      <h6>Signature</h6>
+      <dt><strong>HRESULT</strong> <strong>SetOption(long</strong> <em>iOption</em>, <strong>VARIANT</strong>
+        <em>sValue</em><strong>)</strong></dt>
+    </dl>
+    <h6>Input Arguments</h6>
+    <dl>
+      <dt><em>iOption</em> RODBC_ASYNCH and <em>sValue</em> TRUE sets the async mode of load.</dt>
+      <dt><em>iOption</em> RODBC_ASYNCH and <em>sValue</em> FALSE clears the async mode.</dt>
+      <dt><em>iOption</em> RODBC_RESET_OPTIONS resets the async mode of load.</dt>
+    </dl>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <blockquote>
+    <h6>Return value</h6>
+    <p>S_OK if successful, EREP_TYPE_COLMISMATCH if a value other than TRUE or FALSE is
+    specified in sValue when iOption is RODBC_ASYNCH.</p>
+  </blockquote>
+</blockquote>
+<b><u>
+
+<p></u>Other Changes 
+
+<ul>
+  </b>
+  <li>Class <strong>ObjectCol</strong> supports both <strong>IObjectCol</strong> [default] and
+    <strong>IObjectCol2</strong>.</li>
+</ul>
+
+<ul>
+  <li><strong>IObjectCol2::Refresh()</strong> asynchronously refreshes the object collection
+    (reloads object collection and refreshes target objects) when the async mode is in effect.
+    The calling thread should check to determine whether refresh is complete. If the calling
+    thread tries to read data, refresh the collection, or construct an enumerator while
+    refresh is in progress, it will be blocked until refresh is complete.</li>
+</ul>
+<!------------------------------------------------------>
+<!--                     TOPIC 3.2                    -->
+<!--                                                  -->
+
+<p>&nbsp;</p>
+
+<h4><a name="Topic_32"></a>SQL and API Types Used in Property Definitions</h4>
+<!------------------------------------------------------>
+<!--                     TOPIC 3.3                    -->
+<!--                                                  -->
+
+<p>The following two tables show the API types recognized by the Repository engine, as
+well as the SQL types. These values appear in the <b>APIType</b> and <b>SQLType</b>
+properties of a <b>PropertyDef</b> Object. For information on conversion between SQL and
+API types, please refer to the ODBC Programmer's Reference.</p>
+</font>
+
+<table BORDER="1" CELLSPACING="1" BORDERCOLOR="#000000" CELLPADDING="9" WIDTH="331">
+  <tr>
+    <td VALIGN="TOP" COLSPAN="2"><font face="Verdana" size="1"><b>API TYPES RECOGNIZED BY
+    ENGINE</b></font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1"><b>API TYPE</b></font></td>
+    <td WIDTH="36%" VALIGN="TOP"><b><p ALIGN="CENTER"><font face="Verdana" size="1">VALUE</font></b></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_UTINYINT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-28</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_STINYINT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-26</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_ULONG</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-18</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_USHORT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-17</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_SLONG</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-16</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_SSHORT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-15</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_BINARY</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-2</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_TINYINT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-6</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_BIT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-7</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_CHAR</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">1</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_LONG</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">4</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_SHORT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">5</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_FLOAT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">7</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_DOUBLE</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">8</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_DATE</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">9</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_TIME</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">10</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_C_TIMESTAMP</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">11</font></td>
+  </tr>
+</table>
+<font face="Verdana" size="2"><font SIZE="2">
+
+<p></font>&nbsp;</p>
+</font>
+
+<table BORDER="1" CELLSPACING="1" BORDERCOLOR="#000000" CELLPADDING="9" WIDTH="331">
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1"><b>SQL TYPE</b></font></td>
+    <td WIDTH="36%" VALIGN="TOP"><b><p ALIGN="CENTER"><font face="Verdana" size="1">VALUE</font></b></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_LONGVARCHAR</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-1</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_BINARY</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-2</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_VARBINARY</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-3</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_LONGVARBINARY</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-4</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_BIGINT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-5</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_TINYINT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-6</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_BIT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">-7</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_CHAR</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">1</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_NUMERIC</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">2</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_DECIMAL</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">3</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_INTEGER</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">4</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_SMALLINT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">5</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_FLOAT</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">6</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_REAL</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">7</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_DOUBLE</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">8</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_DATETIME</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">9</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_TIME</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">10</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_TIMESTAMP</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">11</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="64%" VALIGN="TOP"><font face="Verdana" size="1">SQL_VARCHAR</font></td>
+    <td WIDTH="36%" VALIGN="TOP"><p ALIGN="CENTER"><font face="Verdana" size="1">12</font></td>
+  </tr>
+</table>
+<font face="Verdana" size="2">
+
+<p>&nbsp;</p>
+
+<h4><a name="Topic_33"></a>New Features</h4>
+
+<h5>Properties</h5>
+
+<p>Two new properties have been added to the <strong>IRepository2</strong> interface to
+indicate the version of the database file. 
+
+<ul>
+  <li><strong>MajorDBVersion</strong></li>
+</ul>
+
+<blockquote>
+  <h6>Signature</h6>
+  <dl>
+    <dt><strong>HRESULT MajorDBVersion(long</strong> *<em>piMajorDBVersion</em><strong>)</strong>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Automation</dt>
+    <dt><strong>HRESULT get_MajorDBVersion(</strong> long *<em>piMajorDBVersion</em><strong>)</strong>
+      &nbsp;&nbsp;&nbsp;&nbsp; // COM</dt>
+  </dl>
+  <h6><i>Arguments</h6>
+  </i><dl>
+    <dt><em>piMajorDBVersion </em></dt>
+    <dt>[out, retval] </dt>
+    <dt>The major version number of the first Repository engine version that introduced this
+      database format.</dt>
+  </dl>
+</blockquote>
+
+<ul>
+  <li><strong>MinorDBVersion</strong></li>
+</ul>
+
+<blockquote>
+  <h6>Signature</h6>
+  <dl>
+    <dt><strong>HRESULT MinorDBVersion(long</strong> *<em>piMinorDBVersion</em><strong>)</strong>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Automation</dt>
+    <dt><strong>HRESULT get_MinorDBVersion(</strong> long *<em>piMinorDBVersion</em><strong>)</strong>
+      &nbsp;&nbsp;&nbsp;&nbsp; // COM</dt>
+  </dl>
+  <h6><i>Arguments</h6>
+  </i><dl>
+    <dt><em>piMinorDBVersion </em></dt>
+    <dt>[out, retval] </dt>
+    <dt>The minor version number of the first Repository engine version that introduced this
+      database format.</dt>
+  </dl>
+</blockquote>
+<!------------------------------------------------------>
+<!--                     TOPIC 4.0                    -->
+<!--                                                  -->
+
+<h5>Methods</h5>
+
+<p>A new method <strong>CreateObjectEx()</strong> has been added to the interface <strong>IRepository2</strong>.<strong>
+</strong>It creates the first version of a new Repository object of the specified type.
+The newly created version is assigned the object-version identifier passed in as an
+argument, unlike <strong>IRepository::CreateObject()</strong>, in which the Repository
+assigns the version ID. It has the following syntax:</p>
+
+<blockquote>
+  <i><b><h6></b></i>Signature<i><b></h6>
+  </b></i><dl>
+    <dt><strong>HRESULT IRepository2::CreateObjectEx(</strong></dt>
+    <dt><strong>VARIANT</strong> <em>TypeID,</em></dt>
+    <dt><strong>VARIANT</strong> <em>ObjectID,</em></dt>
+    <dt><strong>VARIANT</strong> <em>ExtVersionID,</em></dt>
+    <dt><strong>IRepositoryObjectVersion</strong> <em>**ppRepObjVer</em><strong>)</strong>;</dt>
+  </dl>
+  <b><i><h6></i></b>Arguments</h6>
+  <dl>
+    <dt><em>TypeID</em> </dt>
+    <dt>[in] </dt>
+    <dt>It does the same work as<strong> IRepository::CreateObject</strong></dt>
+    <dt>&nbsp;</dt>
+    <dt><em>ObjectID</em> </dt>
+    <dt>[in] </dt>
+    <dt>It does the same work as <strong>IRepository::CreateObject</strong>&nbsp; </dt>
+    <dt>&nbsp;</dt>
+    <dt><em>ExtVersionID</em> </dt>
+    <dt>[in] </dt>
+    <dt>This is the object-version identifier (20 bytes) to be assigned to the first version of
+      the object</dt>
+    <dt>&nbsp;</dt>
+    <dt><em>ppRepObjVer</em> </dt>
+    <dt>[out] </dt>
+    <dt>This is the <strong>IRepositoryObjectVersion</strong> pointer to the newly created
+      version</dt>
+  </dl>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<h3><a name="Topic_40"></a>Known Limitations in Microsoft Repository 2.0</h3>
+<b>
+
+<h4>1. Limitations related to interfaces and associated methods</b></h4>
+
+<p><b>IRepositoryObjectVersion</b> 
+
+<ul>
+  <li><b>MergeVersion()</b>: Relationships are inserted at the end of the sequenced
+    collection. </li>
+</ul>
+<b>
+
+<p>IRelationshipCol</b> and <b>ITargetObjectCol</b> 
+
+<ul>
+  <li><b>Remove()</b>: Removal from a sequenced collection does not update the collection
+    sequence order. </li>
+</ul>
+<b>
+
+<p>IVersionAdminInfo</b> 
+
+<ul>
+  <li><b>VersionModifyTime()</b>: Does not change when an origin relationship or target object
+    collection is modified. </li>
+  <li><b>ModifyByUser()</b>: Does not change when an origin relationship or target object
+    collection is modified. </li>
+</ul>
+<b>
+
+<p>IRepository2</b> 
+
+<ul>
+  <li><b>CreateObject()</b>: Can only be called from the shared repository but not from a
+    workspace. The workaround is to create the object through the central repository and
+    include it in the workspace. </li>
+</ul>
+<b>
+
+<p>IClassDef</b> and <b>IInterfaceDef</b> 
+
+<ul>
+  <li><b>ObjectInstances()</b>: Not workspace scoped. </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4><strong>2. Repository constants</strong> </h4>
+
+<p>In the Repository documentation, it is mentioned that the maximum length, in bytes, of
+a name that a relationship assigns to its destination object is 260 as defined by the
+constant RELSHIPNAMESIZE. This value is actually 249.</p>
+
+<p>&nbsp;</p>
+
+<h4><strong>3. Conventions for names </strong></h4>
+
+<p>Names of relationships and objects must follow these conventions:</p>
+
+<blockquote>
+  <dl>
+    <dt>1. Names can be no longer than 249 characters.</dt>
+    <dt>2. Any characters can be used in a name.</dt>
+    <dt>3. The name can contain leading or trailing spaces. It can also be an empty string.</dt>
+    <dt>4. If the name is all spaces, it is treated as an empty string. </dt>
+  </dl>
+</blockquote>
+
+<p>This applies to names used inside quotation marks or stored inside variables. For
+example, the following &quot;IFolder&quot; interface must meet these restrictions:</p>
+
+<blockquote>
+  <p><font face="Courier New" size="2">oFolder(&quot;IFolder&quot;).FolderName</font></p>
+</blockquote>
+</font>
+
+<p><font face="Verdana" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -or-</p>
+
+<blockquote>
+  <font SIZE="2" COLOR="#000080"><p></font><font face="Courier New" size="2" color="#000000">oFolder(sIFolder).FolderName</font></p>
+</blockquote>
+</font>
+
+<p><font face="Verdana" color="#000000" SIZE="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where:</font><font
+color="#000000" face="Verdana" size="3"> </font><font face="Courier New" size="2"
+color="#000000">sIFolder = &quot;IFolder&quot;</font><font face="Verdana" size="2"></p>
+
+<p>However, these guidelines are not accurate for names specified outside of quotation
+marks (such as property names or relationship collection names). For example, the
+relationship collection &quot;RcFolderContains&quot; below:</p>
+
+<blockquote>
+  <p><font face="Courier New" size="2">oFolder(&quot;IFolder&quot;).RcFolderContains.Count</font></p>
+</blockquote>
+</font>
+
+<p><font face="Verdana" size="2">must adhere to the Microsoft Visual Basic naming
+guidelines, except that the limit is 127 characters instead of the 255 characters limit
+that Visual Basic allows.</p>
+
+<p>&nbsp;</p>
+
+<h4><b>4. Stored Procedures</b> </h4>
+
+<p>The stored procedure name for a table is generated by prefixing the table name with the
+string &quot;R_i&quot;. Since table names are unique, this will generate unique stored
+procedure names. If the table name&#146;s length is greater than <b>MaxIdentifierLength</b>-3,
+however, the table name generation algorithm fails. For this reason, a user may not supply
+a table name longer than <b>MaxIdentifierLength</b>-3. Supplying a longer name causes the
+error EREP_BADNAME.</p>
+
+<p>When the user supplies no table name for an interface, the engine automatically
+generates the table name from the interface name. If the interface name, with the leading
+&quot;I&quot; stripped off, is less than <b>MaxIdentifierLength</b>-4, the interface name
+will be used as the table name. Otherwise, the interface name is truncated to <b>MaxIdentifierLength</b>-7,
+and a 4-character number (called a &quot;<i>uniqifier</i>&quot;) is appended to the name
+to make it unique, before prefixing R_i. </p>
+
+<p>The engine uses named arguments to call the stored procedures. A named argument starts
+with the &quot;@&quot; character and is not longer than <b>MaxIdentifierLength</b>.
+Therefore, the property names, which are also column names, must be no longer than <b>MaxIdentifierLength</b>-1.</p>
+
+<p><b>MaxIdentifierLength</b>&#146;s are: 
+
+<ul>
+  <li>30 characters for SQL Server 6.5</li>
+  <li>128 characters for SQL Server 7.0</li>
+</ul>
+<!------------------------------------------------------>
+<!--                     TOPIC 4.1                   -->
+<!--                                                  -->
+
+<p>&nbsp;</p>
+
+<h4><b>5. Table Definitions</b> </h4>
+
+<p></font><font face="Verdana" color="#000000" SIZE="2">The following tables are not
+included in the Repository help file:</font><font face="Verdana" size="2"></p>
+
+<blockquote>
+  <ul>
+    <li><strong><font face="Verdana" color="#000000" SIZE="2">RTblSumInfo</font></strong></li>
+    <li><strong><font face="Verdana" color="#000000" SIZE="2">RTblNamedObj</font></strong></li>
+    <li><strong><font face="Verdana" color="#000000" SIZE="2">RTblVersionAdminInfo</font></strong></li>
+  </ul>
+</blockquote>
+
+<p></font><font face="Verdana" color="#000000" SIZE="2">These tables are explained below
+along with column names and data types.</font><font face="Verdana" size="2"></p>
+
+<p>&nbsp;</p>
+
+<p><font face="Verdana" color="#000000" SIZE="2"><b>RTblSumInfo</b> </font></p>
+
+<p></font><font face="Verdana" color="#000000" SIZE="2"><b>RTblSumInfo</b> is an
+interface-specific table; its columns correspond to the properties exposed by the <b>ISummaryInformation</b>
+interface. By default, no class of the Repository Type Information Model implements <b>ISummaryInformation</b>.
+Thus the Repository database does not, by default, include the table <b>RTblSumInfo</b>.
+Instead, the Repository omits the table from the database to save space. However, as soon
+as you insert into the Repository any class that implements <b>ISummaryInformation</b>,
+Repository creates the table.</font><font face="Verdana" size="2"></p>
+
+<table BORDER="1" CELLSPACING="1" CELLPADDING="9" WIDTH="600">
+  <tr>
+    <td WIDTH="22%" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Column Name</b></font></td>
+    <td WIDTH="19%" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Data Type</b></font></td>
+    <td WIDTH="59%" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Description</b></font></td>
+  </tr>
+  <tr>
+    <td WIDTH="22%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">IntID</font></td>
+    <td WIDTH="19%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTIntID</font></td>
+    <td WIDTH="59%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The internal identifier of the
+    class.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="22%" VALIGN="TOP" HEIGHT="32"><font FACE="Verdana" SIZE="1">Z_BranchID_Z</font></td>
+    <td WIDTH="19%" VALIGN="TOP" HEIGHT="32"><font FACE="Verdana" SIZE="1">RTBrID</font></td>
+    <td WIDTH="59%" VALIGN="TOP" HEIGHT="32"></font><font FACE="Verdana" SIZE="1">Indicates
+    the branch of the version graph containing the range to whose items the property values in
+    this row apply.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="22%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_VS_Z</font></td>
+    <td WIDTH="19%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTVerID</font></td>
+    <td WIDTH="59%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">A version-within-branch
+    identifier indicating the lower bound of the range to whose items the property values in
+    this row apply.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="22%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_VE_Z</font></td>
+    <td WIDTH="19%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTVerID</font></td>
+    <td WIDTH="59%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">A version-within-branch
+    identifier indicating the upper bound of the range to whose items the property values in
+    this row apply. </font></td>
+  </tr>
+  <tr>
+    <td WIDTH="22%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Comments</font></td>
+    <td WIDTH="19%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTLongString</font></td>
+    <td WIDTH="59%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">A field used for comments.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="22%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">ShortDesc</font></td>
+    <td WIDTH="19%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTLongString</font></td>
+    <td WIDTH="59%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The description of the object.</font></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p><b><font color="#000000" size="2" face="Verdana">RTblNamedObj</font></b></p>
+
+<p><font color="#000000" size="2" face="Verdana"><b>RTblNamedObj</b> is an
+interface-specific table; its columns correspond to the properties exposed by the <b>INamedObject</b>
+interface. By default, no class of the Repository Type Information Model implements <b>INamedObject</b>.
+Thus the Repository database does not, by default, include the table <b>RTblNamedObj</b>.
+Instead, the Repository omits the table from the database to save space. However, as soon
+as you insert into the Repository any class that implements <b>INamedObject</b>,
+Repository creates the table.</font><font face="Verdana" size="2"></p>
+
+<table BORDER="1" CELLSPACING="1" CELLPADDING="9" WIDTH="600">
+  <tr>
+    <td WIDTH="21%" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Column Name</b></font></td>
+    <td WIDTH="20%" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Data Type</b></font></td>
+    <td WIDTH="60%" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Description</b></font></td>
+  </tr>
+  <tr>
+    <td WIDTH="21%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">IntID</font></td>
+    <td WIDTH="20%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTIntID</font></td>
+    <td WIDTH="60%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The internal identifier of the
+    class.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="21%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_BranchID_Z</font></td>
+    <td WIDTH="20%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTBrID</font></td>
+    <td WIDTH="60%" VALIGN="TOP"></font><font FACE="Verdana" SIZE="1">Indicates the branch of
+    the version graph containing the range to whose items the property values in this row
+    apply.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="21%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_VS_Z</font></td>
+    <td WIDTH="20%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTVerID</font></td>
+    <td WIDTH="60%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">A version-within-branch
+    identifier indicating the lower bound of the range to whose items the property values in
+    this row apply.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="21%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_VE_Z</font></td>
+    <td WIDTH="20%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTVerID</font></td>
+    <td WIDTH="60%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">A version-within-branch
+    identifier indicating the upper bound of the range to whose items the property values in
+    this row apply. </font></td>
+  </tr>
+  <tr>
+    <td WIDTH="21%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Name</font></td>
+    <td WIDTH="20%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTLongString</font></td>
+    <td WIDTH="60%" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The name of the object.</font></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<font SIZE="2" COLOR="#000000"><b>
+
+<p>RTblVersionAdminInfo</b> </font></p>
+
+<p><font color="#000000" size="2" face="Verdana"><b>RTblVersionAdminInfo</b></font><font
+face="Verdana" size="2"><font color="#000000"> </font><font SIZE="2" COLOR="#000000">is an
+interface-specific table; its columns correspond to the properties exposed by the <b>IVersionAdminInfo</b>
+interface. By default, no class of the Repository Type Information Model implements <b>IVersionAdminInfo</b>.
+Thus the Repository database does not, by default, include the table <b>RTblVersionAdminInfo</b>.
+Instead, the Repository omits the table from the database to save space. However, as soon
+as you insert into the Repository any class that implements <b>IVersionAdminInfo</b>,
+Repository creates the table.</font></p>
+
+<table BORDER="1" CELLSPACING="1" CELLPADDING="9" WIDTH="600">
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Column Name</b></font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Data Type</b></font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1"><b>Description</b></font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">IntID</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTIntID</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The internal identifier of the
+    class.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_BranchID_Z</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTBrID</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Indicates the branch of the
+    version graph containing the range to whose items the property values in this row apply.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_VS_Z</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTVerID</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">A version-within-branch
+    identifier indicating the lower bound of the range to whose items the property values in
+    this row apply. </font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Z_VE_Z</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTVerID</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">A version-within-branch
+    identifier indicating the upper bound of the range to whose items the property values in
+    this row apply. </font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">VersionCreateTime</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Date/Time</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The time the version has been
+    created.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">VersionModifyTime</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">Date/Time</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The time the version has been
+    modified.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">CreateByUser</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTLongString</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The user who created the
+    version.</font></td>
+  </tr>
+  <tr>
+    <td WIDTH="134" VALIGN="TOP"><font FACE="Verdana" SIZE="1">ModifyByUser</font></td>
+    <td WIDTH="96" VALIGN="TOP"><font FACE="Verdana" SIZE="1">RTLongString</font></td>
+    <td WIDTH="369" VALIGN="TOP"><font FACE="Verdana" SIZE="1">The user who modified the
+    version.</font></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4><b>6. Other Limitations</b> </h4>
+
+<ul>
+  <li>Migration Wizard (MigRepV2.exe), Repository Browser (Repbrows.exe), and Visual Component
+    Manager (VCM) do not support file DSNs (Data Source Names). These tools only work against
+    a DSN of type Access or SQL Server.</li>
+</ul>
+
+<ul>
+  <li>In the Migration Wizard, if you work against a DSN of the type SQL Server, you will be
+    asked to enter a user name and a password unless the DSN is configured using the Windows
+    NT authentication option (in the ODBC Data Source Administrator).</li>
+</ul>
+
+<ul>
+  <li>In the topic &quot;<em>Examples of Merging Versions</em>,&quot; there is an inaccuracy
+    in the second graph. The properties of the version V8 should change, after the merge, from
+    (Large, Red, null) to (Medium, Red, null).</li>
+</ul>
+
+<ul>
+  <li>The documentation for the <b>CollectionDefFlags</b> enumeration did not mention the
+    following flag:<p>COLLECTION_NEWORGVERSIONSDONOTPARTICIPATE = 64</p>
+    <p>This flag is related to another flag in the same enumeration:</p>
+    <p>COLLECTION_NEWORGVERSIONSPARTICIPATE = 32</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p>The two flags have opposite meanings. Thus, they cannot both be set at the same time.
+  However, since the default setting for each of them is <i>unset</i>, it is possible for
+  both flags to be unset at the same time. If both flags are unset, the Repository operates
+  as if the COLLECTION_NEWORGVERSIONSPARTICIPATE flag is set. That is, during the creation
+  of a new version of a repository object, Microsoft Repository does copy new origin
+  collections from a predecessor creation version to a successor version.</p>
+</blockquote>
+
+<ul>
+  <li>If a <b>SQLSize</b> is set to a value greater than 65535, the engine divides the entered
+    number by 65536 and sets <b>SQLSize</b> to the value of the remainder of the division, but
+    no error is returned.</font></font><font face="Verdana" SIZE="2" COLOR="#000000"
+    link="#0000FF" vlink="#660066"></li>
+</ul>
+
+<ul>
+  <li>In the help topic &quot;The Migration Algorithm<i>&quot;</i> there are references to two
+    tables, <b>RTblRelColPairs</b> and <b>RTblTimestamp</b>. In the Repository 2.0 database,
+    the first table does not exist, and the second table has been replaced by <b>RTblVersionAdminInfo</b>.</font><font
+    face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF"
+    vlink="#660066"><font face="Verdana" size="2"></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h4><strong><a name="Topic_41"></a>For More Information</strong></h4>
+
+<p>You can go to these sources for more information about Microsoft Repository: 
+
+<ul>
+  <li>Check for the latest news on the Microsoft Repository Web site (<a
+    href="http://www.microsoft.com/repository">http://www.microsoft.com/repository</a>). You
+    can also download Repository documentation from this site. </li>
+  <li>In the Microsoft Visual Studio 6.0 documentation, you will find the <i>Repository
+    Programmer's Guide</i>, <i>Repository Reference</i>, <i>Repository Browser</i>, and <i>Converting
+    Repository 1.0 Databases</i>. To locate these documents start at the top and follow this
+    path: <blockquote>
+      <blockquote>
+        <p></font><font face="Verdana" SIZE="2" color="#000000"><em>MSDN Library Visual Studio 6.0<br>
+        &nbsp;&nbsp;&nbsp; Visual Studio Documentation<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Component, Design, and Analysis Tools<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Microsoft
+        Repository 2.0 Documents</em></font><font face="Verdana" size="2"></p>
+      </blockquote>
+    </blockquote>
+  </li>
+  <li>In the Microsoft Visual Basic 6.0 documentation, you will find <i>Repository
+    Programmer's Guide for Visual Basic</i> and <i>The Microsoft Repository Visual Basic
+    Add-in Reference</i>. To locate these documents start at the top and follow this path: <font
+    SIZE="2"><blockquote>
+      <blockquote>
+        <p><font face="Verdana" SIZE="2" color="#000000"><em>MSDN Library Visual Studio 6.0<br>
+        &nbsp;&nbsp;&nbsp; Visual Basic Documentation<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using Repository with Visual Basic</em></font></p>
+        </font>
+      </blockquote>
+    </blockquote>
+  </li>
+</ul>
+<!--                                                                         -->
+<!--                             END CONTENTS                                -->
+<!----------------------------------------------------------------------------->
+</font></font>
+</body>
+</html>

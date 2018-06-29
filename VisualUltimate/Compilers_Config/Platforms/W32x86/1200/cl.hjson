@@ -1,0 +1,36 @@
+{
+	Vars:[
+		{
+			BaseDir:%CurDir%\..\..\..\..\..
+		}
+	]
+
+	Include:[
+		%BaseDir%\VC98\INCLUDE
+		%BaseDir%\VC98\MFC\INCLUDE
+		%BaseDir%\VC98\ATL\INCLUDE
+	]
+
+	Path:[
+		%BaseDir%\Common\MSDev98\Bin
+		%BaseDir%\VC98\BIN
+		%BaseDir%\Common\TOOLS
+		%BaseDir%\VisualUltimate\TOOLS
+		%BaseDir%\Common\TOOLS\WINNT
+		%BaseDir%\VisualUltimate\system32
+		%BaseDir%\VC98\BIN
+	]
+
+	Lib:[
+		%BaseDir%\VC98\LIB
+		%BaseDir%\VC98\MFC\LIB
+	]
+
+	Sources:[
+		%BaseDir%\VC98\MFC\SRC
+		%BaseDir%\VC98\MFC\INCLUDE
+		%BaseDir%\VC98\ATL\INCLUDE
+		%BaseDir%\VC98\CRT\SRC
+	]
+
+}

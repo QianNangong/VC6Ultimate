@@ -1,0 +1,112 @@
+:0:f§ §b§§§§
+:abstract§ §9§§§§
+:add§ §9§§§§
+:allocate§ §9§§§§
+:as§ §9§§§§
+:auto§ §9§§§§
+:base§ §9§§§§
+:base§alias base string§3§§§
+:bool§alias System.Bool bool§3§§§
+:break§ §9§§§§
+:byte§alias System.Byte byte§3§§§
+:case§ §9§§§§
+:catch§ §9§§§§
+:char§alias System.Char char§3§§§
+:checked§ §9§§§§
+:class§ §9§§§§
+:const_cast§ §9§§§§
+:const§ §9§§§§
+:continue§ §9§§§§
+:decimal§alias System.Decimal decimal§3§§§
+:default§ §9§§§§
+:delegate§ §9§§§§
+:delete§ §9§§§§
+:dllexport§ §9§§§§
+:dllimport§ §9§§§§
+:double§alias System.Double double§3§§§
+:do§ §9§§§§
+:elseif§ §9§§§
+:else§ §9§§§
+:endif§ §9§§§
+:enum§ §9§§§§
+:event§ §9§§§§
+:explicit§ §9§§§§
+:extern§ §9§§§§
+:false§ §9§§junk§0
+:far§ §9§§§§
+:finally§ §9§§§§
+:fixed§ §9§§§§
+:float§alias System.Float float§3§§§
+:foreach§ §9§§§§
+:for§ §9§§§§
+:friend§ §9§§§
+:function§ §9§§§§
+:get§ §9§§§§
+:global§ §9§§§§
+:goto§ §9§§§§
+:ifdef§ §9§§§
+:if§ §9§§§
+:implicit§ §9§§§§
+:inline§ §9§§§
+:interface§ §9§§§§
+:internal§ §9§§§§
+:int§alias System.Int32 int§3§§§
+:in§ §9§§§§
+:is§ §9§§§§
+:lock§ §9§§§§
+:long§alias System.Int64 long§3§§§
+:mutable§ §9§§§§
+:naked§ §9§§§§
+:namespace§ §9§§§§
+:new§ §9§§§§
+:nothrow§ §9§§§§
+:null§ §9§§§§
+:object§alias System.Object object§3§§§
+:operator§ §9§§§§
+:out§ §9§§§§
+:override§ §9§§§§
+:partial§ §9§§§§
+:params§ §9§§§§
+:private§ §9§§§§
+:protected§ §9§§§§
+:public§ §9§§§§
+:readonly§ §9§§§§
+:ref§ §9§§§§
+:register§ §9§§§§
+:remove§ §9§§§§
+:return§ §9§§§§
+:sbyte§alias System.SByte sbyte§3§§§
+:sealed§ §9§§§§
+:selectany§ §9§§§§
+:set§ §9§§§§
+:short§alias System.Int16 short§3§§§
+:signed§ §9§§§§
+:sizeof§ §9§§§§
+:stackalloc§ §9§§§§
+:static_cast§ §9§§§§
+:static§ §9§§§§
+:string§alias System.String string§3§§§
+:struct§ §9§§§§
+:switch§ §9§§§§
+:this§* HIDETHIS §9§801§§
+:thread§ §9§§§§
+:throw§  §9§§§§
+:true§ §9§§junk§0
+:try§  §9§§§§
+:typedef§ §9§§§
+:typeid§ §9§§§§
+:typename§ §9§§§§
+:typeof§alias System.Type typeof§3§§§
+:uint§alias System.UInt32 uint§3§§§
+:ulong§ §9§§§§
+:unchecked§ §9§§§§
+:union§ §9§§§
+:unsafe§ §9§§§§
+:unsigned§ §9§§§§
+:ushort§alias System.UInt16 ushort§3§§§
+:using§ §9§§§§
+:uuid§ §9§§§§
+:virtual§ §9§§§§
+:void§ §9§§§§
+:volatile§ §9§§§§
+:while§ §9§§§§

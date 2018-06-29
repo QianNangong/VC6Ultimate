@@ -1,0 +1,13 @@
+:Base msvmss.HLP
+:Title Microsoft Visual SourceSafe Integration
+1 Microsoft Visual SourceSafe Integration
+2 Overview=VSS_Integration
+2 Frequently Asked Questions=FAQ_SourceSafe_Integration
+2 How To...
+3 Install Microsoft Visual SourceSafe=VSS_Setting_up_Visual_SourceSafe@MSVMSS.HLP>(w95sec)
+3 Controlling a Model in Visual SourceSafe=VSS_Controling_a_Model_in_VSS@msvmss.HLP>(w95sec)
+3 Check Out a Model=VSS_Checking_Out_Model_Elements@MSVMSS.HLP>(w95sec)
+3 Check In a Model=VSS_Checking_In_Model_Elements@MSVMSS.HLP>(w95sec)
+3 Get the Latest Version of a Model=VSS_Getting_the_Latest_Version@MSVMSS.HLP>(w95sec)
+3 Remove a Model from SourceSafe Control=VSS_Removing_Units_from_VSS@MSVMSS.HLP>(w95sec)
+3 Clear SourceSafe Information from a Model=VSS_Clearing_VSS_Information_from_model@MSVMSS.HLP>(w95sec)

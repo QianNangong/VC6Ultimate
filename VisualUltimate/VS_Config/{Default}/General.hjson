@@ -1,0 +1,19 @@
+{
+	General:{
+		AppWindowRect:"0,0,1280,720"
+		PropertiesWindow:"0,0"
+		MaximizeApp:0
+		MaximizeDoc:1
+	}
+	Debug:{
+		QuickWatchColWidth:147
+		VariablesColWidth:160
+		WatchColWidth:130
+	}
+	Groups:[
+			{
+				ID:0
+				Rect:"20,20,600,400"
+			},
+	]
+}

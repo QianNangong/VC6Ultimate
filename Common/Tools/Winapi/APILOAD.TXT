@@ -1,0 +1,20 @@
+The API Viewer allows you to browse through Declares, Constants, and Types that are included in a Text API file or a Jet Database.  Items may be copied to the clipboard and subsequently copied to your Visual Basic code. 
+
+The API Loader includes the WIN32API.TXT text file for the Win32 interfaces.  The option to covert these to Jet Databases is provided for speed purposes: it is much faster to display the list when opening a database then when opening a .TXT file.  You can convert the .TXT files to Jet Database files simply by loading the .TXT file and choosing "Convert..." from the File menu. 
+
+Subsequently to converting a .TXT file to a Jet Database, you should always load the database for the best performance. 
+
+To load an API file, select Load Text File or Load Database File from the File menu. You can also load either a text or database file by specifying the desired file on the command using these switches:
+
+APILOD32.EXE [/T | /D] filname 
+
+The Dropdown at the top of the form allows you to view Constants, Declares, or Types. By selecting an entry and choosing the Add button, you can add an item to the Selected list at the bottom of the form. 
+
+To copy items from the selected list to the clipboard, simply choose Copy. All of the items in the list will be copied.  Subsequently you can include them in your modules by selecting Paste from the module Edit menu.  To Remove an entry from the selected list, choose the Remove button.
+
+Menus
+------
+File/Load Text File: loads a Text API file
+File/Load Database: loads a Jet Database which has been created by using the Convert Text to Database command. 
+File/Convert Text to Database: Creates a Jet Database with the API information. The database will load much faster than the comparable Text file.
+File/Exit: Closes API Viewer

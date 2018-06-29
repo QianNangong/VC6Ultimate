@@ -1,0 +1,11 @@
+Menu Tools
+{	
+	Menu "Visual C&++"
+	{
+		Option "&Import MFC 4.21 Classes"
+		{
+			enable %model:writeable
+			InterfaceEvent VC++ OnQuickImport
+		}
+	}
+}

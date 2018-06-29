@@ -1,0 +1,200 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 Label Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateLabel(strName,funcInit,objParent)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+
+	var strTag = '<SPAN id="' + strName + '" name="' + strName + '"></SPAN>';
+	
+	if ((typeof(objParent) == 'object') && (objParent != null))
+		objParent.insertAdjacentHTML('BeforeEnd',strTag);
+	else
+		document.write(strTag);
+
+	var objLabel = eval(strName);
+	if (typeof(objLabel) != 'object')
+		return null;
+
+	objLabel.hide = _LBL_hide;
+	objLabel.show = _LBL_show;
+	objLabel.isVisible = _LBL_isVisible;
+	objLabel.getCaption = _LBL_getCaption;
+	objLabel.setCaption = _LBL_setCaption;
+	objLabel.getDataFormatAs = _LBL_getDataFormatAs;
+	objLabel.setDataFormatAs = _LBL_setDataFormatAs;
+	objLabel.getDataSource = _LBL_getDataSource;
+	objLabel.setDataSource = _LBL_setDataSource;
+	objLabel.getDataField = _LBL_getDataField;
+	objLabel.setDataField = _LBL_setDataField;
+	objLabel.advise = _LBL_advise;
+	objLabel.unadvise = _LBL_unadvise;
+	objLabel.display = _LBL_display;
+
+	//private members
+	objLabel._objEventManager = null;
+	objLabel._objDataSource = null;
+	objLabel._strDataField = '';
+	objLabel._dataFormatAs = 'text';
+	objLabel._fireEvent = _LBL__fireEvent;
+
+	objLabel._fireEvent(funcInit);
+	return objLabel;
+}
+
+function _LBL_isVisible()
+{	return (this.style.visibility != 'hidden');	}
+
+function _LBL_hide()
+{	this.style.visibility = 'hidden';	}	
+
+function _LBL_show()
+{	this.style.visibility = 'visible';	}	
+
+function _LBL_getCaption()
+{
+	if (this._dataFormatAs == 'html')
+		return this.innerHTML;
+	else
+		return this.innerText;
+}
+
+function _LBL_setCaption(strCaption)
+{
+	if (this._dataFormatAs == 'html')
+		this.innerHTML = strCaption;
+	else
+		this.innerText = strCaption;
+}
+
+function _LBL_getDataFormatAs()
+{	return this._dataFormatAs;	}
+
+function _LBL_setDataFormatAs(strValue)
+{
+	var strFormat = String(strValue);
+	strFormat = strFormat.toLowerCase();
+	if (strFormat == 'text' || strFormat == 'html')
+	{
+		var strCaption = this.getCaption();
+		this._dataFormatAs = strFormat;
+		this.setCaption(strCaption);
+		if (this._objDataSource != null && this._strDataField != '')
+			this.dataFormatAs = this._dataFormatAs;
+		return true;
+	}
+	return false;
+}
+
+function _LBL_getDataSource()
+{	return this._objDataSource;	}
+	
+function _LBL_setDataSource(objDataSource)
+{
+	if (typeof(objDataSource) != 'object')
+		return false;
+
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+			this._objDataSource.unadvise(this._rowEnterID);
+	}
+	
+	if ((this._objDataSource == null) || (objDataSource != null && this._objDataSource.id != objDataSource.id))
+	{
+		if (this._objDataSource != null)
+			this._objDataSource.unadvise(this._afterOpenID);
+			
+		this._afterOpenID = objDataSource.advise(RS_ONAFTEROPEN, this.id + '.setDataSource(' + objDataSource.id + ');');		
+	}
+	
+	this._objDataSource = objDataSource;
+	if ((objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '#' + objDataSource.getDHTMLDataSourceID();
+			this.dataFld = this._strDataField;
+			this.dataFormatAs = this._dataFormatAs;
+		}	
+		else
+			this._rowEnterID = objDataSource.advise(RS_ONROWENTER, '_LBL__onrowenter(' + objDataSource.id + ', ' + this.id + ', "' + this._strDataField + '");');
+	}		
+	return true;
+}
+
+function _LBL_getDataField()
+{	return this._strDataField;	}	
+
+function _LBL_setDataField(strDataField)
+{
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+			this._objDataSource.unadvise(this._rowEnterID);
+	}
+	this._strDataField = strDataField;
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '#' + this._objDataSource.getDHTMLDataSourceID();
+			this.dataFld = strDataField;
+			this.dataFormatAs = this._dataFormatAs;
+		}
+		else
+			this._rowEnterID = this._objDataSource.advise(RS_ONROWENTER, '_LBL__onrowenter(' + this._objDataSource.id + ', ' + this.id + ', "' + strDataField + '");');
+	}		
+	return true;
+}
+
+function _LBL_advise(strEvent,funcToCall)
+{
+	if (this._objEventManager == null)
+		this._objEventManager = CreateEventManager();
+	var nAdviseID = this._objEventManager.advise(strEvent,funcToCall);
+	if (nAdviseID != -1)
+		eval('this.' + strEvent + ' = _LBL__fireEvent;');
+	return nAdviseID;
+}
+
+function _LBL_unadvise(strEvent,nAdviseID)
+{
+	if (this._objEventManager != null)
+		return this._objEventManager.unadvise(strEvent,nAdviseID);
+	return false;
+}
+
+function _LBL_display()
+{	}
+
+function _LBL__fireEvent(funcToFire)
+{
+	if (typeof(funcToFire) == 'undefined')
+	{
+		if (this._objEventManager != null)
+			this._objEventManager.fireEvent('on' + window.event.type);
+	}
+	else
+		_EM__fireEvent(funcToFire);
+}
+
+function _LBL__onrowenter(objRecordset,objLabel,strDataField)
+{
+	objLabel.setCaption(objRecordset.fields.getValue(strDataField) + '');
+}

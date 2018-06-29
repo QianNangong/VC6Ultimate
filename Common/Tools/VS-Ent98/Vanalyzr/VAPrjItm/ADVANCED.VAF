@@ -1,0 +1,9 @@
+"Filter"
+[
+	"Data"
+	{
+		FormatVersion = 1
+		WriterVersion = 1
+		Expression = "(Machine = \"All Machines\" AND (Component = \"ADO Event Source\" OR Component = \"COM Event Source\" OR Component = \"MTS Event Source\" OR Component = \"Web Event Source\") AND (Category = \"All Regular Events\" AND (Category = \"ADO Connection Category\" OR (Category = \"Call and return\" AND (Event = \"COM Disconnect Marshall\" OR Event = \"COM Disconnect Unmarshall\" OR Event = \"COM Marshall\" OR Event = \"COM Unmarshall\")) OR Category = \"Database\" OR (Category = \"Resource Events\" AND (Event = \"Resource Allocate\" OR Event = \"Resource Create\" OR Event = \"Resource Destroy\" OR Event = \"Resource Recycle\")) OR Category = \"Startup and shutdown\" OR Category = \"Transaction\")))"
+	}
+]

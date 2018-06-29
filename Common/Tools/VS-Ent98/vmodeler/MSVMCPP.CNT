@@ -1,0 +1,56 @@
+:Base msvmcpp.HLP
+:Title Generating Code for a Visual C++ Application
+1 Generating Code for a Visual C++ Application
+2 Concepts
+3 Code Generation=CONCEPTS_Code_Generation
+3 Visual C++ Model Properties=CONCEPTS_Model_Properties
+2 How To...
+3 Model a Visual C++ Application
+4 Modeling Visual C++ Classes=CG_CPP_Modeling_Visual_C_Classes@Msvmcpp.HLP>(w95sec)
+4 Modeling Abstract, Virtual, or Const Methods=CG_CPP_Modeling_Virtual_or_Const_Methods@Msvmcpp.HLP>(w95sec)
+4 Modeling Pointers, Arrays, and References=CG_CPP_Modeling_Pointers_Arrrays_and_References@Msvmcpp.HLP>(w95sec)
+3 Generate Visual C++ Code
+4 Generating Code for a Component into a New Visual C++ Project=CG_CPP_Generating_a_New_VC_Project_from_a_Model@Msvmcpp.HLP>(w95sec)
+4 Updating a Visual C++ Project from Changes in a Model=CG_CPP_Updating_a_VC_Project_from_Changes_in_a_Model@Msvmcpp.HLP>(w95sec)
+4 Creating a VC++ Component=CG_CPP_Creating_a_VC_Component_and_Assigning_Classes@Msvmcpp.HLP>(w95sec)
+4 Assigning Classes to Existing VC++ Components=CG_CPP_Assigning_Classes_to_Existing_Components@Msvmcpp.HLP>(w95sec)
+4 Reviewing the Generated Visual C++ Code=cg_cpp_Reviewing_Generated_Files@msvmcpp.HLP>(w95sec)
+4 Browsing the Code Generated for a Class=cg_cpp_Browsing_the_Generated_Code_for_a_Class@msvmcpp.HLP>(w95sec)
+3 Add Existing Software Components to the Model
+4 Adding External Components to a Model=CG_CPP_Adding_External_Components@Msvmcpp.HLP>(w95sec)
+4 Importing MFC Classes=CG_CPP_Importing_VC_Classes
+2 Reference
+3 Model to Visual C++ Mapping
+4 Overview=CG_MAP_CPP_Model_to_Code_Cor
+4 Logical View
+5 Classes=CG_MAP_CPP_Code_Generated_Classes
+5 Interfaces=CG_MAP_CPP_Interfaces
+5 Class Utilities=CG_MAP_CPP_Class_Util
+5 Logical Packages=CG_MAP_CPP_Class_Cat
+5 Methods=CG_MAP_CPP_User_Defined_Operations
+5 Properties
+6 Properties=CG_MAP_CPP_Code_Generated_for_Class_Properties
+6 Pointers, Arrays, and References in VC++=CG_MAP_CPP_Pointers_Arrrays_and_References
+5 Relationships
+6 Association Relationship=CG_MAP_CPP_Association_Rel
+6 Aggregation Relationship=CG_MAP_CPP_Aggregation_Rel
+6 Generalization Relationship=CG_MAP_CPP_Generalization_Rel
+6 Dependency Relationship=CG_MAP_CPP_Dependency_Rel
+4 Component View
+5 Components=CG_MAP_CPP_Components
+5 Interfaces=CG_MAP_CPP_Interfaces
+4 Visual C++ Stereotypes
+5 Overview=Stereotypes_CPP_Overview
+5 Classes=Stereotypes_CPP_Class
+5 Methods=Stereotypes_CPP_Operation
+5 Components=Stereotypes_CPP_Component
+3 Visual C++ Model Properties
+4 Overview=CG_PRP_CPP_Model_Prop_Overview
+4 Class Properties
+5 Overview=CG_PRP_CPP_Class_Props
+5 Generate=CG_PRP_CPP_Generate_Class_Property
+5 HeaderFile=CG_PRP_CPP_HeaderFilePath_Class_Property
+4 Method Properties
+5 Overview=CG_PRP_CPP_Op_Props
+5 OperationIsConst=CG_PRP_CPP_OperationIsConst_Operation_Property
+5 OperationKind=CG_PRP_CPP_OperationKind_Operation_Property

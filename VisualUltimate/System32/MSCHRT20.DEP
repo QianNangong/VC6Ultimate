@@ -1,0 +1,130 @@
+
+; Dependency file for setup wizards.
+
+[Version]
+Version=6.0.88.4
+
+; Dependencies for MSChrt20.ocx
+
+; Default Dependencies ----------------------------------------------
+
+[MSChrt20.ocx]
+Dest=$(WinSysPath)
+Register=$(DLLSelfRegister)
+Version=6.0.88.4
+Uses1=ComCat.dll
+Uses2=
+CABFileName=MSChrt20.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSChrt20.inf
+
+[ComCat.dll]
+Dest=$(WinSysPathSysFile)
+Register=$(DLLSelfRegister)
+Uses1=
+
+; Localized Dependencies -------------------------------------------- 
+
+; ** German (DE) ***
+; (0007 = German)
+;
+[MSChrt20.ocx <0007>]
+Uses1=MSCh2DE.dll
+Uses2=
+
+[MSCh2DE.dll <0007>]
+Uses1=
+CABFileName=MSCh2DE.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2DE.inf
+
+; ** French (FR) ***
+; (000C = French)
+;
+[MSChrt20.ocx <000C>]
+Uses1=MSCh2FR.dll
+Uses2=
+
+[MSCh2FR.dll <000C>]
+Uses1=
+CABFileName=MSCh2FR.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2FR.inf
+
+; ** Italian (IT) ***
+; (0010 = Italian)
+;
+[MSChrt20.ocx <0010>]
+Uses1=MSCh2IT.dll
+Uses2=
+
+[MSCh2IT.dll <0010>]
+Uses1=
+CABFileName=MSCh2IT.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2IT.inf
+
+; ** Spanish (ES) ***
+; (000A = Spanish)
+;
+[MSChrt20.ocx <000A>]
+Uses1=MSCh2ES.dll
+Uses2=
+
+[MSCh2ES.dll <000A>]
+Uses1=
+CABFileName=MSCh2ES.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2ES.inf
+
+; ** Japanese (JP) ***
+; (0011 = Japanese)
+;
+[MSChrt20.ocx <0011>]
+Uses1=MSCh2JP.dll
+Uses2=
+
+[MSCh2JP.dll <0011>]
+Uses1=
+CABFileName=MSCh2JP.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2JP.inf
+
+; ** Korean (KO) ***
+; (0012 = Korean)
+;
+[MSChrt20.ocx <0012>]
+Uses1=MSCh2KO.dll
+Uses2=
+
+[MSCh2KO.dll <0012>]
+Uses1=
+CABFileName=MSCh2KO.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2KO.inf
+
+; ** Chinese Traditional (CHT) ***
+; (0404 = Chinese Traditional)
+;
+[MSChrt20.ocx <0404>]
+Uses1=MSCh2CHT.dll
+Uses2=
+
+[MSCh2CHT.dll <0404>]
+Uses1=
+CABFileName=MSCh2CHT.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2CHT.inf
+
+; ** Chinese Simplified (CHS) ***
+; (0804 = Chinese Simplified)
+;
+[MSChrt20.ocx <0804>]
+Uses1=MSCh2CHS.dll
+Uses2=
+
+[MSCh2CHS.dll <0804>]
+Uses1=
+CABFileName=MSCh2CHS.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSCh2CHS.inf

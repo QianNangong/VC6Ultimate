@@ -1,0 +1,54 @@
+<HTML>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<P>This sample uses three files:</P>
+
+</FONT>
+<UL>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+    <LI>TLFish.htm contains the Timeline control and other functions to control 
+    the objects on the page. </LI>
+    <LI>FishLeft.gif is an animated GIF of a fish swimming to the left. </LI>
+    <LI>FishRght.gif is an animated GIF of a fish swimming to the right. 
+    </LI>
+
+</FONT></UL>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<P>The Timeline control fires events that call JavaScript 
+functions to control the fish and change the Z-order of the seaweed. 
+<P>The following code is called by the Timeline control 
+when the fish is about to swim to the right. Before the fish begins to swim, the 
+Z-order of the seaweed is changed, the animated GIF of the fish swimming left 
+(FishLeft.gif) is hidden, the animated GIF of the fish swimming right 
+(FishRght.gif) becomes visible. Then the function calls the play method of the 
+Timeline control to start the animation.</P>
+<P><FONT face=Courier>function 
+Swim_goRight()<BR>
+{<BR>&nbsp;&nbsp; 
+plant2.style.zIndex=-2 //make plant2 move to the back<BR>&nbsp;&nbsp; plant1.style.zIndex=1 //make plant1 move to the foreground<BR>&nbsp;&nbsp; plant3.style.zIndex=1 //make plant3 move to 
+the foreground<BR>&nbsp;&nbsp; 
+fishl.style.visibility=&quot;hidden&quot;<BR>&nbsp;&nbsp; 
+fishr.style.visibility=&quot;visible&quot;<BR>&nbsp;&nbsp; 
+Right.play()<BR>
+}<BR>
+</FONT>
+
+<P>The Timeline control will then call another JavaScript 
+function that will move the fish 5 pixels every 100ms:</P>
+<P><FONT face=Courier>var moveInc = 
+5<BR>
+function Right_frameRight()<BR>
+{<BR>&nbsp;&nbsp; fishr.style.left = 
+fishr.style.pixelLeft + moveInc <BR>&nbsp;&nbsp; 
+fishl.style.left = fishl.style.pixelLeft + moveInc <BR>
+}<BR>
+</FONT>
+
+<P>When the fish has gotten to the right side of the 
+screen, the Timeline control will use similar functions to make the fish swim to 
+the left. 
+
+</FONT></P>
+</BODY>
+</HTML>

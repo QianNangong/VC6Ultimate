@@ -1,0 +1,27 @@
+"General"
+[
+    "Contents"
+    {
+    PackagingEngine = "{FB61C8ED-A6E4-11d0-8A43-00A0C91E2ACD}"
+    }
+]
+"InputProjects"
+[
+]
+"Configurations"
+[
+    "Debug"
+    {
+    DisplayName = #176
+    IsDebugOnly = "T"
+    IsRetailOnly = "F"
+    Platform = "{00000000-0000-0000-0000-000000000000}"
+    }
+    "Release"
+    {
+    DisplayName = #177
+    IsDebugOnly = "F"
+    IsRetailOnly = "T"
+    Platform = "{00000000-0000-0000-0000-000000000000}"
+    }
+]

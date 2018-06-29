@@ -1,0 +1,95 @@
+{
+	Name: "MenuFile",
+	MenuItems: [
+		{
+			CmdID: "New",
+			State: "S20|S200",
+			Width: 0,
+		}
+		{
+			CmdID: "VU_NewProject",
+			State: "S20|S200",
+			Width: 0,
+		}
+		{
+			CmdID: "FileOpen",
+			State: "S20|S200",
+			Width: 0,
+		}
+		{
+			CmdID: "FileClose",
+			State: "S20",
+			Width: 0,
+		}
+		{
+			State: "SEPARATOR",
+		}
+		{
+			CmdID: "WorkspaceOpen",
+			State: "S20",
+			Width: 0,
+		}
+		{
+			CmdID: "WorkspaceSave",
+			State: "S20",
+			Width: 0,
+		}
+		{
+			CmdID: "WorkspaceClose",
+			State: "S20",
+			Width: 0,
+		}
+		{
+			State: "SEPARATOR",
+		}
+		{
+			CmdID: "FileSave",
+			State: "S20|S200",
+			Width: 0,
+		}
+		{
+			CmdID: "FileSaveAs",
+			State: "S20",
+			Width: 0,
+		}
+		{
+			CmdID: "FileSaveAll",
+			State: "S20|S200",
+			Width: 0,
+		}
+		{
+			State: "SEPARATOR",
+		}
+		{
+			CmdID: "FilePrintPageSetup",
+			State: "S20",
+			Width: 0,
+		}
+		{
+			CmdID: "FilePrint",
+			State: "S20|S200",
+			Width: 0,
+		}
+		{
+			State: "SEPARATOR",
+		}
+		{
+			CmdID: "MenuFileMRU",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuWorkspaceMRU",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			State: "SEPARATOR",
+		}
+		{
+			CmdID: "ApplicationExit",
+			State: "S20",
+			Width: 0,
+		}
+	]
+}

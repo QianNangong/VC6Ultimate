@@ -1,0 +1,80 @@
+[{63E1ECAD-A520-11D1-9D8B-0020781039AF} - I1]
+Roles=0
+InterfaceID={63E1ECAC-A520-11D1-9D8B-0020781039AF}
+Description=
+AuthLevel=4
+ProxyStubDLL=
+[{63E1ECAD-A520-11D1-9D8B-0020781039AF} - I2]
+Roles=0
+InterfaceID={C93809AB-684C-11D1-9D3E-0020781039AF}
+Description=
+AuthLevel=4
+ProxyStubDLL=
+[{21D61CE6-A517-11D1-9D8B-0020781039AF} - C1]
+Roles=0
+Clsid={63E1ECAD-A520-11D1-9D8B-0020781039AF}
+Description=APE MTS Transaction Account Component
+ProgID=AEMTSSvc.Account
+Transaction=Required
+RunInASP=Y
+InProc=N
+Local=Y
+Remote=N
+Internet=N
+Security=Y
+AuthLevel=4
+System=N
+Origin=Install
+Wrapped=Y
+CompDLL=AEMTSSvc.dll
+TypeLib=AEMTSSvc.dll
+Interfaces=2
+[{63E1ECAF-A520-11D1-9D8B-0020781039AF} - I1]
+Roles=0
+InterfaceID={63E1ECAE-A520-11D1-9D8B-0020781039AF}
+Description=
+AuthLevel=4
+ProxyStubDLL=
+[{63E1ECAF-A520-11D1-9D8B-0020781039AF} - I2]
+Roles=0
+InterfaceID={C93809AC-684C-11D1-9D3E-0020781039AF}
+Description=
+AuthLevel=4
+ProxyStubDLL=
+[{21D61CE6-A517-11D1-9D8B-0020781039AF} - C2]
+Roles=0
+Clsid={63E1ECAF-A520-11D1-9D8B-0020781039AF}
+Description=APE MTS Transaction MoveMoney Component
+ProgID=AEMTSSvc.MoveMoney
+Transaction=Required
+RunInASP=Y
+InProc=N
+Local=Y
+Remote=N
+Internet=N
+Security=Y
+AuthLevel=4
+System=N
+Origin=Install
+Wrapped=Y
+CompDLL=AEMTSSvc.dll
+TypeLib=AEMTSSvc.dll
+Interfaces=2
+[{21D61CE6-A517-11D1-9D8B-0020781039AF}]
+Name=Visual Studio APE Package
+Description=APE MTS Transaction Package for Microsoft Visual Studio 6.0
+System=N
+Latency=3
+Shutdown=N
+Security=N
+AuthLevel=4
+Components=2
+Roles=0
+Activation=Local
+Changeable=Y
+Deleteable=Y
+[Packages]
+Package1={21D61CE6-A517-11D1-9D8B-0020781039AF}
+Packages=1
+Version=2.01
+ExtendedVersion=2.01

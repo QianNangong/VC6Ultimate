@@ -1,0 +1,542 @@
+/*
+-------------------------------------------------------------------------------
+File:				vaevt.idl
+Purpose:		COM Interfaces for Visual Studio Analyzer Eventing
+System:			Visual Studio Analyzer Analysis.
+Copyright:	(c) 1997, Microsoft Corporation
+						All Rights Reserved
+Tabs:				2,2
+-------------------------------------------------------------------------------
+*/
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+//----------------------------------------------------------------------
+// ISystemDebugEventFire
+[uuid(6c736dC1-AB0D-11d0-A2AD-00A0C90F27E8)]
+interface ISystemDebugEventFire : IUnknown
+{
+	/*
+	Call this function once for each instance of the event source. It establishes 
+	this component as a potential source of events
+
+	Each IEC can only accept one call to BeginSession at this time. If your object
+	supports multiple simultaneous 'sessions' (such as a web server running on more
+	than one port), then you may choose to create multiple IEC objects.
+
+	The code does not validate whether strSessionName is unique. If it is not, then 
+	the user may be unable to distinguish events from the two sessions. This allows
+	for two IECs that represent one conceptual 'session' to coexist and operate 
+	correctly.
+
+	This function will fail if guidSourceID is not correctly registered.
+	*/
+	HRESULT BeginSession(
+		[in] REFGUID guidSourceID,				// A unique identifier for this source of 
+																	// events. Multiple sessions from this source 
+																	// can exist at the same time on the same 
+																	// machine
+		[in] LPCOLESTR strSessionName	// A session identifier, unique among all 
+																	// instances of this event source until 
+																	// the machine is restarted.
+	);
+
+	/* 
+	Call this function once for each instance of the event source, when the 
+	source is shutting down. It removes this component as a potential source of 
+	events
+	*/
+	HRESULT EndSession(
+	);
+
+	/* 
+	This function quickly reports whether there is any event collector 
+	interested in events fired. In most cases, this will not be the case, and S_FALSE
+	will be returned. This allows a very low cost determination of whether events 
+	are interesting.
+	Return values: S_OK, S_FALSE
+	If the return value is not S_OK, events need not be fired.
+
+	Note that FireEvent will call this function anyway, so if firing an event is cheap,
+	you may choose to omit the IsActive test.
+	*/
+	HRESULT IsActive(
+	);
+	
+	/*	
+	Overview: FireEvent
+	-------------------
+
+	This function is used to fire events. FireEvent fires a specified event, using 
+	the parameters specified by rgKeys and rgValues and rgTypes 
+
+	Event Parameters
+	----------------
+	Events are specified to have a large number of possible parameters; these are 
+	specified in the key and value arrays, and their type is specified in the rgTypes
+	array. Most parameters are optional. Some parameters, which identify the source 
+	and target of the event, are required in some form. This is described below. 
+
+	Together, the key and value arrays describe extra event parameters in terms of a
+	tuple: (parameter,value).
+
+	Below is a list of the system-defined expected values in prgKeys, the data they
+	represent, and their whether that parameter is always or sometimes compulsory
+
+Opt	Value							Default Description
+
+*		SourceMachine			Current	The machine name of the original source of this event.
+*		SourceProcess			Current	The process id of the original source	of this event.
+*		SourceProcessName	Current	The process name of the original source	of this event.
+*		SourceThread			Current The thread id of the original source of this event.
+*		SourceComponent		Current	The RegisterSource guid for the original source of 
+														this event.
+*		SourceSession			Current	The BeginSession string for the original source of 
+														this event.
+*		SourceHandle			None		A handle to the original source that is unique for 
+														this instance of this source.
+*		TargetMachine			Current The machine name of the final target of this event.
+*		TargetProcess			Current The process id of the final target of this event.
+*		TargetProcessName	Current The process name of the final target of this event.
+*		TargetThread			Current	The thread id of the final target of this event.
+*		TargetComponent		Current	The RegisterSource guid for the final target of 
+														this event.
+*		TargetSession			Current	The BeginSession string for the final target of 
+														this event.
+*		TargetHandle			None		A handle to the final target that is unique for 
+														this instance of this source
+Yes	Arguments					None		(Function or query start) The arguments to the 
+														function, or text of the query, etc
+Yes	ReturnValue				None		(Function or query end)The return value from 
+														the function
+Yes	CorrelationID			None		An id used to match up a call event with	its 
+														return.
+Yes	CausalityID				None		A value used to match up sequences of sub actions.
+															COM and Viper maintain this correctly.
+Yes	SecurityIdentity	Current	The security context in use
+
+	Items with a * in their optional column are 'partly' optional - see below.
+
+	Specifying Source and Target
+	----------------------------
+	Note that in a typical function call/return scenario, four events are fired.
+	One has the Arguments parameter and is fired before the call is actioned.
+	Another identical event is fired when the call arrives at the called process
+	(This event is known as 'Enter'). A third event (Leave) is fired as the call
+	leaves the called process, and the fourth is fired once the call returns, 
+	and has the ReturnValue parameter.
+
+	These four events should have the same CorrelationId string, so that they 
+	can be matched. Note also that the Source and Target fields should be the
+	*same* for both the call and return events - that is, if A calls B, and then
+	B returns to A, the Source field is A in both cases, and the Target field is
+	B in both cases. [End-users will have the option to see this information 
+	reversed].
+
+	If it proves infeasible to match correlation ids between the four events, at
+	a minimum, the Enter/Leave pair should have the same correlation id, as should
+	the Call/Return pair. In this case, it is highly desirable to have identical
+	CausalityIDs, at minimum.
+
+	The SourceX and TargetX items are required to identify the ultimate source 
+	and destination of the event that's being reported. Though each individual
+	field is optional, at least one will normally be present (this is why they 
+	have * in their optionality column); if the event source has no idea of any
+	of the values, it should synthesise unique values for SourceHandle and 
+	TargetHandle. These synthesised values must be constant	for all calls to 
+	FireEvent that are for the same source or target. They represent the event 
+	sources view of 'unique identifiers' for sources and targets. 
+	
+	Note that the defaults provided are unlikely to be correct in both cases; 
+	they are probably (but not necessarily) correct for either Source or Target, 
+	but probably not for both. For this reason, there are two bits in the 
+	function's flag word that dictate whether defaults will be applied to the
+	source and to the destination parameters. 
+
+	Example: (D)COM
+	---------------
+	As an example, consider calls to FireEvent from within the implementation 
+	of method dispatch inside DCOM. The DCOM implementation will be mapped as a 
+	DLL into the address space of the source of the DCOM method call, so it will
+	automatically know the SourceMachine, SourceProcess and SourceThread. Also,
+	COM has internal access to information which should allow it to know at 
+	least the TargetMachine and TargetProcess. It will probably suppress defaulting
+	for the TargetX items.
+
+	Example: SQL
+	------------
+	As a second example, consider calls to FireEvent from SQL Server. When a query
+	is received at SQL server, it will fire an event. It knows its own information, 
+	so it can easily fill in TargetMachine, TargetProcess and (perhaps) TargetThread.
+	However, it has no idea where the query has come from, unless ODBC is able to 
+	provide this information. So instead it would probably put the ODBC connection 
+	handle into SourceHandle.
+
+	In each case, the implementor must try to provide as much information as possible
+	about the source and target. This increase the chance that the information viewer
+	will be able to correlate calls to the same object that arrive by different channels.
+	At a minimum, the integrity of SourceHandle and TargetHandle must be maintained, 
+	so it is clear that multiple calls are from the same source to the same target. 
+	If this identity cannot be preserved, the number of entities in the system diagram 
+	will multiply unacceptably.
+
+	Specifying Time
+	---------------
+	FireEvent takes a dwTime parameter. This parameter should be set using the return
+	value of QueryPerformanceCounter. Alternatively, you can pass 0 for both, and the
+	value will be defaulted to the current time. However, this increases time innaccuracy.
+
+	Custom Parameter Keys
+	---------------------
+	The parameter key table specified above is not an exhaustive set of parameters, those
+	above are merely the ones defined by the system. It's possible to provide additional
+	parameters. You may choose any key name you wish.	Custom keys should always be 
+	strings. 
+	
+	The User Event Source
+	---------------------
+	End users may wish to fire events from within their code without going to the trouble
+	of using the event installation interface [Specified elsewhere]. The can do this by
+	using the user event source guid (DEBUG_EVENT_SOURCE_USER). No shipping event source
+	should ever use this source GUID.
+
+	Firing unregistered events
+	--------------------------
+	If you fire an unregistered event, or an event from an unregistered source, it will 
+	be correctly passed and recorded in the master event list. However, there is no 
+	guarantee that users will be able to filter based on an unregistered event or source, 
+	so all events should be registered.
+	*/
+
+	typedef [v1_enum] enum VSAParameterType {
+		// Flags to do with the key
+		cVSAParameterKeyMask=  0x80000000,	// mask for all key related flags
+		cVSAParameterKeyString=0x80000000,	// If true, this entry in the rgKeys array is a string 
+																				// pointer, not a parameter index
+		cVSAParameterValueMask=0x0007ffff,	// mask for all value related flags and data
+		cVSAParameterValueTypeMask=0x00070000,		// mask for the type of the item in rgValues
+		cVSAParameterValueUnicodeString=0x00000,	// rgValues contains a string pointer
+		cVSAParameterValueANSIString=0x10000,			// rgValues contains an ansi pointer
+		cVSAParameterValueGUID=0x20000,						// rgValues contains a GUID pointer
+		cVSAParameterValueDWORD=0x30000,					// rgValues contains a dword
+		cVSAParameterValueBYTEArray=0x40000,			// rgValues contains a byte pointer
+		cVSAParameterValueLengthMask=0xffff,			// number of bytes that rgValues points to. Only
+																							// used for BYTEArray
+	} VSAParameterFlags;
+
+	typedef [v1_enum] enum VSAStandardParameter {
+		// description of these can be found above
+		cVSAStandardParameterDefaultFirst=0,
+		cVSAStandardParameterSourceMachine=0,
+		cVSAStandardParameterSourceProcess=1,
+		cVSAStandardParameterSourceThread=2,
+		cVSAStandardParameterSourceComponent=3,
+		cVSAStandardParameterSourceSession=4,
+		cVSAStandardParameterTargetMachine=5,
+		cVSAStandardParameterTargetProcess=6,
+		cVSAStandardParameterTargetThread=7,
+		cVSAStandardParameterTargetComponent=8,
+		cVSAStandardParameterTargetSession=9,
+		cVSAStandardParameterSecurityIdentity=10,
+		cVSAStandardParameterCausalityID=11,
+		cVSAStandardParameterSourceProcessName=12,
+		cVSAStandardParameterTargetProcessName=13,
+		cVSAStandardParameterDefaultLast=13,
+
+		cVSAStandardParameterNoDefault=0x4000,
+
+		cVSAStandardParameterSourceHandle=0x4000,
+		cVSAStandardParameterTargetHandle=0x4001,
+		cVSAStandardParameterArguments=0x4002,
+		cVSAStandardParameterReturnValue=0x4003,
+		cVSAStandardParameterException=0x4004,
+		cVSAStandardParameterCorrelationID=0x4005,
+		cVSAStandardParameterDynamicEventData=0x4006,
+		cVSAStandardParameterNoDefaultLast=0x4006
+	} VSAStandardParameters;
+
+	typedef [v1_enum] enum eVSAEventFlags {
+		cVSAEventStandard=0,					// For ease of calling and type safety
+		cVSAEventDefaultSource=1,			// When set, the SourceX fields will be defaulted
+		cVSAEventDefaultTarget=2,			// When set, the TargetX fields will be defaulted
+		cVSAEventForceSend=8					// Ensure that this goes to the MEC
+	} VSAEventFlags;
+
+// C++ stuff to ease use of these flags
+	cpp_quote("#if defined(__cplusplus)")
+	cpp_quote("inline VSAEventFlags operator | (const VSAEventFlags &left, const VSAEventFlags &right)") 
+	cpp_quote("{") 
+	cpp_quote("  return (VSAEventFlags)((int)left|(int)right);") 
+	cpp_quote("}") 
+	cpp_quote("inline VSAEventFlags operator + (const VSAEventFlags &left, const VSAEventFlags &right)") 
+	cpp_quote("{") 
+	cpp_quote("  return (VSAEventFlags)((int)left+(int)right);") 
+	cpp_quote("}") 
+	cpp_quote("#endif")
+
+	HRESULT FireEvent(
+		[in] REFGUID guidEvent,					// The event which is being fired
+		[in] int nEntries,
+		[in, size_is(nEntries)] LPDWORD rgKeys,
+		[in, size_is(nEntries)] LPDWORD rgValues,
+		[in, size_is(nEntries)] LPDWORD rgTypes,	// These three parameters are an array of tuples 
+																							// expressing further details about the event in 
+																							// question. They are described above.
+		[in] DWORD dwTimeLow,			// The local time of the event, or 0. (Low 32 bits)
+		[in] LONG dwTimeHigh,			// The local time of the event, or 0. (High 32 bits)
+		[in] VSAEventFlags dwFlags	// See above
+	);
+}
+
+//----------------------------------------------------------------------
+// ISystemDebugEventFireAuto
+// Purely an automation version of the above
+[uuid(6c736dee-AB0e-11d0-A2AD-00A0C90F27E8)]
+interface ISystemDebugEventFireAuto : IUnknown
+{
+	HRESULT BeginSession(
+		[in] BSTR guidSourceID,
+		[in] BSTR strSessionName
+	);
+
+	HRESULT EndSession(
+	);
+
+	HRESULT IsActive(
+		[out] VARIANT_BOOL *pbIsActive
+	);
+
+	HRESULT FireEvent(
+		[in] BSTR guidEvent,
+		[in] VARIANT rgKeys,
+		[in] VARIANT rgValues,
+		[in] long rgCount,
+		// no time fields - default it.
+		[in] VSAEventFlags dwFlags
+	);
+}
+
+// Event types
+enum {
+	DEBUG_EVENT_TYPE_FIRST=0,
+	DEBUG_EVENT_TYPE_OUTBOUND=0,
+	DEBUG_EVENT_TYPE_INBOUND=1,
+	DEBUG_EVENT_TYPE_GENERIC=2,
+	DEBUG_EVENT_TYPE_DEFAULT=2,
+	DEBUG_EVENT_TYPE_MEASURED=3,
+	DEBUG_EVENT_TYPE_BEGIN=4,
+	DEBUG_EVENT_TYPE_END=5,
+	DEBUG_EVENT_TYPE_LAST=5
+};
+
+//----------------------------------------------------------------------
+// ISystemDebugEventInstall
+[uuid(6c736dC0-AB0D-11d0-A2AD-00A0C90F27E8)]
+interface ISystemDebugEventInstall : IUnknown
+{
+	/*
+	Call this function once when you are setup (once per machine installation). 
+	It establishes registry entries that identify the existence of this component 
+	as a potential source of debug events
+
+	Note that source names are stored in the registry, which only stores SBCS on 
+	Win95, so strVisibleName should only contain ANSI characters.
+	*/
+	HRESULT RegisterSource(
+		[in] LPCOLESTR strVisibleName,	// The user-visible name of the component or system. 
+																	// Should be localised
+		[in] REFGUID guidSourceID			// A unique identifier for this source of events
+	);
+
+	/* 
+	This function quickly reports whether this source is already registered 
+	Return values: S_OK, S_FALSE
+	If the return value is not S_OK, the source is not registered.
+	*/
+	HRESULT IsSourceRegistered(
+		[in] REFGUID guidSourceID		// A unique identifier for this source of events
+	);
+
+	/* Stock (system-defined) events:
+	Call this function when you are setup (once per machine installation) for 
+	each stock event event you may fire. It adds registry entries recording the
+	fact that you may fire this event. 
+	*/
+	HRESULT RegisterStockEvent(
+		[in] REFGUID guidSourceID,	// A unique identifier for this source of events, 
+		[in] REFGUID guidEventID		// A unique identifier for this event
+	);
+
+/* Stock event list
+Events:
+TyCategory		Name															Description
+pe
+G	STARTSTOP		DEBUG_EVENT_COMPONENT_START				Fired when a component loads an
+																							event source
+G	STARTSTOP		DEBUG_EVENT_COMPONENT_STOP				Fired when an event source is
+																							unloaded from a component
+O	CALLRETURN	DEBUG_EVENT_CALL									Fired on function call
+O	CALLRETURN	DEBUG_EVENT_CALL_DATA							Fired if further data is sent to
+																							support a function call
+O	CALLRETURN	DEBUG_EVENT_ENTER									Fired on function enter (after wire time)
+O	CALLRETURN	DEBUG_EVENT_ENTER_DATA						Fired if further data is sent to
+																							support a function enter (after wire time)
+I	CALLRETURN	DEBUG_EVENT_LEAVE_DATA						Fired if further data is sent
+																							before control flow returns (before wire time)
+I	CALLRETURN	DEBUG_EVENT_LEAVE_NORMAL					Fired on a normal return of
+																							control (before wire time)
+I	CALLRETURN	DEBUG_EVENT_LEAVE_EXCEPTION				Fired if an exception is thrown (before wire time)
+I	CALLRETURN	DEBUG_EVENT_RETURN_DATA						Fired if further data is sent
+																							before control flow returns
+I	CALLRETURN	DEBUG_EVENT_RETURN_NORMAL					Fired on a normal return of
+																							control
+I	CALLRETURN	DEBUG_EVENT_RETURN_EXCEPTION			Fired if an exception is thrown
+O	QUERYRESULT	DEBUG_EVENT_QUERY_SEND						Fired when a query is sent
+O	QUERYRESULT	DEBUG_EVENT_QUERY_ENTER						Fired when a query is sent (after wire time)
+I	QUERYRESULT	DEBUG_EVENT_QUERY_LEAVE						Fired when a query is returned (before wire time)
+I	QUERYRESULT	DEBUG_EVENT_QUERY_RESULT					Fired when a query is returned
+G	TRANSACTION	DEBUG_EVENT_TRANSACTION_START			Fired when a transaction 
+																							begins
+G	TRANSACTION	DEBUG_EVENT_TRANSACTION_COMMIT		Fired when a transaction is 
+																							committed
+G	TRANSACTION	DEBUG_EVENT_TRANSACTION_ROLLBACK	Fired when a transaction is 
+																							cancelled
+*/
+
+	/* Custom (system-defined) events:
+	Call this function when you are setup (once per machine installation) for 
+	each new custom event event you may fire. It adds registry entries recording 
+	the details of the event and the fact that you may fire it.
+	*/
+	HRESULT RegisterCustomEvent(
+		[in] REFGUID guidSourceID,		// A unique identifier for this source of events, 
+		[in] REFGUID guidEventID,		// A unique identifier for this event
+		[in] LPCOLESTR strVisibleName,	// The user-visible name of the event
+		[in] LPCOLESTR strDescription,	// The user-visible description of the event
+		[in] long nEventType,			// The event type (see below)
+		[in] REFGUID guidCategory,		// Optional A category for the event (or empty
+															// string)
+		[in] LPCOLESTR strIconFile,		// Optional: The file containing the icon for the 
+															// event (or empty string)
+		[in] long nIcon						// Optional: The icon res id for the event (or 0)
+	);
+/*
+Each event can be one of these types
+DEBUG_EVENT_TYPE_OUTBOUND			The outbound (call) part of a function/query 
+DEBUG_EVENT_TYPE_INBOUND			The inbound (return) part of a function/query
+DEBUG_EVENT_TYPE_GENERIC			Neither out or inbound.
+DEBUG_EVENT_TYPE_MEASURED			An event which was 'caused' by a periodic measurement,
+														rather than by any specific event.
+Several predefined event categories exist.
+Event categories:
+DEBUG_EVENT_CATEGORY_STARTSTOP		Startup and shutdown events
+DEBUG_EVENT_CATEGORY_CALLRETURN		Function call/return
+DEBUG_EVENT_CATEGORY_QUERYRESULT	Query start and completion
+DEBUG_EVENT_CATEGORY_TRANSACTION	Transactional events.
+DEBUG_EVENT_CATEGORY_ALL					All events.
+DEBUG_EVENT_CATEGORY_MEASURED_ALL	All measured
+*/
+
+	/* 
+	Call this function when you are setup (once per machine installation) for
+	each new event category you wish to create. It adds registry entries 
+	describing the event category. Sources need not use custom event categories,
+	so this call is optional.
+	*/
+	HRESULT RegisterEventCategory(
+		[in] REFGUID guidSourceID,		// A unique identifier for this source of events, 
+		[in] REFGUID guidCategoryID,	// A unique identifier for this event category
+		[in] REFGUID guidParentID,		// The parent category, or NULL if the category is 
+															// top level.
+		[in] LPCOLESTR strVisibleName,	// The user-visible name of the category
+		[in] LPCOLESTR strDescription,	// The user-visible description of the category
+		[in] LPCOLESTR strIconFile,		// Optional: The file containing the icon for 
+															// the category (or empty string)
+		[in] long nIcon						// Optional: The icon res id for the category (or 0)
+	);
+
+	/*
+	Call this function once when you are uninstalled (software permanently 
+	removed from machine). It removes registry entries that identify the 
+	existence of this component as a potential source of debug events
+	*/
+	HRESULT UnRegisterSource(
+		[in] REFGUID guidSourceID			// A unique identifier for this source of events
+	);
+
+	HRESULT RegisterDynamicSource(
+		[in] LPCOLESTR strVisibleName,
+		[in] REFGUID guidSourceID,
+		[in] LPCOLESTR strDescription,
+		[in] REFGUID guidClsid,
+		[in] long inproc);
+
+	HRESULT UnRegisterDynamicSource(
+		[in] REFGUID guidSourceID);
+
+	HRESULT IsDynamicSourceRegistered(
+		[in] REFGUID guidSourceID);
+
+};
+
+//----------------------------------------------------------------------
+// ISystemDebugEventInstallAuto
+[uuid(6c736ded-AB0D-11d0-A2AD-00A0C90F27E8)]
+interface ISystemDebugEventInstallAuto : IUnknown
+{
+	HRESULT RegisterSource(
+		[in] BSTR strVisibleName,
+		[in] BSTR guidSourceID			
+	);
+
+	HRESULT IsSourceRegistered(
+		[in] BSTR guidSourceID,
+		[out] VARIANT_BOOL *pbIsRegistered
+	);
+
+	HRESULT RegisterStockEvent(
+		[in] BSTR guidSourceID,	
+		[in] BSTR guidEventID		
+	);
+
+	HRESULT RegisterCustomEvent(
+		[in] BSTR guidSourceID,		
+		[in] BSTR guidEventID,		
+		[in] BSTR strVisibleName,	
+		[in] BSTR strDescription,	
+		[in] long nEventType,			
+		[in] BSTR guidCategory,		
+		[in] BSTR strIconFile,		
+		[in] long nIcon						
+	);
+
+	HRESULT RegisterEventCategory(
+		[in] BSTR guidSourceID,		
+		[in] BSTR guidCategoryID,	
+		[in] BSTR guidParentID,		
+		[in] BSTR strVisibleName,	
+		[in] BSTR strDescription,	
+		[in] BSTR strIconFile,		
+		[in] long nIcon						
+	);
+
+	HRESULT UnRegisterSource(
+		[in] BSTR guidSourceID
+	);
+
+	HRESULT RegisterDynamicSource(
+		[in] BSTR strVisibleName,
+		[in] BSTR guidSourceID,
+		[in] BSTR strDescription,
+		[in] BSTR guidClsid,
+		[in] long inproc);
+
+	HRESULT UnRegisterDynamicSource(
+		[in] BSTR guidSourceID);
+
+	HRESULT IsDynamicSourceRegistered(
+		[in] BSTR guidSourceID,
+		[out] VARIANT_BOOL *boolRegistered);
+
+};

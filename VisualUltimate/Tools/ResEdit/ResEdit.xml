@@ -1,0 +1,72 @@
+<!--ResEdit configuration file-->
+<config>
+    <recentFiles />
+    <language>English</language>
+    <singleTabMode value="true" />
+    <headerName>resource.h</headerName>
+    <includes>
+        <include path="Q:\@Projets\Windows\ATL\include\" />
+        <include path="Q:\@Projets\Windows\PlatformSDK\Include\" />
+    </includes>
+    <display>
+        <autoSaveLayout value="true" />
+        <maximized value="true" />
+    </display>
+    <codeGeneration>
+        <unicode support="true" macro="" />
+        <encoding value="0" />
+        <defaultLanguage value="0" />
+        <insertBom value="false" />
+        <generateLanguageStatements value="true" />
+        <generateDlgFiles value="false" />
+        <pascal value="false" />
+        <asmDefine value="false" />
+        <dialogEx value="false" />
+        <menuEx value="false" />
+        <askIncludes value="true" />
+        <resourceHeader>
+            <![CDATA[#include <windows.h>
+#include <commctrl.h>
+#include <richedit.h>
+#include "%RESOURCE_HEADER%"
+
+%RESOURCES%]]>
+</resourceHeader>
+    </codeGeneration>
+    <autoCheckUpdate value="true" />
+    <dialog autoResizeType="0">
+        <grid width="5" height="5" visible="false" />
+        <margin size="7" visible="false" />
+        <snap sepSize="5" smallSepSize="2" visible="false" />
+        <default type="Animation" width="20" height="20" name="" id="IDD_ANIMATION" forceControlStatement="false" />
+        <default type="Button" width="50" height="14" name="Button" id="IDC_BUTTON" forceControlStatement="false" />
+        <default type="CheckBox" width="48" height="30" name="Check" id="IDC_CHECKBOX" forceControlStatement="false" />
+        <default type="ComboBox" width="48" height="30" name="" id="IDC_COMBO" forceControlStatement="false" />
+        <default type="Custom Control" width="20" height="20" name="" id="IDC_CUSTOM" forceControlStatement="false" />
+        <default type="Date Time Picker" width="100" height="15" name="" id="IDC_DATETIMEPICKER" forceControlStatement="false" />
+        <default type="Edit Control" width="40" height="14" name="" id="IDC_EDIT" forceControlStatement="false" />
+        <default type="Group Box" width="48" height="40" name="Static" id="IDC_STATIC" forceControlStatement="false" />
+        <default type="Hot Key" width="80" height="14" name="" id="IDC_HOTKEY" forceControlStatement="false" />
+        <default type="IP Address Control" width="100" height="15" name="" id="IDC_IPADDRESS" forceControlStatement="false" />
+        <default type="ListBox" width="48" height="40" name="" id="IDC_LIST" forceControlStatement="false" />
+        <default type="ListView Control" width="60" height="50" name="" id="IDC_LIST" forceControlStatement="false" />
+        <default type="Month Calendar" width="140" height="100" name="" id="IDC_MONTHCALENDAR" forceControlStatement="false" />
+        <default type="Picture Control" width="20" height="20" name="" id="IDC_STATIC" forceControlStatement="false" />
+        <default type="Progress Bar" width="80" height="14" name="" id="IDC_PROGRESS" forceControlStatement="false" />
+        <default type="Radio Button" width="20" height="20" name="Radio" id="IDC_RADIO" forceControlStatement="false" />
+        <default type="Rebar Control" width="20" height="20" name="" id="IDC_REBAR" forceControlStatement="false" />
+        <default type="Rich Edit 2" width="40" height="14" name="Rich Edit" id="IDC_RICHEDIT" forceControlStatement="false" />
+        <default type="Scroll Bar" width="11" height="40" name="" id="IDC_SCROLLBAR" forceControlStatement="false" />
+        <default type="Slider Control" width="100" height="15" name="" id="IDC_SLIDER" forceControlStatement="false" />
+        <default type="Spin Control" width="11" height="14" name="" id="IDC_SPIN" forceControlStatement="false" />
+        <default type="Static Text" width="20" height="20" name="Static" id="IDC_STATIC" forceControlStatement="false" />
+        <default type="Tab Control" width="50" height="30" name="" id="IDC_TAB" forceControlStatement="false" />
+        <default type="TreeView Control" width="60" height="50" name="" id="IDC_TREE" forceControlStatement="false" />
+    </dialog>
+    <imageEditor>
+        <pixelGrid value="true" />
+        <textureGrid value="true" color1="0x00CCCCCC" color2="0x00FFFFFF" />
+        <background color="0x00F5DCD7" />
+        <invertBackground color="0x008040FF" />
+    </imageEditor>
+</config>

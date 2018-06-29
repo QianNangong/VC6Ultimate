@@ -1,0 +1,593 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Draft//EN">
+<html>
+
+<head>
+<title>Visual SourceSafe 6.0 Readme</title>
+<meta name="MS-HAID" content="readmess">
+<BODY BGCOLOR="#FFFFFF" onclick="checkExpand()">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+</head>
+
+<script language="JSCRIPT">
+
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           event.returnValue=false;
+        }
+     }
+  }
+
+</script>
+
+<h2>Visual SourceSafe 6.0</h2>
+
+<p>&copy; 1998 Microsoft Corporation. All rights reserved. </p>
+
+<p>Other product and company names herein may be the trademarks of their respective owners. </p>
+
+<p> <i>Visual SourceSafe&#174; Readme</i> includes updated information for the documentation provided with Microsoft&#174; Visual Studio&#8482; &#8212; Development System for Windows&#174; and the Internet. The information in this document is more up-to-date than the information in the Help system.</p>
+
+
+     <!------------------------------------------------------------------->
+
+<h3><p>Contents <font color="#000000" size="2" face="Verdana,Arial,Helvetica">- Click any of the items below</font></p></h3>
+
+<UL>
+
+<P><B>Note</B>&nbsp;&nbsp;&nbsp;Be sure all headings in the table of contents are expanded when you search this Readme for a topic. In this way, you will know when the search finds the topic among the TOC headings.</P>
+
+</UL>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="KnownProblems">Known Problems</a></h5>
+
+<div id="KnownProblemsChild" >
+
+	<blockquote>
+
+<p><a href="#InstallingtoaNovellNetwareServer">Installing to a Novell NetWare Server</a></p>
+
+<p><a href="#CorrectedDocumentationText">Corrected Documentation Text</a></p>
+
+<p><a href="#MBCSDBCSUsers">MBCS/DBCS Users</a></p>
+
+	</blockquote>
+
+</div>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="GettingStarted">Getting Started</a></h5>
+
+<div id="GettingStartedChild" >
+
+	<blockquote>
+<a href="#Topic_10">Before You Run Setup</a>
+	</blockquote>
+
+</div>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="Installation">Installation</a></h5>
+
+<div id="InstallationChild" >
+
+	<blockquote>
+<a href="#InstallationOptions">Installation Options</a>
+	</blockquote>
+
+	<blockquote>
+<a href="#InstallingVisualSourceSafeStandaloneVersion">Installing Visual SourceSafe Standalone Version</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#InstallingVisualSourceSafefromVisualStudio">Installing Visual SourceSafe from Visual Studio</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#sidebysideinstallation">Installing Multiple Versions of Visual Studio 6.0 Products &#34;Side-by-Side&#34; on the Same Computer</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_24">(Individual Users) Using Netsetup to Create a Personal Installation</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_20">Upgrading a Database After Installing</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_28">Deleting VSS</a> 
+	</blockquote>
+
+</div>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="GeneralNotesandTips">General Notes and Tips</a></h5>
+
+<div id="GeneralNotesandTipsChild" >
+
+	<blockquote>
+<font color="#FF0000" size="1" face="Verdana,Arial,Helvetica"><strong>NEW</strong></font>
+<a href="#Topic_30">New Features in VSS 6.0</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_31">Maintaining Your VSS Database</a>
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_32">Loss of Network Connection Produces Numerical Error Message</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_33">System Date/Time</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_35">Using the Command Line After Running a Client Setup</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#DetailsonDefiningaShadowDirectoryinVisualSourceSafe">Details on Defining a Shadow Directory in Visual SourceSafe</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#RunningNetSetupfromanNTServerUsingWindows95">Running Netsetup from a Windows NT Server Using Windows 95</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#Topic_36">VSS Home Page</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#MicrosoftKnowledgeBase">Microsoft Knowledge Base</a> 
+	</blockquote>
+
+	<blockquote>
+<a href="#VSSNewsgroup">VSS Newsgroup</a> 
+	</blockquote>
+
+</div>
+
+     <!------------------------------------------------------------------->
+
+<h3><a name="VisualSourceSafeKnownProblems"></a>Visual SourceSafe Known Problems</h3>
+
+<h4><a name="InstallingtoaNovellNetwareServer"></a>Installing to a Novell NetWare Server</h4>
+
+<p>Novell NetWare servers can be configured to handle 8.3 file names or greater than 8.3 file names. If the Novell NetWare server can only handle 8.3 file names, the regular Visual Studio installation process will not be able to install to the Novell NetWare server. To install to a Novell NetWare server that can only handle 8.3 file names use the following steps.</p>
+
+<p><b>To install from the Visual Studio CDs</b></p>
+
+<ol>
+
+<li>Insert Disk 2.</li>
+<li>Change to the VSS_SS\ folder.</li>
+<li>Run the following command: setup.exe /F</li>
+<li>Choose the 'Server Applications' option.</li>
+<li>When prompted for the installation location, be sure to change it to the Novell NetWare Server.</li>
+
+</ol>
+
+<p><b>To install from the Visual SourceSafe standalone CDs</b></p>
+
+<ol>
+
+<li>Insert the Visual SourceSafe CD.</li>
+<li>Run the following command: setup.exe /F</li>
+</ol>
+
+<h4><a name="CorrectedDocumentationText"></a>Corrected Documentation Text</h4>
+
+<p>Difference for File Dialog Box topic &#8212; In the Dialogs section of the Visual SourceSafe documentation, the first paragraph in the Remarks section is incorrect.</p>
+
+<ul>
+
+<p>Current text: This dialog box is used only when you have not selected the visual difference comparison. (For visual differences, make sure you select the Visual option from the Difference Options dialog box.) By default, VSS uses the Visual Difference dialog box.</p>
+
+<p>Correct text: This dialog box is used only when you have not selected the visual difference comparison. (For visual differences, make sure you select the Visual option from the Difference Options dialog box.) By default, the Visual option is selected, and VSS uses the Differences for &lt;filename&gt; dialog box with options specific to visual differences.</p> 
+
+</ul>
+
+<p>In the File History Options Dialog Box topic of the Visual SourceSafe Documentation, the first sentence of the Labels section is incorrect.</p>
+
+<ul>
+
+<p>Current text: Includes only labels in project history if you have selected the Include file checkins option.</p>
+
+<p>Correct text: Includes only labels in project history if you have selected the Include file histories option.</p>
+
+</ul>
+
+<p>In the Advanced Check Out Options Dialog Box topic of the Visual SourceSafe Documentation, the Replace option is incorrect.</p>
+
+<ul>
+
+<p>Current text: Replace &#8212; Replaces the file with a read-only version.</p>
+
+<p>Correct text: Replace &#8212; Replaces the file with a writable version.</p>
+
+</ul>
+
+<p>In the Advanced Check Out Options Dialog Box  topic of the Visual SourceSafe Documentation, the End of Line option has been removed.</p>
+
+<p>In the Advanced Get Options Dialog Box topic of the Visual SourceSafe Documentation, the End of Line option has been removed.</p>
+
+<h4><a name="MBCSDBCSUsers"></a>MBCS/DBCS Users</h4>
+
+<p>VSS 6.0 handles MBCS (Multi-byte character systems) and DBCS (Double-byte character systems) differently than in earlier versions of VSS. If you are upgrading an existing installation of VSS that has a file called SSUD.dll, please rename it so that VSS 6.0 will not recognize it. For example, rename the file to SSUD.bak. If you do not rename it, you may have trouble in the IME with font association (FA) turned off or it may generate GPFs when dialogs new to VSS 6.0 are displayed.</p>
+
+     <!------------------------------------------------------------------->
+
+<h3>Getting Started</h3>
+
+<h4><a name="Topic_10"></a>Before You Run Setup</h4>
+<p>
+<UL>
+<LI>Review the Hardware and Software Requirements. </LI>
+<LI>Check that you have the necessary Contents in the VS Package. </LI></UL>
+</p>
+
+     <!------------------------------------------------------------------->
+
+<h3>Installation</h3>
+
+<h4><a name="InstallationOptions"></a>Installation Options</h4>
+
+<h5><a name="General"></a>General Notes</h4>
+
+<p>The source code control database maintained by VSS must be on a drive that is accessible to all users working on projects controlled by VSS. The most versatile method of working with VSS is to perform a server installation to a network drive, and a netsetup installation on each workstation.</p>
+
+<p><b>Upgrading an Older Version of SourceSafe to Version 6.0</b></p>
+
+<p>You will be prompted to replace an existing installation if found. This is recommended, but you can choose an alternate path and then maintain two different databases, one in the old format and one in the  new format, on the same computer.</p>
+
+<P><B>Note</B>&nbsp;&nbsp;&nbsp;Make sure you backup the database first, before you upgrade.</P>
+
+<p>You will be prompted to convert your database to the new format for faster performance. You should only do this if:</p>
+
+<ul>
+
+<li>You are the Admin for your database.</li>
+<li>No people are logged into the database.</li>
+<li>All users of the database can be upgraded to client software compatible with the version 6.0 format.</li>
+
+</ul>
+
+<p><b>VSS Database Administrators Note About Netsetup</b></p>
+
+<p>Be aware that a full VSS license is required for each user of SourceSafe. If you have 100 people using your VSS database, you need to purchase 100 Visual SourceSafe licenses to avoid violating copyright law.</p>
+
+<p>The version 6.0 Netsetup program requires a CD-Key before it will install the Visual SourceSafe client software to a client machine. To make sure your clients can run Netsetup successfully, give a CD-Key from one of your licensed boxes to each user you recommend Netsetup to. It is acceptable to reuse the same CDKey for everyone running Netsetup, but you are still required to have an individual license on hand for every user.</p>
+
+<h4><a name="InstallingVisualSourceSafeStandaloneVersion"></a>Installing Visual SourceSafe Standalone Version</h4>
+
+<p><b>To install Visual SourceSafe standalone version as the Administrator (Admin)</b></p>
+
+<ol>
+
+<li>Install Visual SourceSafe on the shared server first.</li>
+<li>Use the Admin tool to create user accounts in the shared database.</li>
+<li>Set up security as appropriate for the users of the database.</li>
+<li>Tell your users where to find Netsetup (if those users are licensed).</li>
+
+</ol>
+
+<p><b>To install Visual SourceSafe standalone version as a Client</b></p>
+
+<ul>
+
+<li>Run Netsetup from the server location for client-only installation.</li>
+
+<p><b>Note</b>&nbsp;&nbsp;&nbsp;A full Visual SourceSafe license is required to use Netsetup by each client.</p>
+
+<p>- or -</p>
+
+<li>Install the standalone Visual SourceSafe from the CD (by choosing Standalone). This creates a local database. To use a shared database, click the File menu, Open command from the Visual SourceSafe Explorer.</li>
+
+</ul>
+
+<h4><a name="InstallingVisualSourceSafefromVisualStudio"></a>Installing Visual SourceSafe from Visual Studio</h4>
+
+<p>This includes Visual Studio, Visual C++ Enterprise version, and Visual Basic Enterprise version.</p>
+
+<p><b>Admins</b>&nbsp;&nbsp;&nbsp;If you are setting up a shared server, go to the Server Applications page of the Visual Studio installation and run VSS Server setup from there. This will create a database for sharing and install a setup program for licensed users to install the Visual SourceSafe client program (using Netsetup).</p>
+
+<p><b>Clients</b>&nbsp;&nbsp;&nbsp;The Visual Studio client setup will install a standalone version of Visual SourceSafe and integrate it with the development environment and other environments.</p>
+
+<ul>
+
+<p><B>Note</B>&nbsp;&nbsp;&nbsp;A local database is created with this setup. To access a shared database, click the File menu, Open command from the Visual SourceSafe Explorer, and set it to be the Default database.</p>
+
+</ul>
+
+<B><P>Important</B>: Back up your existing VSS database before upgrading!</P>
+
+<h4><a name="sidebysideinstallation">Installing Multiple Versions of Visual Studio 6.0 Products &#34;Side-by-Side&#34; on the Same Computer</a></h4>
+
+<p>Visual Studio products with the same version and in the same language&mdash;Visual C++ and Visual Basic version 6.0 in English, for example&mdash;can be installed separately on the same workstation. Such installations are supported by Microsoft. The Visual Studio 6.0 Installation Wizard detects if other versions of the 6.0 product line have been installed on a developer's workstation.</p>
+
+<p>Mixing different language versions, point releases, or product tiers on the same workstation is generally not supported.  This means that the installation may fail, one or more of Visual Studio 6.0 products may not work even if the installation succeeds, or in the worst case you may not be able to uninstall any of the products completely.</p>
+
+<p>If the Wizard generates a warning during installation, the safest course of action is to uninstall the Visual Studio 6.0 product before proceeding. The detection scheme checks for the following scenarios:</p>
+
+<ul><li>Users <b>installing different language versions</b> of the same product. For example, Japanese Visual Basic and English Visual Basic. Installation of certain combinations is supported.</li>
+
+<p>
+<table COLS=2 cellspacing="2" cellpadding="5" border="1" frame="below" rules="rows">
+
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2><b>Product</b></font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2><b>Supported Installation</b></font></td>
+</tr>
+
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Visual Basic</font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Install to two different locations</font></td>
+</tr>
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Visual C++</font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2>No side-by-side installation is supported.</font></td>
+</tr>
+
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Visual FoxPro</font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Install to two different locations</font></td>
+</tr>
+
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Visual InterDev</font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Install to the same location. You must reinstall after uninstalling one version.</font></td>
+</tr>
+
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Visual J++</font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Install to the same location. You must reinstall after uninstalling one version.</font></td>
+</tr>
+
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Visual SourceSafe</font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Install to the same location. You must reinstall after uninstalling one version.<p><b>Note</b>&nbsp;&nbsp;&nbsp;The UI language chosen when you run SourceSafe will be based on the system's language settings. If that language is not installed for SourceSafe, it will use English instead.</p></font></td>
+</tr>
+
+<tr>
+    <td><font face="verdana,arial,helvetica" SIZE=2>MSDN</font></td>
+    <td><font face="verdana,arial,helvetica" SIZE=2>Install to default directory.</font></td>
+</tr>
+</table>
+
+<p>
+<li>Users <b>installing different tiers of Visual Studio 6.0 products</b>. For example, Visual J++ Standard Edition and Visual InterDev Professional Edition. Installing different tiers of the same product on the same workstation is not supported.</li>
+
+<p>
+<li>Users <b>installing point releases</b>. Upgrading a later point release of Visual Studio over an earlier point release is supported.  However, installing earlier versions over later versions is not supported.</li>
+
+<p>
+<li>Users <b>installing stand-alone versions of Visual Studio 6.0 products over the versions installed from Visual Studio 6.0 Professional or Enterprise</b>. For example, Visual FoxPro 6.0 over Visual Studio Professional 6.0. Installing a stand-alone version of the same language versions (English) of Visual Studio 6.0 products is supported.  It is safe to install Visual FoxPro 6.0 (English) from the stand-alone version on a workstation that already has Visual Basic 6.0 installed from Visual Studio Professional Edition.</li>
+</ul>
+
+<h4><a name="Topic_24"></a>(Individual Users) Using Netsetup to Create a Personal Installation</h4>
+
+<P>After an administrator has created a VSS installation on the server, users can run Netsetup to copy the VSS executables to their hard disk. </P>
+
+<p><b>To install using Netsetup</b></p>
+
+<OL>
+
+<LI>In Windows Explorer, navigate to the main folder containing the VSS Server installation.</LI>
+
+<LI>Double-click on <b>NETSETUP.EXE</b>.</LI>
+
+<LI>Follow the instructions in the Installation Wizard, using <b>[Change Folder]</b> to change the default installation path if you wish</LI>.
+
+</ol>
+
+	<blockquote>
+<P><B>Warning to Administrators</B>&nbsp;&nbsp;&nbsp;All users must posess an individual VSS license to install and/or use the product, including anyone running Netsetup.  Netsetup is provided as a convenience, but the Administrator should make sure s/he obtains an individual license for each person that installs and uses the product.</p>
+	</blockquote>
+
+<h4><a name="Topic_20"></a>Upgrading a Database After Installing</h4>
+
+<P>If you were prompted to upgrade your database to the new 6.0 format and you said Yes, you now have a 6.0 database and can take advantage of label promotion and enjoy performance enhancements. If you weren't prompted or you said No to the prompt and you now want to upgrade your database, run the DDUPD.exe command line utility, which exists in the \win32 directory of your VSS 6.0 Server installation. (So you can either go to that directory and run it or add that directory to your path and run it.) We recommend you only run DDUPD when everyone has exited VSS. The syntax is:</P>
+
+<blockquote>
+<P>DDUPD &lt;path to data folder&gt; [-undo] [-redo]</P>
+</blockquote>
+
+<P>To upgrade a 5.0 database, for example, you would run:</P>
+
+<blockquote>
+<P>DDUPD \\server\share\vss\data</P>
+</blockquote>
+
+<P>To undo an upgrade, going back to the 5.0 format and stop taking advantage of the performance enhancements and label promotions:</P>
+
+	<blockquote>
+<P>DDUPD \\server\share\vss\data -UNDO</P>
+	</blockquote>
+
+<P>To redo the upgrade process on a database that is already in the new format, you would run:</P>
+
+	<blockquote>
+<P>DDUPD \\server\share\vss\data -REDO</P>
+	</blockquote>
+
+<h4><a name="Topic_28"></a>Deleting VSS</h4>
+
+<P>If you delete a VSS installation (including the database) and then attempt to run SETUP, setup may try to install VSS in the Recycle bin (if the old database is found here). This only takes places if the Recycle bin hasn't recently been emptied. To remedy the problem:</P>
+
+<OL>
+
+<LI>Empty the Recycle bin.</LI>
+
+<LI>Run SETUP again and verify that the default directory for VSS is no longer the Recycle bin.</LI>
+
+</ol>
+
+     <!------------------------------------------------------------------->
+
+<h3>General Notes and Tips</h3>
+
+<h4><a name="Topic_30"></a>New Features in VSS 6.0</h4>
+
+</FONT><FONT FACE="Verdana" SIZE=2><P>Microsoft VSS 6.0 adds many new features. Some of the highlights include:</P>
+
+<UL>
+<LI><b>Create database</b> &#8212; Available in the Visual SourceSafe Admin application. With it, you can create a new VSS database in any location. To use this command, click Tools, then click Create Database.</LI>
+
+<LI><b>Archive and Restore </b> &#8212; Now available in the Visual SourceSafe Admin application in addition to the Command Line. </LI>
+
+<LI><b>Label promotion</b> &#8212; Allows you to promote, or add, a file to an existing label. </LI>
+
+<LI><b>Move files</b> &#8212; When you move a file, VSS automatically shares the file to a new project and then deletes it from the original project. In the new project, the file appears as shared. </LI>
+
+<LI><b>Compare differences in multiple projects</b> &#8212; This feature allows you to compare differences in a project against another project, compare in two different local folders, or compare a project against any directory, not just its working directory.</LI>
+
+<LI><b>Deploy individual files from the VSS Explorer</b> &#8212; In VSS 6.0, using the VSS Explorer, you can now deploy a file as well as an individual folder.</LI>
+
+<LI><b>Filter history information</b> &#8212; You can now view history of files and projects without including labels.</LI>
+
+<LI><b>Clean temp directory option</b> &#8212; A quick, easy way to delete all files from the temp directory used by VSS, provided the files are not open.</LI>
+
+<LI><b>Check External Hyperlinks</b> &#8212; In VSS 6.0 &#34;Check Hyperlinks&#34; now works on external hyperlinks, or jumps outside the project, as well as internal hyperlinks, or jumps within the project.</LI>
+
+<LI><b>Create desktop shortcuts to VSS databases (from VSS Explorer)</b> &#8212; Allows you to create a shortcut on your desktop that opens a specified VSS database in the specified project. </LI>
+
+<LI><b>HTML Help</b> &#8212; This version uses HTMLHelp rather than WinHelp.</LI></UL>
+
+<h4><a name="Topic_31"></a>Maintaining Your VSS Database</h4>
+
+<P>It is still advisable to back up the drive where your VSS database resides on a regular basis. Note it is important to use full backups, not incremental or differential backups, to avoid problems.</P>
+
+<P>In addition, you should run the ANALYZE program periodically to maintain database integrity. If a corruption is found, the ANALYZE program can usually repair the problem. Updates to the ANALYZE tool are posted periodically to the VSS web site, <A HREF="http://www.microsoft.com/ssafe/">http://www.microsoft.com/ssafe</A>. You may wish to check that site to see if there is a version of ANALYZE more recent than the one shipped with this product. To run ANALYZE, click the Start menu, point to Programs, Microsoft Visual Studio, and then Visual SourceSafe.</P>
+
+	<blockquote>
+<P><B>Note</B>&nbsp;&nbsp;&nbsp;It is always advisable to run ANALYZE and back up older databases before upgrading them to the 6.0 format.</P>
+	</blockquote>
+
+<h4><a name="Topic_32"></a>Loss of Network Connection Produces Numerical Error Message</h4>
+
+<P>If you are using VSS on a remote database and you lose your connection to the server, the following error will occur:</P>
+
+	<blockquote>
+<P>&#34;unknown error - 20038,&#34; (or similar)</P>
+	</blockquote>
+
+<P>If you see this error, you have lost your network connection.</P> 
+
+<P>To correct the situation:</P>
+
+<ol>
+
+<li>Restore your network connection.</li>
+
+<li>Restart VSS to continue your work.</li>
+
+</ol>
+
+<h4><a name="Topic_33"></a>System Date/Time</h4>
+
+<P>VSS uses the date/time, which your local computer stores. If your computer is out of sync with another computer, unpredictable results may occur. For instance, you may check in a file after someone else, but VSS may think your checkin happened first, because your system clock was off!</P>
+
+<P>The best solution for this problem is to synchronize your local date/time with the network on a regular basis. This will ensure that all users are in sync. With Windows NT this can be done with a Domain Time Source Server. Please check the <A HREF="http://www.novell.com/">http://www.novell.com/</A> site for information on time synching with Novell NetWare servers.</P>
+
+<h4><a name="Topic_35"></a>Using the Command Line after Running a Client Setup</h4>
+
+<P>When working at the Command Line, if you get a message stating &#34;No VSS database (SRCSAFE.INI) found.  Use the SSDIR environment variable or run netsetup.&#34;, set the SSDIR variable.  This will tell VSS where to find the SRCSAFE.INI file for the VSS server installation to which you want to connect. You can do this by typing the following at the MS-DOS prompt:</P>
+
+	<blockquote>
+<P>set ssdir=\\server\share\vss</P>
+	</blockquote>
+
+<P>Where \\server\share\vss is the folder where the srcsafe.ini file is located.</P>
+
+<P><B>Note</B>&nbsp;&nbsp;&nbsp;Do not put a space between the equal sign and the location of the VSS server installation. For example, the following will not work:</P>
+
+	<blockquote>
+<P>set ssdir= \\server\share\vss.</P>
+	</blockquote>
+
+<h4><a name="DetailsonDefiningaShadowDirectoryinVisualSourceSafe"></a>Details on Defining a Shadow Directory in Visual SourceSafe</h4>
+
+<P>A shadow directory is a live mirror (on the file-system) of the project(s) in the Visual SourceSafe (VSS) database.</p>
+
+<P>For a shared database, you must set up the shadow directory with a UNC path, such as \\Server\Share\Shadow, to avoid failure when changes are made from a computer other than the one used to setup the shadow. Make sure the UNC contains no long names, just 8 character short names for the \\Server\Share\ROOT portion.</p>
+
+<P>For example, instead of defining the shadow directory as D:\VSSShadow, you can define the shadow directory as: \\server\D\Shadow.</p>
+
+<P>Confirm that all the Visual SourceSafe users have read/write access to the UNC directory.</P>  
+
+<h4><a name="RunningNetSetupfromanNTServerUsingWindows95"></a>Running Netsetup from a Windows NT Server Using Windows 95</h4>
+
+<P>Due to a problem Windows 95 has accessing some programs on Windows NT Servers via a UNC that contains long names, it is advised to create a Network share on the Windows NT Server that points directly to the VSS location on the servers disk drive, and to avoid long names in the Server and Share names as well.</P>
+
+<P>For instance, if VSS is installed to:</P>
+
+	<blockquote>
+<P>D:\Program Files\Microsoft Visual Studio\Common\VSS</P>  
+	</blockquote>
+
+<P>You could provide users access to it by setting:</P>
+
+	<blockquote>
+<P>D:\
+
+<p><i>shared as</i>
+
+<p>\\Long Server Name\Long Share Name</P>
+	</blockquote>
+
+<P>And they would then access it with:</P>
+
+	<blockquote>
+<P>\\Long Server Name\Long Share Name\Program Files\Microsoft Visual Studio\Common\Vss\Netsetup.exe</P>
+	</blockquote>
+
+<P>The long names will cause Windows 95 machines to fail when the server is a Windows NT machine.</P>
+
+<P>Instead, set it up with:</P>
+
+	<blockquote>
+<P>D:\Program Files\Microsoft Visual Studio\Common\VSS
+
+<p><i>shared as</i>
+
+<p>\\Server\VSSShare</P>
+	</blockquote>
+
+<P>In this way, users may access Netsetup.exe with the following short UNC:</P>
+
+	<blockquote>
+<P>\\Server\VSSShare\Netsetup.exe
+	</blockquote>
+
+<h4><a name="Topic_36"></a>VSS Home Page</h4>
+
+<P>Microsoft VSS has a home page on the Internet. This home page features a variety of information including articles on VSS, a self-running demo that you can download and run, a collection of helpful VSS utilities, and much more. The URL for the home page is: <A HREF="http://www.microsoft.com/ssafe/">http://www.microsoft.com/ssafe.</A></P>
+
+<h4><a name="MicrosoftKnowledgeBase"></a>Microsoft Knowledge Base</h4>
+
+<P>If you encounter problems or have questions not addressed here or in the online documentation, you may want to search the Microsoft Knowledge Base at <A HREF="http://support.microsoft.com/support/">http://support.microsoft.com/support</A>. The Knowledge Base is also available on <i>MSDN Library Visual Studio 6.0</i>, included on CD-ROM with Visual SourceSafe.
+
+<h4><a name="VSSNewsgroup"></a>VSS Newsgroup</h4>
+
+<P>You can exchange information with other VSS users by visiting the microsoft.public.visualsourcesafe newsgroup on the internet. This newsgroup is on the msnews.microsoft.com server. Please note that Microsoft does not provide support for messages posted to the newsgroup.</P>
+
+<P>
+</pre></font>
+<p>&nbsp;</p>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+</HEAD>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<BR><BR>
+<P>This sample uses one file: Quote.asp. This file 
+generates a random number based on the total number of quotes in the Quote table 
+and moves the record pointer in the recordset to this 
+random number. </P>
+<P>Once the recordset has opened the table, a Visual Basic, 
+Scripting Edition (VBScript) routine is run to generate the random number. The 
+routine uses the Recordset.getCount method to determine the 
+number of records in the recordset. </P>
+<P>Once the random number is generated the record pointer 
+in the recordset is moved using the Recordset.moveAbsolute 
+method. The code below demonstrates how this done: 
+ </P>
+<FONT face=Courier>
+<P>Sub QuoteRecordset_ondatasetcomplete() <BR>&nbsp;&nbsp; Randomize() <BR>&nbsp;&nbsp; intQuote 
+= Int((QuoteRecordset.getCount()) * Rnd + 1) <BR>&nbsp;&nbsp; QuoteRecordset.moveAbsolute(intQuote) <BR>
+End sub </P>
+</FONT>
+<P>The quote and the author are displayed using two 
+data-bound labels. The first one is bound to the quote field and the second one 
+is bound to the author field.</P></FONT>
+</BODY>
+</HTML>

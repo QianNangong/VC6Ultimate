@@ -1,0 +1,43 @@
+STRINGTABLE DISCARDABLE 
+BEGIN
+	1	"*** Do *NOT* Localize any string that starts with '***'.  They are comments to be used by localizers to identify sections.  They also mark the beginning of a new 'section' within the String Table."
+	2	"Pool Manager"
+	3	"GetWorker Method received"
+	4	"ReleaseWorker Method received"
+	11	"Call rejected retry"
+	12	"Because the specified authentication level is not supported on the remote machine, Worker will be created with no authentication on the machine, <NAME>."
+	13	"Only <NUMBER> workers were created and configured, because available machines were lacking."	
+	//Remote Worker creation error message
+	14	"Could not create or configure a worker on machine, <NAME>."	
+	//No errors creating remote workers message
+	15	"All requested workers were successfully created."
+	16	"Could not create or configure local worker object."
+	17	"Error: "
+
+	29	"*** Font information for all forms.  Index 30 is the Character set, Index 31 is Font name, Index 32 is Font Size"
+	30	"0"
+	31	"Tahoma"
+	32	"10"
+
+	49	"*** Form U/I captions"
+	50	"Requests Satisfied"
+	51	"Requests Rejected"	
+	52	"Number of Workers"
+	53	"Pool Manager"
+
+	200	"*** Racreg32 error codes with 200 added for offset"
+	201	"Unknown run time error occurred"
+	202	"No protocol was specified"
+	203	"No server machine name was specified"
+	204	"An error occurred reading from the registry"
+	205	"An error occurred writing to the registry"
+	206	"Both the ProgID and CLSID parameters were missing"
+	207	"There is no local server (either in-process or cross-process, 16-bit or 32-bit)"
+	208	"There was an error looking for the Proxy DLLs, check that they were installed properly"
+
+	32700	"*** Error Descriptions"
+	32750	"An error occurred changing server connection settings: <NAME>."
+
+	32765	"Invalid Parameter"
+	32764	"No Workers could be created."
+END

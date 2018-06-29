@@ -1,0 +1,758 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Draft//EN">
+<html>
+
+<head>
+<title>Visual FoxPro Readme</title>
+<meta name="MS-HAID" content="readmevf">
+</head>
+
+<body bgcolor="#ffffff" onclick="checkExpand( )">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" link="#0000FF" vlink="#660066"
+color="#000000"><script language="JSCRIPT">
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           event.returnValue=false;
+        }
+     }
+  }
+
+</script>
+
+
+<h2>Visual FoxPro Readme</h2>
+
+<p>© 1998 Microsoft Corporation. All rights reserved. </p>
+
+<p>Other product and company names herein may be the trademarks of their respective
+owners. </p>
+
+<p><i>Visual FoxPro® Readme</i> includes updated information for the documentation
+provided with Microsoft® Visual Studio&#153; -- Development System for Windows® and the
+Internet. The information in this document is more up-to-date than the information in the
+help system. Many of the issues outlined in this document will be corrected in upcoming
+releases.</p>
+
+<h3>Contents <font color="#000000" size="2" face="Verdana,Arial,Helvetica">- Click any of
+the items below</font></h3>
+
+<blockquote>
+  <p><b>Note</b>&nbsp;&nbsp;&nbsp; Be sure all headings in the table of contents below are
+  expanded when you search this Readme for a topic. This way you'll know when the search
+  finds the topic among the table of contents headings.</p>
+</blockquote>
+
+<p><strong>Visual Studio 6.0 General Installation Notes</strong></p>
+
+<blockquote>
+  <p>For <i>general installation issues</i> on the Visual Studio 6.0 suite of products,
+  including side by side product installation, see the <a href="install.htm"
+  title="Jumps to the installation readme (install.htm).">Installation Notes</a> readme
+  (install.htm).</p>
+  <h5>For other issues on the Help system of the Visual Studio suite of products, go to:</h5>
+  <p><a href="readmeDN.htm" title="Jumps to readmeDN.htm">MSDN<font face="Symbol"><span
+  style="font-family:Symbol">ä</span></font>, the Microsoft Developer Network Readme.</a></p>
+</blockquote>
+
+<h5><a class="ex" href="#" title="Click to expand or collapse." id="ReadmeSection1">Visual
+FoxPro 6.0 Installation Notes</a></h5>
+<div id="ReadmeSection1Child">
+
+<BLOCKQUOTE><p><a href="#Installing Samples">Installing Samples</a></p>
+
+<p><a href="#Installing Online Documentation">Installing Online Documentation</a></p>
+
+<p><a href="#New Visual FoxPro and SQL Server ODBC Drivers">New Visual FoxPro and SQL Server ODBC Drivers</a></p>
+
+<p><a href="#Updates for Visual FoxPro Components">Updates for Visual FoxPro Components</a></p>
+
+<p><a href="#Using Visual FoxPro 5.0 Files in Visual FoxPro 6.0">Using Visual FoxPro 5.0 Files in Visual FoxPro 6.0</a></p></BLOCKQUOTE>
+</div>
+
+<h5><a class="ex" href="#" title="Click to expand or collapse." id="ReadmeSection2">Known
+Issues</a></h5>
+<div id="ReadmeSection2Child">
+
+<p><strong>Visual FoxPro Product Issues</strong></p>
+
+<BLOCKQUOTE>
+<p><a href="#Active Documents">Active Documents</a></p>
+<p><a href="#Changes to Vfp6run.exe, the Visual FoxPro Runtime">Changes to Vfp6run.exe, the Visual FoxPro Runtime</a> </p>
+<p><a href="#Changes to the Selected and SelectedID Properties">Changes to the Selected and SelectedID Properties</a> </p>
+<p><a href="#Component Gallery Display Problems">Component Gallery Display Problems after Dragging an Item</a>
+</p>
+<p><a href="#Component Gallery Output to HTML">Component Gallery Output to HTML</a>
+</p>
+<p><a href="#Highlighting and Copying Code Examples from Help">Highlighting and Copying Code Examples from Help</a> </p>
+<p><a href="#_SCREEN and the FormCount and Name Properties">_SCREEN and the FormCount and Name Properties</a> </p>
+<p><a href="#Tasmanian Traders Sample">Tasmanian Traders Sample</a> </p>
+<p><a href="#URL Combo Foundation Class">URL Combo Foundation Class</a></p>
+</BLOCKQUOTE>
+
+<p><strong>Wizard Issues</strong></p>
+<blockquote>
+  <p><a href="#Application Wizard Help">Application Wizard Help</a> </p>
+  <p><a href="#Application Wizard and HTML Output">Application Wizard and HTML Output</a> </p>
+  <p><a href="#Application Wizard, Adding Records">Application Wizard - Adding Records to Empty Tables</a> </p>
+  <p><a href="#Application Wizard, Recompiling">Application Wizard - Recompiling New Applications</a> </p>
+  <p><a href="#Form Wizard and the Maximum Design Area Setting">Form Wizard and the Maximum Design Area Setting</a> </p>
+  <p><a href="#Sample Wizard Installation">Sample Wizard Installation</a> </p>
+  <p><a href="#SQL Server Upsizing Wizard Help">SQL Server Upsizing Wizard Help</a> </p>
+</blockquote>
+
+<p><strong>Documentation Issues</strong></p>
+
+<blockquote>
+  <p><a href="#_BROWSER Help Topic">_BROWSER Help Topic</a> </p>
+  <p><a href="#Code Analyzer Help">Code Analyzer Help</a> </p>
+  <p><a href="#Guidelines for Using Visual FoxPro Foundation Classes">Corrections to the Guidelines for Using Visual FoxPro Foundation Classes
+Help Topic</a> </p>
+  <p><a href="#Duplicate Entries in the Error Messages A-Z Help Topic">Duplicate Entries in the Error Messages A-Z Help Topic</a> </p>
+  <p><a href="#Distributing the Filer with Run-Time Applications">Distributing the Filer with Run-Time Applications</a> </p>
+  <p><a href="#Foundation Class AddProp Method Syntax Incorrect">Foundation Class AddProp Method Syntax Incorrect</a> </p>
+  <p><a href="#Foundation Class InsAitem Method Syntax Incorrect">Foundation Class InsAitem Method Syntax Incorrect</a> </p>
+  <p><a href="#Genhtml.prg Syntax">Genhtml.prg Syntax</a> </p>
+  <p><a href="#HTML Help Sample Project Directory Changed">HTML Help Sample Project Directory Changed</a> </p>
+  <p><a href="#HTML Item Dialog Box Description Incomplete">HTML Item Dialog Box Description Incomplete</a> </p>
+  <p><a href="#Reserved Words">Reserved Words</a> </p>
+  <p><a href="#SetData Method Help Topic">SetData Method Help Topic</a> </p>
+</blockquote>
+</div>
+<h5><a href="#vfpNewHead">What's new in Visual FoxPro 6.0</a></h5>
+
+<h5><a class="ex" href="#" title="Click to expand or collapse." id="ReadmeSection4">Finding
+More Information</a></h5>
+<div id="ReadmeSection4Child">
+
+<p><a href="#Frequently Asked Questions">Frequently Asked Questions</a></p>
+</div>
+
+<h3><a name="ReadmeSection1">Visual FoxPro 6.0 Installation Notes</a></h3>
+
+<h4><a name="Installing Samples"></a>Installing Samples</h4>
+
+<p>The samples for Visual FoxPro 6.0 are now installed with MSDN&#153;, the Microsoft
+Developer Network. The MSDN setup is located in a separate subfolder called MSDN. Open the
+folder and double-click Setup.exe to run the MSDN Installation Wizard. Choose the <b>Custom</b>
+option and select the <b>VFP Samples</b> check box. </p>
+
+<p>The samples are placed in the common MSDN samples location. You can access this
+location programmatically by using the _SAMPLES system variable or by executing the
+HOME(2) command. </p>
+
+<h4><a name="Installing Online Documentation"></a>Installing Online Documentation</h4>
+
+<p>The online documentation for Visual FoxPro 6.0 is now installed using MSDN setup. The
+MSDN setup is located in a separate subfolder called MSDN. Open the folder and
+double-click Setup.exe to run the MSDN Installation Wizard. Choose the <b>Custom</b>
+option and select the <b>VFP Documentation</b> check box. If you select the <b>Typical</b>
+option, Visual FoxPro will have to access help files from the MSDN CD instead of your hard
+disk.</p>
+
+<p>The Visual FoxPro help files (including Foxhelp.chm) are installed at the following
+location:</p>
+
+<p><i>drive</i>:\Program Files\Microsoft Visual Studio\Msdn98\98vs\1033</p>
+
+<p>When you ask for help from within Visual FoxPro by pressing F1, typing HELP in the
+Command window, or by using the help menu, the default behavior is for Visual FoxPro to
+call Msdnvs98.col if full MSDN is installed. If this file does not exist, then Foxhelp.chm
+is used by default. If you are experiencing problems using Msdnvs98.col, you can redirect
+the Visual FoxPro help system to use Foxhelp.chm:</p>
+
+<p><b>To set help to Foxhelp.chm</b> 
+
+<ul>
+  <li>On the <b>Tools</b> menu, click <b>Options</b>. </li>
+  <li>Click the <b>File Locations</b> tab. </li>
+  <li>Select the <b>Help File</b> file type listed and click <b>Modify</b>. </li>
+  <li>While keeping the same path, replace <b>Msdnvs98.col</b> with <b>Foxhelp.chm</b> or use
+    the dialog button to locate Foxhelp.chm. </li>
+  <li>Click <b>OK</b>. </li>
+  <li>If you want Foxhelp.chm to be your default for future Visual FoxPro sessions, click <b>Set
+    As Default</b>. </li>
+  <li>Click <b>OK</b>. </li>
+</ul>
+
+<p><b>Note</b>&nbsp;&nbsp;&nbsp; If you set help to Foxhelp.chm, you may receive a
+&quot;Topic Not Found&quot; error when you attempt to jump to topics outside of the Visual
+FoxPro Foxhelp.chm help file. To jump to topics outside of Foxhelp.chm (for example,
+Visual Basic and Visual C++ help topics), set the help file to Msdnvs98.col.</p>
+
+<h4><a name="Updates for Visual FoxPro Components"></a>Updates for Visual FoxPro Components</h4>
+
+<p>Updates for Visual FoxPro components and Xbase pieces are often posted to the
+Microsoft Visual FoxPro web site <a href="http://www.microsoft.com/vfoxpro"
+ title="Visual FoxPro web site">http://www.microsoft.com/vfoxpro</a>. It is a good
+ idea to check this site for updates, especially after product installation and
+ release of other Microsoft system and core technologies that may affect the product.
+ These updates often address known issues, improve performance, and contain highly
+ requested enhancements.</P>
+
+<h4><a name="New Visual FoxPro and SQL Server ODBC Drivers"></a>New Visual FoxPro and SQL Server ODBC Drivers</h4>
+
+<p>For this release, new Visual FoxPro and SQL Server ODBC drivers (VFPodbc.dll and
+SQLsrv32.dll) are installed, overwriting your existing ODBC drivers. Before installing
+this release with the latest version of these drivers, you might first want to make a copy
+of your existing drivers. </p>
+
+<p>If you don't want your existing drivers replaced by potentially problematic new
+versions, choose the <b>Custom</b> setup option and uncheck the <b>ODBC Files</b> check
+box.</p>
+
+<h4><a name="Using Visual FoxPro 5.0 Files in Visual FoxPro 6.0"></a>Using Visual FoxPro 5.0 Files in Visual FoxPro 6.0</h4>
+
+<p>Any .fll files (FoxPro link libraries) you create for Visual FoxPro 5.0 will work
+unchanged in Visual FoxPro 6.0. Because of menu changes in Visual FoxPro 6.0, you may need
+to recompile your Visual FoxPro 5.0 applications if your source code references system
+menus. In addition, you may need to recompile code from previous betas of Visual FoxPro
+6.0. </p>
+
+<p>Additionally, we have added strict date checking to ensure Year 2000 compliance in your
+applications. If your applications utilize any ambiguous dates, you may need to
+disambiguate these dates or SET STRICTDATE to 0 to allow ambiguous (and possibly
+non-compliant) dates to exist in your applications. </p>
+
+<p>New versions of popular ActiveX controls, such as Treeview and Listview, are included
+in this release. These controls are now stored in the new Mscomctl.ocx file. Your existing
+forms will continue to function correctly with the original ActiveX controls that are in
+Comctl32.ocx. Since both files can reside on your machine, you can choose to install
+either version of a control. </p>
+
+<p>See the Vfp6FAQ.txt file in the main Vfp98 directory for more details on these and
+other compatibility issues. </p>
+
+<h3></font><a name="ReadmeSection2">Known Issues</a><font
+face="Verdana, Arial, Helvetica, sans-serif" size="2" link="#0000FF" vlink="#660066"
+color="#000000"></h3>
+
+<p><strong>Visual FoxPro Product Issues</strong></p>
+
+<h4><a name="Active Documents"></a>Active Documents</h4>
+
+<p>The Vfp6run.exe runtime doesn't release from memory when a Visual FoxPro application
+with its ContainerReleaseType property set to 1 (Don't show the Visual FoxPro main window)
+terminates when it falls out of the Internet Explorer cache. Vfp6run.exe doesn't release
+from memory until Internet Explorer 4.0 is terminated. This is an Internet Explorer 4.0
+issue and may be resolved in a future release of Internet Explorer. </p>
+
+<h4><a name="Changes to Vfp6run.exe, the Visual FoxPro Runtime"></a>Changes to Vfp6run.exe, the Visual FoxPro Runtime</h4>
+
+<p>Vfp6run.exe, the Visual FoxPro runtime, has been enhanced to make it easier to set
+security settings for Active Documents. New arguments have been added, allowing you to
+display the About Microsoft Visual FoxPro Runtime dialog box. The Application Security
+button in this dialog lets you specify the security settings for Active Documents and
+other application (.app) files. </p>
+
+<p>In addition to using the /security argument (Vfp6run.exe /security), you can use the
+new /? or ? arguments, or you can omit the arguments. Note that the Application Security
+button isn't displayed on the About Microsoft Visual FoxPro Runtime dialog box when the
+dialog box is displayed from a Visual FoxPro .exe distributable application.</p>
+
+<p>A value of 10 is passed to the CommandTargetExec event when an Active Document is
+hosted in Microsoft Internet Explorer 4.0 and you choose Properties from the File menu.
+Return a value of 0 from the CommandTargetExec event to suppress display of the About
+Microsoft Visual FoxPro Runtime dialog box or to display your own dialog box.</p>
+
+<p>For more information about Vfp6run.exe and Active Documents, see &quot;Active
+Documents&quot; in Chapter 31, &quot;Interoperability and the Internet&quot; in the
+Microsoft Visual FoxPro 6.0 <em>Programmer's Guide</em>. The <em>Programmer's Guide</em>
+is included in the Visual FoxPro online documentation.</p>
+
+<h4><a name="Changes to the Selected and SelectedId Properties"></a>Changes to the Selected and SelectedId Properties</h4>
+
+<p>Programmatically changing the value of the Selected or SelectedId properties in Visual
+FoxPro 6.0 now causes the ProgrammaticChange event to occur. In previous versions of
+Visual FoxPro, the ProgrammaticChange event did not occur when the value of the Selected
+or SelectedId properties were programmatically changed. </p>
+
+<h4><a name="Component Gallery Display Problems"></a>Component Gallery Display Problems after Dragging an
+Item</h4>
+
+<p>If you drag an item in the right pane of the Component Gallery, the folder in the left
+pane containing the item you drag may stay selected even after you select a different
+folder in the left pane. This is a known issue with the ActiveX control the Component
+Gallery uses, and may be corrected in an upcoming release. The ActiveX control will work
+as expected even if the incorrect folder appears selected in the left pane. </p>
+
+<h4><a name="Component Gallery Output to HTML"></a>Component Gallery Output to HTML</h4>
+
+<p>If you add a table to the Component Gallery, right-click the table, and then
+choose <B>Output to HTML</B>, no HTML output is created. To create HTML output for
+a table, open a Browse window for the table (with the BROWSE command or by choosing
+<B>Browse</B> from the <B>View</B> menu), and then choose <B>Save As HTML</B> from 
+the <B>File</B> menu.</p>
+
+<P>You can also fix this problem with the following steps:</P>
+
+<P>1. Enter the following command in the Command Window:</p>
+
+<P>MODIFY CLASS _dataitem OF (HOME( ) + "gallery\vfpglry.vcx") METHOD makehtml</p>
+
+<P>2. Change the following line of code in the method:</p>
+
+<P>DO (_GENHTML) WITH "", ALIAS( ), 5</p>
+	
+<P>to this:</p>
+
+<P>DO (_GENHTML) WITH "", ALIAS( ), 2</p>
+
+<P>3. Save and close the class.</p>
+
+<h4><a name="Highlighting and Copying Code Examples from Help"></a>Highlighting and Copying Code Examples from Help</h4>
+
+<p>Highlighting and copying code examples from online help topics may result in incorrect
+placement of carriage returns. This may occur if you copy portions of the examples. If you
+exclude either the first or last line of code in any example, the code example will not be
+able to run.</p>
+
+<p>To ensure that copied code examples contain proper line formatting, highlight and copy
+the <i>entire</i> code example, including the first and last line. </p>
+
+<h4><a name="_SCREEN and the FormCount and Name Properties"></a>_SCREEN and the FormCount and Name Properties</h4>
+
+<p>At design time in Visual FoxPro 6.0, the FormCount and Name properties return different
+values for _SCREEN than those in Visual FoxPro 5.0. Visual FoxPro 6.0 doesn't include the
+designers (the Form Designer, the Report Designer, and so on) in the _SCREEN.Forms
+collection, so the FormCount property isn't incremented for each Visual FoxPro designer
+that is open. Because Visual FoxPro 6.0 doesn't include the designers in the _SCREEN.Forms
+collection, querying the Name property for the _SCREEN.Forms collection can cause an
+error.</p>
+
+<p>The AMOUSEOBJ(&nbsp;) function can be used in a work-around to determine the current
+designer.</p>
+
+<h4><a name="Tasmanian Traders Sample"></a>Tasmanian Traders Sample</h4>
+
+<p>The Tasmanian Traders sample generates an error when you create a new customer record
+in the Order Entry dialog, choose an existing customer, and then choose <b>Save</b>.</p>
+
+<p>To prevent this error, first change the line &quot;#DEFINE DEBUGMODE .T.&quot; to
+&quot;#DEFINE DEBUGMODE .F.&quot; in tastrade.h. Tastrade.h is located in the Include
+directory off of the Tastrade directory. Then rebuild the Tasmanian Traders sample
+application. To rebuild the sample application, open the Tasmanian Traders project,
+tastrade.pjx, choose <b>Build</b>, choose <b>Build Application</b> and <b>Recompile All
+Files</b>, and then choose <b>OK</b>.</p>
+
+<h4><a name="URL Combo Foundation Class"></a>URL Combo Foundation Class</h4>
+
+<p>If you include the URL Combo foundation class in your applications, you should make the
+following changes to the _URLCombobox class in the _internet.vcx class library to allow
+longer URLs to be entered in the combo box:</p>
+
+<p>1. Change the DisplayCount property to 32.</p>
+
+<p>2. Change the InputMask property to =REPLICATE('X', 254)</p>
+
+<p><strong>Wizard Issues</strong></p>
+
+<h4><a name="Application Wizard Help"></a>Application Wizard Help</h4>
+
+<p>When you run the new Application Wizard, help is automatically displayed with the
+Application Builder when a new framework is generated. After you become familiar with the
+process of building an application using the new framework, you can disable help so that
+it doesn't automatically appear. Set the lSkipAssist property in the Appbldr.scx form file
+in the Wizards directory to true (.T.) to prevent help from being automatically displayed.</p>
+
+<h4><a name="Application Wizard and HTML Output"></a>Application Wizard and HTML Output</h4>
+
+<p>The framework generated by the Application Wizard automatically provides a variety of
+output and reporting options when you print reports. If you want your custom application
+to allow for output as HTML, you will need to include in your project the file Genhtml.prg
+(located in the main Visual FoxPro directory) and the following files in the FFC
+directory:</p>
+
+<p>_Html.vcx<br>
+_Html.vct<br>
+_Html.h<br>
+Runcode.prg</p>
+
+<p>You can modify the _Output class in Reports.vcx in the FFC directory to include
+EXTERNAL commands (for example, EXTERNAL PROCEDURE Genhtml.prg) to have the project
+automatically include necessary files during builds for future use.</p>
+
+<p>To disable the HTML output option, you can modify the SetDestinations method in the
+_Output class. To do so, preface the OUTPUT_HTMLFILE_LOC constants at the bottom of the
+routine with a backwards slash (\) as in the following example:</p>
+
+<p>THIS.aDestinations[liHTMLFile,1] = &quot;\&quot;+OUTPUT_HTMLFILE_LOC + lcSourceAlias</p>
+
+<h4><a name="Application Wizard, Adding Records"></a>Application Wizard - Adding Records to Empty Tables</h4>
+
+<p>There is a known issue where applications generated by the Application Wizard
+do not add new records to empty tables. When you use the Data tab of the Application
+Builder to add a new database with the Database Wizard button, you can optionally
+generate a new database with empty tables (using a checkbox on the last step of the Wizard).</p>
+
+<p>If you then choose to generate forms for these empty tables in the Data tab, the Form
+Wizard generates new forms that don't automatically add records to a table when used
+in the application framework, such as through the <B>New</B> option on the <B>File</B> menu.
+
+<P>You can fix this problem with the following steps:</P>
+
+<P>1. Enter the following command in the Command Window:</p>
+
+<P>MODIFY CLASS baseform OF (HOME( ) + "wizards\wizbase.vcx") METHOD pickrecord</p>
+
+<P>2. Change the following line of code in the method:</p>
+
+<P>IF GETFLDSTATE(1) # 3</p>
+	
+<P>to this:</p>
+
+<P>IF GETFLDSTATE(1) # 3 OR RECCOUNT( )= 0</p>
+
+<p>3. Save and close the class.</p>
+
+<h4><a name="Application Wizard, Recompiling"></a>Application Wizard - Recompiling New Applications</h4>
+
+<p>After you create a new application with the Application Wizard, you should recompile
+the new application. To recompile the new application, open the project created for the
+new application in the <B>Project Manager</B> and choose <B>Build</B>. In the Build Options
+dialog box, choose <B>Build Application</B>, choose the <B>Recompile All Files</B> check
+box, and then choose <B>OK</B>.</p>
+
+<p>If you run your new application without first recompiling it, the error message
+"File not found - _app" may be generated.</p>
+
+<h4><a name="Form Wizard and the Maximum Design Area Setting"></a>Form Wizard and the Maximum Design Area Setting</h4>
+
+<p>The Form Wizard generates an error if the <strong>Maximum Design Area</strong> setting
+on the Forms tab of the Options dialog box is set to <strong>None</strong>. To prevent
+this error, select any of the other <strong>Maximum Design Area </strong>settings (for
+example, 800 x 600) and then choose <strong>Set As Default</strong>.</p>
+
+<h4><a name="Sample Wizard Installation"></a>Sample Wizard Installation</h4>
+
+<p>The Sample Wizard, described in detail in the Visual FoxPro Help file, isn't installed
+by default. The files for the Sample Wizard are located in the XSource.zip file in the
+\Tools\Xsource directory. This directory is located off of the Visual FoxPro home
+directory.</p>
+
+<p><B>Note </B>  The XSource.zip file in the \Tools\Xsource directory also contains the
+source code for the Wizards and the Coverage Profiler.</p>
+
+<h4><a name="SQL Server Upsizing Wizard Help"></a>SQL Server Upsizing Wizard Help</h4>
+
+<p>In the online documentation, the description of Null Mapping in the SQL Server Upsizing
+Wizard: Step 8 &#150; Set Upsizing Options help topic is incomplete. The following
+paragraphs should be added to the Null Mapping section in this topic.</p>
+
+<p>The SQL Server Upsizing Wizard contains a new option in Step 8 called Null Mapping. The
+Null Mapping option helps to ensure that insert and update commands against remote data
+will succeed. This option allows you to override the existing null setting fields in your
+Visual FoxPro tables being upsized. If you choose the General and Memo fields option, then
+<i>all</i> general and memo fields in your selected Visual FoxPro tables will be upsized
+with these fields set to allow nulls.</p>
+
+<p>There are differences in how Visual FoxPro SQL commands such as INSERT and UPDATE
+affect local and remote data depending on the null settings for fields. For example, if
+you have an INSERT command that does not include all the fields in a table, Visual FoxPro
+inserts blanks into the unspecified fields for local data. If the INSERT command is issued
+for a remote view (SQL Server data), then nulls are inserted into the fields not specified
+in the command. The command will fail if any one of these fields do not support nulls.
+It's fairly easy to write an INSERT command which includes all the fields and values to be
+inserted. Note, however, that inserting content into a general field is a little more
+cumbersome.</p>
+
+<p><strong>Documentation Issues</strong></p>
+
+<h4><a name="_BROWSER Help Topic"></a>_BROWSER Help Topic</h4>
+
+<p>In the online documentation, the next to last paragraph in the _BROWSER help topic
+describes how you can run the class browser for a specific visual class library or an
+object reference, and optionally include the name of a class that is initially selected.
+The example code that follows this paragraph contains the wrong path to Buttons.vcx. The
+example code should be replaced with the following:</p>
+
+<p>DO (_BROWSER) WITH HOME(2) + 'CLASSES\BUTTONS.VCX', 'VCR'</p>
+
+<h4><a name="Code Analyzer Help"></a>Code Analyzer Help</h4>
+
+<p>Pressing F1 to display help in the Code Analyzer doesn't display the help topics for
+the Code Analyzer Symbols or Hierarchies tabs. To display the help topics for these tabs,
+choose the Index tab in HTML Help, type Code Analyzer in the keyword text box, and press <b>Enter</b>.
+Choose the help topic for the appropriate tab. </p>
+
+<h4><a name="Guidelines for Using Visual FoxPro Foundation Classes"></a>Corrections to the Guidelines for Using Visual FoxPro Foundation Classes
+Help Topic</h4>
+
+<p>In the online documentation, the Guidelines for Using Visual FoxPro Foundation Classes
+help topic is missing text in the note in the Non-Visual Foundation Classes section. The
+Note should read &quot;This example assumes that the code can locate the _utilities.vcx
+class library or can be run from an .app file that is built containing
+_utilities.vcx.&quot; </p>
+
+<p>Also, quotation marks are missing from two sample code examples in this topic. In the
+Non-Visual Foundation Classes section, replace the following code:</p>
+
+<p>LOCAL oFileVersion<br>
+oFileVersion = NewObject(_fileversion, _utilities.vcx)<br>
+WITH oFileVersion<br>
+.cFileName = HOME( )+ 'VFP6.EXE'<br>
+.GetVersion( )<br>
+.DisplayVersion( )<br>
+ENDWITH</p>
+
+<p>with the following code:</p>
+
+<p>LOCAL oFileVersion<br>
+oFileVersion = NewObject('_fileversion', '_utilities.vcx')<br>
+WITH oFileVersion<br>
+.cFileName = HOME( )+ 'VFP6.EXE'<br>
+.GetVersion( )<br>
+.DisplayVersion( )<br>
+ENDWITH</p>
+
+<p>In the Visual Foundation Classes section, replace the following code:</p>
+
+<p>LOCAL oAbout<br>
+oAbout = NewObject(_aboutbox, _dialogs.vcx)<br>
+oAbout.Show( )</p>
+
+<p>with the following code:</p>
+
+<p>LOCAL oAbout<br>
+oAbout = NewObject('_aboutbox', '_dialogs.vcx')<br>
+oAbout.Show( )</p>
+
+<h4><a name="Duplicate Entries in the Error Messages A-Z Help Topic"></a>Duplicate Entries in the Error Messages A-Z Help Topic</h4>
+
+<p>In the online documentation, the table of error messages that start with the letter
+&quot;V&quot; contains duplicate entries in the Error Messages A-Z help topic. However,
+clicking any of these error message links will display the proper error message topic. </p>
+
+<h4><a name="Distributing the Filer with Run-Time Applications"></a>Distributing the Filer with Run-Time Applications</h4>
+
+<p>The Filer.dll Help topic states that Filer.dll and its companion files are for use with
+Visual FoxPro only, and you are not permitted to distribute any of these files with your
+distributed run-time applications. This is incorrect. You can distribute Filer.dll and
+its companion files (Filer.ico, Filer.scx, and Filer.sct) with your distributed
+Visual FoxPro 6.0 run-time applications. Filer.dll and its companion files are located
+in the Filer directory off of the Tools directory. Note that these files are unsupported -
+technical support is not available for problems encountered when using these files.</p>
+
+<p>Redist.txt, located in the Visual FoxPro home directory, contains a
+list of files you can distribute with your run-time applications. Filer.dll,
+Filer.ico, Filer.scx, and Filer.sct should be added to Redist.txt.</p>  
+
+
+
+<h4><a name="Foundation Class AddProp Method Syntax Incorrect"></a>Foundation Class AddProp Method Syntax Incorrect</h4>
+
+<p>The syntax for the AddProp method in the Visual FoxPro 6.0 _webbrowser4 Web Browser
+Control foundation class is incorrect. The following is the proper syntax with a
+description of each parameter: </p>
+
+<p><b>Syntax</b></p>
+
+<p>AddProp(<i>oObject</i>, <i>cProperty</i>, <i>tuValue</i>)</p>
+
+<p><b>Arguments</b></p>
+
+<p><i>cProperty</i> specifies the object to which the property is added.</p>
+
+<p><i>sContents</i> specifies the name of the property.</p>
+
+<p><i>tuValue</i> specifies the value to assign to the property.</p>
+
+<p>See the Web Browser Control online help topic for more information about the
+_webbrowser4 Web Browser Control foundation class and the AddProp method.</p>
+
+<h4><a name="Foundation Class InsAitem Method Syntax Incorrect"></a>Foundation Class InsAitem Method Syntax Incorrect</h4>
+
+<p>The syntax for the InsAitem method in the Visual FoxPro 6.0 _arraylib Array Handler
+foundation class is missing an optional fourth parameter. The following is the proper
+syntax with a description of each parameter: </p>
+
+<p><b>Syntax</b></p>
+
+<p>InsAitem(@<i>aArray</i>, <i>sContents</i>, <i>iRow</i> [, <i>lAllElements</i>])</p>
+
+<p><b>Arguments</b></p>
+
+<p><i>aArray</i> specifies the name of the array being processed.</p>
+
+<p><i>sContents</i> specifies a string value to be added to <i>aArray</i>.</p>
+
+<p><i>iRow</i> specifies the row in which to insert the value in <i>sContents</i>.</p>
+
+<p><i>lAllElements</i>, if true (.T.), sets all elements in <i>iRow</i> to <i>sContents</i>.</p>
+
+<p>See the Array Handler online help topic for more information about the _arraylib Array
+Handler foundation class and the InsAitem method.</p>
+
+<h4><a name="Genhtml.prg Syntax"></a>Genhtml.prg Syntax</h4>
+
+<p>In the online documentation, the order of the parameters you can pass to Genhtml.prg
+are incorrect in the Genhtml.prg help topic. The following is the correct syntax:</p>
+
+<p>DO (_GENHTML) WITH &lt;<i>cOutFile</i>&gt; &lt;<i>cSourceFile</i>&gt; [, &lt;<i>nShow</i>&gt;]
+[, &lt;<i>vIELink</i>&gt;] [,&#133; </p>
+
+<h4><a name="HTML Help Sample Project Directory Changed"></a>HTML Help Sample Project Directory Changed</h4>
+
+<p>In the Visual FoxPro online documentation, Chapter 32 in the <i>Programmer's Guide</i>
+states that a sample HTML Help project is included in the directory
+...\Samples\Vfp98\Solution\Help. This directory doesn't exist. </p>
+
+<p>The HTML Help project and its files are in a .zip file, Solnhlp.zip, located in the
+Tools\XSource directory in the directory in which Visual FoxPro 6.0 is installed. </p>
+
+<h4><a name="HTML Item Dialog Box Description Incomplete"></a>HTML Item Dialog Box Description Incomplete</h4>
+
+<p>In the online documentation, the HTML Item dialog box description (the first line in
+the topic) is incomplete. The first line should read &quot;Enables you to specify
+additional items and their attributes for the Web page you create.&quot; </p>
+
+<h4><a name="Reserved Words"></a>Reserved Words</h4>
+
+<p>Many of the Visual FoxPro reserved words are not included in the Reserved Words online
+help topic. The following table lists the additional reserved words that should appear in
+the Reserved Words help topic. </p>
+
+<table CELLPADDING="5" CELLSPACING="1" WIDTH="1" BORDER="0">
+  <caption><b><font SIZE="-1">Reserved Words</font></b></caption>
+  <tr>
+    <td><font SIZE="-1">(</font></td>
+    <td><font SIZE="-1">+</font></td>
+    <td><font SIZE="-1">=&gt;</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">ADDBS</font></td>
+    <td><font SIZE="-1">AGETCLASS</font></td>
+    <td><font SIZE="-1">AGETFILEVERSION</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">ALINES</font></td>
+    <td><font SIZE="-1">AMOUSEOBJ</font></td>
+    <td><font SIZE="-1">ANETRESOURCES</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">AVCXCLASSES</font></td>
+    <td><font SIZE="-1">BARCOUNT</font></td>
+    <td><font SIZE="-1">BARPROMPT</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">BOF</font></td>
+    <td><font SIZE="-1">COMARRAY</font></td>
+    <td><font SIZE="-1">COMCLASSINFO</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">COMRETURNERROR</font></td>
+    <td><font SIZE="-1">CREATEBINARY</font></td>
+    <td><font SIZE="-1">CREATEOBJECTEX</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">CTOBIN</font></td>
+    <td><font SIZE="-1">CURSORGETPROP</font></td>
+    <td><font SIZE="-1">CURSORSETPROP</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">DBGETPROP</font></td>
+    <td><font SIZE="-1">DBSETPROP</font></td>
+    <td><font SIZE="-1">DEFAULTEXT</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">DRIVETYPE</font></td>
+    <td><font SIZE="-1">FILETOSTR</font></td>
+    <td><font SIZE="-1">FLDCOUNT</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">FONTMETRIC</font></td>
+    <td><font SIZE="-1">FORCEEXT</font></td>
+    <td><font SIZE="-1">FORCEPATH</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">FSEEK</font></td>
+    <td><font SIZE="-1">FTIME</font></td>
+    <td><font SIZE="-1">GETHOST</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">GETPEM</font></td>
+    <td><font SIZE="-1">HOME</font></td>
+    <td><font SIZE="-1">INDEXSEEK</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">ISBLANK</font></td>
+    <td><font SIZE="-1">ISHOSTED</font></td>
+    <td><font SIZE="-1">ISMOUSE</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">JUSTDRIVE</font></td>
+    <td><font SIZE="-1">JUSTEXT</font></td>
+    <td><font SIZE="-1">JUSTFNAME</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">JUSTPATH</font></td>
+    <td><font SIZE="-1">JUSTSTEM</font></td>
+    <td><font SIZE="-1">LIKEC</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">MRKPAD</font></td>
+    <td><font SIZE="-1">PADPROMPT</font></td>
+    <td><font SIZE="-1">PCOUNT</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">PEMSTATUS</font></td>
+    <td><font SIZE="-1">SQLCANCEL</font></td>
+    <td><font SIZE="-1">SQLCOLUMNS</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">SQLCONNECT</font></td>
+    <td><font SIZE="-1">SQLDISCONNECT</font></td>
+    <td><font SIZE="-1">SQLEXEC</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">SQLGETPROP</font></td>
+    <td><font SIZE="-1">SQLMORERESULTS</font></td>
+    <td><font SIZE="-1">SQLPREPARE</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">SQLSETPROP</font></td>
+    <td><font SIZE="-1">SQLSTRINGCONNECT</font></td>
+    <td><font SIZE="-1">SQLTABLES</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">STRTOFILE</font></td>
+    <td><font SIZE="-1">TAGCOUNT</font></td>
+    <td><font SIZE="-1">TAGNO</font></td>
+  </tr>
+  <tr>
+    <td><font SIZE="-1">VARTYPE</font></td>
+    <td><font SIZE="-1">WINDOW</font></td>
+    <td></td>
+  </tr>
+</table>
+
+<h4><a name="SetData Method Help Topic"></a>SetData Method Help Topic</h4>
+
+<p>In the online documentation, the Remarks section of the SetData Method help topic
+states that the SetData method can only be executed in the OLEStartDrag event. This is
+incorrect -- the SetData method can be executed in the OLEStartDrag event <i>and</i> the
+OLESetData event. </p>
+
+<h3><a name="vfpNewHead"></a>What's New in Visual FoxPro 6.0</h3>
+
+<p>To find out about the features that are new to Visual FoxPro 6.0, see the &quot;What's
+New in Visual FoxPro 6.0&quot; topic in the Visual FoxPro online documentation.</p>
+
+<h3><a name="ReadmeSection4">Finding More Information</a></h3>
+
+<h4><a name="Frequently Asked Questions"></a>Frequently Asked Questions</h4>
+
+<p>Included with Visual FoxPro is a file called Vfp6FAQ.txt which contains answers to
+questions often asked about Visual FoxPro. Vfp6FAQ.txt is installed in the main Vfp98
+directory.</p>
+
+<p>&nbsp;</p>
+</font>
+</body>
+</html>

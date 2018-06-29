@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta NAME="GENERATOR" Content="Microsoft Developer Studio">
+<title>Data Entry - Behind the Scenes</title>
+
+</head>
+<BODY BGCOLOR="#FFFFFF" LEFTMARGIN="40" LINK="#500000" VLINK="#505050">
+<FONT FACE="Verdana, Arial, Helvetica" SIZE="2">
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<BR><BR>
+<P>This sample uses one file: Entry.asp. This file uses 
+several different design-time controls to browse, edit, and navigate through the 
+records in the database.</P>
+<P><STRONG>Recordset DTC</STRONG>: This control connects 
+the page to the DENTRY table.</P>
+<P><STRONG>TextboxDTC</STRONG>: These controls are used to 
+display and edit the First Name, Last Name, Address, City, State/Province, and 
+Postal Code fields in the DENTRY table. Each of these controls is bound to a 
+field in the table.</P>
+<P><STRONG>OptionGroup DTC</STRONG>: This control is bound 
+to the SEX field in the DENTRY table. Static values of Male and Female are set 
+in the properties of the control. They correspond to a 1 for Male and 0 for 
+Female in the table.</P>
+<P><STRONG>Listbox DTC</STRONG>: This control is set to be 
+a drop-down list box and is bound to the INCOME field in the DENTRY table.</P>
+<P><STRONG>Checkbox DTC</STRONG>: This control is bound to 
+the PC field of the DENTRY table. The value of the field is a bit value to 
+determine if the check box should be checked or not.</P>
+<P><STRONG>RecordsetNavBar DTC</STRONG>: This control is 
+bound to the Recordset DTC to allow the user to step through the records in the 
+DENTRY table.</P>
+<P><STRONG>FormManager DTC</STRONG>: This control manages 
+the entire form. When the form is first viewed, it is in the Browse mode. There 
+are two buttons visible at the top of the form that allow you to toggle between 
+Browse and Edit modes. When you switch to Edit mode three more buttons become 
+visible and the RecordsetNavBar is hidden. The three extra buttons allow you to 
+Insert, Delete or Update information in the DENTRY table.<BR>In the FormManager 
+properties dialog box the Browse and Edit mode properties are set to enable and 
+disable the controls within the form. The Browse mode is also set to be the 
+default mode when you enter this Web page.<BR>In the Action tab of the 
+FormManager properties dialog box the properties for the buttons are set. Each 
+button performs a different set of actions.</P>
+<P>The Edit button will enable the controls on the form, 
+display three buttons for Insert, Delete and Update, and will also hide the 
+RecordsetNavBar.</P>
+<P>The Insert button will call the Recordset.AddRecord 
+method and then call the Recordset.MoveLast method to allow you to edit the 
+newly added record.</P>
+<P>The Delete button will call the Recordset.DeleteRecord 
+method to delete the currently selected record and then call the 
+Recordset.MoveFirst method to display the first record in the recordset.</P>
+<P>The Update button calls the Recordset.UpdateRecord 
+method to save any changes that have been made to the currently selected record. 
+This button needs to be clicked in order to save any changes that have been made 
+to a new record that has been created using the Insert button.</P>
+<P>The Browse button will disable the controls on the form, 
+hide the three editing buttons, and display the RecordsetNavBar.</P>
+
+</FONT>
+</BODY>
+</html>

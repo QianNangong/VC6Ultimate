@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+</HEAD>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<BR><BR>
+<P>This sample uses one file, Prefer.asp, which creates an 
+HTML form that posts information back to the same ASP page. When creating a page 
+to save settings to cookies, you will not generally use this method. Instead, 
+you would typically use one page to store settings, and use other pages in your 
+application to read them back. First, this ASP page checks whether the HTML form 
+has posted back to the ASP page already. If it has, two cookies are written 
+using server-side Visual Basic, Scripting Edition (VBScript).</P>
+<FONT face=Courier>
+If Len(Request(&quot;BGColor&quot;)) &gt; 0 
+then <BR>&nbsp;&nbsp; Response.Cookies(&quot;BGColor&quot;) 
+= Request(&quot;BGColor&quot;) <BR>&nbsp;&nbsp; 
+Response.Cookies(&quot;FGColor&quot;) = Request(&quot;FGColor&quot;) <BR>
+End If 
+</FONT>
+<P>Then, the code checks to see if a cookie called BGColor 
+has been written out. If there is no cookie, the page has not saved any 
+preferences and the index of the drop-down boxes should be set to 0. If the 
+cookies exist, they are read into variables to be placed into client-side 
+JavaScript.</P>
+<FONT face=Courier>
+If 
+Request.Cookies(&quot;intBGColor&quot;) = &quot;&quot; then <BR>&nbsp;&nbsp; intBG = 0 <BR>&nbsp;&nbsp; intFG = 0 <BR>
+Else <BR>&nbsp;&nbsp; intBG = 
+Request.Cookies(&quot;intBGColor&quot;) <BR>&nbsp;&nbsp; 
+intFG = Request.Cookies(&quot;intFGColor&quot;) <BR>
+End If 
+</FONT>
+<P>The BODY tag is used to set the background color and to 
+call a function to set the index values of the drop-down boxes.</P>
+<FONT face=Courier>&lt;BODY BGCOLOR=&lt;%= 
+Request.Cookies(&quot;BGColor&quot;)%&gt; ONLOAD=&quot;setcolor()&quot;&gt; 
+</FONT>
+<P>The SetColor function uses JavaScript to set the index 
+values. The code gets the values from cookies that were read using server-side 
+VBScript. </P>
+<FONT face=Courier>
+function setcolor() { <BR>&nbsp;&nbsp; document.Pref.BGColor.selectedIndex = 
+&lt;%=intBG%&gt;; <BR>&nbsp;&nbsp; 
+document.Pref.FGColor.selectedIndex = &lt;%=intFG%&gt;; <BR>
+} 
+</FONT>
+<P>The foreground color is set using the FONT tag.</P>
+<FONT face=Courier>&lt;FONT 
+COLOR=&lt;%=Request.Cookies(&quot;FGColor&quot;)%&gt;&gt; 
+</FONT>
+<P>The rest of the page creates a form that, when 
+submitted, will call a function to write the index values of the drop-down boxes 
+into cookies and post the information back to this same 
+ASP.</P></FONT>
+
+</BODY>
+</html>

@@ -1,0 +1,177 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 EventManager Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateEventManager(strName)
+{
+	if (typeof(strName) == 'string')
+	{
+		if (eval('typeof(_EM_' + strName + ')') != 'object')
+			eval('_EM_' + strName + ' = new _EventManager()');
+		return eval('_EM_' + strName);
+	}
+	return new _EventManager();
+}
+
+function _EventManager()
+{
+	_EM_Prototype();
+	this._events = new Array;
+	this._nLastAdviseID = 0;
+}
+
+function _EM_Prototype()
+{
+	_EventManager.prototype.advise = _EM_advise;
+	_EventManager.prototype.adviseDefaultHandler = _EM_adviseDefaultHandler;
+	_EventManager.prototype.unadvise = _EM_unadvise;
+	_EventManager.prototype.fireEvent = _EM_fireEvent;
+	_EventManager.prototype.getEventCount = _EM_getEventCount;
+	_EventManager.prototype.getEvent = _EM_getEvent;
+}
+
+function _EM_Advisor()
+{
+	this.funcToCall = 0;
+	this.nAdviseID = 0;
+}
+
+function _EM_advise(strEvent,funcToCall)
+{
+	if ((typeof(strEvent) == 'string') && 
+		(strEvent != '') && 
+		(typeof(funcToCall) != 'undefined'))
+	{
+		if (typeof(this._events[strEvent]) == 'undefined')
+			this._events[strEvent] = new Array;
+
+		var adviseList = this._events[strEvent];
+		var objAdvisor = new _EM_Advisor;
+		objAdvisor.funcToCall = funcToCall;
+		objAdvisor.nAdviseID = ++this._nLastAdviseID;
+		adviseList[adviseList.length] = objAdvisor;
+		return this._nLastAdviseID;
+	}
+	return -1;
+}
+
+function _EM_adviseDefaultHandler(strName,strEvent,bVirtualEvent)
+{
+	var nAdviseID = -1;
+	var strDefaultHandler = strName + '_' + strEvent;
+	// temporarily commandeer the onerror event to prevent
+	// error message for a known script engine 3.1 issue
+	// when using typeof on a non-javascript function
+	var fnUserErrorHandler = window.onerror;
+	window.onerror = _EM__suppressError;
+	// the 4.0 jscript engine will return 'unknown' for VBScript functions
+	// this mechanism is used to wire-up virtual events, but real HTML events
+	// are automatically fired by IE4 so real events should not be wired up or
+	// the eventhandler will be called twice
+	if (eval('typeof(' + strDefaultHandler + ')') == 'function' ||
+		((typeof(bVirtualEvent) != 'undefined') && bVirtualEvent && eval('typeof(' + strDefaultHandler + ')') == 'unknown'))
+		nAdviseID = this.advise(strEvent,strDefaultHandler + '()');
+	window.onerror = fnUserErrorHandler;
+	return nAdviseID;
+}
+
+function _EM__suppressError(msg,url,line)
+{	// used to suppress harmless error message in 3.1 scripting engines
+	window.event.returnValue = true;
+}
+
+function _EM_unadvise(strEvent,nAdviseID)
+{
+	if ((typeof(strEvent) != 'undefined') && 
+		(nAdviseID != 'undefined') && 
+		(typeof(this._events[strEvent]) != 'undefined'))
+	{
+		var adviseList = this._events[strEvent];
+		var nLen = adviseList.length
+		for (var i=0; i < nLen; i++)
+		{
+			if (adviseList[i].nAdviseID == nAdviseID)
+			{
+				for (var j = Number(i); j < nLen - 1; j++)
+					adviseList[j] = adviseList[j+1];
+				adviseList.length -= 1;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+function _EM_fireEvent(strEvent)
+{
+	if (typeof(this._events[strEvent]) != 'undefined')
+	{
+		var bReturn = true;
+		var adviseList = this._events[strEvent];
+		for (var i=0; i < adviseList.length; i++)
+			_EM__fireEvent(adviseList[i].funcToCall);
+	}
+}
+
+function _EM_getEventCount()
+{
+		var nLength = 0;
+		for (var event in this._events)
+			nLength++;
+		return nLength;
+}
+
+function _EM_getEvent(nIndex)
+{
+	var i = 0;
+	for (var event in this._events)
+	{
+		if (nIndex == i)
+			return event;
+	}
+	return '';
+}
+
+function _EM__fireEvent(funcToFire)
+{
+	if (document.readyState != 'complete')
+	{
+		if (typeof(_EM__EventManager) == 'undefined' || _EM__EventManager == null)
+		{
+			_EM__EventManager = new _EventManager();
+			document.onreadystatechange = _EM__fireInit;
+		}
+		_EM__EventManager.advise('oninit',funcToFire);
+		return;
+	}
+
+	if (typeof(funcToFire) == 'string')
+		eval(funcToFire);
+	else if (typeof(funcToFire) == 'function')
+		funcToFire();
+}
+
+function _EM__fireInit()
+{
+	if (document.readyState == 'complete')
+	{
+		_EM__EventManager.fireEvent('oninit');
+		_EM__EventManager = null;	
+	}
+}
+
+function encodeHTMLQuotes(strIn)
+{
+	var strOut;
+	while (strOut != strIn)
+	{
+		strOut = strIn;
+		strIn = strIn.replace('"', '&quot;');
+	}
+	
+	return strOut;
+}
+

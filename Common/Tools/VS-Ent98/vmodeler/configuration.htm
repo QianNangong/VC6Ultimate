@@ -1,0 +1,236 @@
+<html>
+<body bgcolor=#ffffff>
+ 
+<strong><a href="installation.htm">[PREVIOUS]</a></strong>
+<strong><a href="updates.htm">[NEXT]</a></strong> -
+<a href="releasenote.htm">[Home]</a> 
+<a href="installation.htm">[Installation</a>
+[Configurations]
+<a href="updates.htm">[Problems and Limitations]</a>
+<hr><br>
+ 
+<head><title>Configurations Supported by Visual Modeler 2.0
+ </title></head>
+
+<a name="445386">
+<h1> Configurations Supported by Visual Modeler 2.0
+ </h1>
+
+</a><a name="449553">
+<h2> Visual Modeler 2.0 System Requirements
+</h2>
+
+</a><a name="80098">
+<p>To install and run Visual Modeler 2.0 successfully on 
+Windows, you need:
+</p>
+</a><a name="80142">
+<p>  
+<Table Border="3">
+<caption></caption>
+<tr><th><a name="80102">
+<strong>Item
+</strong>
+</a><th><a name="80104">
+<strong>Requirement  
+</strong>
+</a>
+<tr><td><a name="80106">
+<p>Computer
+</p>
+</a><td><a name="80108">
+<p>Personal computer with an 80486- or Pentium-compatible processor, 
+or Digital Alpha/Windows NT personal workstation
+</p>
+</a>
+<tr><td><a name="80110">
+<p>Memory
+</p>
+</a><td><a name="80112">
+<p>At least 32 MB of RAM is recommended
+</p>
+</a>
+<tr><td><a name="80115">
+<p>Disk space
+</p>
+</a><td><a name="80117">
+<p>25 MB for Visual Modeler, plus 1-3 MB for each model; 
+Visual Modeler data files require about twice the space used by 
+the source code files
+</p>
+</a>
+<tr><td><a name="80119">
+<p>Disk drive
+</p>
+</a><td><a name="80121">
+<p>CD-ROM drive for installation
+</p>
+</a>
+<tr><td><a name="80123">
+<p>Display
+</p>
+</a><td><a name="80125">
+<p>VGA-compatible graphics card and monitor; 256 or more colors 
+recommended
+</p>
+</a>
+<tr><td><a name="80127">
+<p>Mouse
+</p>
+</a><td><a name="80129">
+<p>Any pointing device with at least two buttons
+</p>
+</a>
+<tr><td><a name="80131">
+<p>Printer
+</p>
+</a><td><a name="80133">
+<p>Any standard PostScript or PCL5 printer (optional)
+</p>
+</a><a name="80134">
+<p>Printing Visual Modeler files requires no additional printer setup. If 
+you have printer problems, try one of the following:
+</p>
+</a><ul><a name="80135">
+<li>Use the Windows printer control panel to make printer changes
+
+</a><a name="80136">
+<li>Consult the manuals provided with your printer
+
+</a><a name="80137">
+<li>Contact the printer manufacturer's customer service 
+representatives
+
+</a></ul>
+<tr><td><a name="80139">
+<p>Operating 
+system
+</p>
+</a><td><a name="80141">
+<p>Microsoft&#169; Windows 95 or Windows NT 4.0
+</p>
+</a>
+
+</Table>
+
+<Table>
+<tr><td>
+</Table>
+
+</p>
+</a><a name="491998">
+<h2> Swap Files
+</h2>
+</a><a name="491999">
+<p>When working with large model files, Visual Modeler runs faster 
+with a permanent swap file. You can set this from the Windows 
+Control Panel. If Visual Modeler  reports "low memory" during normal 
+operation, increase the size of permanent virtual memory.
+</p>
+</a><a name="492000">
+<h2> Video Cards and Drivers
+</h2>
+</a><a name="492001">
+<p>Visual Modeler was tested with a number of video cards and drivers. 
+The Diamond Viper Pro Video card 
+required the driver be updated to driver 3.5 v1.2 on Windows 
+NT. If you experience display problems with other video card 
+and driver combinations, check with the video card vendor to 
+see if an updated driver is available that may correct the 
+problem.
+</p>
+</a><a name="492002">
+<p>Visual Modeler uses the current font size, among other factors, to 
+determine the optimal size of a class icon when autosizing it. If 
+your video driver supports large and small fonts, you may 
+notice that a class that was autosized and saved with small 
+fonts does not appear autosized correctly when read in using 
+large fonts, and vice-versa. You can correct this by either:
+</p>
+</a><ul><a name="492003">
+<li>Choosing <kbd><b>Tools</b></kbd> &gt; <kbd><b>Autosize All</b></kbd> to resize all icons on a diagram
+
+</a><a name="492004">
+<li>Toggling <kbd><b>Edit</b></kbd> &gt; <kbd><b>Diagram Object Properties</b></kbd> &gt; <kbd><b>Automatic Resize</b></kbd> off and back on to 
+autosize selected icons
+
+</a></ul><a name="492005">
+<h2> Printers and Printer Drivers
+</h2>
+</a></ul><a name="492015">
+<p>If you experience printing problems with other printer and 
+driver combinations, check with the printer vendor to see if an 
+updated driver is available that may correct the problem.
+</p>
+</a><a name="492016">
+<h2> Windows 95 Mouse Driver
+</h2>
+</a><a name="492017">
+<p>The <code><b>EM_EXEC.exe</b></code> mouse driver file on some 
+Windows 95 PCs-especially laptops-that interferes with 
+Visual Modeler. (The typical symptom is a crash while you are 
+entering a class name directly on a class diagram, but Visual Modeler
+may also crash at other times with varying frequency.)
+</p>
+</a><a name="492018">
+<p>This mouse driver file must be deleted or renamed for Visual Modeler to 
+function properly:
+</p>
+</a><ol>
+<a name="492019">
+<li>Start your PC in command prompt mode. (Press <kbd><b>F5</b></kbd> during 
+boot and select command prompt start.)
+
+</a><a name="492020">
+<li>Go to the <code><b>C:\mouse\system</b></code> directory.
+
+</a><a name="492021">
+<li>Delete or rename the file <code><b>EM_EXEC.exe</b></code>. This should <em>not</em> 
+impact any Windows 95 performance.
+
+</a><a name="492022">
+<li>Do a normal reboot.
+
+</a></ol>
+</p>
+</a><a name="492023">
+<p>To install a newer version of the driver, which does not interfere
+with Visual Modeler:
+</p>
+</a><ol>
+<a name="492024">
+<li>Contact Logitech to get an update. The update can be found
+at <CODE><B>ftp://ftp.logitech.com/TechSupport/MOUSE</B></CODE>.
+The name of the file is <CODE><B>mw7aol.exe</B></CODE>,
+May 3, 1996 101k.
+
+</a><a name="492025">
+<li>When you execute that file, it will be expanded into several
+other files, including a later version of <CODE><B>EM_EXEC.exe</B></CODE>
+which should work together with Visual Modeler.
+
+</a></ol>
+<P>
+Another mouse product that may interfere with Visual Modeler is
+the Microsoft IntelliMouse, which comes with a mouse driver called
+<CODE><B>Point32.exe</B></CODE>.
+To solve this problem, bring up the task list in Windows and end
+the task called &quot;point32&quot;.</P> 
+<hr>
+<strong><a href="installation.htm">[PREVIOUS]</a></strong>
+<strong><a href="updates.htm">[NEXT]</a></strong> -
+<a href="releasenote.htm">[Home]</a> 
+<a href="installation.htm">[Installation]</a>
+[Configurations]
+<a href="updates.htm">[Problems and Limitations]</a>
+<hr><br>
+
+
+</address>
+
+<!-- HTML created with Quadralay WebWorks Publisher 3.0.8 -->
+<!-- on 02/03/97 at 22:07:06. -->
+
+</body>
+</html>
+

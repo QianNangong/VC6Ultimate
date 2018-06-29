@@ -1,0 +1,39 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+</HEAD>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<BR><BR>
+
+<P>This sample uses one file: Query.asp. After the user 
+enters the search criteria the results are displayed using a data-bound grid. 
+</P>
+
+<P>To create the dynamic query a function must be called to 
+set the SQL statement for the recordset. The function first determines if the 
+user selected CONTAINS or BEGINS WITH from the first drop-down and then builds 
+the SQL statement. </P>
+
+<P>The new SQL statement is sent to the recordset and the 
+new recordset is opened. The function below shows the code that is executed once 
+the Search button is clicked: </P>
+
+<FONT FACE="Courier">
+<P>function Button1_onclick() { <BR>&nbsp;&nbsp; if (Listbox2.getValue(Listbox2.selectedIndex) == 
+&quot;Contains&quot;) { <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+newSQL = &quot;Select * FROM Customers WHERE (&quot; + 
+Listbox1.getValue(Listbox1.selectedIndex) + &quot; LIKE '%&quot; + 
+Textbox1.value + &quot;%')&quot;; } else { newSQL = &quot;Select * FROM 
+Customers WHERE (&quot; + Listbox1.getValue(Listbox1.selectedIndex) + &quot; 
+LIKE '&quot; + Textbox1.value + &quot;%')&quot;; } <BR>&nbsp;&nbsp; DTCRecordset1.setSQL(newSQL); <BR>&nbsp;&nbsp; DTCRecordset1.open(); <BR>
+} </P>
+</FONT>
+
+<P>After the new recordset is opened the results are 
+displayed using a data-bound grid. The grid displays the data in pages of ten 
+records each.</P></FONT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,77 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 Miscellaneous utility functions for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+//*****************************************************************
+// function closure(obj,method)
+//
+//	Creates a closure object for encapsulating a function of an 
+//	object instance.
+//*****************************************************************
+function closure(obj,method)
+{
+	return function() 
+	{ 
+		var params = ""; var i;
+
+		for (i = 0; i < (arguments.length - 1); i++) 
+		{	params += arguments[i] + ","	}
+
+		if (i < arguments.length) 
+		{	params += arguments[i];			}
+
+		with (obj) 
+			return eval(method + "(" + params + ")"); 
+	};
+}
+
+//*****************************************************************
+// function TypeOf(x)
+//
+//	Returns a string indicating the type of given variable x.
+//	This is a specialized implementation of the native typeof
+//	function which differentiates date and array objects.
+//
+//	Returns "undefined","function","string","boolean",
+//			"number", "object", "array", or "date"
+//*****************************************************************
+function TypeOf(x)
+{
+	var t = typeof(x);
+	if (t == "object" && x != null)
+	{
+		if (typeof(x.constructor) != "undefined")
+		{ 
+			var ctor = new String(x.constructor);
+			var chStart = ctor.indexOf("function");
+			var chEnd = ctor.indexOf("(");
+			if (chStart != -1 && chEnd != -1)
+			{
+				ctor = ctor.substring(chStart+9,chEnd);
+				if (ctor == "Array" || ctor == "Date" || ctor == "String" || ctor == "Number" || ctor == "Boolean")
+					t = ctor.toLowerCase();
+			}
+		}
+	}
+	return t;
+}
+
+//*****************************************************************
+// function QuickDictionary()
+//
+//	A quick and dirty implementation of a dictionary.
+//*****************************************************************
+function QuickDictionary()
+{
+	this.dict = new Object;
+	this.items = new Array;
+	this.count = 0;
+	this.Add = new Function("key","item","this.dict[key] = this.count; this.items[this.count] = item; this.count++;");
+	this.Exists = new Function("key","return (typeof(this.dict[key]) != \"undefined\");");
+	this.Item = new Function("key","return this.items[this.dict[key]];");
+	this.RemoveAll = new Function("","this.dict = new Object; this.items.length = 0; this.count = 0;");
+}
+

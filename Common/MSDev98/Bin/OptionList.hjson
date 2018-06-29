@@ -1,0 +1,4224 @@
+{
+	Folders:[
+		{
+			Name:"Source Code"
+			Folders:[
+				{
+					Name:"Current Line"
+					Options:[
+						{
+							Type:boolean
+							Variable:bHighlightCurrentLine
+							DefaultValue:false
+							Title:"Highlight current line"
+							Description:"Highlights the current line. Three styles are available:\n- Change the line's background color\n- Draw a Dotted Box around the line\n- Draw a Solid Box around the line"
+							Section:"CurrentLine"
+							Params:[
+								{
+									Type:enum
+									Variable:HighlightCurrentLineType
+									DefaultValue:0
+									Values:[
+										{Title:"Background Color", Value:0}
+										{Title:"Dotted Box", Value:1}
+										{Title:"Solid Box", Value:2}
+									]
+									Params:[
+										{
+											Type:color
+											Variable:HighlightCurrentLineBackgroundColor
+											DefaultValue:0x808080
+											Condition:{
+												Type:enum
+												Variable:HighlightCurrentLineType
+												Value:0
+											}
+										}
+									]
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bHighlightMargin
+							DefaultValue:false
+							Title:"Highlight current line margin"
+							Section:"CurrentLine"
+							Params:[
+								{
+									Type:color
+									Variable:CurrentLineMarginBackgroundColor
+									DefaultValue:0x808080
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseScrollLock
+							DefaultValue:false
+							Title:"Always center the view on the current line"
+							Section:"CurrentLine"
+						}
+						{
+							Type:boolean
+							Variable:bEndOfLineRightTrim
+							DefaultValue:false
+							Title:"LineEnd command ignores trailing whitespaces on first call (toggling this setting can corrupt existing macros)"
+							Description:"The 'LineEnd' command first stops at the trailing whitespaces, then jumps to the end of line like the original function.\nThis behavior affects the original 'LineEnd' command so if a macro uses it, the behavior of the macro will be affected too."
+							Section:"CurrentLine"
+						}
+						{
+							Type:boolean
+							Variable:bLineCutAutoToggle
+							DefaultValue:false
+							Title:"Automatically use LineCut instead of Cut when no text is selected"
+							Section:"CurrentLine"
+						}
+					]
+				}
+				{
+					Name:"Tooltips"
+					Options:[
+						{
+							Type:boolean
+							Variable:bFixTooltipDisplayOnMultiMonitors
+							DefaultValue:false
+							Title:"Fix Tooltip Display on Multi-monitors"
+							Section:"Debugger"
+						}
+						{
+							Type:boolean
+							Variable:bAllowMultiLineTooltip
+							DefaultValue:false
+							Title:"Allow Multi-line Tooltips"
+							Section:"Debugger"
+						}
+						{
+							Type:boolean
+							Variable:bDisplayTooltipAboveCursorPos
+							DefaultValue:false
+							Title:"Display Tooltip Above Cursor Position"
+							Section:"Debugger"
+						}
+						{
+							Type:boolean
+							Variable:bEnhancedWatchTooltips
+							DefaultValue:false
+							Title:"Enhanced Watch Tooltips (type and color)"
+							Section:"Debugger"
+							Params:[
+								{
+									Type:boolean
+									Variable:bWatchTooltip_DisplayType
+									DefaultValue:false
+									Title:"Display Watch Type"
+
+								}
+								{
+									Type:boolean
+									Variable:bWatchTooltip_UseColors
+									DefaultValue:false
+									Title:"Use Colors"
+									Params:[
+										{
+											Type:color
+											Banner:"Type"
+											Variable:Tooltip_TypeColor
+											DefaultValue:0x8080FF
+										}
+										{
+											Type:color
+											Banner:"Value"
+											Variable:Tooltip_ValueColor
+											DefaultValue:0xFF8080
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bWatchTooltip_Dockable
+									DefaultValue:false
+									Title:"Dockable Tooltips (Hold Shift Key to keep visible)"
+								}
+								{
+									Type:boolean
+									Variable:bWatchTooltip_KeepVisibleOnReach
+									DefaultValue:false
+									Title:"Remain visible when trying to reach the tooltip"
+								}
+								{
+									Type:boolean
+									Variable:bWatchTooltip_UseViewFont
+									DefaultValue:false
+									Title:"Use the text view's font"
+								}
+								{
+									Type:boolean
+									Variable:bWatchTooltip_DockAtEndOfCurrentLine
+									DefaultValue:false
+									Title:"Dock at end of current line"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bChangeTooltipTimerSpeed
+							DefaultValue:false
+							Title:"Tooltip Delay (ms) (default:600)"
+							Section:"Tooltip"
+							Params:[
+								{
+									Type:integer
+									Variable:TooltipTimerSpeed
+									DefaultValue:600
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Standard Colors"
+					Options:[
+						{
+							Type:color
+							Variable:StdTextForeground
+							DefaultValue:0
+							Title:"Text"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdTextBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdTextSelectionForeground
+							DefaultValue:0
+							Title:"Text Selection"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdTextSelectionBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdCurrentErrorTagForeground
+							DefaultValue:0
+							Title:"Current Error/Tag"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdCurrentErrorTagBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdBookmarkForeground
+							DefaultValue:0
+							Title:"Bookmark"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdBookmarkBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdBreakpointForeground
+							DefaultValue:0
+							Title:"Breakpoint"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdBreakpointBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdCurrentStatementForeground
+							DefaultValue:0
+							Title:"Current Statement"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdCurrentStatementBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdSelectionMarginForeground
+							DefaultValue:0
+							Title:"Selection Margin"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdSelectionMarginBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdKeywordForeground
+							DefaultValue:0
+							Title:"Keyword"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdKeywordBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdCommentForeground
+							DefaultValue:0
+							Title:"Comment"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdCommentBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdNumberForeground
+							DefaultValue:0
+							Title:"Number"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdNumberBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdStringForeground
+							DefaultValue:0
+							Title:"String"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdStringBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdOperatorForeground
+							DefaultValue:0
+							Title:"Operator"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdOperatorBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdWizardIODLCodeForeground
+							DefaultValue:0
+							Title:"Wizard IDL/ODL Code"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdWizardIODLCodeBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdWizardCodeForeground
+							DefaultValue:0
+							Title:"Wizard Code"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdWizardCodeBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdUserKeywordForeground
+							DefaultValue:0
+							Title:"User Defined Keywords"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdUserKeywordBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:UnknownTextForegroundColor
+							DefaultValue:CLR_DEFAULT
+							Title:"Unknown Text"
+							Section:"Source"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:UnknownTextBackgroundColor
+									DefaultValue:CLR_DEFAULT
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:ImageLinkTextForegroundColor
+							DefaultValue:COLOR_HOTLIGHT
+							Title:"Image Link"
+							Section:"Source"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:ImageLinkBackgroundColor
+									DefaultValue:CLR_DEFAULT
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:SelectedGridLineTextForegroundColor
+							DefaultValue:CLR_DEFAULT
+							Title:"Selected Grid Line"
+							Section:"Source"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:SelectedGridLineLinkBackgroundColor
+									DefaultValue:CLR_DEFAULT
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:MacroNameDefinitionForegroundColor
+							DefaultValue:CLR_DEFAULT
+							Title:"Macro Name Definition"
+							Section:"Source"
+							Banner:"Foreground"
+// 							Params:[
+// 								{
+// 									Banner:"Background"
+// 									Type:color
+// 									Variable:MacroNameDefinitionBackgroundColor
+// 									DefaultValue:CLR_DEFAULT
+// 								}
+// 							]
+						}
+						{
+							Type:color
+							Variable:MacroBodyDefinitionForegroundColor
+							DefaultValue:0x808080
+							Title:"Macro Body Definition"
+							Section:"Source"
+							Banner:"Foreground"
+						}
+					]
+				}
+				{
+					Name:"Clang Colors"
+					Options:[
+						{
+							Type:boolean
+							Variable:bCLangColorize
+							DefaultValue:false
+							Title:"Use Clang Colorization (Reopen files needed) "
+							Section:"EnhancedDisplay_CLang"
+							Params:[
+								{
+									Type:boolean
+									Variable:bCLang_FunctionName
+									DefaultValue:false
+									Title:"Function/Method"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_FunctionNameColor
+											Banner:"Foreground"
+											DefaultValue:0xC0C0FF
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_ClassStruct
+									DefaultValue:false
+									Title:"Struct/Class"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_StructClassColor
+											Banner:"Foreground"
+											DefaultValue:0xFFC0C0
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_TemplateClassStruct
+									DefaultValue:false
+									Title:"Template Struct/Class"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_TemplateStructClassColor
+											Banner:"Foreground"
+											DefaultValue:0xFFE0E0
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_TemplateNumericParameter
+									DefaultValue:false
+									Title:"Template Numeric Parameter"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_TemplateNumericParameterColor
+											Banner:"Foreground"
+											DefaultValue:0xFFC040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_TemplateTypeParameter
+									DefaultValue:false
+									Title:"Template Type Parameters"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_TemplateTypeParameterColor
+											Banner:"Foreground"
+											DefaultValue:0xFF8000
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_ConstructorDestructor
+									DefaultValue:false
+									Title:"Constructor/Destructor Struct/Class"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_ConstructorDestructorColor
+											Banner:"Foreground"
+											DefaultValue:0xA0A0FF
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_Virtual
+									DefaultValue:false
+									Title:"Virtual Method"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_VirtualColor
+											Banner:"Foreground"
+											DefaultValue:0x80FFD0
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_PureVirtual
+									DefaultValue:false
+									Title:"Pure Virtual Method"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_PureVirtualColor
+											Banner:"Foreground"
+											DefaultValue:0xE0FFE0
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_StructClassMember
+									DefaultValue:false
+									Title:"Struct/Class Member"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_StructClassMemberColor
+											Banner:"Foreground"
+											DefaultValue:0xFF8080
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_EnumType
+									DefaultValue:false
+									Title:"Enum Type"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_EnumTypeColor
+											Banner:"Foreground"
+											DefaultValue:0xB700B7
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_EnumValue
+									DefaultValue:false
+									Title:"Enum Value"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_EnumValueColor
+											Banner:"Foreground"
+											DefaultValue:0x70A0FF
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_Namespace
+									DefaultValue:false
+									Title:"Namespace"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_NamespaceColor
+											Banner:"Foreground"
+											DefaultValue:0x00D7FF
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_LocalVariable
+									DefaultValue:false
+									Title:"Local Variable"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_LocalVariableColor
+											Banner:"Foreground"
+											DefaultValue:0xFF5050
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_GlobalVariable
+									DefaultValue:false
+									Title:"Global Variable"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_GlobalVariableColor
+											Banner:"Foreground"
+											DefaultValue:0xFF5050
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_FunctionParam
+									DefaultValue:false
+									Title:"Function Parameter"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_FunctionParamColor
+											Banner:"Foreground"
+											DefaultValue:0x7D9EC0
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_GotoLabels
+									DefaultValue:false
+									Title:"GoTo Label"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_GotoLabelsColor
+											Banner:"Foreground"
+											DefaultValue:0x00FF00
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_PreprocessingDirective
+									DefaultValue:false
+									Title:"Preprocessing Directive"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_PreprocessingDirectiveColor
+											Banner:"Foreground"
+											DefaultValue:0x0080FF
+										}
+									]
+								}
+// 								{
+// 									Type:boolean
+// 									Variable:bCLang_MacroDefinition
+// 									DefaultValue:false
+// 									Title:"Macro definition (Preprocessing)"
+// 									Params:[
+// 										{
+// 											Type:color
+// 											Variable:CLang_MacroDefinitionColor
+// 											Banner:"Foreground"
+// 											DefaultValue:0x0080FF
+// 										}
+// 									]
+// 								}
+								{
+									Type:boolean
+									Variable:bCLang_MacroExpansion
+									DefaultValue:false
+									Title:"Macro expansion (Preprocessing)"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_MacroExpansionColor
+											Banner:"Foreground"
+											DefaultValue:0x0080FF
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_AsmRegister
+									DefaultValue:false
+									Title:"Assembly Register"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_AsmRegisterColor
+											Banner:"Foreground"
+											DefaultValue:0x704040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_AsmInstruction
+									DefaultValue:false
+									Title:"Assembly Instruction"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_AsmInstructionColor
+											Banner:"Foreground"
+											DefaultValue:0x407040
+										}
+									]
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bCLang_OutputErrors
+							DefaultValue:false
+							Title:"Output Clang Errors"
+							Section:"EnhancedDisplay_CLang"
+							Params:[
+								{
+									Type:boolean
+									Title:"Output Clang Build Flags"
+									Variable:bCLang_OutputFlags
+									DefaultValue:false
+								}
+								{
+									Type:boolean
+									Title:"Ignore Header Errors"
+									Variable:bCLang_IgnoreHeaderErrors
+									DefaultValue:false
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Clang Bracket Colors"
+					Options:[
+						{
+							Type:boolean
+							Variable:bCLangColorize
+							DefaultValue:false
+							Title:"Use Clang Colorization (Reopen files needed) "
+							Section:"EnhancedDisplay_CLang"
+							Params:[
+								{
+									Type:boolean
+									Variable:bCLang_FunctionBracket
+									DefaultValue:false
+									Title:"Function/Method"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_FunctionBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_SwitchBracket
+									DefaultValue:false
+									Title:"Switch"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_SwitchBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_CaseBracket
+									DefaultValue:false
+									Title:"Case #:"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_CaseBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_DefaultBracket
+									DefaultValue:false
+									Title:"Default:"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_DefaultBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_WhileBracket
+									DefaultValue:false
+									Title:"While"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_WhileBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_DoBracket
+									DefaultValue:false
+									Title:"Do"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_DoBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_ForBracket
+									DefaultValue:false
+									Title:"For"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_ForBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_IfBracket
+									DefaultValue:false
+									Title:"If"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_IfBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_TypeDeclBracket
+									DefaultValue:false
+									Title:"Type Declaration"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_TypeDeclBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_AsmBracket
+									DefaultValue:false
+									Title:"Assembly Block"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_AsmBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_LabelBracket
+									DefaultValue:false
+									Title:"Label:"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_LabelBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_NestedBlockBracket
+									DefaultValue:false
+									Title:"Nested Block"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_NestedBlockBracketColor
+											Banner:"Foreground"
+											DefaultValue:0xFF4040
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Clang Special Effects"
+					Options:[
+						{
+							Type:boolean
+							Variable:bCLangColorize
+							DefaultValue:false
+							Title:"Use Clang Colorization (Reopen files needed) "
+							Section:"EnhancedDisplay_CLang"
+							Params:[
+								{
+									Type:boolean
+									Variable:bCLang_UnderlineMethod
+									DefaultValue:false
+									Title:"Underline Struct/Class Methods"
+								}
+								{
+									Type:boolean
+									Variable:bCLang_UnderlineMember
+									DefaultValue:false
+									Title:"Underline Struct/Class Members"
+								}
+								{
+									Type:boolean
+									Variable:bCLang_UnderlineTemplateParameter
+									DefaultValue:false
+									Title:"Underline Template Parameters"
+								}
+								{
+									Type:boolean
+									Variable:bCLang_UnderlineErrors
+									DefaultValue:false
+									Title:"Underline Clang Compilation Errors"
+								}
+								{
+									Type:boolean
+									Variable:bCLang_DisplayUsedAsReferenceSign
+									DefaultValue:false
+									Title:"Display Sign At Upper Left of 'use as ref' Parameters"
+								}
+								{
+									Type:boolean
+									Variable:bCLang_DisplayConstMethodSign
+									DefaultValue:false
+									Title:"Display Sign At Upper Right of const Methods"
+								}
+								{
+									Type:boolean
+									Variable:bCLang_DisplayErrorMessagePopup
+									DefaultValue:false
+									Title:"Display Clang Error Messages in source File"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_ErrorMessageTextColor
+											Banner:"Foreground"
+											DefaultValue:0x0000FF
+										}
+										{
+											Type:integer
+											Variable:CLang_ErrorMessageTextTransparency
+											DefaultValue:50
+											Title:"Transparency (%)"
+										}
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCLang_UsePCH
+									DefaultValue:false
+									Title:"Use CLang Precompiled Header"
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Left Margin"
+					Options:[
+						{
+							Type:boolean
+							Variable:bReplaceBookmarkSigns
+							DefaultValue:false
+							Title:"Replace Bookmark Sign"
+							Section:"LeftMargin"
+						}
+						{
+							Type:boolean
+							Variable:bShiftBreakpointSigns
+							DefaultValue:false
+							Title:"Shift Breakpoint Sign"
+							Section:"LeftMargin"
+						}
+						{
+							Type:boolean
+							Variable:bReplaceCurrentStatementSignArrow
+							DefaultValue:false
+							Title:"Replace Current Statement Sign"
+							Section:"LeftMargin"
+						}
+						{
+							Type:boolean
+							Variable:bReplaceCurrentErrorSign
+							DefaultValue:false
+							Title:"Replace Current Error Sign"
+							Section:"LeftMargin"
+						}
+						{
+							Type:boolean
+							Variable:bReplaceCallsHighlightSign
+							DefaultValue:false
+							Title:"Replace Calls Highlight Sign"
+							Section:"LeftMargin"
+						}
+						{
+							Type:boolean
+							Variable:bDisplayModifiedLinesInMargin
+							DefaultValue:false
+							Title:"Display Line Modified Status in margin"
+							Section:"LeftMargin"
+							Params:[
+								{
+									Type:color
+									Variable:ModifiedLinesMarginColor
+									DefaultValue:0x900090
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bShowLineNumber
+							DefaultValue:false
+							Title:"Display Line Number"
+							Section:"LeftMargin"
+						}
+						{
+							Type:boolean
+							Variable:bCLangColorize
+							DefaultValue:false
+							Title:"Use Clang Colorization (Reopen files needed) "
+							Section:"EnhancedDisplay_CLang"
+							Params:[
+								{
+									Type:boolean
+									Variable:bCLang_HighlightErrorMargin
+									DefaultValue:false
+									Title:"Display Line Error Status in margin"
+									Params:[
+										{
+											Type:color
+											Variable:CLang_HighlightErrorMarginColor
+											DefaultValue:0x0000FF
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Selected Text"
+					Options:[
+						{
+							Type:boolean
+							Variable:bHighlightSelectedTextInInactiveViewToo
+							DefaultValue:true
+							Title:"Keep Selection Highlight in Inactive Windows"
+							Section:"SelectedText"
+						}
+						{
+							Type:boolean
+							Variable:bEnableSyntaxColoringOnSelectedText
+							DefaultValue:true
+							Title:"Enable Syntax Highlighting on Selected Text"
+							Section:"SelectedText"
+						}
+						{
+							Type:boolean
+							Variable:bFillEndOfSelectedLineWithSelectColor
+							DefaultValue:true
+							Title:"Extend Selection Highlight to Full Lines"
+							Section:"SelectedText"
+						}
+						{
+							Type:boolean
+							Variable:bChangeCaretInInsertMode
+							DefaultValue:false
+							Title:"Display a different Caret in Overwrite Mode"
+							Section:"CurrentLine"
+						}
+						{
+							Type:color
+							Title:"Single Selection Caret Color"
+							Variable:SingleCaretColor
+							DefaultValue:0xFFFFFF
+							Section:"Caret"
+						}
+						{
+							Type:color
+							Title:"Multiple Selection Caret Color"
+							Variable:MultipleCaretColor
+							DefaultValue:0x0000FF
+							Section:"Caret"
+						}
+						{
+							Type:boolean
+							Title:"Draw a Blinking Border when there is an off-screen selection"
+							Variable:bDrawBorderIfOffscreenSelection
+							DefaultValue:false
+							Section:"MultiSelection"
+							Params:[
+								{
+									Type:boolean
+									Variable:bDrawBorderIfOffscreenMultiSelectionOnly
+									DefaultValue:false
+									Title:"Only in Multi Selection"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseMiniIBeamWithFont10
+							DefaultValue:false
+							Title:"Use tiny I-Beam pointer with small fonts (<=10)"
+							Section:"Mouse"
+						}
+						{
+							Type:boolean
+							Variable:bMultiSelection_DisplaySelectionCountInSushiBar
+							DefaultValue:false
+							Title:"Display Selections Count in SushiBar"
+							Section:"MultiSelection"
+						}
+						{
+							Type:boolean
+							Variable:bSushiBar_DisplaySelectionSize
+							DefaultValue:false
+							Title:"Display Selections' Bytes and Columns Count in SushiBar"
+							Section:"SushiBar"
+						}
+						{
+							Type:boolean
+							Variable:bMergeCopyBuffersOnDestroy
+							DefaultValue:false
+							Title:"When a MultiSelection is cancelled, Merge all the Copy Buffers"
+							Section:"MultiSelection"
+							Params:[
+								{
+									Type:boolean
+									Variable:bMergeCopyBuffersOnDestroy_InsertCRLF
+									DefaultValue:false
+									Title:"Insert \\r\\n between Copy Buffers"
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Custom Code Blocks"
+					Options:[
+						{
+							Type:boolean
+							Variable:bEnableCustomCodeBlockDisplay
+							DefaultValue:false
+							Title:"Enable Custom Code Blocks Display"
+							Section:"CustomCodeBlocks"
+							Params:[
+								{
+									Type:color
+									Variable:"BackgroundCustomCodeBlock[0]"
+									DefaultValue:0x300030
+									Banner:"Background"
+									Title:"AFX Blocks"
+									Params:[
+										{
+											Type:boolean
+											Variable:"bAltOddLineCustomCodeBlock[0]"
+											DefaultValue:true
+											Title:"Highlight Odd Lines Background"
+										}
+									
+									]
+								}
+								{
+									Type:color
+									Variable:"BackgroundCustomCodeBlock[1]"
+									DefaultValue:0x400040
+									Banner:"Background"
+									Title:"Custom Block #1"
+									Params:[
+										{
+											Type:boolean
+											Variable:"bAltOddLineCustomCodeBlock[1]"
+											DefaultValue:true
+											Title:"Highlight Odd Lines Background"
+										}
+									
+									]
+								}
+								{
+									Type:color
+									Variable:"BackgroundCustomCodeBlock[2]"
+									DefaultValue:0x500050
+									Banner:"Background"
+									Title:"Custom Block #2"
+									Params:[
+										{
+											Type:boolean
+											Variable:"bAltOddLineCustomCodeBlock[2]"
+											DefaultValue:true
+											Title:"Highlight Odd Lines Background"
+										}
+									
+									]
+								}
+								{
+									Type:color
+									Variable:"BackgroundCustomCodeBlock[3]"
+									DefaultValue:0x600060
+									Banner:"Background"
+									Title:"Custom Block #3"
+									Params:[
+										{
+											Type:boolean
+											Variable:"bAltOddLineCustomCodeBlock[3]"
+											DefaultValue:true
+											Title:"Highlight Odd Lines Background"
+										}
+									
+									]
+								}
+								{
+									Type:color
+									Variable:"BackgroundCustomCodeBlock[4]"
+									DefaultValue:0x700070
+									Banner:"Background"
+									Title:"Custom Block #4"
+									Params:[
+										{
+											Type:boolean
+											Variable:"bAltOddLineCustomCodeBlock[4]"
+											DefaultValue:true
+											Title:"Highlight Odd Lines Background"
+										}
+									
+									]
+								}
+								{
+									Type:color
+									Variable:"BackgroundCustomCodeBlock[5]"
+									DefaultValue:0x800080
+									Banner:"Background"
+									Title:"Custom Block #5"
+									Params:[
+										{
+											Type:boolean
+											Variable:"bAltOddLineCustomCodeBlock[5]"
+											DefaultValue:true
+											Title:"Highlight Odd Lines Background"
+										}
+									
+									]
+								}
+								{
+									Type:color
+									Variable:"BackgroundCustomCodeBlock[6]"
+									DefaultValue:0x900090
+									Banner:"Background"
+									Title:"Custom Block #6"
+									Params:[
+										{
+											Type:boolean
+											Variable:"bAltOddLineCustomCodeBlock[6]"
+											DefaultValue:true
+											Title:"Highlight Odd Lines Background"
+										}
+									
+									]
+								}
+								{
+									Type:boolean
+									Variable:bCustomCodeBlockDisplay_FullLine
+									DefaultValue:false
+									Title:"Extend Blocks Background Color to Full Lines"
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Highlights"
+					Options:[
+						{
+							Type:boolean
+							Variable:bHighlightTheSelectedWord
+							DefaultValue:false
+							Title:"Highlight Selected Word"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Banner:"1st Select."
+									Variable:HighlightSelectedWordBackgroundColor
+									DefaultValue:0
+									DefaultValue:0x0000B0
+								}
+								{
+									Type:color
+									Banner:"2nd Select."
+									Variable:HighlightSelectedWord2BackgroundColor
+									DefaultValue:0
+									DefaultValue:0x4000B0
+								}
+								{
+									Type:boolean
+									Variable:bHighlightTheSelectedWordInComments
+									DefaultValue:false
+									Title:"In Comments"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseOddEvenLineBackgroundColor
+							DefaultValue:false
+							Title:"Highlight Odd Lines Background"
+							Section:"Background"
+							Params:[
+								{
+									Type:integer
+									Variable:OddEvenLineStrength
+									DefaultValue:16
+									Title:"Strength"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bHighlightImportantLine
+							DefaultValue:false
+							Title:"Highlight Lines containing \"///!\" comment"
+							Section:"Comments"
+							Params:[
+								{
+									Type:color
+									Banner:"Background"
+									Variable:ImportantLineBgColor
+									DefaultValue:0x0000FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bHightlightBreakpointLine
+							DefaultValue:false
+							Title:"Highlight Breakpoint Lines"
+							Section:"Highlights"
+							Params:[
+								{
+									Type:color
+									Banner:"Background"
+									Variable:BreakpointLineBgColor
+									DefaultValue:0x002AA5
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bHightlightBookmarkLine
+							DefaultValue:false
+							Title:"Highlight Bookmark Lines"
+							Section:"Highlights"
+							Params:[
+								{
+									Type:color
+									Banner:"Background"
+									Variable:BookmarkLineBgColor
+									DefaultValue:0x515100
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseSpecialColorForCommentSeparator
+							DefaultValue:false
+							Title:"Use Special Color for '//--' comments"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Banner:"Odd Line"
+									Variable:UseSpecialColorForCommentSeparatorOddColor
+									DefaultValue:0xF0F0F0
+								}
+								{
+									Type:color
+									Banner:"Even Line"
+									Variable:UseSpecialColorForCommentSeparatorEvenColor
+									DefaultValue:0xF0F0F0
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseSpecialColorForCommentSeparator2
+							DefaultValue:false
+							Title:"Use Special Color for '///--' comments"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Banner:"Odd Line"
+									Variable:UseSpecialColorForCommentSeparator2OddColor
+									DefaultValue:0xF0F0F0
+								}
+								{
+									Type:color
+									Banner:"Even Line"
+									Variable:UseSpecialColorForCommentSeparator2EvenColor
+									DefaultValue:0xF0F0F0
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseSpecialColorForCommentSeparator3
+							DefaultValue:false
+							Title:"Use Special Color for '////--' comments"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Banner:"Odd Line"
+									Variable:UseSpecialColorForCommentSeparator3OddColor
+									DefaultValue:0xF0F0F0
+								}
+								{
+									Type:color
+									Banner:"Even Line"
+									Variable:UseSpecialColorForCommentSeparator3EvenColor
+									DefaultValue:0xF0F0F0
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bDarkDisabledLines
+							DefaultValue:false
+							Title:"Gray Out Disabled Lines (#if 0)"
+							Section:"Highlights"
+						}
+					]					
+				}
+				{
+					Name:"Enhanced Display 1/2"
+					Options:[
+						{
+							Type:boolean
+							Variable:bUseSpecialColorForDoxygenComment
+							DefaultValue:false
+							Title:"Use Special Color for Doxygen comments"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Banner:"Foreground"
+									Variable:DoxygenTextColor
+									DefaultValue:0x600060
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bCheckPrintfString
+							DefaultValue:false
+							Title:"Check printf format String Syntax"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Banner:"Valid"
+									Variable:CheckPrintfStringOkColor
+									DefaultValue:0x00FF00
+								}
+								{
+									Type:color
+									Banner:"Syntax Error"
+									Variable:CheckPrintfStringErrorColor
+									DefaultValue:0x0000FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bCheckEscapeSequences
+							DefaultValue:false
+							Title:"Check String Escape Sequences"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Banner:"Valid"
+									Variable:CheckEscapeSequencesOkColor
+									DefaultValue:0x00FF00
+								}
+								{
+									Type:color
+									Banner:"Syntax Warning"
+									Variable:CheckEscapeSequencesWarningColor
+									DefaultValue:0x0080FF
+								}
+								{
+									Type:color
+									Banner:"Syntax Error"
+									Variable:CheckEscapeSequencesErrorColor
+									DefaultValue:0x0000FF
+								}
+							]
+						}
+//						{
+//							Type:boolean
+//							Variable:bCheckPragmaKeywords
+//							DefaultValue:0
+//							Title:"Check Pragma Keywords"
+//							Section:"EnhancedDisplay"
+//						}
+						{
+							Type:boolean
+							Variable:bUnderlineLocalSymbols
+							DefaultValue:true
+							Title:"Underline local symbols"
+							Section:"EnhancedDisplay"
+						}
+						{
+							Type:boolean
+							Variable:bUnderlineStableSymbols
+							DefaultValue:true
+							Title:"Underline stable symbols"
+							Section:"EnhancedDisplay"
+						}
+						{
+							Type:boolean
+							Variable:bEnableImagePopup
+							DefaultValue:false
+							Title:"Enable image popups (@IMG)"
+							Section:"Comments"
+						}
+						{
+							Type:boolean
+							Variable:bEnableColorPreview
+							DefaultValue:false
+							Title:"Enable color preview and popups (@BGR|@RGB|@RGBf)"
+							Section:"Comments"
+						}
+						{
+							Type:boolean
+							Variable:bEnableLaTeXPopup
+							DefaultValue:false
+							Title:"Enable LaTeX popups (@LTX) (needs Internet connexion)"
+							Section:"Comments"
+						}
+						{
+							Type:boolean
+							Variable:bDisplayNotFullyVisibleLinesInMargin
+							DefaultValue:false
+							Title:"Show three dots at the end of non-fully visible lines"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:NotFullyVisibleLinesSymbolColor
+									DefaultValue:0xFF00FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bDisplayOffscreenHighlightsInMargin
+							DefaultValue:false
+							Title:"Show blinking arrow at the end of lines with off-screen highlights"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:OffscreenHighlightsColor
+									DefaultValue:0xFF00FF
+								}
+								{
+									Type:color
+									Variable:OffscreenHighlightsBorderColor
+									DefaultValue:0xFFFFFF
+								}
+								{
+									Type:boolean
+									Variable:bDisplayOffscreenHighlightsInMarginAtRight
+								Title:"Show Arrow at Right"
+									DefaultValue:true
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bChangeVANavigationBarBkColor
+							DefaultValue:false
+							Title:"Force VA Navigation Bar background color (DarkSkin mode only)"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:VANavigationBarBkColor
+									DefaultValue:0xFF00FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bOpenGLRendering
+							DefaultValue:false
+							Title:"Use OpenGL to render text"
+							Section:"EnhancedDisplay"
+						}
+						{
+							Type:boolean
+							Variable:bUseUniqueColorForPreprocessorKeywords
+							DefaultValue:false
+							Title:"Use Special color for Preprocessor Keywords"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:UseUniqueColorForPreprocessorKeywordsColor
+									DefaultValue:0xC07B7B
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseUniqueColorForColonOperator
+							DefaultValue:false
+							Title:"Use Special Color for colon (:) operator"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:UseUniqueColorForColonOperatorColor
+									DefaultValue:0xFF00FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseUniqueColorForFloatNumber
+							DefaultValue:false
+							Title:"Use Special Color for Float Numbers"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:UseUniqueColorForFloatNumberColor
+									DefaultValue:0xFF80FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseUniqueColorForPreprocessorSubKeywords
+							DefaultValue:false
+							Title:"Use Special Color for Preprocessor Sub Keywords"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:UseUniqueColorForPreprocessorSubKeywordsColor
+									DefaultValue:0x80E080
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseUniqueColorForMicrosoftKeywords
+							DefaultValue:false
+							Title:"Use Special Color for Microsoft Specific Keywords"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:UseUniqueColorForMicrosoftKeywordsColor
+									DefaultValue:0x8080FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseUniqueColorForCharacterBlock
+							DefaultValue:false
+							Title:"Use Special Color for Multicharacter Constants"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:UseUniqueColorForCharacterBlockColor
+									DefaultValue:0x40FF40
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseUniqueColorForStringAndCharDelimiter
+							DefaultValue:false
+							Title:"Use Special Color for String and Character Delimiters"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:UseUniqueColorForStringAndCharDelimiterColor
+									DefaultValue:0x808080
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bHighlightOddParenthese
+							DefaultValue:false
+							Title:"Use Special Color for Odd Parentheses Nested Blocks"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:HighlightOddParentheseColor
+									DefaultValue:0xADD6FF
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bHighlightBlockBoundaries
+							DefaultValue:false
+							Title:"Highlight Current Block Boundaries () [] {}"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:HighlightBlockBoundariesColor
+									DefaultValue:0x00FF00
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:PreprocessSymbolForegroundColor
+							DefaultValue:0x0080FF
+							Title:"Preprocessor Symbols Color"
+							Section:"EnhancedDisplay"
+						}
+
+// 						{
+// 							Type:boolean
+// 							Variable:bSpecialColorForDollarIdentifiers
+// 							DefaultValue:false
+// 							Title:"Use custom color for identifier container the dollar '$' character"
+// 							Section:"EnhancedDisplay"
+// 							Params:[
+// 								{
+// 									Type:color
+// 									Variable:SpecialColorForDollarIdentifierColor
+// 									DefaultValue:0x6ACF1
+// 								}
+// 							]
+// 						}
+					]					
+				}
+				{
+					Name:"Enhanced Display 2/2"
+					Options:[
+						{
+							Type:boolean
+							Variable:bAlternateVisibleWhitespaces
+							DefaultValue:false
+							Title:"Alternate Display of Visible Whitespaces"
+							Section:"EnhancedDisplay"
+							Params:[
+								{
+									Type:color
+									Variable:VisibleWhitespacesColor
+									DefaultValue:0xFF00FF
+								}
+								{
+									Type:integer
+									Variable:VisibleWhitespacesTransparency
+									DefaultValue:50
+									Title:"Transparency (%)"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bExploreLinkOnDblClick
+							DefaultValue:false
+							Title:"Open Links on Double-Click"
+							Section:"Comments"
+							Params:[
+								{
+									Type:color
+									Variable:HTMLLinkColor
+									DefaultValue:COLOR_HOTLIGHT
+								}
+								{
+									Type:path
+									Variable:InternallyOpenedExtensions
+									Title:"Internal extensions"
+									DefaultValue:"c;cpp;cxx;h;hxx;inl;rc;def;idl;txt;hjson;glsl"
+								}
+							]
+						}
+					]					
+				}
+				{
+					Name:"Context Menu"
+					Options:[
+						{
+							Type:boolean
+							Variable:bAddVUOptionInCPPContextMenu
+							DefaultValue:false
+							Title:"Add Visual Ultimate Options"
+							Section:"ContextMenu"
+						}
+						{
+							Type:boolean
+							Variable:bRemoveBrowseCmdsInCPPContextMenu
+							DefaultValue:false
+							Title:"Remove Browsing Commands"
+							Section:"ContextMenu"
+						}
+						{
+							Type:boolean
+							Variable:bAddVUShowProprocessedContentInCPPContextMenu
+							DefaultValue:false
+							Title:"Add Visual Ultimate 'Show Preprocessed Content'"
+							Section:"ContextMenu"
+						}
+						{
+							Type:boolean
+							Variable:bAddVUOpenContainingFolderInTextViewContextMenu
+							DefaultValue:false
+							Title:"Add Visual Ultimate 'Open Containing Folder'"
+							Section:"ContextMenu"
+						}
+						{
+							Type:boolean
+							Variable:bAddVUFindSourceFileInWorkspaceViewInTextViewContextMenu
+							DefaultValue:false
+							Title:"Add Visual Ultimate 'Find in Workspace View'"
+							Section:"ContextMenu"
+						}
+						{
+							Type:boolean
+							Variable:bShowContainingProjectInTextViewContextMenu
+							DefaultValue:false
+							Title:"Display Containing Project into 'Insert File Into Project'"
+							Section:"ContextMenu"
+						}
+					]					
+				}
+				{
+					Name:"Fonts"
+					Options:[
+						{
+							Type:boolean
+							Variable:bChangeFontSizeWithMouseWheel
+							DefaultValue:false
+							Title:"Use Ctrl + MouseWheel to Change current font family and size"
+							Description:"Enables changing current font on Ctrl + MouseWheel.\nUseful for quickly changing font size.\nFormat:\"<size>:<font-family>\" separated by commas.\nFonts will be sorted by font size. This setting does not alter the initial font."
+							Section:"Fonts"
+							Params:[
+								{
+									Type:text
+									Variable:FontsBySize
+									Title:"Fonts and Sizes"
+									DefaultValue:"8:HobTiny, 16:HobTiny"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bAllowsAntialiasedFont
+							DefaultValue:true
+							Title:"Allow 'Antialised' Quality for source code fonts"
+							Section:"Fonts"
+							Params:[
+								{
+									Type:boolean
+									Variable:bImproveFontQuality
+									Title:"Improve Font Quality by using Custom Anti-Aliasing (Needs OpenGL Rendering)"
+									DefaultValue:false
+								}
+							]
+						}
+					]					
+				}
+				{
+					Name:"C++ Parsing"
+					Options:[
+						{
+							Type:boolean
+							Variable:bLexCPP_AlternateNumericValueParsing
+							DefaultValue:false
+							Title:"Improve the parsing of numeric values"
+							Section:"C++ Parsing"
+							Params:[
+								{
+									Type:boolean
+									Variable:bLexCPP_ParseAssemblyHexaValues
+									DefaultValue:false
+									Title:"Parse assembly hexadecimal values correctly (e.g. \"10h\")"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+		{
+			Name:"Output Window"
+
+			Options:[
+				{
+					Type:boolean
+					Variable:bEnableUltimateOutputWindow
+					DefaultValue:false
+					Title:"Enable Ultimate Output"
+					Section:"OutputWindow"
+					Params:[
+						{
+							Type:boolean
+							Variable:bUltimateMacroTab
+							DefaultValue:false
+							Title:"Use Ultimate 'Macros' Tab"
+						}
+						{
+							Type:boolean
+							Variable:bUltimateBuildTab
+							DefaultValue:false
+							Title:"Use Ultimate 'Build' Tab"
+						}
+						{
+							Type:boolean
+							Variable:bUltimateDebugTab
+							DefaultValue:false
+							Title:"Use Ultimate 'Debug' Tab"
+						}
+						{
+							Type:boolean
+							Variable:bUltimateClangTab
+							DefaultValue:false
+							Title:"Use Ultimate 'Clang' Tab"
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bAutoSetDebugTabAsCurrent
+					DefaultValue:true
+					Title:"Auto Set Debug Tab as Current"
+					Section:"OutputWindow"
+				}
+			]					
+
+			Folders:[
+				{
+					Name:"Colors"
+					Options:[
+						{
+							Type:boolean
+							Variable:bEnhancedOutputWindowColors
+							DefaultValue:false
+							Title:"Enable Enhanced Output Window Colors"
+							Section:"OutputWindow"
+							Params:[
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ErrorLinesForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Error Line"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ErrorLinesBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"WarningLinesForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Warning Line"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"WarningLinesBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ToDoLinesForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"ToDo Line"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ToDoLinesBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"OtherFileLineLinesForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Other File Line"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"OtherFileLineLinesBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ResultErrorForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Result: Error"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ResultErrorBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ResultWarningForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Result: Warning"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ResultWarningBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ResultOkForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Result: OK"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ResultOkBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Default"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"BackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+							]							
+						}
+					]
+				}
+				{
+					Name:"Notifications"
+					Options:[
+						{
+							Type:boolean
+							Variable:bAvoidCouldNotFindFileOutputMessage
+							DefaultValue:false
+							Title:"Avoid \"Could not find the file [filename]\" messages"
+							Section:"OutputWindow"
+						}
+						{
+							Type:boolean
+							Variable:bSkipMessageExitThread
+							DefaultValue:true
+							Title:"Don't display the \"The thread ... has exited with code ...\" message"
+							Section:"Debugger"
+						}
+						{
+							Type:boolean
+							Variable:bSkipMessageExitProcess
+							DefaultValue:true
+							Title:"Don't display the \"The program '...' has exited with code ...\" message"
+							Section:"Debugger"
+						}
+						{
+							Type:boolean
+							Variable:bAvoidErrorExecutingMessage
+							DefaultValue:false
+							Title:"Don't display the \"Error executing ...\" message"
+							Section:"OutputWindow"
+						}
+						{
+							Type:boolean
+							Variable:bAvoidDeletingIntermediateFilesMessage
+							DefaultValue:false
+							Title:"Don't display the \"Deleting intermediate files and output files ...\" message"
+							Section:"OutputWindow"
+						}
+						{
+							Type:boolean
+							Variable:bDeleteMessageBoxLogAtStart
+							DefaultValue:true
+							Title:"Delete ../MSDev98/Bin/IDE/msgbox.log at start"
+							Section:"Debugger"
+						}
+						{
+							Type:boolean
+							Variable:bUselessOuptMessageToLog
+							DefaultValue:true
+							Title:"Redirect seemingly useless debugger messages to ../MSDev98/Bin/IDE/msgbox.log (use following settings for finer control)"
+							Section:"Debugger"
+						}
+						{
+							Type:enum
+							Variable:LoadedSymbolsMsgToLog
+							DefaultValue:0
+							PostTitle:"\"Loaded symbols for ...\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:LoadedNoMatchingSymbolicInfoMsgToLog
+							DefaultValue:0
+							PostTitle:"\"Loaded ..., no matching symbolic information found.\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:ConvertedSymbolsForMsgToLog
+							DefaultValue:0
+							PostTitle:"\"Converted symbols for '...'\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:LoadedExportsForMsgToLog
+							DefaultValue:0
+							PostTitle:"\"Loaded exports for '...'\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:PreloadedSymbolesMayNotMatchMsgToLog
+							DefaultValue:0
+							PostTitle:"\"Preloaded symbols may not match '...'\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:CannotRestoreBreakpointMsgToLog
+							DefaultValue:0
+							PostTitle:"\"Cannot restore the breakpoint '...'\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:NoCodeExistsAtTheLineNumberMsgToLog
+							DefaultValue:0
+							PostTitle:"\"No code exists at the line number for breakpoint '...'\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:CannotSetTheBreakpointMsgToLog
+							DefaultValue:0
+							PostTitle:"\"Cannot set the breakpoint '...'\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+						{
+							Type:enum
+							Variable:UserBreakpointCalledFromCodeMsgToLog
+							DefaultValue:0
+							PostTitle:"\"User breakpoint called from code at '...'\""
+							Section:"Debugger"
+							Values:[
+								{Title:"Output", Value:0 }
+								{Title:"Log", Value:1}
+								{Title:"None", Value:2}
+							]
+							Display:horizontal
+						}
+					]					
+				}
+				{
+					Name:"Advanced Options"
+					Options:[
+						{
+							Type:boolean
+							Variable:bGoToNextErrorTagJumpOnErrorOnly
+							DefaultValue:false
+							Title:"GoToNextErrorTag/GoToPrevErrorTag jump on errors only"
+							Section:"OutputWindow"
+						}
+						{
+							Type:boolean
+							Variable:bAddOutputTabForVAX
+							DefaultValue:false
+							Title:"Add Output Tab for Visual Assist References"
+							Section:"OutputWindow"
+						}
+						{
+							Type:boolean
+							Variable:bAvoidOutputLineSplit
+							DefaultValue:false
+							Title:"Avoid splitting long Output lines"
+							Section:"OutputWindow"
+						}
+						{
+							Type:boolean
+							Variable:bFormFeedClearOutput
+							DefaultValue:false
+							Title:"OutputDebugString(\"\\0xC\") clears the output debug panel"
+							Section:"OutputWindow"
+						}
+						{
+							Type:boolean
+							Variable:bParseOutputDebugStringExtendedFormat
+							DefaultValue:false
+							Title:"Enable Extended Text Formatting using OutputDebugString (e.g. \"\\ftFF00FFHello\\f/t\")"
+							Section:"OutputWindow"
+							Params:[
+								{
+									Type:boolean
+									Title:"Display Format Colors in Text"
+									Variable:bShowOutputDebugStringFormatColor
+									DefaultValue:false
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+		{
+			Name:"Project Files"
+			Options:[
+				{
+					Type:boolean
+					Variable:bSaveWorkspaceDuringFileSaveAll
+					DefaultValue:false
+					Title:"Save Workspace when saving all source files (FileSaveAll)"
+					Section:"ProjectSettings"
+				}
+				{
+					Type:boolean
+					Variable:bChangeSourceFileLineJumpsInDSP
+					DefaultValue:false
+					Title:"Change Source File Jumps in DSP File"
+					Section:"Advanced"
+				}
+				{
+					Type:boolean
+					Variable:bRemoveUnnecessaryLinesInDSP
+					DefaultValue:false
+					Title:"Remove Unnecessary Lines in DSP File"
+					Section:"Advanced"
+				}
+				{
+					Type:boolean
+					Variable:bAvoidOverwriteUnchangedFiles
+					DefaultValue:false
+					Title:"Avoid overwriting non-modified files"
+					Section:"Advanced"
+				}
+				{
+					Type:boolean
+					Variable:bEnableSETTINGSFileCreation
+					DefaultValue:true
+					Title:"Save Workspace Settings (.OPT) in XML format (.SETTINGS)"
+					Section:"Project"
+				}
+				{
+					Type:boolean
+					Variable:bEnableSETTINGSFileLoading
+					DefaultValue:true
+					Title:"Load Workspace Settings (.OPT) from XML format (.SETTINGS)"
+					Section:"Project"
+				}
+				{
+					Type:boolean
+					Variable:bSaveOptInXMLFiles
+					DefaultValue:true
+					Title:"Save .OPT Settings in XML Files"
+					Section:"Project"
+				}
+				{
+					Type:boolean
+					Variable:bDeleteOptFileAfterLoad
+					DefaultValue:true
+					Title:"Remove Workspace Settings file (.OPT)"
+					Section:"Project"
+				}
+				{
+					Type:boolean
+					Variable:bForceBuildToolOrderInDSP
+					DefaultValue:true
+					Title:"Force Build Tools order inside .DSP File"
+					Section:"Project"
+				}
+				{
+					Type:boolean
+					Variable:bAllowDotNetProjectImportation
+					DefaultValue:true
+					Title:"Allow .NET Project Importation (.sln/.vcproject)"
+					Section:"Project"
+				}
+				{
+					Type:boolean
+					Variable:bSaveGeneralSettingPerComputer
+					DefaultValue:true
+					Title:"Save 'General' Settings per computer"
+					Section:"Project"
+				}
+			]
+		}
+		{
+			Name:"Resource File"
+			Options:[
+				{
+					Type:boolean
+					Variable:bDisable80ColumnsLimitInResourceFile
+					DefaultValue:true
+					Title:"Disable 80 columns limit in resource files (.rc)"
+					Section:"Resources"
+				}
+				{
+					Type:boolean
+					Variable:bOpenRCFileInTextMode
+					DefaultValue:false
+					Title:"Open resource files (.rc) in text mode"
+					Section:"Resources"
+				}
+//LTEXT           "Colunm index for numeric values in #define lines :",IDC_STATIC,15,33,156,8
+//IDC_DEFINE_VALUE_COLUMN_INDEX,174,32,40,12,ES_AUTOHSCROLL | ES_NUMBER				
+			]			
+		}
+		{
+			Name:"Debug"
+			Options:[
+				{
+					Type:boolean
+					Variable:bAlternateDialogForSourceLineAmbiguity
+					DefaultValue:false
+					Title:"Alternate Dialog for 'Resolve Source Line Ambiguity' dialog"
+					Section:"Debug"
+					Params:[
+						{
+							Type:boolean
+							Variable:bAlternateDialogForSourceLineAmbiguityFunctionNameOnly
+							DefaultValue:false
+							Title:"Function Name only"
+						}
+					]							
+				}
+				{
+					Type:boolean
+					Variable:bAskForStopExecutionAtBegin
+					DefaultValue:false
+					Title:"Give the choice to Continue Execution at Debug Start when a Breakpoint is Invalid"
+					Section:"Debug"
+				}
+				{
+					Type:boolean
+					Variable:bFixWin7ProcessHanging
+					DefaultValue:false
+					Title:"Fix 'Stop Debugging Program' on Win7"
+					Section:"Debug"
+				}
+				{
+					Type:boolean
+					Variable:bUseAlternateThreadListWnd
+					DefaultValue:false
+					Title:"Improve Callstack/ThreadList Symbols and Dialog"
+					Section:"Debug"
+					Params:[
+						{
+							Type:boolean
+							Variable:bDisplayGreyedWaitingThread
+							DefaultValue:false
+							Title:"Display common waiting functions in gray"
+							Params:[
+								{
+									Type:text
+									Variable:WaitingFunctionList
+									Title:"Waiting Functions"
+									DefaultValue:"WaitForMultipleObjects;WaitForSingleObject;NtWaitForWorkViaWorkerFactory;ZwWaitForMultipleObjects;Sleep;NtWaitForMultipleObjects;NtWaitForSingleObject;NtDelayExecution;DispatchMessageW"
+								}
+							]
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bUseAlternateExceptionDialog
+					DefaultValue:false
+					Title:"Alternate Dialog for Exceptions Management"
+					Section:"Debug"
+				}
+				{
+					Type:boolean
+					Variable:bUseAlternateRegisterCPUDisplay
+					DefaultValue:false
+					Title:"Alternate Dialog for CPU Registers"
+					Section:"Debug"
+				}
+				{
+					Type:boolean
+					Variable:bUseExecutableDirectoryAsDefaultWorkingDirectory
+					DefaultValue:false
+					Title:"Use executable directory as default working directory"
+					Section:"Debug"
+				}
+				{
+					Type:boolean
+					Variable:bAutoFillRemoteDebugFileImage
+					DefaultValue:false
+					Title:"Auto-Fill executable image for remote debugging"
+					Section:"Debug"
+				}
+				{
+					Type:boolean
+					Variable:bFixDebugRestart
+					DefaultValue:false
+					Title:"Fix: DebugRestart doesn't stop at the first instruction anymore"
+					Section:"Debug"
+				}
+			]
+			Folders:[
+				{
+					Name:"Assembly View"
+					Options:[
+						{
+							Type:boolean
+							Variable:bImproveAssemblyView
+							DefaultValue:false
+							Title:"Improve the Assembly View"
+							Section:"Assembly View"
+							Params:[
+								{
+									Type:color
+									Banner:"Foreground"
+									Variable:AsmView_MemOffsetForegroundColor
+									DefaultValue:0x804080
+									Title:"Memory Address"
+								}
+								{
+									Type:color
+									Banner:"Foreground"
+									Variable:AsmView_BytesForegroundColor
+									DefaultValue:0x70B070
+									Title:"Assembly Bytes"
+								}
+								{
+									Type:color
+									Banner:"Foreground"
+									Variable:AsmView_SourceCodeLineNumberColor
+									DefaultValue:0x00FF00
+									Title:"Source Code Line Number"
+								}
+								{
+									Type:color
+									Banner:"Foreground"
+									Variable:AsmView_SourceCodeTextColor
+									DefaultValue:0xFFFFFF
+									Title:"Source Code Text"
+								}
+								{
+									Type:color
+									Banner:"Foreground"
+									Variable:AsmView_SourceFileNameForegroundColor
+									DefaultValue:0xFF00FF
+									Title:"Source File Name"
+								}
+								{
+									Type:color
+									Banner:"Foreground"
+									Variable:AsmView_SymbolNameForegroundColor
+									DefaultValue:0xCF782F
+									Title:"Symbol"
+								}
+								{
+									Type:boolean
+									Variable:bHighlightRegisterAliases
+									DefaultValue:false
+									Title:"Highlight register aliases (eax -> ax,ah,al)"
+								}
+								{
+									Type:boolean
+									Variable:bASMView_HighlightTheSelectedWord
+									DefaultValue:false
+									Title:"Highlight selected word"
+								}
+								{
+									Type:boolean
+									Variable:bASMView_HighlightSelectedTextInInactiveViewToo
+									DefaultValue:false
+									Title:"Highlight selected text in inactive windows too"
+								}
+
+							]
+						}
+						{
+							Type:color
+							Variable:StdAsmTextForeground
+							DefaultValue:0
+							Title:"Text"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdAsmTextBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdAsmTextSelectionForeground
+							DefaultValue:0
+							Title:"Text Selection"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdAsmTextSelectionBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdAsmCodeForeground
+							DefaultValue:0
+							Title:"Assembly Code"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdAsmCodeBackground
+									DefaultValue:0
+								}
+							]
+						}
+					]
+				}
+				{
+					Name:"Breakpoints"
+					Options:[
+						{
+							Type:boolean
+							Variable:bActivateDoubleClickInBreakpointList
+							DefaultValue:false
+							Title:"Double-clicking a Breakpoint in breakpoints list jumps to its location"
+							Section:"Breakpoints"
+						}
+						{
+							Type:boolean
+							Variable:bDisplaySurroundingCodeOfSelectedBreakpoint
+							DefaultValue:false
+							Title:"Display breakpoint's surrounding code"
+							Section:"Breakpoints"
+						}
+						{
+							Type:boolean
+							Variable:bUseFixedWidthFontInBreakpointList
+							DefaultValue:false
+							Title:"Use a fixed-width font in breakpoints list"
+							Section:"Breakpoints"
+						}
+						{
+							Type:boolean
+							Variable:bAppendBreakpointLineCodeInBreakpointList
+							DefaultValue:false
+							Title:"Append breakpoint's corresponding source code in breakpoints list"
+							Section:"Breakpoints"
+						}
+						{
+							Type:boolean
+							Variable:bBUGFixAutoBreakpointGetLocation
+							DefaultValue:true
+							Title:"Fix: Auto Breakpoint Location"
+							Section:"Breakpoints"
+						}
+						{
+							Type:boolean
+							Variable:bIncreaseBreakpointListHeight
+							DefaultValue:true
+							Title:"Increase breakpoints list height"
+							Section:"Breakpoints"
+						}
+					]			
+				}
+				{
+					Name:"Watch 1/2"
+					Options:[
+						{
+							Type:color
+							Variable:StdWatchTextForeground
+							DefaultValue:0
+							Title:"Text"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdWatchTextBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdWatchTextSelectionForeground
+							DefaultValue:0
+							Title:"Text Selection"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdWatchTextSelectionBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:StdWatchHighlightForeground
+							DefaultValue:0
+							Title:"Watch Highlight"
+							Section:"StandardColors"
+							Banner:"Foreground"
+							Params:[
+								{
+									Banner:"Background"
+									Type:color
+									Variable:StdWatchHighlightBackground
+									DefaultValue:0
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bUseCustomAutoExp
+							DefaultValue:false
+							Title:"Custom AutoExp.dat path"
+							Section:"Debug"
+							Params:[
+								{
+									Type:path
+									Variable:AutoExpFullFileName
+								}
+							]							
+						}
+						{
+							Type:boolean
+							Variable:bAutoReloadAutoExp
+							DefaultValue:false
+							Title:"Auto Reload AutoExp.dat when modified"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_AddTypeColumn
+							DefaultValue:false
+							Title:"Add 'Type' Column in Watch Window"
+							Section:"Debug"
+							Params:[
+								{
+									Type:boolean
+									Variable:bWatch_ExcludeTypeOnCopy
+									DefaultValue:0
+									Title:"Exclude from Copy"
+								}
+							]							
+						}
+						{
+							Type:boolean
+							Variable:bUsePerProjectAutoExpand
+							DefaultValue:false
+							Title:"Use a specific AutoExp.ini file per Project"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bEditableWatchType
+							DefaultValue:false
+							Title:"Edit AutoExp directly from Watch Window"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bBigSizeWatchValueString
+							DefaultValue:false
+							Title:"Increase Watch Value Max Length from 256 to 1024 chars"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bAllowWatchMultiLine
+							DefaultValue:false
+							Title:"Allow Multiline Watches (/mb#, /ma#, ...)"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_UpperCaseHexa
+							DefaultValue:false
+							Title:"Display hexa watch values in uppercase"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_FullAnsi
+							DefaultValue:false
+							Title:"Use full ANSI table (char>=0x80) in memory watch"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_TranslateUTF8String
+							DefaultValue:false
+							Title:"Add /sU format to display UTF-8 strings"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_AddCustomFormattingSubMenu
+							DefaultValue:false
+							Title:"Add Custom Formatting in watch submenu"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_TranslateBinaryInt
+							DefaultValue:0
+							Title:"Add /b format to display binary representations"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_TranslateColor
+							DefaultValue:0
+							Title:"Add /bgr and /rgb format to display colors (and @RGB{}/@BGR{} in type format)"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ChangeStaticArraySize
+							DefaultValue:0
+							Title:"Allow editing watch size of arrays"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_SimplifyDraggedExpression
+							DefaultValue:0
+							Title:"Simplify dragged & dropped Expressions"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_IncreaseMaxAutoExpStringTo4096
+							DefaultValue:0
+							Title:"Increase Max AutoExp Expression Length to 4096 instead of 256"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_NestedAutoExp
+							DefaultValue:0
+							Title:"Enable Nested AutoExp Expressions"
+							Section:"Debug"
+							Params:[
+								{
+									Type:integer
+									Variable:Watch_NestedAutoExp_MaxDepth
+									Title:"Max Depth"
+									DefaultValue:4
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bWatch_EvaluateExpressions
+							DefaultValue:0
+							Title:"Evaluate Watch/AutoExp expressions (e.g. \"width:@{<right>-<left>}\") (e.g. \"@d{..}\" for double)"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_RemoveTrailingCarriageReturnOnCopy
+							DefaultValue:0
+							Title:"Remove trailing carriage return on Watch copy"
+							Section:"Debug"
+						}
+					]			
+				}
+				{
+					Name:"Watch 2/2"
+					Options:[
+						{
+							Type:boolean
+							Variable:bWatch_AddSignOnWatchedForModification
+							DefaultValue:0
+							Title:"Add Sign on Watched for modification fields"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ExtendedAutoExpFormat
+							DefaultValue:0
+							Title:"Use Extended AutoExp Format (e.g. \"<right> <= <left>\", \"$right $(left,d)\", \"Price:$(price)\\$\""
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ExpandTabs
+							DefaultValue:0
+							Title:"Expand tab characters when displaying strings"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ShowCharsModifiedOnly
+							DefaultValue:0
+							Title:"In modes /mb and /ma, only highlight modified chars"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ImproveMessageNames
+							DefaultValue:0
+							Title:"Improve message names \",wm\""
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_DisplayGreyedEmptyTabs
+							DefaultValue:0
+							Title:"Display empty watch tabs with grayed title"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_DisplayPreviousValue
+							DefaultValue:0
+							Title:"Display a shadowed version of the previous watch value"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_DisplayUnkPointerAsMemory
+							DefaultValue:false
+							Title:"Display unknown pointers as memory"
+							Section:"Debug"
+						}
+
+
+//						{
+//							Type:boolean
+//							Variable:bWatch_HideStringAddress
+//							DefaultValue:0
+//							Title:"Hide string address int watch"
+//							Section:"Debug"
+//						}
+					]
+				}
+			]
+		}
+		{
+			Name:"Find in Files"
+			Options:[
+				{
+					Type:boolean
+					Variable:bUseVisualUltimate_FIF
+					DefaultValue:0
+					Title:"Use Visual Ultimate \"Find In Files\""
+					Section:"FindInFiles"
+					Params:[
+						{
+							Type:path
+							Variable:FIF_FontName
+							DefaultValue:"HobTiny"
+							Title:"Font"
+							Params:[
+								{
+									Type:integer
+									Variable:FIF_FontSize
+									DefaultValue:8
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bFIF_DisplayResultsInScrollbar
+							DefaultValue:0
+							Title:"Show Matching Lines in scrollbar"
+						}
+						{
+							Type:boolean
+							Variable:bFIF_IncreaseMRUListSize_To_64
+							DefaultValue:0
+							Title:"Increase MRU List Size from 16 items to 64"
+						}
+						{
+							Type:boolean
+							Variable:bFindInFilesRemoveVCProjectFolder
+							DefaultValue:0
+							Title:"Remove '\\VCProject' from default search folder"
+						}
+						{
+							Type:boolean
+							Variable:bFindInFilesRestoreSizeNPosDialog
+							DefaultValue:0
+							Title:"Restore Dialog's Size and Position"
+							Params:[
+								{
+									Type:boolean
+									Variable:bFindInFilesSavePosPerComputer
+									DefaultValue:0
+									Title:"Save Position per computer"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bFIF_ReturnsCharacterPosition
+							DefaultValue:0
+							Title:"Return line number AND character position"
+						}
+						{
+							Type:color
+							Variable:CodeLineForegroundColor
+							DefaultValue:0x202050
+							Banner:"Foreground"
+							Title:"Code Line"
+							Params:[
+								{
+									Type:color
+									Variable:CodeLineBackgroundColor
+									DefaultValue:0xE0E0E0
+									Banner:"Background"
+								}
+							]
+						}
+						{
+							Type:color
+							Variable:ActiveCodeLineForegroundColor
+							DefaultValue:0x202050
+							Banner:"Foreground"
+							Title:"Active Code Line"
+							Params:[
+								{
+									Type:color
+									Variable:ActiveCodeLineBackgroundColor
+									DefaultValue:0xC0C0C0
+									Banner:"Background"
+								}
+							]
+						}
+					]
+					ElseParams:[
+						{
+							Type:color
+							Title:"Default"
+							Variable:DefaultTextColor
+							DefaultValue:0xC0C0C0
+							Banner:"Foreground"
+						}
+						{
+							Type:color
+							Variable:FirstLineTextColor
+							DefaultValue:0xFFFFFF
+							Title:"First Line"
+							Banner:"Foreground"
+						}
+						{
+							Type:color
+							Variable:FirstLineMatchingWordTextColor
+							DefaultValue:0x0000BA7F
+							Title:"Searched Pattern"
+							Banner:"Foreground"
+						}
+						{
+							Type:color
+							Variable:FileLocationTextColor
+							DefaultValue:0x00666666
+							Banner:"Foreground"
+							Title:"File Location"
+						}
+						{
+							Type:color
+							Variable:MathingLineTextColor
+							DefaultValue:0x00B8BECC
+							Banner:"Foreground"
+							Title:"Matching Line Text"
+						}
+						{
+							Type:color
+							Variable:StatusNotFoundTextColor
+							DefaultValue:0x0008088D
+							Banner:"Foreground"
+							Title:"Status Ok"
+						}
+						{
+							Type:color
+							Variable:StatusFoundTextColor
+							DefaultValue:0x0098FB98
+							Banner:"Foreground"
+							Title:"Status Not Found"
+						}
+						{
+							Type:color
+							Variable:MatchingWordBackgroundColor
+							DefaultValue:0x009300
+							Banner:"Background"
+							Title:"Matching Pattern"
+						}
+					]					
+				}
+			]
+		}
+		{
+			Name:"Find / Replace"
+			Options:[
+				{
+					Type:boolean
+					Variable:bReplace_ResizableDialog
+					DefaultValue:false
+					Title:"Resizable 'Replace' Dialog"
+					Section:"FindReplace"
+				}
+				{
+					Type:boolean
+					Variable:bReplace_RestoreSizeNPosDialog
+					DefaultValue:false
+					Title:"Restore Replace Dialog's Size and Position"
+					Section:"FindReplace"
+					Params:[
+						{
+							Type:boolean
+							Variable:bReplaceSavePosPerComputer
+							DefaultValue:0
+							Title:"Save Position per computer"
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bFind_ResizableDialog
+					DefaultValue:false
+					Title:"Resizable 'Find' Dialog"
+					Section:"FindReplace"
+				}
+				{
+					Type:boolean
+					Variable:bFind_RestoreSizeNPosDialog
+					DefaultValue:false
+					Title:"Restore Find Dialog's Size and Position"
+					Section:"FindReplace"
+					Params:[
+						{
+							Type:boolean
+							Variable:bFindSavePosPerComputer
+							DefaultValue:0
+							Title:"Save Position per computer"
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bReplaceSavePosPerComputer
+					DefaultValue:false
+					Title:"Save ReplaceAll Dialog's Position per computer"
+					Section:"FindReplace"
+				}
+			]			
+		}
+		{
+			Name:"Notifications"
+			Options:[
+				{
+					Type:boolean
+					Variable:bDisable_CannotAccessClassViewInformationFile_Message
+					DefaultValue:false
+					Title:"Disable \"Cannot access the ClassView information file.\" message"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bDisableConfirmation_DoYouWantToCloseAllDocuments
+					DefaultValue:false
+					Title:"Disable \"Do you want to close all documents?\" confirmation"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bAvoidRebuildConfirmationMessage
+					DefaultValue:false
+					Title:"Avoid \"The project settings have changed since the last build. Would ...\" confirmation"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bDisableCarriageReturnMessage
+					DefaultValue:false
+					Title:"Disable \"Lines ending with only a carriage return have been detected ...\" message"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bDisableFIFUnicodeMessage
+					DefaultValue:false
+					Title:"Disable \"The file '%s' is unicode and cannot be read.\" message"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bDisableInvalidCharactersMessage
+					DefaultValue:false
+					Title:"Disable \"The file contains invalid characters that will be converted to '.'s\" message"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bDisableWouldYouLikeToBuildThemMessage
+					DefaultValue:false
+					Title:"Disable \"One or more files are out of date ... Would you like to build them?\" message"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bDisableThisFileDoesNotExistDoYouWantToBuildItMessage
+					DefaultValue:false
+					Title:"Auto-answer \"Yes\" to \"This file does not exist.  Do you want to build it?\" message"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bEnableBuildCompleteSound
+					DefaultValue:true
+					Title:"Build Complete Sound"
+					Section:"Notifications"
+					Params:[
+						{
+							Type:unicode_path
+							Variable:BuildCompleteSoundFilename
+						}
+						{
+							Type:boolean
+							Variable:bBuildCompleteSoundOnlyIfInactive
+							DefaultValue:false
+							Title:"Only if not focused"
+						}
+					]					
+				}
+				{
+					Type:boolean
+					Variable:bEnableBuildUpToDateSound
+					DefaultValue:true
+					Title:"Build Up-to-date Sound"
+					Section:"Notifications"
+					Params:[
+						{
+							Type:unicode_path
+							Variable:BuildUptodateSoundFilename
+						}
+						{
+							Type:boolean
+							Variable:bBuildUptodateSoundOnlyIfInactive
+							DefaultValue:false
+							Title:"Only if not focused"
+						}
+					]					
+				}
+				{
+					Type:boolean
+					Variable:bEnableBuildWarningSound
+					DefaultValue:true
+					Title:"Build Warning Sound"
+					Section:"Notifications"
+					Params:[
+						{
+							Type:unicode_path
+							Variable:BuildWarningSoundFilename
+						}
+						{
+							Type:boolean
+							Variable:bBuildWarningSoundOnlyIfInactive
+							DefaultValue:false
+							Title:"Only if not focused"
+						}
+					]					
+				}
+				{
+					Type:boolean
+					Variable:bEnableBuildErrorSound
+					DefaultValue:true
+					Title:"Build Error Sound"
+					Section:"Notifications"
+					Params:[
+						{
+							Type:unicode_path
+							Variable:BuildErrorSoundFilename
+						}
+						{
+							Type:boolean
+							Variable:bBuildErrorSoundOnlyIfInactive
+							DefaultValue:false
+							Title:"Only if not focused"
+						}
+					]					
+				}
+				{
+					Type:boolean
+					Variable:bCustomMaxExpansionWithoutConfirmation
+					DefaultValue:false
+					Title:"Modify Watches expansion threshold for requiring confirmation (default:1000 lines)"
+					Section:"Notifications"
+					Params:[
+						{
+							Type:integer
+							Variable:MaxExpansionWithoutConfirmation
+							DefaultValue:1000
+						}
+					]					
+				}
+			]			
+		}
+		{
+			Name:"Main Window"
+			Options:[
+				{
+					Type:boolean
+					Variable:bUseDarkSkin
+					DefaultValue:false
+					Title:"DarkSkin Theme (Need Restart)"
+					Section:"MainWindow"
+				}
+				{
+					Type:boolean
+					Variable:bDisplayFullFileNameInWindowTitle
+					DefaultValue:false
+					Title:"Display Full File Path in Title"
+					Section:"MainWindow"
+				}
+				{
+					Type:boolean
+					Variable:bRemoveApplicationNameInMainWindowTitle
+					DefaultValue:false
+					Title:"Remove Application Name from Title"
+					Section:"MainWindow"
+				}
+				{
+					Type:boolean
+					Variable:bFlashWindowAfterBuild
+					DefaultValue:false
+					Title:"Flash Main Window after Build"
+					Section:"Notifications"
+				}
+				{
+					Type:boolean
+					Variable:bDisplayProgressBarCompilationInTaskBar
+					DefaultValue:false
+					Title:"Show Build Progress Bar in Taskbar Button"
+					Section:"MainWindow"
+				}
+				{
+					Type:boolean
+					Variable:bDisplayDebugStateInTaskBar
+					DefaultValue:false
+					Title:"Show Debug State in Taskbar Button"
+					Section:"MainWindow"
+				}
+				{
+					Type:boolean
+					Variable:bFixFullscreenDisplay
+					DefaultValue:false
+					Title:"Fix FullScreen Display"
+					Section:"MainWindow"
+				}
+				{
+					Type:boolean
+					Variable:bFixSushibarOnBigScreens
+					DefaultValue:false
+					Title:"Fix Status Bar on Big Screens"
+					Section:"MainWindow"
+				}
+			]			
+		}
+		{
+			Name:"Sub Windows"
+			Options:[
+				{
+					Type:boolean
+					Variable:bUseUltimateDocking
+					DefaultValue:false
+					Title:"Use Ultimate Docking"
+					Section:"SubWindowsAndToolbars"
+				}
+				{
+					Type:boolean
+					Variable:bToggleFullScreenWhenDoubleClickOnCaption
+					DefaultValue:false
+					Title:"Double-Clicking the Title Bar Toggles FullScreen (Maximize) instead of Docking"
+					Section:"SubWindowsAndToolbars"
+				}
+			]
+		}
+		{
+			Name:"Toolbars and Menus"
+			Options:[
+				{
+					Type:boolean
+					Variable:bSaveCustomToolbarIconsIn32Bits
+					DefaultValue:false
+					State:Disabled
+					Title:"Save Custom Toolbar Icons in 32bits (Monitors must be in 32bits)"
+					Section:"SubWindowsAndToolbars"
+				}
+				{
+					Type:boolean
+					Variable:bUseGreyIconForDisabledItems
+					DefaultValue:false
+					Title:"Use Gray Images for Disabled Items"
+					Section:"SubWindowsAndToolbars"
+				}
+				{
+					Type:boolean
+					Variable:bDisableReleaseAlt
+					DefaultValue:false
+					Title:"Disable the 'Alt' Only shortcut (Giving Focus to Menu)"
+					Section:"SubWindowsAndToolbars"
+				}
+				{
+					Type:boolean
+					Variable:bAllowModifierOnlyHotkey
+					DefaultValue:false
+					Title:"Allow Hotkeys to use only a modifier key (Alt/Ctrl/Win/Shift)"
+					Section:"SubWindowsAndToolbars"
+				}
+				{
+					Type:boolean
+					Variable:bDisableAppsKeyDefaultAction
+					DefaultValue:false
+					Title:"Disable the Default Action (i.e. Context Menu) of Apps Key"
+					Section:"SubWindowsAndToolbars"
+				}
+				{
+					Type:boolean
+					Variable:bAlwaysDisplayWindowIconInToolbar
+					DefaultValue:false
+					Title:"Always Display the active Window Icon in the Toolbar"
+					Section:"SubWindowsAndToolbars"
+				}
+			]			
+		}
+		{
+			Name:"Workspace Window"
+			Options:[
+				{
+					Type:boolean
+					Variable:bEnableDropFilesInWorkspaceView
+					DefaultValue:false
+					Title:"Enable Dropping Files in 'FileView' tree"
+					Section:"WorkspaceView"
+					Params:[
+						{
+							Type:boolean
+							Variable:bEnableDropFilesInWorkspaceView_AskForAddToVersionning
+							Title:"Ask for adding to Hg"
+							DefaultValue:false
+						}
+						{
+							Type:boolean
+							Variable:bEnableDropFilesInWorkspaceView_AskForAddToVersionning_CheckBeforeAsk
+							Title:"Check Hg Before Asking for Adding (can be slow)"
+							DefaultValue:false
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bDisplayProjectNameInFileViewTree
+					DefaultValue:false
+					Title:"Display Project Name Only in 'FileView' tree (no ' Files' suffix)"
+					Section:"WorkspaceView"
+				}
+				{
+					Type:boolean
+					Variable:bDisplaySourceFilePathInFileViewTree
+					DefaultValue:false
+					Title:"Display Source File Path in 'FileView' tree"
+					Section:"WorkspaceView"
+				}
+				{
+					Type:boolean
+					Variable:bAddStarOnDirtySourceFileInFileViewTree
+					DefaultValue:false
+					Title:"Add * On Dirty Source File in 'FileView' tree"
+					Section:"WorkspaceView"
+				}
+				{
+					Type:boolean
+					Variable:bHighlightSourceFileInFileViewTree
+					DefaultValue:false
+					Title:"Highlight Source File in 'FileView' tree"
+					Section:"WorkspaceView"
+				}
+				{
+					Type:boolean
+					Variable:bHighlightSelectedItemInNonFocusFileViewTree
+					DefaultValue:false
+					Title:"Highlight Selected Item in non focused 'FileView' tree"
+					Section:"WorkspaceView"
+				}
+				{
+					Type:boolean
+					Variable:bReplaceWorkspaceViewIcons
+					DefaultValue:false
+					Title:"Replace Workspace Icons in 'FileView' tree"
+					Section:"WorkspaceView"
+				}
+				{
+					Type:boolean
+					Variable:bAddFileViewOptionsInContextMenu
+					DefaultValue:false
+					Title:"Add 'FileView' Options in 'FileView' context menu"
+					Section:"WorkspaceView"
+				}
+				{
+					Type:boolean
+					Variable:bAddDependenciesInContextMenu
+					DefaultValue:false
+					Title:"Add 'Dependencies' menu item in project context menu"
+					Section:"WorkspaceView"
+				}
+			]			
+		}
+		{
+			Name:"Dependencies Scan"
+			Options:[
+
+				{
+					Type:boolean
+					Variable:bForceDependenciesLocation
+					DefaultValue:false
+					Title:"Force Dependencies Location"
+					Section:"FileDependencies"
+					Params:[
+						{
+							Type:enum
+							Variable:DependenciesLocation
+							DefaultValue:0
+							Values:[
+								{Title:"Save File Dependencies in .DSP", Value:0}
+								{Title:"Save File Dependencies in .UltDep", Value:1}
+								{Title:"Don't save File Dependencies", Value:2}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bForceRescanDependenciesIfNotTheSameComputer
+							DefaultValue:true
+							Title:"Force the Dependencies Scan when the computer name has changed"
+						}
+					]
+				}
+
+				{
+					Type:boolean
+					Variable:bDisplayDependenciesProgressBar
+					DefaultValue:true
+					Title:"Display Progress Bar while building dependencies tree"
+					Section:"Advanced"
+				}
+				{
+					Type:boolean
+					Variable:bRemoveGenerateFileDependenciesSwitch
+					DefaultValue:true
+					Title:"Remove /FD (Generate file dependencies) switch"
+					Section:"Advanced"
+				}
+				{
+					Type:boolean
+					Variable:bFixBadDateFile
+					DefaultValue:true
+					Title:"Fix date file set in the future"
+					Section:"FileSystem"
+				}
+			]			
+		}
+		{
+			Name:"Window Tabs"
+			Options:[
+				{
+					Type:color
+					Title:"Active Window"
+					Section:"WndTabs"
+					Banner:"Background"
+					Variable:WndTabsActiveWindowBgColor
+					DefaultValue:0x80FF80
+					Params:[
+						{
+							Type:color
+							Banner:"Foreground"
+							Variable:WndTabsActiveWindowFgColor
+							DefaultValue:0x000000
+						}
+					]
+					
+				}
+				{
+					Type:color
+					Title:"Other Windows"
+					Section:"WndTabs"
+					Banner:"Background"
+					Variable:WndTabsNonActiveWindowBgColor
+					DefaultValue:CLR_DEFAULT
+				}
+				{
+					Type:integer
+					Variable:WndTabsMinTimePerPixel
+					DefaultValue:10
+					Section:"WndTabs"
+					Title:"Min Time per Pixel"
+					PostTitle:"seconds"
+				}
+				{
+					Type:boolean
+					Variable:bWndTabsAutoUpdate
+					DefaultValue:true
+					Title:"Auto Update"
+					Section:"WndTabs"
+				}
+			]			
+		}
+		{
+			Name:"Macros"
+			Options:[
+				{
+					Type:boolean
+					Variable:bAdd10ExtraParametersToExecuteCommand
+					DefaultValue:false
+					Title:"Add 10 Extra Parameters to 'ExecuteCommand' function"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bTranslateMacroVariableInMenus
+					DefaultValue:false
+					Title:"Translate Macro Variables in Menus (e.g. $(FileName) )"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bAvoidVBScriptException
+					DefaultValue:false
+					Title:"Skip VBScript Exceptions"
+					Section:"Macros"
+				}
+			]			
+		}
+		{
+			Name:"Build"
+			Options:[
+				{
+					Type:boolean
+					Variable:bEnablePlatform64
+					DefaultValue:false
+					Title:"Enable Win64 Platform Target"
+					Section:"Compile"
+				}
+				{
+					Type:boolean
+					Variable:bAllowToCompileSourceFromNonActiveProject
+					DefaultValue:false
+					Title:"Allow to compile source from non-active project (BuildCompile / Ctrl + F7)"
+					Section:"Compile"
+				}
+				{
+					Type:boolean
+					Variable:bInternalSpawn
+					DefaultValue:false
+					Title:"Skip the 'VCSpawn.exe' usage during build"
+					Section:"Compile"
+				}
+				{
+					Type:boolean
+					Variable:bBuildActionDontInterruptCurrentBuilding
+					DefaultValue:false
+					Title:"Build action doesn't interrupt current build"
+					Section:"Compile"
+				}
+				{
+					Type:boolean
+					Variable:bBlockExcludeFromBuildCompilation
+					DefaultValue:false
+					Title:"Forbid build of 'excluded from build' source files"
+					Section:"Compile"
+				}
+				{
+					Type:boolean
+					Variable:bTranslateMacroVariableInCustomBuildMenus
+					DefaultValue:false
+					Title:"Translate Macro Variables in Custom Build Menus (e.g. $(FileName) )"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bAddAvailableMacroVarInCustomBuildContextMenu
+					DefaultValue:false
+					Title:"Add Available Macro Variables in Custom Build Context Menu"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bTranslateCustomBuildCommandInTooltip
+					DefaultValue:false
+					Title:"Translate Custom Build Commands in Tooltip"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bTranslatePostBuildCommandInTooltip
+					DefaultValue:false
+					Title:"Translate Post Build Commands in Tooltip"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bAddAvailableMacroVarInPostBuildContextMenu
+					DefaultValue:false
+					Title:"Add Available Macro Variables in PostBuild Context Menu"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bTranslatePreLinkCommandInTooltip
+					DefaultValue:false
+					Title:"Translate Pre-Link Commands in Tooltip"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bAddAvailableMacroVarInPreLinkContextMenu
+					DefaultValue:false
+					Title:"Add Available Macro Variables in Pre-Link Context Menu"
+					Section:"Macros"
+				}
+				{
+					Type:boolean
+					Variable:bDisplaySplashscreenSlideshowDuringBuild
+					DefaultValue:false
+					Title:"Display Splashscreen Slideshow during build"
+					Section:"Build"
+					Params:[
+						{
+							Title:"Start Delay (in ms)"
+							Type:integer
+							Variable:SplashscreenSlideshowStartDelay
+							DefaultValue:3000
+						}
+						{
+							Title:"Slide Image Speed (in ms)"
+							Type:integer
+							Variable:SplashscreenSlideshowSpeed
+							DefaultValue:2000
+						}
+						{
+							Type:boolean
+							Variable:bSplashscreenSlideshowAutoSlideMovies
+							DefaultValue:false
+							Title:"Automatically Slide Movies (otherwise need click)"
+						}
+						{
+							Type:enum
+							Variable:SplashscreenSlideshowType
+							DefaultValue:0
+							Values:[
+								{Title:"Startup Splashscreens", Value:0}
+								{Title:"Startup SFW Splashscreens", Value:1}
+							]
+						}
+					]
+				}
+			]			
+		}
+		{
+			Name:"Advanced"
+			Options:[
+				{
+					Type:boolean
+					Variable:bGoToNextErrorTagBugFix
+					DefaultValue:false
+					Title:"Visual Assist X © Bug Fix : F4/SHIFT+F4 (GotoNextErrorTag/GotoPrevErrorTag)"
+					Section:"VisualAssist"
+				}
+				{
+					Type:boolean
+					Variable:bAddProjectNameInResourceFolder
+					DefaultValue:false
+					Title:"Add Project Name in Resource Folder"
+					Section:"Advanced"
+				}
+				{
+					Type:boolean
+					Variable:bIncreaseProjectSettingsSize
+					DefaultValue:false
+					Title:"Merge C/C++ Settings Pages (Need Restart Visual Studio)"
+					Section:"ProjectSettings"
+				}
+				{
+					Type:boolean
+					Variable:bOptionPanel_SplitEditOnMultiLine
+					DefaultValue:false
+					Title:"Split Edits in Option Panels to multi-line"
+					Section:"OptionPanels"
+				}
+				{
+					Type:boolean
+					Variable:bRemove10SecSleepBeforeQuit
+					DefaultValue:true
+					Title:"Remove 10sec Sleep before quit, in, command line mode"
+					Section:"ConsoleMode"
+				}
+				{
+					Type:boolean
+					Variable:bRemoveTrailing_AW_DuringHelpSearch
+					DefaultValue:false
+					Title:"Remove trailing 'A' and 'W' in function name when searching in Help"
+					Section:"Help"
+				}
+				{
+					Type:boolean
+					Variable:bFixAndImproveGotoMatchBrace
+					DefaultValue:false
+					Title:"Fix And Improve GotoMatchBrace and GotoMatchBraceExtend (Jump Strings and Comments)"
+					Section:"EnhancedFeatures"
+				}
+				{
+					Type:boolean
+					Variable:bSendWheelMessageToOverWnd
+					DefaultValue:false
+					Title:"Send Mouse Wheel events to Window under cursor"
+					Section:"Mouse"
+				}
+				{
+					Type:boolean
+					Variable:bUseRightDragToScrollTextView
+					DefaultValue:false
+					Title:"Scroll Text window using right mouse drag"
+					Section:"Mouse"
+					Params:[
+						{
+							Title:"Horizontal Scroll Speed"
+							Type:integer
+							Variable:RightDragToScrollTextView_SpeedX
+							DefaultValue:2
+						}
+						{
+							Title:"Vertical Scroll Speed"
+							Type:integer
+							Variable:RightDragToScrollTextView_SpeedY
+							DefaultValue:2
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bDisableWaitingCursors
+					DefaultValue:false
+					Title:"Disable the Waiting Cursors (Slowing Down multiple actions)"
+					Section:"Mouse"
+				}
+				{
+					Type:boolean
+					Variable:bAppendToolNameInKeyboardMenu
+					DefaultValue:false
+					Title:"Append Tool name in Keyboard Menu"
+					Section:"KeyboardMenu"
+				}
+				{
+					Type:boolean
+					Variable:bAllowMacroStringInToolPathName
+					DefaultValue:true
+					Title:"Allow To Use Macro String $(...), in Tool Filename"
+					Section:"Tools"
+				}
+				{
+					Type:boolean
+					Variable:bRestoreActiveConfigurationAfterInsertProject
+					DefaultValue:false
+					Title:"Visual Bug Fix : Restore Active Configuration after Insert a Project"
+					Section:"Projects"
+				}
+				{
+					Type:boolean
+					Variable:bGreyRecentListNonExistingItems
+					DefaultValue:false
+					Title:"Gray Out Non Existing Items in Recent Workspaces List"
+					Section:"RecentList"
+				}
+				{
+					Type:boolean
+					Variable:bPreserveToolHotkeysAfterToolListModifications
+					DefaultValue:false
+					Title:"[BUG FIX] Preserve Tool Hotkeys after Tool List modifications"
+					Section:"Tools"
+				}
+				{
+					Type:boolean
+					Variable:bSkipMessageBeepOk
+					DefaultValue:false
+					Title:"Disable 'Default Beep' Sound"
+					Section:"Tools"
+				}
+				{
+					Type:boolean
+					Variable:bAutoSelectActiveConfigInProjectSettingsDlg
+					DefaultValue:false
+					Title:"Select active config in 'Project Settings' dialog by default"
+					Section:"Tools"
+				}
+				{
+					Type:boolean
+					Variable:bDisplaySplashscreenDuringLaunch
+					DefaultValue:true
+					Title:"Display Splashscreen during Visual Studio launch"
+					Section:"Launch"
+					Params:[
+						{
+							Type:boolean
+							Variable:bUseSFWLaunchSplashscreenByDefault
+							DefaultValue:false
+							Title:"Use 'safe for work' splashscreen only"
+						}
+					]
+				}
+			]			
+		}
+		{
+			Name:"Portable Settings"
+			Options:[
+				{
+					Type:boolean
+					Variable:bSaveKeyboardSettingsInLocalIni
+					DefaultValue:false
+					Title:"Alternate Keyboard settings (No Binary)"
+					Section:"PortableSettings"
+				}
+				{
+					Type:boolean
+					Variable:bAlternateToolsSettings
+					DefaultValue:false
+					Title:"Alternate Tools settings"
+					Section:"PortableSettings"
+				}
+				{
+					Type:boolean
+					Variable:bSaveFormatsInLocalIni
+					DefaultValue:false
+					Title:"Alternate Format Settings (No Binary)"
+					Section:"PortableSettings"
+				}
+				{
+					Type:boolean
+					Variable:bSaveLayoutInLocalIni
+					DefaultValue:false
+					Title:"Save/Load Layout Settings to/from MsDev.ini"
+					Section:"PortableSettings"
+					Params:[
+						{
+							Type:boolean
+							Variable:bCheckDockWorkerPosition
+							DefaultValue:false
+							Title:"Check Toolbar Position (Out of screen)"
+						}
+						{
+							Type:boolean
+							Variable:bUseComputerNameAsConfigFileName
+							DefaultValue:false
+							Title:"Use Computer Name as config file name"
+						}
+					]
+				}
+			]			
+		}
+
+		{
+			Name:"About"
+			Options:[
+				{
+					Type:title
+					Variable:VisualUltimateVersion
+					DefaultValue:0
+				}
+				{
+					Type:title
+					Title:"Copyright Dr. Hoiby 2016 - http://www.dr-hoiby.com"
+				}
+#				{
+#					Type:button
+#					Title:Save Settings
+#					IDC_SAVE_SETTINGS
+#				}
+			]			
+		}
+		{
+			Name:"<WIP>"
+			Options:[
+				{
+					Type:boolean
+					Variable:bShowMiniMap
+					DefaultValue:false
+					Title:"Display Mini Map In Right Margin  "
+					State:WIP
+					Section:"EnhancedDisplay"
+				}
+// 				{
+// 					Type:boolean
+// 					Variable:bBackgroundPreprocessing
+// 					DefaultValue:false
+// 					State:WIP
+// 					Title:"Background Preprocessing (Reopen files needed) "
+// 					Section:"Highlights"
+// 				}
+				{
+					Type:boolean
+					Variable:bAutoCompleteParentheses
+					DefaultValue:false
+					Title:"Insert closing ) after (  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bAutoCompleteBraces
+					DefaultValue:false
+					Title:"Insert closing } after {  "
+					Section:"Completion"
+					State:WIP
+					Params:[
+						{
+							Type:boolean
+							Variable:bAutoCompleteBraces_InsertBlankLine
+							Title:"Insert a blank line"
+							DefaultValue:false
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bAutoCompleteBrackets
+					DefaultValue:false
+					Title:"Insert closing ] after [  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bAutoCompleteQuotationMarks
+					DefaultValue:false
+					Title:"Insert closing \" after \"  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bAutoCompleteApostrophes
+					DefaultValue:false
+					Title:"Insert closing ' after '  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bSurroundSelectionOnSlash
+					DefaultValue:false
+					Title:"Surround selection on /  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bSurroundSelectionOnStar
+					DefaultValue:false
+					Title:"Surround selection on *  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bSurroundSelectionOnParenthese
+					DefaultValue:false
+					Title:"Surround selection on (  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bSurroundSelectionOnBrace
+					DefaultValue:false
+					Title:"Surround selection on {  "
+					Section:"Completion"
+					State:WIP
+				}
+				{
+					Type:boolean
+					Variable:bSurroundSelectionOnSharp
+					DefaultValue:false
+					Title:"Surround selection on #  "
+					Section:"Completion"
+					State:WIP
+				}
+			]			
+		}
+	]
+}

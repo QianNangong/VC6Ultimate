@@ -1,0 +1,22 @@
+<HTML>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<P>This samples uses one file: Counter.asp. This file uses 
+the Recordset design-time control to create a connection to the Counter table in 
+the Gallery database. After the recordset is open, a new record is added to the 
+table and data is written into the appropriate fields:</P>
+<FONT face=Courier>
+	function CounterRecordset_ondatasetcomplete(){<BR>
+		&nbsp;&nbsp;fieldsArray = new Array("Remote_Host","Path_Info","HTTP_User_Agent");<BR>
+		&nbsp;&nbsp;valuesArray = new Array(Request.ServerVariables("Remote_Addr"), Request.ServerVariables("Path_Info"), Request.ServerVariables("HTTP_User_Agent"));<BR>
+		&nbsp;&nbsp;CounterRecordset.addImmediate(fieldsArray, valuesArray);<BR>
+	}
+</FONT>
+
+<P>Using a Label design-time control, the total number of 
+records from the recordset is used to display the current count of hits to this 
+page. 
+</FONT></P>
+</BODY>
+</HTML>

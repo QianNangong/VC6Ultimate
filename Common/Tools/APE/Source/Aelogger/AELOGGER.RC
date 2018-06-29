@@ -1,0 +1,15 @@
+STRINGTABLE DISCARDABLE 
+BEGIN
+	1	"*** Do *NOT* Localize any string that starts with '***'.  They are comments to be used by localizers to identify sections.  They also mark the beginning of a new 'section' within the String Table."
+	//Logging strings
+	2	"Logger"	//Component name
+	//Display string
+	3	"Disk full, logging turned off."
+	4	"Writing Temporary log file."
+	//U/I strings
+	5	"Logger"	//Form Caption
+	29	"*** Font information for all forms.  Index 30 is the Character set, Index 31 is Font name, Index 32 is Font Size"
+	30	"0"
+	31	"Tahoma"
+	32	"10"
+END

@@ -1,0 +1,86 @@
+Menu Browse
+{
+  Separator
+    Option "&Source Code"
+    {
+	enable %selected_items:empty:false
+	InterfaceEvent VisualStudio OnBrowseSource
+    }
+}
+Menu Tools
+{	
+    Separator
+    Option "&Assign to New Component..."
+    {
+	enable %model:writeable
+	RoseScript $VSADDIN_SCRIPT_PATH\rvsonassign.ebx
+    }
+    Option "&Generate Code"
+    {
+	enable %model:writeable
+	InterfaceEvent VisualStudio OnGenerateCode
+    }
+    Option "Class &Wizard..."
+    {
+	enable %model:writeable
+	RoseScript $VSADDIN_SCRIPT_PATH\RVBClassWiz.ebx
+    }
+}
+
+Menu Help
+{
+  	Separator
+   	Menu "Microsoft on the &Web"
+	{
+		Option "&Free Stuff"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoFree.ebx
+		}
+
+		Option "&Product News"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoNews.ebx
+		}
+
+		Option "Frequently Asked &Questions"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoFAQ.ebx
+		}
+
+		Option "Online &Support"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoSupport.ebx
+		}
+		Separator
+		Option "For &Developers Only Home Page"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoDevOnly.ebx
+		}
+		Option "Send Feedbac&k"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoFeedback.ebx
+		}
+		Option "&Best of the Web"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoBest.ebx
+		}
+		Option "Search the &Web"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoSearch.ebx
+		}
+		Option "Web &Tutorial"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoTutorial.ebx
+		}
+     		Separator
+		Option "Microsoft &Home Page"
+		{
+			RoseScript $VSADDIN_SCRIPT_PATH\RVBWebGoMicrosoft.ebx
+		}
+	}
+	Separator
+	Option "&About Visual Modeler..."
+	{
+		RoseScript $VSADDIN_SCRIPT_PATH\RVBAbout.ebx
+	}
+}

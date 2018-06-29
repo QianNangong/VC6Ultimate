@@ -1,0 +1,9 @@
+"Filter"
+[
+	"Data"
+	{
+		FormatVersion = 1
+		WriterVersion = 1
+		Expression = "(Machine = \"All Machines\" AND Component = \"All Components\" AND (Category = \"All Regular Events\" AND (Category = \"Startup and shutdown\" AND (Event = \"COM Class Registration\" OR Event = \"COM Class Revokation\" OR Event = \"COM Log Session\" OR Event = \"ComponentStart\" OR Event = \"ComponentStop\"))))"
+	}
+]

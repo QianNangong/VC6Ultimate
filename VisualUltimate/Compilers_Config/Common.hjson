@@ -1,0 +1,33 @@
+{
+
+	Vars:[
+		{
+			BaseDir:%CurDir%\..\..
+		}
+	]
+
+	Flags:[
+		/VirtualRegistry
+		/NotPkg DevClVw
+		/NotPkg DevNCB
+		/NotPkg DevDTG
+		/NotPkg DevHtmx
+		/Y3
+		/SplashScreenDir %BaseDir%\VisualUltimate\SplashScreens
+		/SplashScreenBlocked *
+		/SplashScreenAllowed MAIAR
+		/SplashScreenAllowed BONNE_GRAINE
+		/SplashScreenAllowed ST_CLAUDE
+		/SplashScreenAllowed PC-LEDOUX
+		/SplashScreenDir_SFW %BaseDir%\VisualUltimate\SplashScreens_SFW
+	#		/NOLOGO
+	]
+
+	Environment:{
+		INCLUDE:""
+		LIB:""
+		SOURCE:""
+		_NT_SYMBOL_PATH:"Q:\\Symbols"
+		PATH:"%PATH%;%CurDir%\\..\\..\\VisualUltimate\\System32"
+	}
+}

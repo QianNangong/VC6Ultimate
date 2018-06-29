@@ -1,0 +1,10 @@
+"Filter"
+[
+	"Data"
+	{
+		FormatVersion = 1
+		WriterVersion = 1
+		Expression = "(Machine = \"All Machines\" AND (Component = \"ADO Event Source\" OR Component = \"ODBC Event Source\" OR Component = \"SQL Server OLEDB\") AND (Category = \"All Regular Events\" AND (Category = \"ADO Connection Category\" OR Category = \"ADO Recordset Category\" OR Category = \"Call and return\" OR Category = \"Database\" OR Category = \"ODBC Connection Category\" OR Category = \"SQLOLEDB Connection Category\" OR Category = \"Transaction\")))"
+	}
+]
+

@@ -1,0 +1,10 @@
+{
+	Name: "Window Tabs",
+	MenuItems: [
+		{
+			CmdID: "New",
+			State: "S200",
+			Width: 0,
+		}
+	]
+}

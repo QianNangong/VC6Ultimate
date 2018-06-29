@@ -1,0 +1,370 @@
+{
+	Workspace:{
+		Folders:[
+			"VCProject"
+		]
+		Files:[
+			{
+				Source: DSW/ROOT.dsw
+				Target: $$root$$.dsw
+				TargetFolder: VCProject
+			}
+		]
+	}
+	ProjectTypes:[
+		{
+			Name: Win32 Application
+			Question: What kind of windows application ?
+			Default: A simple application.
+			SubTypes:[
+				{
+					Name: An empty project.
+					Folders:[
+						"VCProject"
+						"Res"
+					]
+					Files:[
+						{
+							Source: App/Prj_1.dsp
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+					]
+				}
+				{
+					Name: A simple application.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Code"
+					]
+					Files:[
+						{
+							Source: App/Prj_2.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: App/main_2.cpp
+							Target: main.cpp
+							TargetFolder: Code
+						}
+					]
+				}
+				{
+					Name: A "Hello, World!" application.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Code"
+					]
+					Files:[
+						{
+							Source: App/Prj_3.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: App/Prj_3_resource.h
+							Target: resource.h
+							TargetFolder: Code
+						}
+						{
+							Source: App/small.ico
+							Target: small.ico
+							TargetFolder: Res
+							bBinary: 1
+						}
+						{
+							Source: App/medium.ico
+							Target: medium.ico
+							TargetFolder: Res
+							bBinary: 1
+						}
+						{
+							Source: App/Prj_3.rc
+							Target: resource.rc
+							TargetFolder: Code
+						}
+						{
+							Source: App/main_3.cpp
+							Target: main.cpp
+							TargetFolder: Code
+						}
+					]
+				}
+				{
+					Name: A simple dialog application.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Code"
+					]
+					Files:[
+						{
+							Source: App/Prj_4.dsp
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: App/Prj_4_resource.h
+							Target: resource.h
+							TargetFolder: Code
+						}
+						{
+							Source: App/small.ico
+							Target: small.ico
+							TargetFolder: Res
+							bBinary: 1
+						}
+						{
+							Source: App/medium.ico
+							Target: medium.ico
+							TargetFolder: Res
+							bBinary: 1
+						}
+						{
+							Source: App/Prj_4.rc
+							Target: resource.rc
+							TargetFolder: Code
+						}
+						{
+							Source: App/main_4.cpp
+							Target: main.cpp
+							TargetFolder: Code
+						}
+					]
+				}
+				{
+					Name: A GX VIEWER application.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Shaders"
+						"Code"
+					]
+					Files:[
+						{
+							Source: GxViewer/App.dsp
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: GxViewer/shaders.cpp
+							Target: $$root$$_Shaders.cpp
+							TargetFolder: Shaders
+						}
+						{
+							Source: GxViewer/shaders.h
+							Target: $$root$$_Shaders.h
+							TargetFolder: Shaders
+						}
+						{
+							Source: GxViewer/Default.glsl
+							Target: Default.glsl
+							TargetFolder: Shaders
+						}
+						{
+							Source: GxViewer/App.shader_project
+							Target: $$root$$.shader_project
+							TargetFolder: Shaders
+						}
+						{
+							Source: GxViewer/main.cpp
+							Target: main.cpp
+							TargetFolder: Code
+						}
+					]
+				}
+				{
+					Name: A Simple Generic Viewer application.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Code"
+					]
+					Files:[
+						{
+							Source: GenericViewerTemplate/App.dsw
+							Target: $$root$$.dsw
+							TargetFolder: VCProject
+						}
+						{
+							Source: GenericViewerTemplate/App.dsp
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: GenericViewerTemplate/main.cpp
+							Target: main.cpp
+							TargetFolder: Code
+						}
+						{
+							Source: GenericViewerTemplate/App.settings
+							Target: $$root$$.settings
+							TargetFolder: VCProject
+						}
+					]
+				}
+			]
+		},
+		{
+			Name: Win32 Console Application
+			Question: What kind of console application ?
+			Default: A simple application.
+			SubTypes:[
+				{
+					Name: An empty project.
+					Folders:[
+						"VCProject"
+						"Res"
+					]
+					Files:[
+						{
+							Source: Console/Prj_1.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+							Condition: GROUP
+						}
+						{
+							Source: Console/Prj_1_nogroup.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+							Condition: NO_GROUP
+						}
+					]
+				}
+				{
+					Name: A simple application.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Code"
+					]
+					Files:[
+						{
+							Source: Console/Prj_2_3.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: Console/main_2.cpp
+							Target: main.cpp
+							TargetFolder: Code
+						}
+					]					
+				}
+				{
+					Name: A "Hello, World!" application.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Code"
+					]
+					Files:[
+						{
+							Source: Console/Prj_2_3.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: Console/main_3.cpp
+							Target: main.cpp
+							TargetFolder: Code
+						}
+					]					
+				}
+			]
+		},
+		{
+			Name: Win32 Dynamic-Link Library (.DLL)
+			Question: What kind of DLL ?
+			Default: A simple DLL project.
+			SubTypes:[
+				{
+					Name: An empty DLL project.
+					Folders:[
+						"VCProject"
+						"Res"
+					]
+					Files:[
+						{
+							Source: Dll/Prj_1.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+					]					
+				}
+				{
+					Name: A simple DLL project.
+					MainFileName: code/$$root$$.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Code"
+					]
+					Files:[
+						{
+							Source: Dll/Prj_2.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
+							Source: Dll/main_2.cpp
+							Target: $$root$$.cpp
+							TargetFolder: Code
+						}
+					]					
+				}
+				{
+					Name: A DLL that exports some symbols.
+					MainFileName: code/main.cpp
+					Folders:[
+						"VCProject"
+						"Res"
+						"Code"
+					]
+					Files:[
+						{
+							Source: Dll/main_3.cpp
+							Target: code/$$root$$.cpp
+							TargetFolder: Code
+						}
+						{
+							Source: Dll/dll_3.h
+							Target: $$root$$.h
+							TargetFolder: Code
+						}
+					]					
+				}
+			]
+		},
+		{
+			Name: Win32 Static (.LIB)
+			Question: What kind of Lib ?
+			SubTypes:[
+				{
+					Name: An empty lib.
+					Folders:[
+						"VCProject"
+						"Res"
+					]
+					Files:[
+						{
+							Source: Lib/Prj.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+					]					
+				}
+			]
+		},
+	]
+	Default:Win32 Application
+}

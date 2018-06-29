@@ -1,0 +1,717 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Draft//EN">
+<HTML>
+<!----------------------------------------------------------------------------->
+<!--                          BEGIN HTML HEAD       6/4 version                         -->
+<!--                                                                         -->
+<HEAD>
+<meta http-equiv="Content-Type" content="text-html; charset=Windows-1251">
+<title>MSDN Library Visual Studio 6.0 Readme</title>
+<meta name="MS-HAID" content="readmeDN">
+<body bgcolor=#ffffff text=#000000 link="#0000FF" vlink="#0000FF" onclick="checkExpand( )">
+<font face="Verdana" size=2>
+</HEAD>
+<!--                                                                         -->
+<!--                             END HEADER                                  -->
+<!----------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------->
+<!--                            BEGIN JSCRIPT                                -->
+<!--                                                                         -->
+
+<script language="JSCRIPT">
+
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           event.returnValue=false;
+        }
+     }
+  }
+
+</script>
+<!--                                                                         -->
+<!--                             END JSCRIPT                                 -->
+<!----------------------------------------------------------------------------->
+</BODY>
+<!----------------------------------------------------------------------------->
+<!--                         BEGIN README INTRO                              -->
+<!--                                                                         -->
+
+<h2>MSDN Library Visual Studio 6.0 Readme</h2>
+
+<p>&copy; 1998 Microsoft Corporation. All rights reserved. </p>
+
+<p>Other product and company names herein may be the trademarks of their respective owners. </p>
+
+<p> The MSDN&trade; Library Visual Studio&trade; 6.0 Readme includes updated information for the documentation provided with the Microsoft&reg;
+Visual Studio development system for the Windows&reg; operating system and the Internet. The information in this document is more up-to-date than the information in <B>MSDN Library Help</B>.
+Many of the issues outlined in this document will be corrected in upcoming releases.</p>
+
+<p>For <i>general installation issues</i> for the Visual Studio 6.0 suite of products, including side-by-side product installation, see the <a href="install.htm" title="Jumps to the installation readme (install.htm).">Installation Notes</a>  readme (install.htm).</p>
+
+<!--                                                                         -->
+<!--                                                                         -->
+<!--                            END README INTRODUCTION                      -->
+<!----------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------->
+<!--                               BEGIN TOC                                 -->
+<!--                                                                         -->
+
+<h3><p>Contents <font color="#000000" size="2" face="Verdana,Arial,Helvetica">— Click any of the
+items below</font></p></h3>
+
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 1.0 TOC                       -->
+     <!--                                                               -->
+	 
+<H5><A class=ex href="#" title="Click to expand or collapse" id="ReadmeSection1">What's New for This
+Release</A></H5>
+
+<div id="ReadmeSection1Child">
+
+	<blockquote>
+<a href="readmedn.htm#Topic_100">New MSDN Viewer</a></blockquote>
+
+
+
+</div>
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 2.0 TOC                       -->
+     <!--                                                               -->
+	 
+<h5><a class=ex href="#" title="Click to expand or collapse." id="ReadmeSection2">Setup Issues</a></h5>
+
+<div id="ReadmeSection2Child">
+
+<p><b>Important:</b>&nbsp;&nbsp;&nbsp;This section contains vital information about installing the MSDN Library Visual Studio 6.0 release. Please read all items carefully before
+you begin your installation.</p>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_200">Setup general information</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_201">Typical, Full, and Custom installation options</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_2011">MSDN setup on a network server</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_202">&quot;Internet Explorer Version Check&quot; message during Setup</a>
+</blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_203">Collection file not found in Windows Terminal Server installation</a>
+</blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_2035">Preferred collection message during Setup</a>
+</blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_204">Uninstalling this release</a></blockquote>
+
+</div>
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 3.0 TOC                       -->
+     <!--                                                               -->
+	 
+<h5><a class=ex href="#" title="Click to expand or collapse." id="ReadmeSection3">Known Issues</a></h5>
+
+<div id="ReadmeSection3Child">
+
+
+	<blockquote>
+<a href="readmedn.htm#Topic_300">Collections &mdash; Changing preferred collection</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_301">Internet Explorer 3.02 limitations</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_304">Internet Explorer 4.01 issues</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_306">Index &mdash; Index subentries sorted under wrong main entries</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_307">Locate button is active but doesn't work</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_308">Navigation arrows disappear</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_309">Printing &mdash; Multi-node printing</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_310">Content in multiple frames cannot be printed simultaneously</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_311">Subset issues</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_3115">Search may erroneously return &quot;No Topics Found&quot;</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_312">Search results in some languages may display extraneous characters</a></blockquote>
+
+
+	<blockquote>
+<a href="readmedn.htm#Topic_315">URLs that do not connect</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_316">Changing phone numbers</a></blockquote>
+
+
+</div>
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 4.0 TOC                       -->
+     <!--                                                               -->
+	 
+<h5><a class=ex href="#" title="Click to expand or collapse." id="ReadmeSection4">General Information</a></h5>
+
+<div id="ReadmeSection4Child">
+
+	<blockquote>
+<a href="readmedn.htm#Topic_400">What are these COL, CHM, CHI, CHW, and CHQ files on my local drive and CD?</a>
+</blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_103">Finding information on HTML tags</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_401">Library contents</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_402">Disc layout</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_403">Uncompressed samples</a></blockquote>
+
+	<blockquote>
+<a href="readmedn.htm#Topic_404">MSDN Library stop list</a></blockquote>
+
+</div>
+
+<!--                                                                         -->
+<!--                           END CONTENTS TOC                              -->
+<!----------------------------------------------------------------------------->
+
+
+<!----------------------------------------------------------------------------->
+<!--                             BEGIN CONTENTS                              -->
+<!--                                                                         -->
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 1.0                           -->
+     <!--                                                               -->
+<P><BR></P>
+<h3>What's New for This Release</h3>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 1.00                   -->
+          <!--                                                  -->
+		  
+<P><BR></P>
+<h4><a name="Topic_100"></a>New MSDN Viewer</h4>
+
+<p>The MSDN Library Visual Studio 6.0 is the first Library release that uses the HTML Help viewer
+technology. For Viewer Help, click <B>Help</B> from the MSDN menu bar and then click <B>MSDN Library Help</B>.</p>
+<P><BR></P>
+
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 2.0                           -->
+     <!--                                                               -->
+ 
+<h3>Setup Issues</h3>
+<P><BR></P>
+          <!------------------------------------------------------>
+          <!--                     TOPIC 2.00                   -->
+          <!--                                                  -->
+		  
+<h4><a name="Topic_200"></a>Setup general information</h4>
+
+<p>You are <B>not</B> required to uninstall previous versions of the MSDN Library
+that use InfoViewer 5.0 technology. For example, the July 1998 MSDN Library and all
+earlier libraries will coexist with the MSDN Library Visual Studio 6.0.
+If you do wish to uninstall any library, always use the Add/Remove Programs
+option from the Control Panel or the Setup program from the CD of the MSDN
+Library you want to uninstall.</p>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 2.01                   -->
+          <!--                                                  -->
+		  
+<h4><a name="Topic_201"></a>Typical, Full, and Custom installation options</h4>
+
+<p>During Setup you will be asked to choose between <B>Typical</B>, <B>Full</B>, and <B>Custom</B>
+installation options. You are able to access all documentation and samples regardless of the
+option selected. The options provide the ability to move some or most files to your local drive
+in order to reduce dependency on CD access.</p>
+
+<p>The <B>Typical</B> setup option allows you to run the MSDN Library from the CD. Setup
+will copy the <i>minimum</i> set of files to your local hard drive. These files include
+the MSDN Viewer system files, contents index files, and Help files that are used by the
+Visual Studio development products. You will see the entire Library table of
+contents. If you select items in the table of contents that have not been installed locally, you will be prompted to insert the MSDN Library CD.</p></p>
+
+<p>The <B>Full</B> setup option allows you to run the MSDN Library almost exclusively from
+your local drive. Setup will copy all MSDN documentation and some sample files to your local hard drive.
+ (Visual C++&reg;, MSDN, and Visual Modeler samples are not copied to your local drive in a Full install.)
+ Files copied also include the MSDN viewer system files, contents index files, and Help files that are
+ used by the Visual Studio development products.</p>
+
+<p><B>Custom</B> installation allows you to specify local installation of a
+subset of the MSDN Library. The files you select will be copied to your
+local hard drive along with the files mentioned in the <B>Typical</B> Setup
+description. You will be able to access product documentation without having to access
+the MSDN Library CD for those files that you select to copy locally.
+In addition to any product or sample files you choose to copy locally,
+select the Full-Text Search Index to search your product's documentation
+without need to access the MSDN Library CD. You will see the entire Library table of
+contents. If you select items in the table of contents that have not been installed locally, you will
+be prompted to insert the MSDN Library CD.</p>
+
+
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 2.011                   -->
+          <!--                                                  -->
+		  
+<h4><a name="Topic_2011"></a>MSDN setup on a network server</h4>
+<P>You can set up MSDN on a network server by copying CD1 and CD2 to a common network directory.</P>
+<ol><li>Create a directory on your network drive.  For example, <B>C:\MSDN VS6</B>. </li>
+<li>Create the following subdirectories: <B>C:\MSDN VS6\CD1</B> and <B>C:\MSDN VS6\CD2</B>.</li>
+<li>Copy the contents of CD1 and CD2 to their respective directories in <B>C:\MSDN VS6</B> that you just created. </li>
+<li>Copy the Msdn332.inf file from <B>C:\MSDN VS6\CD2</B> to <B>C:\MSDN VS6\CD1</B>. </li>
+<li>Copy the contents of <B>C:\MSDN VS6\CD2\MSDN</B> to <B>C:\MSDN VS6\CD1\MSDN</B>. </li>
+<li>This should leave the <B>C:\MSDN VS6\CD2</B> directory empty.  </li>
+<li>Delete the <B>C:\MSDN VS6\CD2</B> directory. </li>
+<li>Install MSDN on the network by double-clicking setup.exe in <B>C:\MSDN VS6\CD1</B>. </li>
+</ol>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 2.02                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_202"></a>&quot;Internet Explorer Version Check&quot; message during Setup</h4>
+
+<p>In order for the MSDN Library to function properly, you need to have version 4.01 with Service Pack 1 or later of a released version of Microsoft Internet Explorer installed on your system. If you choose not to install the recommended version of Internet Explorer (Internet Explorer 4.01
+with Service Pack 1), MSDN will work with reduced functionality. For more information, see <a href="readmedn.htm#Topic_301">Internet Explorer 3.02 limitations</a>. Note that version 3.02 or later of Internet Explorer is <B>required</B>.</p>
+</P>
+
+<p>During Setup, the &quot;Internet Explorer Version Check&quot; message box may appear if you are installing MSDN independently of the recommended Visual Studio installation process. This interactive message will appear if you are using a version of Internet Explorer that is older than the version distributed with the Visual Studio 6.0 product. The message reads (in part), &quot;Choose Yes to stop setup and install a later version of Internet Explorer. Choose No to continue with MSDN setup.&quot;</P>
+
+<p>If you select <B>Yes</B>, MSDN Setup will halt and display a dialog box reading, &quot;MSDN
+Setup was not completed successfully.&quot; You must click <B>OK</B> and manually install
+Internet Explorer. For your convenience, Internet Explorer 4.01 is included on the Visual Studio CD. Run ie4setup.exe to install. Or, you can connect to <A HREF="http://www.microsoft.com/ie/">http://www.microsoft.com/ie/</A>
+to download the latest version. (Note: If you are using Windows NT 4.0, you may need to install NT Service Pack 3. Check <A HREF="http://www.microsoft.com/ie/">http://www.microsoft.com/ie/</A> for more details.) If you have chosen to install a later version of Internet Explorer, you must then restart MSDN Setup and continue installation.</p>
+
+<p>If you select <B>No</B>, MSDN Setup will continue with installation.</p>
+
+<p>If you are using Internet Explorer 3.02 on Windows 95, you must have DCOM 95 or a later version of DCOM installed on your machine for MSDN to work. DCOM 98 is installed as part of the normal setup of Visual Studio.</p>
+
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 2.03                   -->
+          <!--                                                  -->
+
+<H4><A NAME="Topic_203"></A>Collection file not found in Windows Terminal Server installation</H4>
+
+<P>MSDN Library Visual Studio 6.0 installation will not work properly using Windows Terminal Server.
+After installation of MSDN, if you select Start, Microsoft Developer Network, MSDN Library &ndash; Visual
+Studio 6.0, you will then receive an error that the msdn*.col file could not be found.</p>
+
+<B>Workaround</B>
+<P>You can get MSDN to work properly by moving the hhcolreg.dat file from the Windows\Help directory to the
+specific user profile Help directory. The user profile directory can be found
+in the Windows\Profiles directory.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 2.035                   -->
+          <!--                                                  -->
+
+<H4><A NAME="Topic_2035"></A>Preferred collection message during Setup</H4>
+
+<P>You may encounter the following message at the completion of MSDN installation: &quot;MSDN Setup is going to set the preferred developer shell's F1 Help Collection to the 'MSDN Library - Visual Studio 6.0' collection you are installing. Do you want MSDN Setup to do this?&quot; If you select <B>Yes</B>, F1 Help from Microsoft developer products will be routed to the newly installed MSDN Library. If you select <B>No</B>, F1 Help from Microsoft developer products will route to the previous default collection.</p>
+
+<P>For more information regarding changing collections, see the topic <a href="readmedn.htm#Topic_300">Collections &mdash; Changing preferred collection</a>.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 2.04                   -->
+          <!--                                                  -->
+
+<H4><A NAME="Topic_204"></A>Uninstalling this release</H4>
+
+<P>To remove MSDN Library from your machine, run <B>Add/Remove Programs</B> from the Control Panel,
+select <B>MSDN Library Visual Studio 6.0</B>, and click <B>Add/Remove</B>. Select the <B>Remove All</B>
+button.</P>
+<P><BR></P>
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 3.0                           -->
+     <!--                                                               -->
+	 
+<h3>Known Issues</h3>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.00                   -->
+          <!--                                                  -->
+		  
+
+<h4><a name="Topic_300"></a>Collections &mdash; Changing preferred collection</h4>
+
+<P>MSDN Library Visual Studio 6.0 is the help and documentation set for all the Visual
+Studio products. During Visual Studio installation, the MSDN Library Visual Studio 6.0 is set
+as the preferred document collection for F1 help and general documentation help.
+
+If an additional developer documentation collection is installed, you may wish to designate that
+collection as the preferred collection for F1 help and general documentation help. The preferred
+collection can be changed in the Visual J++&trade;/Visual InterDev&trade; Integrated Development Environment (IDE) or
+in Visual C++ through <B>Tools</B>, <B>Options</B>, <B>Help System</B>.
+
+<P>You should always close the MSDN window before changing the preferred Visual Studio document
+collection. If you change the preferred collection while MSDN is open, your change is not saved.</p>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.01                   -->
+          <!--                                                  -->
+<h4><a name="Topic_301">Internet Explorer 3.02 limitations</a></h4>
+<P><B>Contents are not displayed in the right pane of the MSDN Viewer</B></P>
+
+<P>If you are using Internet Explorer 3.02 and Content Advisor is enabled, unrated content,
+such as the content included in MSDN, will not display. To view MSDN contents, click <B>View</B>,
+ <B>Options</B>, click the <B>Security</B> tab, and then click <B>Disable Ratings.&nbsp;.&nbsp;.</B>&nbsp;.</P>
+ 
+<P><I> Note: Changing Internet Options for MSDN also changes Internet Options for Internet Explorer.</I> </P>
+
+<p><B>Selected text will not print</B></P>
+
+Printing selected text from an MSDN page is not supported by Internet Explorer 3.02.</P>
+
+<P><B>Text is not highlighted after a full-text search</B></P>
+
+<P>Highlighting of results from a full-text search is not supported by Internet Explorer 3.02.</P>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.04                   -->
+          <!--                                                  -->
+<h4><a name="Topic_304"></a>Internet Explorer 4.01 issues</h4>
+<P><B>Sample code sometimes does not cut and paste properly</P></B>
+
+<p>Line breaks and formatting information may not copy correctly when
+you copy and paste sample code from the MSDN Library Visual Studio documentation
+to your code editor. To work around this issue, do one of the following:
+<UL>
+<P><LI>Manually edit the line breaks after you copy the code.</LI><BR>
+<LI>View the sample code source, copy the entire code sample, including
+the <B>&lt;pre&gt</B> and <B>&lt;/pre&gt</B> tags, paste it to your code
+editor, and then delete the unwanted sections from the pasted version.</LI>
+</P>
+</UL>
+<P><B>Text links appear broken and links present security warnings</P></B>
+
+<P>If security settings are set to disable ActiveX&reg; controls and scripting, some MSDN links will not work. To change your security settings, click <B>View</B>,
+ <B>Internet Options</B>, click the <B>Security</B> tab, and then select the proper zone (<B>Intranet
+ Zone</B> would be appropriate for most users). Then set the security level at a less secure level to allow links to work.</P>
+<P><I> Note: Changing Internet Options for MSDN also changes Internet Options for Internet Explorer.</I> </P>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.06                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_306"></a>Index &mdash; Index subentries sorted under wrong main entries</h4>
+
+<P>If two keywords differ only by case and one or more of the keywords contains index subentries, then index subentries for both keywords will be listed under the keyword sorted last in the index.</P>
+<P>For example, these keywords are authored as follows:<BR>
+&nbsp;&nbsp;&nbsp;<B>data binding</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ActiveX controls<BR>
+&nbsp;&nbsp;&nbsp;<B>Data Binding</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key concepts of</P>
+<P>They will be displayed in the MSDN index as:<BR>
+&nbsp;&nbsp;&nbsp;<B>data binding</B><BR>
+&nbsp;&nbsp;&nbsp;<B>Data Binding</B><BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ActiveX controls<BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key concepts of</P>
+<P>Because <B>Data Binding</B> was sorted in the index after <B>data binding</B>, <B>Data Binding</B> contains the index subentries for both keywords.
+
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.07                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_307"></a>Locate button is active but doesn't work</h4>
+
+<P>For some topics, especially those found in Visual Basic&reg; documentation, the <B>Locate</B> button does
+not work, even though it appears active.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.08                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_308"></a>Navigation arrows disappear</h4>
+
+<p>Some topics within the MSDN Library are purposely authored as &quot;hidden&quot; from the table of contents.
+These topics disable navigation arrows. You will need to navigate to a next or previous topic by
+clicking on a new topic in the table of contents.</p>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.09                   -->
+          <!--                                                  -->
+<h4><a name="Topic_309"></a>Printing &mdash; Multi-node printing</h4>
+
+<P>MSDN does not recommend printing multiple book nodes. Choosing to print a node with a large amount of content can require a large amount of system memory and take quite a bit of time to print. If your machine does not have the necessary memory, you may receive an out-of-system&ndash;memory message. </p>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.10                   -->
+          <!--                                                  -->
+<h4><a name="Topic_310"></a>Content in multiple frames cannot be printed simultaneously</h4>
+<P>If you attempt to print a node in the table of contents that contains other nodes that have HTML &quot;frame&quot;-based content, the following message will be displayed: &quot;The selected topics must be printed individually.&quot; You will need to select a book or page at a lower level in order to print the desired topic.</p>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.11                   -->
+          <!--                                                  -->
+<h4><a name="Topic_311"></a>Subset issues</h4>
+
+<P><B>Using subsets to narrow a full-text search</P></B>
+
+<p>For information about how to create subsets, see MSDN Library Help (select <B>Help</B> and click <B>MSDN Library Help</B>
+from the MSDN menu). That document does not contain the following information about how to use subsets to narrow a full-text search:
+
+<ol><li>On the left pane of the online documentation, click the <b>Search </b>tab.</li>
+<li>In the <b>Active Subset</b> list, click the name of the subset you want to search.</li>
+<li>Click <b>List Topics</b> to begin your search.</li>
+</ol>
+
+
+<P><B>Topic Not Found page does not include subsets</B></P>
+
+<P>When using subsets, if you attempt to follow a link from one topic that points to a target topic
+outside the currently active subset, you may see the &quot;Topic Not Found&quot; page. This page does not tell you that the reason the topic was not found is that it exists outside the current subset.
+Select the <B>Entire Contents</B> subset in order to access that topic.</p>
+
+
+<P><B>Stop list is ignored</B></P>
+
+<P>When you use subsets, full-text searches do not exclude words on the <a href="readmedn.htm#Topic_404">MSDN stop list</A>.</p>
+
+
+<P><B>Search previous results does not work</B></P>
+
+<P>When you use subsets, the full-text search &quot;Search previous results&quot; feature currently does not work.</p>
+
+
+<P><B>Defined subsets deleted</B></P>
+
+<P>In some cases, closing and rapidly opening the MSDN Library could result in the loss of some
+user-defined information, including recently created user-defined subsets.
+To avoid this information loss, allow the MSDN Library close process to complete
+before restarting the MSDN Library.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.115                   -->
+          <!--                                                  -->
+
+
+<h4><a name="Topic_3115"></a>Search may erroneously return &quot;No Topics Found&quot;</h4>
+<P>After a Typical installation, if you conduct a document search without CD2 in the drive and then click the <B>Cancel</B> button, you will get a &quot;No Topics Found&quot; message. If you make a subsequent search during the same session, the &quot;No Topics Found&quot; message is immediately displayed instead of a prompt to insert CD2.</p>
+<P><B>Workaround</B></P>
+<P>Insert CD2 when requested,  click <B>OK</B>, and the search will behave as expected. You can also clear the session by quitting and restarting the MSDN Library.</P>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.12                   -->
+          <!--                                                  -->
+
+
+<h4><a name="Topic_312"></a>Search results in some languages may display extraneous characters</h4>
+
+<P>In several languages, primarily those with bi-directional script, the search results display may contain extraneous or incorrectly ordered characters. This may occur in a search containing wildcards, special characters, or punctuation marks. Search results will work properly; only the display of the results is affected.</p>
+<P><BR></P>
+
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.15                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_315"></a>URLs that do not connect</h4>
+
+<p>Because of the volatile nature of the Web, some Uniform Resource Locators (URLs) that
+connected to Web sites at the time of publication may no longer connect. MSDN is always
+working to keep URLs current. If you would like to report a problem link, please email
+<A HREF="mailto:msdn@microsoft.com">msdn@microsoft.com</A> with a description of where the problem link is located.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 3.16                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_316"></a>Changing phone numbers</h4>
+<p>Some phone numbers provided in MSDN Library documentation may not be correct. MSDN is always working to keep phone numbers up-to-date.</p>
+
+<P><BR></P>
+
+
+     <!------------------------------------------------------------------->
+     <!--                         SECTION 4.0                           -->
+     <!--                                                               -->
+	 
+<h3>General Information</h3>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 4.00                   -->
+          <!--                                                  -->
+		  
+<h4><a name="Topic_400"></a>What are these CHM, CHI, CHW, CHQ, and COL files on my local drive and CD?</h4>
+
+<p>MSDN document files are compiled HTML files that have a .CHM file extension. The CHI, CHW, and CHQ
+files are index files created to enhance index, keyword, and
+full-text search performance with the MSDN Viewer.</p>
+
+<p>The .COL file defines the table of contents of a defined document set, which consists of a
+number of CHM files.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 1.03                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_103">Finding information on HTML tags</a></h4>
+<p>
+HTML tag information has moved and is not included in the keyword index and cannot be accessed through F1 lookup. If you need information on HTML tags, click the <B>Contents</B> tab in the navigation pane of the MSDN Library to open the table of contents. You can find the reference for HTML Elements inside the Platform SDK folder:
+<table border="0" width="90%">
+<tr>
+    <td width="100%"><font face="verdana,arial,helvetica" SIZE=2>&nbsp;&raquo;&nbsp;Platform SDK</font></td>
+</tr> 
+</table>
+<table border="0" width="90%"> 
+<tr>
+    <td width="5%">&nbsp;</td>
+    <td width="95%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;Internet/Intranet/Extranet Services</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="10%">&nbsp;</td>
+    <td width="90%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;Dynamic HTML</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="15%">&nbsp;</td>
+    <td width="85%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;DHTML References</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="20%">&nbsp;</td>
+    <td width="80%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;HTML References<font face="verdana,arial,helvetica" SIZE=2></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="75%"><font face="verdana,arial,helvetica" SIZE=2><b>&raquo;&nbsp;HTML Elements</b></font></td>
+  </tr>
+</table>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 4.01                   -->
+          <!--                                                  -->
+		  
+<h4><a name="Topic_401"></a>Library contents</h4>
+
+<p>The contents of the MSDN Library will continue to evolve. We have
+provided product documentation and a substantial portion of the current MSDN Library.</p>
+
+<p>The Microsoft Developer Network team does not edit most of the product documentation,
+specifications, and articles included in the MSDN Library. You may encounter documentation errors,
+references to page numbers, and formatting problems. We will communicate any errors you
+report to the appropriate product documentation groups. You can email problems to us at
+<A HREF="mailto:msdn@microsoft.com">msdn@microsoft.com</A>.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 4.02                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_402"></a>Disc layout</h4>
+
+<p>The MSDN Library is included on two CDs. Documentation, samples, and Setup files have been
+placed on the CDs to maximize content space and to minimize CD swapping. CD 1 contains
+Setup and sample files and CD 2 contains document files. Three document files are located
+on CD 1: Two files, dsmsdn.chm and dshelp.chm, are installed locally in any MSDN installation; the
+third file, vcsample.chm, is used to link samples on Disc 1.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 4.03                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_403"></a>Uncompressed samples</h4>
+
+<p>Samples are located on CD 1 and are uncompressed. Samples are available for all Visual Studio products
+within their respective directories. Some samples are available through document links and others
+are referenced through Visual Studio product documentation on the MSDN Library.</p>
+<P><BR></P>
+
+          <!------------------------------------------------------>
+          <!--                     TOPIC 4.04                   -->
+          <!--                                                  -->
+
+<h4><a name="Topic_404"></a>MSDN Library stop list</h4>
+
+<p>A word stop list has been used to reduce the size of the keyword index and increase
+search performance. The following words are included on the MSDN Library stop word list:
+a, am, an, and, are, as, at, be, been, being, but, by, can, could, did, do, does, doing, done, for, from, had, has, have, he, here, how, I, in, is, it, its, may, not, of, on, or,
+saw, see, seen, she, so, that, the, them, then, there, these, they, this, those, to, too,
+very, was, we, when, where, which, with, you.</p>
+<p>If you enter a search query using a word on the stop list exclusively, an error 
+is returned: &quot;The syntax of the search query is incorrect.&quot;</p>
+<P><BR></P>
+		  
+<!--                                                                         -->
+<!--                             END CONTENTS                                -->
+<!----------------------------------------------------------------------------->
+
+
+</BODY>
+</HTML>

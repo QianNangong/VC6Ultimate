@@ -1,0 +1,40 @@
+{
+	Vars:[
+		{
+			BaseDir:%CurDir%\..\..\..\..\..
+		}
+		{
+			CompilerFolder:vc9
+		}
+		{
+			MainFolder:%BaseDir%\VC98\%CompilerFolder%
+		}
+	]
+
+	Include:[
+		%MainFolder%\v6.0A\Include
+		%MainFolder%\Include
+	]
+
+	Path:[
+		%BaseDir%\Common\MSDev98\Bin
+		%BaseDir%\VC98\BIN
+		%BaseDir%\Common\TOOLS
+		%BaseDir%\VisualUltimate\TOOLS
+		%BaseDir%\Common\TOOLS\WINNT
+		%BaseDir%\VisualUltimate\system32
+		%BaseDir%\VC98\BIN\%CompilerFolder%
+	]
+
+	Lib:[
+		%MainFolder%\v6.0A\lib
+		%MainFolder%\Lib
+	]
+
+	Sources:[
+		%MainFolder%\INCLUDE
+		%MainFolder%\CRT\SRC
+		#%MainFolder%\WinSDK7.1\include
+	]
+
+}

@@ -1,0 +1,169 @@
+<html>
+<head>
+</head>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<BR><BR>
+<P>This sample uses five files: </P></FONT>
+<UL>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+    <LI>IE4.asp is the main file that sets up the frameset. </LI>
+    <LI>IE4.htm is a simple example of DHTML that is shown in the Header frame. 
+    </LI>
+    <LI>Main.htm fills the Main frame. </LI>
+    <LI>Filter.htm demonstrates the use of filters. </LI>
+    <LI>Trans.htm shows different transition effects. </LI></FONT></UL>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+
+<P>IE4.asp sets up the frameset of this sample for easy 
+navigation.</P>
+<P>IE4.htm uses DHTML to create a visual effect when the 
+mouse moves over a link. This is accomplished by setting up a few different 
+styles for the &lt;A&gt; tag:</P>
+<P>
+<FONT face=Courier>&lt;style&gt; <BR>
+A.Item {<BR>&nbsp;&nbsp; cursor: 
+hand;<BR>&nbsp;&nbsp; font-family: verdana; <BR>&nbsp;&nbsp; font-size: 12;<BR>&nbsp;&nbsp; 
+font-style: normal;<BR>&nbsp;&nbsp; background-color: 
+black;<BR>&nbsp;&nbsp; color: white;<BR>&nbsp;&nbsp; text-decoration: none<BR>
+ }<BR>
+A.Highlight {<BR>&nbsp;&nbsp; cursor: hand; <BR>&nbsp;&nbsp; font-family: verdana;<BR>&nbsp;&nbsp; font-size: 12;<BR>&nbsp;&nbsp; font-style: 
+italic;<BR>&nbsp;&nbsp; background-color: white;<BR>&nbsp;&nbsp; color: black;<BR>&nbsp;&nbsp; text-decoration: none<BR>
+ } <BR>&lt;/style&gt; 
+</FONT></P>
+
+<P>To switch between these styles, JavaScript is used to 
+change the applied style when the mouse moves on and off the links:</P>
+<FONT face=Courier>&lt;script LANGUAGE=JavaScript&gt;<BR>
+function rollon() {<BR>
+  if 
+(window.event.srcElement.className == &quot;Item&quot;) {<BR>
+     window.event.srcElement.className = &quot;Highlight&quot;;<BR>
+  }<BR>
+}<BR>
+<BR>
+Rollover.onmouseover = rollon;<BR>
+<BR>
+function rolloff() {<BR>
+  if 
+(window.event.srcElement.className == &quot;Highlight&quot;) {<BR>
+     window.event.srcElement.className = &quot;Item&quot;;<BR>
+  }<BR>
+}<BR>
+<BR>
+Rollover.onmouseout = rolloff;<BR>&lt;/script&gt; 
+</FONT>
+
+<P>Filter.htm shows how different filters can be applied to 
+objects in a Web page. In this example text, graphics, and objects are altered 
+using filters. </P>
+
+<P>A &lt;DIV&gt; tag is used to control what objects on the 
+page are modified. Inside the &lt;DIV&gt; tag is some text, an image of a globe, 
+and an object that draws a complex image:</P>
+
+<FONT face=Courier>&lt;DIV ID=theImg style=&quot;WIDTH:90%&quot; 
+style=&quot;font-size:18pt;font-family:verdana;font-style:bold&quot; &gt;<BR>
+
+Filters can affect any HTML element; including text, 
+windowless controls, intrinsic controls, and images. <BR>&lt;IMG id=glbimg hspace=10 vspace=10 width=150 height=150 
+src=&quot;../images/globe.gif&quot;&gt;<BR>&lt;OBJECT ID=SG1 
+STYLE=&quot;HEIGHT:150; WIDTH:150&quot;<BR>
+	CLASSID=&quot;CLSID:369303C2-D7AC-11D0-89D5-00A0C90833E6&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0001&quot; 
+VALUE=&quot;SetFillStyle(1)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0002&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0003&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,0)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0004&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0005&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,18)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0006&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0007&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,36)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0008&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0009&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,54)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0010&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0011&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,72)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0012&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0013&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,90)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0014&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0015&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,108)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0016&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0017&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,126)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0018&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0019&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,144)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0020&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0021&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,162)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0022&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0023&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,180)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0024&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0025&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,198)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0026&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0027&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,216)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0028&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0029&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,234)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0030&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0031&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,252)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0032&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0033&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,270)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0034&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0035&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,288)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0036&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0037&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,306)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0038&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0039&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,324)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0040&quot; 
+VALUE=&quot;SetFillColor(0,90,200)&quot;&gt;<BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;Line0041&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,342)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0042&quot; 
+VALUE=&quot;SetFillColor(255,255,255)&quot;&gt;<BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;Line0043&quot; 
+VALUE=&quot;Pie(-75,-75,150,150,0,10,360)&quot;&gt;<BR>&lt;/OBJECT&gt;<BR>&lt;/DIV&gt;<BR>
+</FONT>
+
+<P>The remainder of the page has buttons that allow you to 
+apply different filters to the objects listed above. Here is an example from the 
+button that will flip all the objects horizontally:</P>
+<FONT face=Courier>&lt;input CLASS=clsbtn value=&quot;FlipH&quot; type=button 
+name=filt onclick=&quot;theImg.style.filter = 'fliph(enabled=1)'; 
+progress.innerText = 'Flip Horizontal (fliph): Flips the visible pixels in the 
+horizontal axis.';&quot;&gt; 
+</FONT>
+
+<P>Trans.htm cycles through the different transition effects 
+that you can use on objects. In this example, an image is displayed on top of 
+some text and fades in and out with different transitions:
+<FONT face=Courier>
+AB.filters.item(0).Transition = curtrans 
+</FONT>
+
+<P>AB refers to the &lt;DIV&gt; tag that defines what 
+objects are going to be affected:
+
+<P>
+
+<FONT face=Courier>&lt;DIV 
+ID=&quot;AB&quot; STYLE=&quot;POSITION:ABSOLUTE; WIDTH:300; HEIGHT:360; 
+Left:45%; Top:15%;background-color:black; FILTER:revealTrans(Duration=3.0, 
+Transition=1)&quot;&gt; 
+</FONT></P>
+
+<P>curtrans is a variable in the JavaScript code that cycles 
+through the different transition effects: </P>
+
+<P>
+<FONT face=Courier>
+curtrans = 
+curtrans + 1 <BR>
+if curtrans &gt; numtrans then curtrans = 0 
+end if 
+</P></FONT></FONT>
+
+</BODY>
+</html>

@@ -1,0 +1,27 @@
+STRINGTABLE DISCARDABLE 
+BEGIN
+	1	"*** Do *NOT* Localize any string that starts with '***'."
+	2	"*** They are comments to be used by localizers to identify sections."
+	3	"*** They also mark the beginning of a new 'section' within the String Table."
+	4	"Callback Called"
+	5	"Expediter"
+	7	"Calling Callback"
+	8	"StopTest Received"
+	9	"Call reject retries exhausted"		//message displayed when retry callbacks to
+							//to clients are exhausted
+	10	"Retrying rejected callback."
+	11	"GetServiceResults called with results returned"
+	12	"Could not find EventReturn object"
+	13	"Error: "
+	29	"*** Font information for all forms.  Index 30 is the Character set, Index 31 is Font name, Index 32 is Font Size"
+	30	"0"
+	31	"Tahoma"
+	32	"10"
+
+	//U/I captions
+	100	"*** Form U/I captions"
+	101	"Expediter"				//Form Caption
+	102	"Current Backlog"			//Current Backlog caption
+	103	"Peak Backlog"				//Peak Backlog caption
+	104	"Total Callbacks"			//Total Callbacks caption
+END

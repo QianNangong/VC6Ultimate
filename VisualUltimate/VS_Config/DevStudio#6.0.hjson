@@ -1,0 +1,2190 @@
+{
+	"":0
+	"Macros":{
+		"C:\\Program Files\\Microsoft Visual Studio\\COMMON\\MSDEV98\\MACROS\\TEMPORARYQUICKMACRO.DSM":"0"
+		"Reload":2
+		"C++":{
+			"MACROC++.DLL":{
+				"Enable":1
+				"SourceFile":"MacroC++\\Code\\MacroCPP.cpp"
+			}
+		}
+		"C:\\Program Files\\Microsoft Visual Studio\\COMMON\\MSDEV98\\MACROS\\SAMPLE.DSM":"0"
+		"C:\\Program Files\\Microsoft Visual Studio\\COMMON\\MSDEV98\\MACROS\\MYMACROS.DSM":"0"
+		"Intro":0
+	}
+	"Custom Colors":{
+		"Color2":"255,255,255"
+		"Color6":"255,255,255"
+		"Color12":"255,255,255"
+		"Color13":"255,255,255"
+		"Color7":"255,255,255"
+		"Color3":"255,255,255"
+		"Color1":"255,255,255"
+		"Color5":"255,255,255"
+		"Color9":"255,255,255"
+		"Color11":"255,255,255"
+		"Color15":"255,255,255"
+		"Color14":"255,255,255"
+		"Color10":"255,255,255"
+		"Color4":"255,255,255"
+		"Color0":"255,255,255"
+		"Color8":"255,255,255"
+	}
+	"Directories":{
+		"WorkspaceDir":"C:\\Temp\\"
+		"Install Dirs":"C:\\Program Files\\Microsoft Visual Studio\\Common\\MSDev98\\Bin"
+	}
+	"Tools":{
+		"UserTool9":{
+			"GUITool":1
+			"MenuName":"Open Dir"
+			"VisibleOnMenu":1
+			"PathName":"explorer.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":1
+			"CloseWindow":0
+			"DefaultArguments":"/select,$(FilePath)"
+			"InitialDirectory":""
+			"AskArgument":0
+		}
+		"UserTool1":{
+			"GUITool":1
+			"MenuName":"Re&gister Control"
+			"VisibleOnMenu":0
+			"PathName":"C:\\Windows\\system32\\regsvr32.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":"/v \"$(TargetPath)\""
+			"InitialDirectory":"$(TargetDir)"
+			"AskArgument":0
+		}
+		"UserTool5":{
+			"GUITool":1
+			"MenuName":"S&py++"
+			"VisibleOnMenu":0
+			"PathName":"$(MVSDir)\\Common\\Tools\\Spy32\\spyxx.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":""
+			"InitialDirectory":"$(MVSDir)\\Common\\Tools\\"
+			"AskArgument":0
+		}
+		"UserTool10":{
+			"GUITool":1
+			"MenuName":"Hg History"
+			"VisibleOnMenu":1
+			"PathName":"wscript.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":1
+			"CloseWindow":0
+			"DefaultArguments":"$(MVSDir)\\VisualUltimate\\Tools\\hg_file_history.js $(FilePath)"
+			"InitialDirectory":"$(FileDir)"
+			"AskArgument":0
+		}
+		"NumTools":13
+		"UserTool11":{
+			"GUITool":1
+			"MenuName":"Visual Component M&anager"
+			"VisibleOnMenu":1
+			"PathName":"C:\\Program Files\\Internet Explorer\\iexplore.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":"$(MVSDir)\\Common\\Tools\\VCM\\vcm.vbd"
+			"InitialDirectory":"$(MVSDir)\\Common\\Tools\\VCM\\"
+			"AskArgument":0
+		}
+		"UserTool8":{
+			"GUITool":0
+			"MenuName":"HgCompare"
+			"VisibleOnMenu":1
+			"PathName":"C:\\progs64\\TortoiseHg\\thg.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":1
+			"DefaultArguments":"vdiff \"$(FilePath)\""
+			"InitialDirectory":"$(FileDir)"
+			"AskArgument":0
+		}
+		"UserTool4":{
+			"GUITool":1
+			"MenuName":"OLE/COM Object &Viewer"
+			"VisibleOnMenu":0
+			"PathName":"$(MVSDir)\\Common\\Tools\\oleview.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":""
+			"InitialDirectory":"$(MVSDir)\\Common\\Tools\\"
+			"AskArgument":0
+		}
+		"UserTool13":{
+			"GUITool":0
+			"MenuName":"Hg Add Current File"
+			"VisibleOnMenu":1
+			"PathName":"hg.exe"
+			"OutputRedirect":1
+			"ReloadNoPrompt":0
+			"UseSearchPath":1
+			"CloseWindow":0
+			"DefaultArguments":"add $(FilePath)"
+			"InitialDirectory":"$(FileDir)"
+			"AskArgument":0
+		}
+		"UserTool2":{
+			"GUITool":1
+			"MenuName":"Error Loo&kup"
+			"VisibleOnMenu":0
+			"PathName":"$(MVSDir)\\Common\\Tools\\errlook.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":""
+			"InitialDirectory":"$(TargetDir)"
+			"AskArgument":0
+		}
+		"VisibleOnMenu#2":0
+		"UserTool6":{
+			"GUITool":1
+			"MenuName":"MFC &Tracer"
+			"VisibleOnMenu":0
+			"PathName":"$(MVSDir)\\Common\\Tools\\tracer.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":""
+			"InitialDirectory":"$(MVSDir)\\Common\\Tools\\"
+			"AskArgument":0
+		}
+		"UserTool7":{
+			"GUITool":1
+			"MenuName":"undname"
+			"VisibleOnMenu":1
+			"PathName":"$(MVSDir)\\VisualUltimate\\Tools\\UndecoreName.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":"-A -P"
+			"InitialDirectory":"$(MVSDir)\\VisualUltimate\\Tools\\"
+			"AskArgument":0
+		}
+		"UserTool3":{
+			"GUITool":1
+			"MenuName":"Activ&eX Control Test Container"
+			"VisibleOnMenu":0
+			"PathName":"$(MVSDir)\\Common\\Tools\\tstcon32.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":0
+			"CloseWindow":0
+			"DefaultArguments":""
+			"InitialDirectory":"$(TargetDir)"
+			"AskArgument":0
+		}
+		"UserTool12":{
+			"GUITool":1
+			"MenuName":"Hg Workbench"
+			"VisibleOnMenu":1
+			"PathName":"thgw.exe"
+			"OutputRedirect":0
+			"ReloadNoPrompt":0
+			"UseSearchPath":1
+			"CloseWindow":0
+			"DefaultArguments":""
+			"InitialDirectory":"$(FileDir)"
+			"AskArgument":0
+		}
+	}
+	"Build System":{
+		"HTML Logs":1
+		"Slow Links for Win95":0
+		"Always export dependencies":0
+		"Makefile Sharability":1
+		"Components":{
+			"Tools":{
+				"Custom Build":{
+					"Menu Text":""
+					"Macro_Prefix":""
+					"Input_Spec":""
+					"Deferred":0
+					"Output_Spec":""
+					"Executable Path":""
+					"Perform_If_Able":0
+					"Internal":0
+				}
+				"Browser Database Maker":{
+					"Menu Text":""
+					"Macro_Prefix":"BSC32"
+					"Input_Spec":"*.sbr"
+					"Deferred":1
+					"Output_Spec":""
+					"Executable Path":"bscmake.exe"
+					"Perform_If_Able":1
+					"Internal":1
+				}
+				"OLE Type Library Maker":{
+					"Menu Text":""
+					"Macro_Prefix":"MTL"
+					"Input_Spec":"*.odl;*.idl"
+					"Deferred":0
+					"Output_Spec":""
+					"Executable Path":"midl.exe"
+					"Perform_If_Able":0
+					"Internal":1
+				}
+				"Win32 Resource Compiler":{
+					"Menu Text":""
+					"Macro_Prefix":"RSC"
+					"Input_Spec":"*.rc"
+					"Deferred":0
+					"Output_Spec":""
+					"Executable Path":"rc.exe"
+					"Perform_If_Able":0
+					"Internal":1
+				}
+				"Library Manager":{
+					"Menu Text":""
+					"Macro_Prefix":"LIB32"
+					"Input_Spec":"*.obj;*.res;*.lib"
+					"Deferred":0
+					"Version":"6.00"
+					"Output_Spec":""
+					"Executable Path":"link.exe -lib"
+					"Perform_If_Able":0
+					"Internal":1
+				}
+				"<Component 0x5>":{
+					"Menu Text":""
+					"Macro_Prefix":"LINK32"
+					"Input_Spec":"*.obj;*.res;*.lib;*.def;*.rsc"
+					"Deferred":0
+					"Output_Spec":""
+					"Executable Path":"link.exe"
+					"Perform_If_Able":0
+					"Internal":1
+				}
+				"<Component 0x4>":{
+					"Menu Text":""
+					"Macro_Prefix":"LINK32"
+					"Input_Spec":"*.obj;*.res;*.lib;*.def;*.rsc"
+					"Deferred":0
+					"Output_Spec":""
+					"Executable Path":"link.exe"
+					"Perform_If_Able":0
+					"Internal":1
+				}
+				"<Component 0xa>":{
+					"Menu Text":""
+					"Macro_Prefix":""
+					"Input_Spec":""
+					"Deferred":0
+					"Output_Spec":""
+					"Executable Path":""
+					"Perform_If_Able":0
+					"Internal":0
+				}
+				"<Component 0x3>":{
+					"Menu Text":""
+					"Macro_Prefix":"CPP"
+					"Input_Spec":"*.c;*.cpp;*.cxx"
+					"Deferred":0
+					"Output_Spec":""
+					"Executable Path":"cl.exe"
+					"Perform_If_Able":0
+					"Internal":1
+				}
+				"Shader Compiler":{
+					"Menu Text":""
+					"Macro_Prefix":"SDP"
+					"Input_Spec":"*.shader_project"
+					"Deferred":0
+					"Version":"6.00"
+					"Output_Spec":""
+					"Executable Path":"GLSLCompiler.exe"
+					"Perform_If_Able":0
+					"Internal":1
+				}
+			}
+			"Platforms":{
+				"Win64 (x86)":{
+					"Directories":{
+					}
+					"Tools":{
+						"64-bit COFF Linker for 80x86":{
+							"Version":"6.00"
+						}
+						"64-bit C/C++ Compiler for 80x86":{
+							"Version":"6.00"
+						}
+					}
+					"Expression Evaluators":{
+						"Current EE":"EESWT"
+					}
+					"Execution Models":{
+						"Current EM":"EM"
+					}
+					"Execution Models (non-native)":{
+						"NMSQL":{
+							"NM Attributes":1866679107
+						}
+					}
+					"Version":"6.00"
+					"Targets":{
+						"Win64 (x86) Dynamic-Link Library":{
+							"Version":"6.00"
+						}
+						"Win64 (x86) Static Library":{
+							"Version":"6.00"
+						}
+						"Win64 (x86) External Target":{ }
+						"Win64 (x86) Console Application":{
+							"Version":"6.00"
+						}
+						"Win64 (x86) Application":{
+							"Version":"6.00"
+						}
+					}
+					"Transports":{
+						"TLN0T":{
+							"TL Description":"Network (TCP/IP)"
+							"TL Attributes":2
+						}
+						"TLLOC":{
+							"TL Description":"Local"
+							"TL Attributes":1
+						}
+						"Current TL":"TLLOC"
+					}
+					"Symbol Handlers":{
+						"Current SH":"SHSQL"
+					}
+				}
+				"Win32 (x86)":{
+					"Tools":{
+						"32-bit C/C++ Compiler for 80x86":{
+							"Menu Text":""
+							"Macro_Prefix":"CPP"
+							"Input_Spec":"*.c;*.cpp;*.cxx"
+							"Deferred":0
+							"Output_Spec":""
+							"Executable Path":"cl.exe"
+							"Perform_If_Able":0
+							"Internal":1
+						}
+						"COFF Linker for 80x86":{
+							"Menu Text":""
+							"Macro_Prefix":"LINK32"
+							"Input_Spec":"*.obj;*.res;*.lib;*.def;*.rsc"
+							"Deferred":0
+							"Output_Spec":""
+							"Executable Path":"link.exe"
+							"Perform_If_Able":0
+							"Internal":1
+						}
+					}
+					"Expression Evaluators":{
+						"Current EE":"EESWT"
+					}
+					"Execution Models":{
+						"Current EM":"EM"
+					}
+					"Execution Models (non-native)":{
+						"NMSQL":{
+							"NM Attributes":0
+						}
+					}
+					"Targets":{
+						"Win32 (x86) Dynamic-Link Library":{ }
+						"Win32 (x86) Application":{ }
+						"Win32 (x86) Generic Project":{ }
+						"Win32 (x86) Console Application":{ }
+						"Win32 (x86) Static Library":{ }
+						"Win32 (x86) External Target":{ }
+					}
+					"Transports":{
+						"TLN0T":{
+							"TL Description":"Network (TCP/IP)"
+							"TL Attributes":2
+						}
+						"TLLOC":{
+							"TL Description":"Local"
+							"TL Attributes":1
+						}
+						"Current TL":"TLLOC"
+					}
+					"Symbol Handlers":{
+						"Current SH":"SHSQL"
+					}
+				}
+				"Win32 (ALPHA)":{
+					"Tools":{
+						"COFF Linker for Alpha":{
+							"Menu Text":""
+							"Macro_Prefix":"LINK32"
+							"Input_Spec":"*.obj;*.res;*.lib;*.def;*.rsc"
+							"Deferred":0
+							"Output_Spec":""
+							"Executable Path":"link.exe"
+							"Perform_If_Able":0
+							"Internal":1
+						}
+						"C/C++ Compiler for Alpha":{
+							"Menu Text":""
+							"Macro_Prefix":"CPP"
+							"Input_Spec":"*.c;*.cpp;*.cxx"
+							"Deferred":0
+							"Output_Spec":""
+							"Executable Path":"cl.exe"
+							"Perform_If_Able":0
+							"Internal":1
+						}
+					}
+					"Expression Evaluators":{
+						"Current EE":"EECXX"
+					}
+					"Execution Models":{
+						"Current EM":"EM"
+					}
+					"Execution Models (non-native)":{ }
+					"Targets":{
+						"Win32 (ALPHA) External Target":{ }
+						"Win32 (ALPHA) Console Application":{ }
+						"Win32 (ALPHA) Dynamic-Link Library":{ }
+						"Win32 (ALPHA) Static Library":{ }
+						"Win32 (ALPHA) Application":{ }
+					}
+					"Transports":{
+						"TLN0T":{
+							"TL Description":"Network (TCP/IP)"
+							"TL Attributes":2
+						}
+						"TLLOC":{
+							"TL Description":"Local"
+							"TL Attributes":1
+						}
+						"Current TL":"TLLOC"
+					}
+					"Symbol Handlers":{
+						"Current SH":"SHCV"
+					}
+				}
+			}
+		}
+		"Enable Build Logging":0
+		"Always export makefile":0
+		"Enable UpdateAllDependencies":0
+	}
+	"Dialog Editor":{
+		"Grid":2
+		"InitialButtons":1
+		"NetSelectAll":0
+		"GridSize":"5,5"
+	}
+	"Format":{
+		"Variables Window":{
+			"Text":"Foreground:0xC0C0C0, Background:0x000000"
+			"FontSize":8
+			"Variables Highlight":"Foreground:0x002AA5, Background:0x000000"
+			"Text Selection":"Foreground:0xFFFFFF, Background:0x666666"
+			"FontFace":"HobTiny"
+		}
+		"Workspace Window":{
+			"FontSize":8
+			"FontFace":"HobTiny"
+		}
+		"Memory Window":{
+			"Text":"Foreground:0xC0C0C0, Background:0x000000"
+			"FontSize":8
+			"Memory Highlight":"Foreground:0x0000FF, Background:0x000000"
+			"Text Selection":"Foreground:0xFFFFFF, Background:0x666666"
+			"FontFace":"HobTiny"
+		}
+		"Registers Window":{
+			"Text":"Foreground:0xC0C0C0, Background:0x000000"
+			"FontSize":8
+			"Value Highlight":"Foreground:0x0000FF, Background:0x000000"
+			"Text Selection":"Foreground:0xFFFFFF, Background:0x666666"
+			"FontFace":"HobTiny"
+		}
+		"Calls Window":{
+			"Superceded code":"Foreground:0x666666, Background:0x000000"
+			"Calls Highlight":"Foreground:0x000000, Background:0x00FF00"
+			"Text":"Foreground:0xC0C0C0, Background:0x000000"
+			"FontSize":8
+			"Text Selection":"Foreground:0xFFFFFF, Background:0x666666"
+			"FontFace":"HobTiny"
+		}
+		"Watch Window":{
+			"Text":"Foreground:0x000000, Background:0xFFFFFF"
+			"FontSize":8
+			"Text Selection":"Foreground:0x000000, Background:0xC07B7B"
+			"FontFace":"HobTiny"
+			"Watch Highlight":"Foreground:0x2068FF, Background:0xFAE6E6"
+		}
+		"Output Window":{
+			"Text":"Foreground:0x00D7FF, Background:0x000000"
+			"Bookmark":"Foreground:0x000000, Background:0xFFFF00"
+			"FontSize":8
+			"Current Error/Tag":"Foreground:0xFFFFFF, Background:0x800000"
+			"Text Selection":"Foreground:0x000000, Background:0x00D7FF"
+			"FontFace":"HobTiny"
+		}
+		"Source Window":{
+			"HTML Tag Text":"Foreground:0x82004B, Background:0xFF000000"
+			"Current Statement":"Foreground:0x000000, Background:0x00FFFF"
+			"Text":"Foreground:0xFF00FF, Background:0x000000"
+			"Operator":"Foreground:0x5BADFF, Background:0x000000"
+			"HTML Comment":"Foreground:0x404000, Background:0xFF000000"
+			"Bookmark":"Foreground:0x000000, Background:0xFFFF00"
+			"FontSize":8
+			"User Defined Keywords":"Foreground:0xFF0000, Background:0x000000"
+			"HTML Tag Delimiter":"Foreground:0xD4FF7F, Background:0xFF000000"
+			"HTML Attribute Value":"Foreground:0x008B8B, Background:0xFF000000"
+			"Wizard IDL/ODL Code":"Foreground:0x808080, Background:0x000000"
+			"HTML Server-Side Script":"Foreground:0x82004B, Background:0xFF000000"
+			"Breakpoint":"Foreground:0xFFFFFF, Background:0x000080"
+			"Selection Margin":"Foreground:0x7F7F7F, Background:0x666666"
+			"Keyword":"Foreground:0xC0C0C0, Background:0x000000"
+			"Number":"Foreground:0xD4FF7F, Background:0x000000"
+			"HTML Entity":"Foreground:0x00FFFF, Background:0xFF000000"
+			"String":"Foreground:0xB5FDE8, Background:0x000000"
+			"Current Error/Tag":"Foreground:0xFFFFFF, Background:0x800000"
+			"Comment":"Foreground:0x666666, Background:0x000000"
+			"HTML Operator":"Foreground:0x800080, Background:0xFF000000"
+			"Text Selection":"Foreground:0x71B33C, Background:0x005500"
+			"HTML Element Name":"Foreground:0x002AA5, Background:0xFF000000"
+			"HTML Attribute Name":"Foreground:0x5BADFF, Background:0xFF000000"
+			"FontFace":"HobTiny"
+			"Wizard Code":"Foreground:0x808080, Background:0x000000"
+			"HTML String":"Foreground:0x800080, Background:0xFF000000"
+		}
+		"Disassembly Window":{
+			"Text":"Foreground:0xC07B7B, Background:0x000000"
+			"FontSize":8
+			"Text Selection":"Foreground:0xFFFFFF, Background:0x5BADFF"
+			"FontFace":"HobTiny"
+			"Assembly Code":"Foreground:0x5BADFF, Background:0x000000"
+		}
+		"Source Browser":{
+			"Text":"Foreground:0x00D7FF, Background:0x000000"
+			"FontSize":8
+			"Text Selection":"Foreground:0x000000, Background:0x00D7FF"
+			"FontFace":"HobTiny"
+		}
+	}
+	"HTML":{
+		"Variant":"HTML - IE 3.0"
+	}
+	"AddIns":{
+		"VisualAssist.DSAddin.1":{
+			"":"1"
+			"DisplayName":"Visual Assist X Add-in"
+			"Description":"Visual Assist X adds new functionality to the VC++ editor."
+			"Filename":"C:\\Program Files\\Microsoft Visual Studio\\VisualUltimate\\AddIns\\Visual Assist X\\VAssist.dll"
+		}
+	}
+	"DataView":{
+		"Verbose":1
+		"SQLQueryTimeout":30
+		"ViewSysObjs":0
+		"EnableDebug":1
+		"SQLLoginTimeout":15
+		"LineDumpMax":500
+		"LimitSQL":1
+	}
+	"AppWizard":{
+		"Default Platforms":{
+			"Win32":1
+		}
+		"StartRes":1000
+	}
+	"Help":{
+		"HelpDebug":0
+		"Tips":{
+			"TOOLS":"hex:10,00,00,32,00,00,41,2e,00,00,65,01,00,00,00,00,00,00"
+			"VCXX":"hex:10,00,00,32,a9,00,5a,14,00,00,d0,02,00,00,01,00,a9,00"
+			"MSDEV":"hex:10,00,00,32,00,00,b9,38,00,00,d9,01,00,00,02,00,00,00"
+		}
+		"Extension":{
+			"Enable":1
+			"State":0
+			"Filename":"C:\\Program Files\\Microsoft Visual Studio\\Common\\MSDev98\\Help\\exthelp.hlp"
+		}
+	}
+	"Search":{
+		"FIF_Advanced":1
+		"FIF_ExtraDirs":""
+		"FIF_IncludePath":0
+		"FIF_SourcePath":1
+		"FIF_SearchSubfolders":1
+	}
+	"Keyboard":{
+		"Text":{
+			"CTRL+'^'":"47213"
+			"CTRL+ALT+'N'":"48147, VU_WriteSelectionNumber"
+			"CTRL+VK_TAB":"34876, IndentToPrev"
+			"CTRL+'I'":"34885, SearchIncremental"
+			"VK_DOWN":"34827, LineDown"
+			"ALT+WIN+'P'":"48168, VU_CopyCurrentFullFilename"
+			"CTRL+SHIFT+'J'":"34702, ConditionalUpExtend"
+			"SHIFT+VK_UP":"24546, LineUpExtend"
+			"ALT+VK_RIGHT":"47102, VAssistXNavigateForward"
+			"VK_NEXT":"34831, PageDown"
+			"CTRL+SHIFT+'8'":"24520, ToggleViewWhitespace"
+			"ALT+WIN+'F'":"48179, VU_SelectCurrentFunction"
+			"CTRL+SHIFT+'K'":"34703, ConditionalDownExtend"
+			"CTRL+';'":"47203"
+			"CTRL+ALT+'O'":"47108, VAssistXOpenFileInWorkspaceDialog"
+			"ALT+SHIFT+'Q'":"47135, VAssistXRefactorContextMenu"
+			"CTRL+'H'":"47201"
+			"CTRL+','":"47212"
+			"VK_ESCAPE":"48129, VU_RemoveMimicSelections"
+			"CTRL+SHIFT+'I'":"34886, SearchIncrementalBack"
+			"CTRL+VK_LEFT":"48092, VU_WordStartCurrent"
+			"CTRL+ALT+'M'":"47136, VAssistXMoveImplementationToSourceFile"
+			"CTRL+SHIFT+VK_F12":"47215"
+			"CTRL+'J'":"34700, ConditionalUp"
+			"CTRL+VK_HOME":"34835, DocumentStart"
+			"CTRL+ALT+'Z'":"48150, VU_UndoToLastSaveState"
+			"CTRL+ALT+'L'":"48090, VU_LockCurrentHighlight"
+			"CTRL+WIN+'I'":"48178, VU_AutoIndentCurrentFunction"
+			"VK_F2":"34584, BookmarkToggle"
+			"CTRL+'K'":"34701, ConditionalDown"
+			"ALT+SHIFT+'R'":"47131, VAssistXRename"
+			"CTRL+VK_RIGHT":"48093, VU_WordEndCurrent"
+			"CTRL+SHIFT+VK_END":"24541, DocumentEndExtend"
+			"WIN+VK_F3":"48140, VU_FindNextWholeWord"
+			"CTRL+SHIFT+'H'":"47196"
+			"CTRL+SHIFT+VK_F8":"34705, SelectColumn"
+			"ALT+VK_PRIOR":"48131, VU_DebugGoUpToCode"
+			"CTRL+SHIFT+'M'":"47200"
+			"CTRL+VK_DOWN":"47147, VAssistXRefResultsNext"
+			"VK_F3":"48144, VU_FindNext"
+			"CTRL+SHIFT+VK_SPACE":"28506, GoToMatchBraceExtend"
+			"CTRL+VK_DELETE":"34816, LineDelete"
+			"CTRL+ALT+'^'":"47213"
+			"CTRL+'*'":"48137, VU_ConvertSelectionToCrc32"
+			"CTRL+SHIFT+VK_TAB":"48133, VU_RightmostIndentSelections"
+			"CTRL+'='":"47201"
+			"CTRL+ALT+'I'":"47229"
+			"ALT+'O'":"48120, VU_OpenCorrespondingHorCPP"
+			"CTRL+VK_F8":"24551, SelectLine"
+			"CTRL+ALT+'H'":"33449, UserTool10"
+			"CTRL+ALT+VK_SUBTRACT":"48125, VU_DecreaseTextViewFontSize"
+			"CTRL+SHIFT+'L'":"48130, VU_SelectionToMultiFullLineSelection"
+			"CTRL+ALT+SHIFT+'F'":"32774, ToggleFullScreen"
+			"ALT+'M'":"47101, VAssistXListMethodsInCurrentFile"
+			"CTRL+'M'":"34659"
+			"VK_HOME":"34833, Home"
+			"ALT+SHIFT+'C'":"47152, VAssistXImplementInterface"
+			"CTRL+SHIFT+VK_INSERT":"47097, VAssistXPaste"
+			"CTRL+VK_F12":"47122, VAssistXFindReferences"
+			"CTRL+ALT+VK_ADD":"48124, VU_IncreaseTextViewFontSize"
+			"CTRL+SHIFT+'Y'":"47221"
+			"VK_LEFT":"34824, CharLeft"
+			"CTRL+VK_UP":"47148, VAssistXRefResultsPrev"
+			"CTRL+SHIFT+'O'":"33448, UserTool9"
+			"CTRL+VK_END":"34836, DocumentEnd"
+			"CTRL+SHIFT+'X'":"47207"
+			"VK_BACK":"34699, DeleteBack"
+			"ALT+'L'":"48157, VU_ToggleLineNumber"
+			"CTRL+'L'":"48139, VU_SelectionToMultiCaret"
+			"SHIFT+VK_END":"24544, LineEndExtend"
+			"ALT+VK_LEFT":"47103, VAssistXNavigateBack"
+			"CTRL+SHIFT+VK_HOME":"24542, DocumentStartExtend"
+			"CTRL+'Q'":"48136, VU_QuickSkipCurrent"
+			"CTRL+SHIFT+'E'":"28506, GoToMatchBraceExtend"
+			"CTRL+SHIFT+VK_LEFT":"48094, VU_WordStartCurrentExtend"
+			"CTRL+VK_MULTIPLY":"48137, VU_ConvertSelectionToCrc32"
+			"CTRL+SHIFT+'D'":"48135, VU_QuickAddAll"
+			"ALT+WIN+'I'":"48169, VU_PasteFilename"
+			"ALT+VK_BACK":"48141, VU_DebugRestoreLastActiveThread"
+			"CTRL+ALT+'W'":"48138, VU_DebugAddToWatch"
+			"VK_PRIOR":"34830, PageUp"
+			"CTRL+'G'":"34577, GoTo"
+			"ALT+'G'":"47094, VAssistXGotoImplementation"
+			"SHIFT+VK_APPS":"47099, VAssistXOpenContextMenu"
+			"VK_RETURN":"34689"
+			"CTRL+ALT+VK_UP":"48154, VU_AddMultiSelectionLineUp"
+			"SHIFT+VK_F3":"48145, VU_FindPrev"
+			"CTRL+SHIFT+VK_F3":"34697, FindPrevWord"
+			"CTRL+'E'":"28505, GoToMatchBrace"
+			"SHIFT+VK_DOWN":"24543, LineDownExtend"
+			"ALT+'R'":"47131, VAssistXRename"
+			"VK_F12":"48141, VU_DebugRestoreLastActiveThread"
+			"CTRL+SHIFT+VK_F7":"48177, VU_RedoLastBuildCompile"
+			"CTRL+'R'":"57641, FindReplace"
+			"CTRL+VK_F2":"34585, BookmarkNext"
+			"SHIFT+VK_PRIOR":"24548, PageUpExtend"
+			"CTRL+'D'":"48128, VU_QuickAddNext"
+			"SHIFT+VK_NEXT":"24547, PageDownExtend"
+			"CTRL+ALT+'C'":"47192"
+			"VK_END":"34834, LineEnd"
+			"SHIFT+VK_HOME":"24545, HomeExtend"
+			"CTRL+SHIFT+'U'":"47234"
+			"VK_INSERT":"34706, EditToggleOvertype"
+			"CTRL+VK_F3":"48127, VU_FindNextWord"
+			"VK_RIGHT":"34825, CharRight"
+			"CTRL+WIN+'C'":"48172, VU_CharSwitch"
+			"SHIFT+VK_LEFT":"24539, CharLeftExtend"
+			"VK_TAB":"34659"
+			"ALT+'W'":"48156, VU_SelectCurrentWord"
+			"ALT+'3'":"34753, ToggleWatchWindow"
+			"CTRL+ALT+'G'":"33451, UserTool12"
+			"SHIFT+VK_F2":"34586, BookmarkPrev"
+			"ALT+SHIFT+VK_PRIOR":"48149, VU_DebugGoUpToSourceCode"
+			"CTRL+'W'":"48166, VU_DebugAddToFloatingWatch"
+			"VK_F8":"24554, SelectChar"
+			"CTRL+ALT+'4'":"48158, VU_ToggleHighlightCurrentScope"
+			"CTRL+'$'":"33446, UserTool7"
+			"CTRL+SHIFT+VK_RIGHT":"48095, VU_WordEndCurrentExtend"
+			"CTRL+VK_RETURN":"34863, LineOpenBelow"
+			"CTRL+SHIFT+'0'":"47205"
+			"ALT+VK_UP":"47113, VAssistXScopePrevious"
+			"SHIFT+VK_BACK":"34699, DeleteBack"
+			"CTRL+SHIFT+'C'":"47228"
+			"CTRL+SHIFT+VK_F2":"34587, BookmarkClearAll"
+			"CTRL+ALT+'E'":"48146, VU_ExpressionEval"
+			"CTRL+'U'":"34692, SelectionLowercase"
+			"ALT+SHIFT+'L'":"34854, SentenceCut"
+			"SHIFT+VK_RIGHT":"24540, CharRightExtend"
+			"SHIFT+VK_RETURN":"34689"
+			"ALT+VK_DOWN":"47112, VAssistXScopeNext"
+			"CTRL+SHIFT+'V'":"47097, VAssistXPaste"
+			"CTRL+ALT+VK_DOWN":"48155, VU_AddMultiSelectionLineDown"
+			"SHIFT+VK_TAB":"34657, LineUnindent"
+			"VK_UP":"34826, LineUp"
+			"CTRL+ALT+'D'":"33447, UserTool8"
+			"ALT+VK_F8":"34875, SelectionFormat"
+			"CTRL+VK_DIVIDE":"47208"
+			"CTRL+ALT+'S'":"48148, VU_SortLinesUsingSelections"
+			"CTRL+VK_F11":"47166, VAssistXFindReferencesInFile"
+			"ALT+VK_NEXT":"48132, VU_DebugGoDownToCode"
+		}
+		"Aut":{
+			"DeclareM":47200
+			"CleanComments":47192
+			"AntiSlashToSlash":47208
+			"DevShlDefClean":47205
+			"VAssistXNavigateBack":47103
+			"VAssistXFindReferences":47122
+			"OneTimeInclude":47196
+			"VAssistXRefResultsPrev":47148
+			"kkkkk":47197
+			"VAssistXScopePrevious":47113
+			"HexaSwap":47201
+			"VAssistXGotoImplementation":47094
+			"FindNextNonFunctionExport":47229
+			"VAssistXOpenCorrespondingHorCPP":47100
+			"VAssistXExtractMethod":47133
+			"VAssistXOpenFileInWorkspaceDialog":47108
+			"VAssistXImplementInterface":47152
+			"RemoveComments":47195
+			"TemporaryQuickMacro":47221
+			"VAssistXPaste":47097
+			"VAssistXMoveImplementationToSourceFile":47136
+			"VAssistXRefactorContextMenu":47135
+			"VAssistXRefResultsNext":47147
+			"VAssistXScopeNext":47112
+			"CmpConvertJump":47207
+			"ConvertHexaToDec":47227
+			"VAssistXListMethodsInCurrentFile":47101
+			"VAssistXRename":47131
+			"CreateDefLine":47212
+			"Crc2":47213
+			"Copy2":47210
+			"VAssistXFindSymbolDialog":47110
+			"VAssistXFindReferencesInFile":47166
+			"VAssistXOpenContextMenu":47099
+			"SmartCapitalize":47234
+			"void":47194
+			"VAssistXNavigateForward":47102
+			"DllMappingConvertUnknownMemBlock":47203
+			"CmpConvert":47228
+		}
+		"Image":{ }
+		"Main":{
+			"VK_APPS":"33409, ToggleWorkspaceWindow"
+			"SHIFT+VK_F11":"34615, DebugStepOut"
+			"ALT+VK_F2":"34590, Bookmarks"
+			"CTRL+ALT+'O'":"47108, VAssistXOpenFileInWorkspaceDialog"
+			"CTRL+SHIFT+VK_UP":"48142, VU_MoveLinesUp"
+			"ALT+VK_F6":"32772, WindowDockingView"
+			"CTRL+'H'":"57641, FindReplace"
+			"VK_ESCAPE":"33587, Cancel"
+			"CTRL+VK_F9":"34635, DebugEnableBreakpoint"
+			"CTRL+VK_CANCEL":"34049, BuildStop"
+			"CTRL+VK_F1":"48176, VU_CommandFinder"
+			"CTRL+VK_F5":"33807, BuildExecute"
+			"ALT+'8'":"34742, ActivateDisassemblyWindow"
+			"VK_F6":"57680, WindowNextPane"
+			"ALT+VK_F11":"34638, DebugMemoryNextFormat"
+			"VK_F11":"34613, DebugStepInto"
+			"SHIFT+VK_F4":"34583, GoToPrevErrorTag"
+			"VK_DELETE":"57632, Delete"
+			"CTRL+SHIFT+VK_F5":"34609, DebugRestart"
+			"ALT+VK_PRIOR":"48131, VU_DebugGoUpToCode"
+			"CTRL+ALT+VK_INSERT":"48165, VU_CopyCurrentClangType"
+			"VK_F3":"48144, VU_FindNext"
+			"VK_F10":"34614, DebugStepOver"
+			"VK_F7":"48159, VU_ToggleBuild"
+			"ALT+VK_F10":"34632, ApplyCodeChanges"
+			"SHIFT+VK_F9":"34618, DebugQuickWatch"
+			"CTRL+SHIFT+'Z'":"57644, Redo"
+			"CTRL+SHIFT+VK_F9":"34625, DebugRemoveAllBreakpoints"
+			"SHIFT+VK_F5":"34610, DebugStopDebugging"
+			"CTRL+'Y'":"57644, Redo"
+			"CTRL+'O'":"57601, FileOpen"
+			"CTRL+'X'":"57635, Cut"
+			"CTRL+'<'":"48134, VU_CurrentWindow"
+			"CTRL+ALT+SHIFT+'F'":"32774, ToggleFullScreen"
+			"CTRL+'M'":"34425, CheckMnemonicKeys"
+			"ALT+VK_RETURN":"33542, Properties"
+			"SHIFT+VK_ESCAPE":"33544, WindowHide"
+			"CTRL+'Z'":"57643, Undo"
+			"ALT+VK_F7":"34048, ProjectSettings"
+			"SHIFT+VK_DELETE":"57635, Cut"
+			"CTRL+'F'":"34561, Find"
+			"SHIFT+VK_INSERT":"57637, Paste"
+			"ALT+VK_MULTIPLY":"34643, DebugShowNextStatement"
+			"ALT+'5'":"34755, ToggleRegistersWindow"
+			"CTRL+VK_F10":"34612, DebugRunToCursor"
+			"CTRL+SHIFT+'R'":"47004, MacroRecordQuick"
+			"ALT+VK_F9":"34617, DebugBreakpoints"
+			"CTRL+SHIFT+'S'":"47110, VAssistXFindSymbolDialog"
+			"ALT+VK_BACK":"48141, VU_DebugRestoreLastActiveThread"
+			"CTRL+'G'":"34577, GoTo"
+			"CTRL+'P'":"57607, FilePrint"
+			"ALT+'4'":"34754, ToggleVariablesWindow"
+			"VK_F9":"34636, DebugToggleBreakpoint"
+			"CTRL+VK_SPACE":"34947, CompleteWord"
+			"SHIFT+VK_F3":"48145, VU_FindPrev"
+			"VK_F5":"34608, DebugGo"
+			"ALT+'6'":"34756, ToggleMemoryWindow"
+			"VK_F12":"48141, VU_DebugRestoreLastActiveThread"
+			"CTRL+'D'":"34568, FindTool"
+			"CTRL+ALT+'T'":"34944, ListMembers"
+			"ALT+'7'":"34757, ToggleCallStackWindow"
+			"CTRL+'S'":"57603, FileSave"
+			"CTRL+VK_INSERT":"57634, Copy"
+			"CTRL+SHIFT+'G'":"34588, FileGoTo"
+			"ALT":"48134, VU_CurrentWindow"
+			"CTRL+VK_SUBTRACT":"34595, BrowsePrev"
+			"CTRL+SHIFT+'P'":"47005, MacroPlayQuick"
+			"CTRL+VK_F7":"33804, BuildCompile"
+			"CTRL+SHIFT+VK_F10":"34624, DebugSetNextStatement"
+			"ALT+'2'":"34752, ToggleOutputWindow"
+			"CTRL+'V'":"57637, Paste"
+			"CTRL+ALT+'F'":"34562, FindInFiles"
+			"CTRL+'A'":"57642, SelectAll"
+			"ALT+'3'":"34753, ToggleWatchWindow"
+			"CTRL+ALT+'G'":"33451, UserTool12"
+			"ALT+SHIFT+VK_PRIOR":"48149, VU_DebugGoUpToSourceCode"
+			"SHIFT+VK_F6":"57681, WindowPrevPane"
+			"CTRL+ALT+'P'":"36647, ProjectSelectTool"
+			"VK_F4":"34582, GoToNextErrorTag"
+			"CTRL+'B'":"34617, DebugBreakpoints"
+			"CTRL+SHIFT+VK_DOWN":"48143, VU_MoveLinesDown"
+			"CTRL+'²'":"48153, VU_CyclingWindows"
+			"CTRL+'T'":"34946, TypeInfo"
+			"ALT+SHIFT+VK_F11":"34639, DebugMemoryPrevFormat"
+			"ALT+'0'":"33409, ToggleWorkspaceWindow"
+			"CTRL+'C'":"57634, Copy"
+			"CTRL+VK_F11":"34578, DebugToggleMixedMode"
+			"ALT+VK_NEXT":"48132, VU_DebugGoDownToCode"
+		}
+		"Dialog":{
+			"VK_DOWN":"34488, ControlMoveDown"
+			"SHIFT+VK_UP":"34490, ControlHeightDecrease"
+			"ALT+VK_RIGHT":"34396, LayoutSpaceEvenlyAcross"
+			"CTRL+VK_F9":"34422, LayoutCenterInDialogVertically"
+			"CTRL+VK_LEFT":"34392, LayoutAlignLeft"
+			"CTRL+VK_RIGHT":"34393, LayoutAlignRight"
+			"CTRL+VK_DOWN":"34395, LayoutAlignBottom"
+			"SHIFT+VK_F9":"34421, LayoutAlignHorizontalCenter"
+			"CTRL+SHIFT+VK_F9":"34423, LayoutCenterInDialogHorizontally"
+			"CTRL+VK_F12":"47195"
+			"VK_LEFT":"34485, ControlMoveLeft"
+			"CTRL+VK_UP":"34394, LayoutAlignTop"
+			"ALT+VK_LEFT":"34396, LayoutSpaceEvenlyAcross"
+			"CTRL+'G'":"34476, SelectDialogGuideType"
+			"SHIFT+VK_F7":"34403, LayoutSizeToContent"
+			"VK_F9":"34420, LayoutAlignVerticalCenter"
+			"SHIFT+VK_DOWN":"34492, ControlHeightIncrease"
+			"CTRL+'D'":"34391, LayoutTabOrder"
+			"CTRL+SHIFT+'B'":"34399, LayoutArrangeButtonsBottom"
+			"VK_RIGHT":"34487, ControlMoveRight"
+			"SHIFT+VK_LEFT":"34489, ControlWidthDecrease"
+			"ALT+VK_UP":"34397, LayoutSpaceEvenlyDown"
+			"SHIFT+VK_RIGHT":"34491, ControlWidthIncrease"
+			"CTRL+'B'":"34398, LayoutArrangeButtonsRight"
+			"ALT+VK_DOWN":"34397, LayoutSpaceEvenlyDown"
+			"VK_UP":"34486, ControlMoveUp"
+			"CTRL+'T'":"34390, ResourceTest"
+		}
+	}
+	"Recent File List":{
+		"FileCount":4
+		"TypeInfo2":"{2AE27A3C-17F5-11D0-AF1B-00A0C90F9DE6}"
+		"Project1":"C:\\Temp\\kklklk\\VCProject\\kklklk"
+		"File1":"C:\\Temp\\kklklk\\Code\\main.cpp"
+		"TypeInfo3":"{2AE27A3C-17F5-11D0-AF1B-00A0C90F9DE6}"
+		"ProjectCount":4
+		"TypeInfo1":"{2AE27A3C-17F5-11D0-AF1B-00A0C90F9DE6}"
+		"Project2":"C:\\Temp\\fgdf\\VCProject\\fgdf"
+		"File3":"C:\\Temp\\qzeaze\\code\\main.cpp"
+		"File2":"C:\\Temp\\fgdf\\code\\main.cpp"
+		"Project3":"C:\\Temp\\qzeaze\\VCProject\\qzeaze"
+	}
+	"VC6Ultimate":{
+		"Macros":{
+			"AddAvaibleMacroVarInPreLinkContextMenu":1
+			"TranslateCustomBuildCommandInTooltip":1
+			"AvoidVBScriptException":1
+			"TranslatePostBuildCommandInTooltip":1
+			"TranslatePreLinkCommandInTooltip":1
+			"TranslateMacroVariableInMenus":1
+			"AddAvaibleMacroVarInPostBuildContextMenu":1
+			"AddAvaibleMacroVarInCustomBuildContextMenu":1
+			"AddAvailableMacroVarInPostBuildContextMenu":1
+			"TranslateMacroVariableInCustomBuildMenus":1
+			"Add10ExtraParametersToExecuteCommand":1
+			"AddAvailableMacroVarInCustomBuildContextMenu":1
+			"AddAvailableMacroVarInPreLinkContextMenu":1
+		}
+		"Breakpoints":{
+			"AppendBreakpointLineCodeInBreakpointList":1
+			"ActivateDoubleClickInBreakpointList":1
+			"DisplaySurroundingCodeOfSelectedBreakpoint":1
+			"UseFixedWidthFontInBreakpointList":1
+			"IncreaseBreakpointListHeight":1
+			"BUGFixAutoBreakpointGetLocation":1
+		}
+		"Project":{
+			"EnableSETTINGSFileLoading":1
+			"EnableSETTINGSFileCreation":1
+			"DeleteOptFileAfterLoad":1
+			"DisableOPTFileCreation":1
+			"SaveGeneralSettingPerComputer":1
+			"ForceBuildToolOrderInDSP":1
+			"UseCustomDepenciesFiles":0
+			"AllowDotNetProjectImportation":1
+			"SaveOptInXMLFiles":1
+		}
+		"StandardColors":{
+			"StdKeywordBackground":"0,0,0,0"
+			"StdAsmCodeBackground":"0,0,0,0"
+			"StdBreakpointBackground":"128,0,0,0"
+			"StdKeywordForeground":"192,192,192,0"
+			"StdAsmCodeForeground":"255,173,91,0"
+			"StdBreakpointForeground":"255,255,255,0"
+			"StdAsmTextBackground":"0,0,0,0"
+			"StdWatchTextForeground":"0,0,0,0"
+			"StdWizardIODLCodeBackground":"0,0,0,0"
+			"StdWizardCodeBackground":"0,0,0,0"
+			"StdWatchTextSelectionBackground":"123,123,192,0"
+			"StdCurrentStatementForeground":"0,0,0,0"
+			"StdWatchTextBackground":"255,255,255,0"
+			"StdAsmTextForeground":"123,123,192,0"
+			"StdWizardIODLCodeForeground":"128,128,128,0"
+			"StdWizardCodeForeground":"128,128,128,0"
+			"StdWatchTextSelectionForeground":"0,0,0,0"
+			"StdCurrentStatementBackground":"255,255,0,0"
+			"StdTextSelectionBackground":"0,85,0,0"
+			"StdWatchHighlightBackground":"230,230,250,0"
+			"StdTextForeground":"255,0,255,0"
+			"StdWatchHighlightForeground":"255,104,32,0"
+			"StdTextSelectionForeground":"60,179,113,0"
+			"StdTextBackground":"0,0,0,0"
+			"StdCurrentErrorTagForeground":"255,255,255,0"
+			"StdSelectionMarginForeground":"127,127,127,0"
+			"StdUserKeywordForeground":"0,0,255,0"
+			"StdOperatorForeground":"255,173,91,0"
+			"StdBookmarkBackground":"0,255,255,0"
+			"StdNumberBackground":"0,0,0,0"
+			"StdAsmTextSelectionForeground":"255,255,255,0"
+			"StdCommentForeground":"102,102,102,0"
+			"StdStringForeground":"232,253,181,0"
+			"StdCurrentErrorTagBackground":"0,0,128,0"
+			"StdSelectionMarginBackground":"102,102,102,0"
+			"StdUserKeywordBackground":"0,0,0,0"
+			"StdBookmarkForeground":"0,0,0,0"
+			"StdOperatorBackground":"0,0,0,0"
+			"StdAsmTextSelectionBackground":"255,173,91,0"
+			"StdNumberForeground":"127,255,212,0"
+			"StdCommentBackground":"0,0,0,0"
+			"StdStringBackground":"0,0,0,0"
+		}
+		"Debugger":{
+			"WatchTooltip_KeepVisibleOnReach":1
+			"UselessOuptMessageToLog":1
+			"AllowMultiLineTooltip":1
+			"ShowSSERegisters":0
+			"WatchTooltip_Dockable":1
+			"EnhancedTooltip":1
+			"UseAlternateDebugger":0
+			"DeleteMessageBoxLogAtStart":1
+			"FixTooltipDisplayOnMultiMonitors":1
+			"LoadedNoMatchingSymbolicInfoMsgToLog":2
+			"WatchTooltip_UseColors":1
+			"LoadedSymbolsMsgToLog":2
+			"DisplayTooltipAboveCursorPos":1
+			"SkipMessageExitProcess":1
+			"CannotSetTheBreakpointMsgToLog":0
+			"LoadedExportsForMsgToLog":2
+			"PreloadedSymbolesMayNotMatchMsgToLog":2
+			"WatchTooltip_UseViewFont":1
+			"WatchTooltip_DockAtEndOfCurrentLine":1
+			"ConvertedSymbolsForMsgToLog":2
+			"CannotRestoreBreakpointMsgToLog":0
+			"ShowStackPointerRegisters":0
+			"Tooltip_TypeColor":"255,128,128,0"
+			"EnhancedWatchTooltips":1
+			"ShowInstructionPointerRegisters":1
+			"ShowMMXRegisters":0
+			"Tooltip_ValueColor":"128,128,255,0"
+			"UserBreakpointCalledFromCodeMsgToLog":0
+			"NoCodeExistsAtTheLineNumberMsgToLog":0
+			"SkipMessageExitThread":1
+			"WatchTooltip_DisplayType":1
+		}
+		"CurrentLine":{
+			"LineCutAutoToggle":1
+			"EndOfLineRightTrim":1
+			"ChangeCaretInInsertMode":1
+			"HighlightCurrentLineType":0
+			"HighlightCurrentLine":1
+			"HighlightCurrentLineBackgroundColor":"40,40,40,0"
+			"HighlightMargin":1
+			"UseScrollLock":0
+			"CurrentLineMarginBackgroundColor":"40,40,40,0"
+		}
+		"Tools":{
+			"AutoSelectActiveConfigInProjectSettingsDlg":1
+			"AllowMacroStringInToolPathName":1
+			"SkipMessageBeepOk":1
+			"PreserveToolHotkeysAfterToolListModifications":1
+		}
+		"FindReplace":{
+			"ReplaceAll_WindowWidth":0
+			"ReplaceAll_WindowPosY":0
+			"Replace_RestoreSizeNPosDialog":1
+			"ReplaceAll_WindowPosX":0
+			"Find_ResizableDialog":1
+			"Find_FindNextWordStayInPlace":1
+			"ReplaceSavePosPerComputer":1
+			"Find_RestoreSizeNPosDialog":1
+			"FindSavePosPerComputer":1
+			"Replace_ResizableDialog":1
+		}
+		"SelectedText":{
+			"EnableSyntaxColoringOnSelectedText":1
+			"FillEndOfSelectedLineWithSelectColor":1
+			"HighlightSelectedTextInInactiveViewToo":1
+		}
+		"Highlights":{
+			"BackgroundPreprocessing":0
+			"HightlightBookmarkLine":1
+			"BreakpointLineBgColor":"113,29,0,0"
+			"DarkDisabledLines":1
+			"HightlightBreakpointLine":1
+			"BookmarkLineBgColor":"0,81,81,0"
+		}
+		"Completion":{
+			"SurroundSelectionOnSlash":1
+			"AutoCompleteBraces_InsertBlankLine":1
+			"AutoCompleteParentheses":0
+			"AutoCompleteBraces":0
+			"SurroundSelectionOnStar":1
+			"SurroundSelectionOnSharp":0
+			"SurroundSelectionOnParenthese":0
+			"AutoCompleteQuotationMarks":0
+			"AutoCompleteApostrophes":0
+			"SurroundSelectionOnBrace":0
+			"AutoCompleteBrackets":0
+		}
+		"Help":{
+			"RemoveTrailing_AW_DuringHelpSearch":1
+		}
+		"SubWindowsAndToolbars":{
+			"DisableReleaseAlt":1
+			"UseGreyIconForDisabledItems":1
+			"UseUltimateDocking":1
+			"AlwaysDisplayWindowIconInToolbar":1
+			"ToggleFullScreenWhenDoubleClickOnCaption":1
+			"SaveCustomToolbarIconsIn32Bits":1
+			"DisableAppsKeyDefaultAction":1
+			"AllowModifierOnlyHotkey":1
+		}
+		"Notifications":{
+			"Disable_CannotAccessClassViewInformationFile_Message":1
+			"EnableBuildCompleteSound":0
+			"EnableBuildErrorSound":0
+			"EnableBuildWarningSound":0
+			"DisableFIFUnicodeMessage":1
+			"BuildErrorSoundOnlyIfInactive":1
+			"FlashWindowAfterBuild":1
+			"BuildCompleteSoundOnlyIfInactive":1
+			"AvoidRebuildConfirmationMessage":1
+			"EnableBuildUptodateSound":0
+			"BuildWarningSoundOnlyIfInactive":1
+			"DisableCarriageReturnMessage":1
+			"BuildUptodateSoundOnlyIfInactive":1
+			"DisableInvalidCharactersMessage":1
+			"DisableThisFileDoesNotExistDoYouWantToBuildItMessage":1
+			"DisableConfirmation_DoYouWantToCloseAllDocuments":1
+			"CustomMaxExpansionWithoutConfirmation":1
+			"MaxExpansionWithoutConfirmation":2048
+			"DisableWouldYouLikeToBuildThemMessage":1
+		}
+		"Build":{
+			"SplashscreenSlideshowSpeed":2000
+			"SplashscreenSlideshowAutoSlideMovies":0
+			"SplashscreenSlideshowStartDelay":3000
+			"SplashscreenSlideshowType":1
+			"LesJoiesDuCodeFolder":"../../../@LesJoiesDuCode/"
+			"DisplaySplashscreenSlideshowDuringBuild":1
+		}
+		"Mouse":{
+			"RightDragToScrollTextView_SpeedX":1
+			"SendWheelMessageToOverWnd":1
+			"RightDragToScrollTextView_SpeedY":2
+			"ChangeFontSizeWithMouseWheel":1
+			"UseRightDragToScrollTextView":1
+			"DisableWaitingCursors":1
+			"UseMiniIBeamWithFont10":1
+		}
+		"Compile":{
+			"InternalSpawn":1
+			"EnablePlatform64":1
+			"BuildActionDontInterruptCurrentBuilding":1
+			"AllowToCompileSourceFromNonActiveProject":1
+			"BlockExcludeFromBuildCompilation":1
+		}
+		"ConsoleMode":{
+			"Remove10SecSleepBeforeQuit":1
+		}
+		"FindInFiles":{
+			"FindInFilesSavePosPerComputer":1
+			"FIF_DisplayResultsInScrollbar":1
+			"FIF_IncreaseMRUListSize_To_64":1
+			"FIF_WindowWidth":1024
+			"MathingLineTextColor":"204,190,184"
+			"FileLocationTextColor":"102,102,102"
+			"CodeLineBackgroundColor":"224,224,224,0"
+			"ActiveCodeLineForegroundColor":"80,32,32,0"
+			"DefaultTextColor":"192,192,192"
+			"StatusNotFoundTextColor":"141,8,8"
+			"FIF_FontSize":8
+			"FIF_ReturnsCharacterPosition":1
+			"FIF_WindowPosY":480
+			"StatusFoundTextColor":"152,251,152"
+			"ActiveCodeLineBackgroundColor":"192,192,192,0"
+			"FirstLineMatchingWordTextColor":"127,186,0"
+			"UseVisualUltimate_FIF":1
+			"FIF_FontName":"HobTiny"
+			"MatchingWordBackgroundColor":"0,147,0"
+			"FirstLineTextColor":"255,255,255"
+			"FindInFilesRemoveVCProjectFolder":1
+			"FIF_WindowPosX":380
+			"FindInFilesRestoreSizeNPosDialog":1
+			"CodeLineForegroundColor":"80,32,32,0"
+		}
+		"ProjectSettings":{
+			"SaveWorkspaceDuringFileSaveAll":1
+			"IncreaseProjectSettingsSize":1
+		}
+		"WorkspaceView":{
+			"HighlightSelectedItemInNonFocusFileViewTree":1
+			"EnableDropFilesInWorkspaceView_AskForAddToVersionning":1
+			"AddDependenciesInContextMenu":1
+			"EnableDropFilesInWorkspaceView_AskForAddToVersionning_CheckBeforeAsk":1
+			"EnableDropFilesInWorkspaceView":1
+			"HighlightSourceFileInFileViewTree":1
+			"AddStarOnDirtySourceFileInFileViewTree":1
+			"DisplaySourceFilePathInFileViewTree":0
+			"DisplayProjectNameInFileViewTree":1
+			"AddFileViewOptionsInContextMenu":1
+			"ReplaceWorkspaceViewIcons":1
+		}
+		"Caret":{
+			"MultipleCaretColor":"255,0,0,0"
+			"SingleCaretColor":"255,255,255,0"
+		}
+		"Assembly View":{
+			"AsmView_SourceCodeLineNumberColor":"0,255,0,0"
+			"AsmView_SymbolNameForegroundColor":"47,120,207,0"
+			"ASMView_HighlightSelectedTextInInactiveViewToo":1
+			"AsmView_BytesForegroundColor":"112,176,112,0"
+			"ASMView_HighlightTheSelectedWord":1
+			"AsmView_MemOffsetForegroundColor":"128,64,128,0"
+			"AsmView_SourceCodeTextColor":"255,255,255,0"
+			"AsmView_SourceFileNameForegroundColor":"255,16,255,0"
+			"HighlightRegisterAliases":1
+			"ImproveAssemblyView":1
+		}
+		"Advanced":{
+			"RemoveUnnecessaryLinesInDSP":1
+			"RemoveGenerateFileDependenciesSwitch":1
+			"AddProjectNameInResourceFolder":1
+			"DisplayDependenciesProgressBar":1
+			"ChangeSourceFileLineJumpsInDSP":1
+			"AvoidOverwriteUnchangedFiles":1
+		}
+		"Fonts":{
+			"AllowsAntialiasedFont":1
+			"FontsBySize":"8:HobTiny, 16:HobTiny"
+			"ChangeFontSizeWithMouseWheel":1
+			"ImproveFontQuality":1
+		}
+		"Launch":{
+			"DisplaySplashscreenDuringLaunch":1
+			"UseSFWLaunchSplashscreenByDefault":0
+		}
+		"EnhancedDisplay":{
+			"UseUniqueColorForMicrosoftKeywordsColor":"255,128,128,0"
+			"UseUniqueColorForMicrosoftKeywords":1
+			"VANavigationBarBkColor":"40,40,40,0"
+			"CheckEscapeSequencesErrorColor":"165,42,0,0"
+			"UseUniqueColorForPreprocessorSubKeywords":1
+			"UseUniqueColorForPreprocessorKeywordsColor":"236,159,244,0"
+			"UseUniqueColorForPreprocessorSubKeywordsColor":"128,224,128,0"
+			"UseUniqueColorForColonOperatorColor":"255,16,255,0"
+			"HighlightBlockBoundaries":1
+			"PreprocessSymbolForegroundColor":"255,128,0,0"
+			"CheckEscapeSequencesOkColor":"0,147,0,0"
+			"UseUniqueColorForStringAndCharDelimiterColor":"128,128,128,0"
+			"UseUniqueColorForColonOperator":1
+			"UseSpecialColorForCommentSeparator3EvenColor":"165,42,0,0"
+			"HighlightTheSelectedWord":1
+			"CheckPrintfString":1
+			"HighlightSelectedWord2BackgroundColor":"50,205,50,0"
+			"HighlightOddParentheseColor":"255,214,173,0"
+			"OffscreenHighlightsColor":"0,255,0,0"
+			"HighlightCurrentScope":0
+			"HighlightSelectedWordBackgroundColor":"176,0,0,0"
+			"UseUniqueColorForCharacterBlockColor":"64,255,64,0"
+			"UseSpecialColorForCommentSeparator3OddColor":"139,0,0,0"
+			"HighlightTheSelectedWordInComments":1
+			"ChangeVANavigationBarBkColor":1
+			"OffscreenHighlightsBorderColor":"0,0,0,0"
+			"UseSpecialColorForCommentSeparator2OddColor":"0,255,0,0"
+			"VisibleWhitespacesColor":"255,0,255,0"
+			"HighlightBlockBoundariesColor":"0,136,238,0"
+			"UseSpecialColorForCommentSeparatorEvenColor":"255,255,255,0"
+			"HighlightOddParenthese":1
+			"UseSpecialColorForCommentSeparator2":1
+			"CheckPrintfStringErrorColor":"255,0,0,0"
+			"DisplayOffscreenHighlightsInMarginAtRight":0
+			"CheckEscapeSequencesWarningColor":"255,128,0,0"
+			"DisplayNotFullyVisibleLinesInMargin":1
+			"UseUniqueColorForStringAndCharDelimiter":1
+			"UseUniqueColorForPreprocessorKeywords":1
+			"UseSpecialColorForDoxygenComment":1
+			"ShowMiniMap":0
+			"UseSpecialColorForCommentSeparator":1
+			"DisplayOffscreenHighlightsInMargin":1
+			"UnderlineStableSymbols":1
+			"UseUniqueColorForFloatNumber":1
+			"UseSpecialColorForCommentSeparatorOddColor":"175,238,238,0"
+			"UseSpecialColorForCommentSeparator2EvenColor":"0,255,0,0"
+			"SpecialColorForDollarIdentifierColor":"241,172,6,0"
+			"NotFullyVisibleLinesSymbolColor":"255,255,255,0"
+			"OpenGLRendering":1
+			"UseUniqueColorForCharacterBlock":1
+			"CheckEscapeSequences":1
+			"UnderlineLocalSymbols":1
+			"CheckPrintfStringOkColor":"0,255,0,0"
+			"SpecialColorForDollarIdentifiers":0
+			"DoxygenTextColor":"255,173,91,0"
+			"AlternateVisibleWhitespaces":1
+			"VisibleWhitespacesTransparency":50
+			"UseSpecialColorForCommentSeparator3":1
+			"CLangColorize":0
+			"UseUniqueColorForFloatNumberColor":"255,128,255,0"
+		}
+		"EnhancedDisplay_CLang":{
+			"CLang_TemplateNumericParameterColor":"64,192,255,0"
+			"CLang_UnderlineMember":1
+			"CLang_ErrorMessageTextTransparency":50
+			"CLang_DefaultBracketColor":"255,104,32,0"
+			"CLang_Virtual":1
+			"CLang_ClassStruct":1
+			"CLang_LabelBracketColor":"102,102,102,0"
+			"CLang_TypeDeclBracketColor":"255,215,0,0"
+			"CLang_TemplateTypeParameter":1
+			"CLang_FunctionBracket":1
+			"CLang_IfBracket":1
+			"CLang_StructClassColor":"192,192,255,0"
+			"CLang_SwitchBracketColor":"255,104,32,0"
+			"CLang_DefaultBracket":1
+			"CLang_FunctionNameColor":"255,192,192,0"
+			"CLang_AsmInstruction":1
+			"CLang_NamespaceColor":"255,173,91,0"
+			"CLang_FunctionParam":1
+			"CLang_EnumType":1
+			"CLang_UnderlineMethod":1
+			"CLang_EnumValue":1
+			"CLang_AsmBracketColor":"127,127,127,0"
+			"CLang_TemplateTypeParameterColor":"0,128,255,0"
+			"CLang_UsePCH":1
+			"CLang_MacroExpansionColor":"254,83,1,0"
+			"CLang_EnumTypeColor":"137,65,146,0"
+			"CLang_ForBracket":1
+			"CLang_EnumValueColor":"255,160,112,0"
+			"CLang_AsmBracket":1
+			"CLang_ErrorMessageTextColor":"255,0,0,0"
+			"CLang_TemplateClassStruct":1
+			"CLang_StructClassMemberColor":"128,128,255,0"
+			"CLang_IfBracketColor":"255,104,32,0"
+			"CLang_StructClassMember":1
+			"CLang_UnderlineErrors":1
+			"CLang_DisplayConstMethodSign":1
+			"CLang_TypeDeclBracket":1
+			"CLang_HighlightErrorMarginColor":"255,0,0,0"
+			"CLang_LocalVariable":1
+			"CLang_OutputErrors":1
+			"CLang_VirtualColor":"208,255,128,0"
+			"CLang_DoBracketColor":"255,104,32,0"
+			"CLang_ForBracketColor":"255,104,32,0"
+			"CLang_TemplateNumericParameter":1
+			"CLang_SwitchBracket":1
+			"CLang_CaseBracketColor":"255,104,32,0"
+			"CLang_HighlightErrorMargin":1
+			"CLang_WhileBracketColor":"255,104,32,0"
+			"CLang_GotoLabelsColor":"0,255,0,0"
+			"CLang_OutputFlags":0
+			"CLang_MacroDefinitionColor":"255,128,0,0"
+			"CLang_ConstructorDestructorColor":"255,160,160,0"
+			"CLang_UnderlineTemplateParameter":1
+			"CLang_GlobalVariable":1
+			"CLang_FunctionParamColor":"125,158,192,0"
+			"CLang_LocalVariableColor":"80,80,255,0"
+			"CLang_FunctionBracketColor":"255,104,32,0"
+			"CLang_NestedBlockBracket":1
+			"CLang_WhileBracket":1
+			"CLang_AsmRegister":1
+			"CLang_PureVirtual":1
+			"CLang_FunctionName":1
+			"CLang_GlobalVariableColor":"152,251,152,0"
+			"CLang_ConstructorDestructor":1
+			"CLang_MacroExpansion":1
+			"CLang_GotoLabels":1
+			"CLang_PreprocessingDirectiveColor":"255,128,0,0"
+			"CLang_TemplateStructClassColor":"224,224,255,0"
+			"CLang_CaseBracket":1
+			"CLang_MacroDefinition":1
+			"CLang_NestedBlockBracketColor":"102,102,102,0"
+			"CLang_AsmInstructionColor":"210,180,140,0"
+			"CLang_LabelBracket":1
+			"CLang_DisplayUsedAsReferenceSign":1
+			"CLang_IgnoreHeaderErrors":1
+			"CLang_AsmRegisterColor":"196,124,226,0"
+			"CLang_PureVirtualColor":"224,255,224,0"
+			"CLang_PreprocessingDirective":1
+			"CLang_DisplayErrorMessagePopup":1
+			"CLang_Namespace":1
+			"CLangColorize":1
+			"CLang_DoBracket":1
+		}
+		"MultiSelection":{
+			"MergeCopyBuffersOnDestroy":1
+			"MergeCopyBuffersOnDestroy_InsertCRLF":1
+			"DrawBorderIfOffscreenMultiSelectionOnly":1
+			"MultiSelection_DisplaySelectionCountInSushiBar":1
+			"DrawBorderIfOffscreenSelection":1
+		}
+		"Comments":{
+			"ImportantLineBgColor":"255,0,0,0"
+			"ExploreLinkOnDblClick":1
+			"EnableImagePopup":1
+			"EnableLaTeXPopup":1
+			"HTMLLinkColor":"0,102,204,0"
+			"EnableColorPreview":1
+			"HighlightImportantLine":1
+			"ExploreHTMLLinkOnDblClick":1
+			"InternallyOpenedExtensions":"c;cpp;cxx;h;hxx;inl;rc;def;idl;txt;hjson;glsl"
+		}
+		"Projects":{
+			"RestoreActiveConfigurationAfterInsertProject":1
+		}
+		"Debug":{
+			"UsePerProjectAutoExpand":1
+			"Watch_TranslateBinaryInt":1
+			"UseExecutableDirectoryAsDefaultWorkingDirectory":1
+			"Watch_FullAnsi":1
+			"Watch_DisplayUnkPointerAsMemory":1
+			"Watch_SimplifyDraggedExpression":1
+			"Watch_NestedAutoExp_MaxDepth":4
+			"Watch_AddCustomFormattingSubMenu":1
+			"Watch_RemoveTrailingCarriageReturnOnCopy":1
+			"Watch_ImproveMessageNames":1
+			"AskForStopExecutionAtBegin":1
+			"AlternateDialogForSourceLineAmbiguityFunctionNameOnly":1
+			"Watch_HideStringAddress":0
+			"EditableWatchType":1
+			"AutoFillRemoteDebugFileImage":1
+			"AlternateDialogForSourceLineAmbiguity":1
+			"Watch_IncreaseMaxAutoExpStringTo4096":1
+			"AutoReloadAutoExp":1
+			"Watch_ExcludeTypeOnCopy":1
+			"Watch_NestedAutoExp":1
+			"UseAlternateExceptionDialog":1
+			"Watch_ExtendedAutoExpFormat":1
+			"UseCustomAutoExp":1
+			"Watch_TranslateColor":1
+			"Watch_UpperCaseHexa":1
+			"Watch_ChangeStaticArraySize":1
+			"UseAlternateRegisterCPUDisplay":1
+			"WaitingFunctionList":"WaitForMultipleObjects;WaitForSingleObject;NtWaitForWorkViaWorkerFactory;ZwWaitForMultipleObjects;Sleep;NtWaitForMultipleObjects;NtWaitForSingleObject;NtDelayExecution;DispatchMessageW;ZwWaitForSingleObject"
+			"AutoExpFullFileName":"C:\\Program Files\\Microsoft Visual Studio\\VisualUltimate\\AutoExp.ini"
+			"Watch_ShowCharsModifiedOnly":1
+			"Watch_TranslateUTF8String":1
+			"FixWin7ProcessHanging":1
+			"Watch_ExpandTabs":1
+			"FixDebugRestart":1
+			"UseAlternateThreadListWnd":1
+			"Watch_EvaluateExpressions":1
+			"Watch_AddSignOnWatchedForModification":1
+			"Watch_DisplayGreyedEmptyTabs":1
+			"BigSizeWatchValueString":1
+			"DisplayGreyedWaitingThread":1
+			"AllowWatchMultiLine":1
+			"Watch_DisplayPreviousValue":1
+			"Watch_AddTypeColumn":1
+		}
+		"Tooltip":{
+			"ChangeTooltipTimerSpeed":1
+			"TooltipTimerSpeed":500
+		}
+		"MainWindow":{
+			"FillSushiBarWithDebugStateColor":1
+			"DisplayFullFileNameInWindowTitle":1
+			"FixSushibarOnBigScreens":1
+			"DisplayDebugStateInTaskBar":1
+			"UseDarkSkin":1
+			"FixFullscreenDisplay":1
+			"DisplayProgressBarCompilationInTaskBar":1
+			"RemoveApplicationNameInMainWindowTitle":1
+		}
+		"Resources":{
+			"Disable80ColumnsLimitInResourceFile":1
+			"OpenRCFileInTextMode":1
+		}
+		"OptionPanels":{
+			"OptionPanel_SplitEditOnMultiLine":1
+		}
+		"Source":{
+			"MacroBodyDefinitionForegroundColor":"255,255,255,0"
+			"UnknownTextBackgroundColor":"0,0,255,0"
+			"UnknownTextForegroundColor":"255,0,0,0"
+			"ImageLinkTextForegroundColor":"0,102,204,0"
+			"MacroNameDefinitionForegroundColor":"255,128,0,0"
+			"ImageLinkBackgroundColor":"0,0,0,0"
+			"SelectedGridLineLinkBackgroundColor":"193,193,225,0"
+			"SelectedGridLineTextForegroundColor":"0,0,0,255"
+		}
+		"Background":{
+			"UseOddEvenLineBackgroundColor":1
+			"OddEvenLineStrength":4
+		}
+		"LeftMargin":{
+			"ReplaceCallsHighlightSign":1
+			"DisplayModifiedLinesInMargin":1
+			"ShowLineNumber":0
+			"ReplaceBookmarkSigns":1
+			"ReplaceCurrentErrorSign":1
+			"ShiftBreakpointSigns":1
+			"ModifiedLinesMarginColor":"255,173,91,0"
+			"ReplaceCurrentStatementSignArrow":1
+		}
+		"KeyboardMenu":{
+			"AppendToolNameInKeyboardMenu":1
+		}
+		"PortableSettings":{
+			"SaveSourceControlInLocalIni":1
+			"SaveKeyboardSettingsInLocalIni":1
+			"SaveRecentFileListInLocalIni":1
+			"SaveFontsInLocalIni":1
+			"SaveDataViewInLocalIni":1
+			"SaveDebugInLocalIni":1
+			"SaveGeneralSettingsInLocalIni":0
+			"CheckDockWorkerPosition":1
+			"SaveProjectsNameAndPathInLocalIni":1
+			"SaveDialogEditorInLocalIni":1
+			"UseComputerNameAsConfigFileName":1
+			"SaveInterpretersInLocalIni":1
+			"SaveGraphicsEditorInLocalIni":1
+			"SaveLastProjectInLocalIni":1
+			"SaveSearchInLocalIni":1
+			"SaveLayoutInLocalIni":1
+			"AlternateToolsSettings":1
+			"SaveToolsSettingsInLocalIni":1
+			"SaveAddinsInLocalIni":1
+			"SaveMacrosInLocalIni":1
+			"SaveFormatsInLocalIni":1
+			"SaveAppWizardInLocalIni":1
+		}
+		"Assembler View":{
+			"AsmView_SourceCodeLineNumberColor":"0,255,0,0"
+			"AsmView_SymbolNameForegroundColor":"47,120,207,0"
+			"AsmView_BytesForegroundColor":"112,176,112,0"
+			"AsmView_MemOffsetForegroundColor":"128,64,128,0"
+			"AsmView_SourceCodeTextColor":"255,255,255,0"
+			"AsmView_SourceFileNameForegroundColor":"255,0,255,0"
+			"ImproveAssemblerView":1
+		}
+		"RecentList":{
+			"GreyRecentListNonExistingItems":1
+		}
+		"SushiBar":{
+			"SushiBar_DisplaySelectionSize":1
+		}
+		"CustomCodeBlocks":{
+			"EnableCustomCodeBlockDisplay":1
+			"BackgroundCustomCodeBlock#3":"49,49,102,0"
+			"AltOddLineCustomCodeBlock#1":1
+			"AltOddLineCustomCodeBlock#5":1
+			"AltOddLineCustomCodeBlock#4":1
+			"AltOddLineCustomCodeBlock#0":1
+			"BackgroundCustomCodeBlock#6":"81,0,0,0"
+			"BackgroundCustomCodeBlock#2":"12,31,31,0"
+			"BackgroundCustomCodeBlock#0":"0,0,66,0"
+			"BackgroundCustomCodeBlock#4":"9,36,9,0"
+			"AltOddLineCustomCodeBlock#2":1
+			"AltOddLineCustomCodeBlock#6":1
+			"AltOddLineCustomCodeBlock#3":1
+			"BackgroundCustomCodeBlock#5":"94,80,0,0"
+			"BackgroundCustomCodeBlock#1":"45,18,0,0"
+			"CustomCodeBlockDisplay_FullLine":1
+		}
+		"WIP":{
+			"HookVAXSelectionObject":1
+		}
+		"ContextMenu":{
+			"AddVUFindSourceFileInWorkspaceViewInTextViewContextMenu":1
+			"AddVUShowProprocessedContentInCPPContextMenu":1
+			"RemoveBrowseCmdsInCPPContextMenu":1
+			"AddVUOptionInCPPContextMenu":1
+			"ShowContainingProjectInTextViewContextMenu":1
+			"AddVUOpenContainingFolderInTextViewContextMenu":1
+		}
+		"FileSystem":{
+			"FixBadDateFile":1
+		}
+		"FileDependencies":{
+			"ForceDependenciesLocation":1
+			"ForceRescanDependenciesIfNotTheSameComputer":0
+			"DependenciesLocation":1
+		}
+		"WndTabs":{
+			"WndTabsActiveWindowBgColor":"128,255,128,0"
+			"WndTabsAutoUpdate":1
+			"WndTabsActiveWindowFgColor":"0,147,0,0"
+			"WndTabsNonActiveWindowBgColor":"102,102,102,0"
+			"WndTabsMinTimePerPixel":10
+		}
+		"VisualAssist":{
+			"GoToNextErrorTagBugFix":1
+		}
+		"C++ Parsing":{
+			"LexCPP_ParseAssemblyHexaValues":1
+			"LexCPP_AlternateNumericValueParsing":1
+		}
+		"OutputWindow":{
+			"ErrorLinesForegroundColor":"255,0,0,0"
+			"AddOutputTabForVAX":1
+			"UltimateMacroTab":1
+			"WarningLinesForegroundColor":"255,173,91,0"
+			"AvoidCouldNotFindFileOutputMessage":1
+			"ToDoLinesBackgroundColor":"75,0,130,0"
+			"ResultErrorBackgroundColor":"0,0,0,0"
+			"Group0_WindowHeight":380
+			"AutoSetDebugTabAsCurrent":1
+			"GoToNextErrorTagJumpOnErrorOnly":1
+			"Group0_WindowWidth":580
+			"ResultOkForegroundColor":"50,205,50,0"
+			"UltimateClangTab":1
+			"UltimateDebugTab":1
+			"ForegroundColor":"255,255,255,0"
+			"OtherFileLineLinesBackgroundColor":"0,0,0,0"
+			"ResultWarningForegroundColor":"255,173,91,0"
+			"EnhancedOutputWindowColors":1
+			"ResultOkBackgroundColor":"0,0,0,0"
+			"BackgroundColor":"0,0,0,0"
+			"AvoidOutputLineSplit":1
+			"Group0_WindowPosX":20
+			"AvoidErrorExecutingMessage":1
+			"ShowOutputDebugStringFormatColor":1
+			"OtherFileLineLinesForegroundColor":"192,255,255,0"
+			"ResultWarningBackgroundColor":"0,0,0,0"
+			"Group1_WindowHeight":1009
+			"ErrorLinesBackgroundColor":"0,0,0,0"
+			"FormFeedClearOutput":1
+			"WarningLinesBackgroundColor":"40,40,40,0"
+			"Group0_WindowPosY":20
+			"AvoidMissingDependencyOutputMessage":1
+			"ToDoLinesForegroundColor":"50,205,50,0"
+			"UltimateBuildTab":1
+			"ResultErrorForegroundColor":"255,0,0,0"
+			"EnableUltimateOutputWindow":1
+			"AvoidDeletingIntermediateFilesMessage":1
+			"ParseOutputDebugStringExtendedFormat":1
+		}
+		"EnhancedFeatures":{
+			"FixAndImproveGotoMatchBrace":1
+		}
+	}
+	"Graphics Editor":{
+		"TileGridSize":"16,15"
+		"DefaultScreenColor":"0,128,128"
+		"PixelGrid":1
+		"TileGrid":0
+	}
+	"Text Editor":{
+		"VirtualSpace":0
+		"NewDebugWindow":1
+		"PageSetupParm4":"127"
+		"MarginWidth":20
+		"FIF_Advanced":1
+		"AutoReload":0
+		"VerticalScrollBars":1
+		"Compatibility":"hex:16,00,00,00,04,00,00,00,00,00,00,00,01,00,00,00,00,01,00,00,00,00,00,00"
+		"SaveBeforeBuild":1
+		"EnableParameterHelp":1
+		"HorizontalScrollBars":1
+		"FIF_IncludePath":0
+		"EnableQuickInfo":1
+		"MarginGlyphs":1
+		"PageSetupParm5":"127"
+		"PageSetupParm1":""
+		"Version":1
+		"PageSetupParm3":"127"
+		"FIF_SourcePath":1
+		"NoROFileEditing":0
+		"TextDragging":1
+		"ShowWizardBar":1
+		"NoBackspaceAtBOL":0
+		"UndoSize":65536
+		"FIF_SearchSubfolders":1
+		"PreserveTabs":1
+		"OpenNewWindow":1
+		"UndoMove":0
+		"SavePrompt":0
+		"PageSetupParm6":"127"
+		"Tabs/Language Settings":{
+			"VBS Macro":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+				"FileExtensions":"DSM"
+			}
+			"HTML":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+				"FileExtensions":"htm;html;stm;stml;asp;alx"
+			}
+			"ODL/IDL":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+				"FileExtensions":"odl;idl;odh"
+			}
+			"SQL":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+				"FileExtensions":"sql;tsq;ssq"
+			}
+			"C/C++":{
+				"IndentSize":2
+				"InsertCloseToken":0
+				"LinesScannedBack":100
+				"TabSize":2
+				"IndentType":1
+				"InsertOpenToken":0
+				"InsertSpaces":0
+				"FileExtensions":"cpp;cxx;c;h;hxx;hpp;inl;tlh;tli;rc;rc2"
+			}
+			"Def Script":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+				"FileExtensions":"def"
+			}
+			"GLSL":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+				"FileExtensions":"geom;frag;vert;glsl"
+			}
+			"HJSON":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+				"FileExtensions":"hjson;shader_project"
+			}
+			"Default":{
+				"IndentSize":2
+				"TabSize":2
+				"IndentType":1
+				"InsertSpaces":0
+			}
+		}
+		"ParaBreakAtIndent":0
+		"EnableAutoComments":1
+		"LineModePaste":0
+		"PageSetupParm2":"&P"
+		"EnableAutoComplete":1
+	}
+	"Fonts":{
+		"Fixed":"HobTiny, 8pt"
+		"Small":"Small Fonts,-9pt"
+		"Large":"MS Sans Serif,14pt"
+		"Normal":"MS Sans Serif, 8pt"
+	}
+	"Debug":{
+		"AutoWindow":1
+		"MemoryToolbar":1
+		"DisassemblyLowerCase":1
+		"DisassemblyAnnotations":1
+		"DebugCommandLine":""
+		"OleRpcDebugging":0
+		"VariablesToolbar":1
+		"DisassemblyCodeBytes":1
+		"CPUFloatingPoint":1
+		"UnicodeStrings":1
+		"QuickWatchColWidth":147
+		"Just in Time":{
+			"Debugger":"C:\\DrMinGW\\drmingw-0.6.0-win32\\bin\\drmingw.exe -p %ld -e %ld -v"
+			"Auto":0
+		}
+		"ENCRepro":0
+		"CallTypes":1
+		"Version":1
+		"CPUFlags":1
+		"LocalsToolbar":1
+		"CallParameters":1
+		"Radix":1
+		"CPUEffectiveAddress":1
+		"ENCTraceLevel":2
+		"WatchToolbar":1
+		"DisassemblySymbols":1
+		"CPURegisters":1
+		"EditAndContinueDebugging":0
+		"ENCRelink":1
+		"ENCLoadIdbFiles":1
+		"WatchColWidth":130
+		"DebugMode":0
+		"ShowDataTips":1
+		"ShowReturnValues":1
+		"VariablesColWidth":160
+		"LoadExports":0
+		"ExtendedRegisters":0
+	}
+	"VA6":{
+		"DisplayProjectNodesInReferencesResults":"hex:01"
+		"lDBDayCount":"0"
+		"ListBoxHeightInItems":10
+		"FisDlgAColWidth0":214
+		"DontInsertSpaceAfterComment":"hex:00"
+		"ShiftRtClickContextMenu":"hex:01"
+		"SortDefList":1
+		"Custom":{
+			"AdditionalInclude":""
+			"Library Dirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\MsC\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\LIB;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\LIB"
+			"SystemInclude":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\StdLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\LibC\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\ATL\\include"
+			"GotoSourceDirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\SRC;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\ATL\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\CRT\\SRC"
+		}
+		"FiWDlg2ColWidth0":213
+		"ParseFilesInDirectoryIfExternalFileOpened":"hex:00"
+		"UseVASuggestionsInManagedCode":"hex:01"
+		"IncludeDefaultParameterValues":"hex:01"
+		"LimitMacroParsing":"hex:01"
+		"UseThemedCompletionBoxSelection2":1
+		"ExtBinary3":".exe;.dll;.obj;.tlb;.pkg;.ocx;.olb;.netmodule;.winmd;"
+		"AugmentParamInfo":"hex:01"
+		"FastProjectOpen2":0
+		"DialogsStickToMonitor":"hex:01"
+		"ExtHeader":".h;.hh;.hpp;.hxx;.ipp;.tlh;.inl;.p;.rh;.dh;.ih;.ph;"
+		"CompleteMembersWithAny":"hex:00"
+		"EnhColorObjectBrowser":"hex:00"
+		"MarkTextAfterFind":"hex:01"
+		"CacheFileFinderData":"hex:01"
+		"LocalSymbolsInBold":"hex:00"
+		"OutlineAutoExpand":"hex:00"
+		"EnableTooltipsInFindResults":"hex:01"
+		"ClipboardItemCount":10
+		"VAViewCurTab3":"0"
+		"CacheProjectInfo":"hex:01"
+		"ExtCS":".cs;.csx;"
+		"FontInfo":"Font: HobTiny -10(Pixels)"
+		"OptimizeRemoteDesktop":"hex:01"
+		"OutlineStripScopeFromGroupedMethods":"hex:01"
+		"DialogsFitIntoScreen":"hex:01"
+		"ImportTimeout":20
+		"HideContextDefWindow":"hex:00"
+		"UseDefaultIntellisense":"hex:00"
+		"TrackCaretVisibility":"hex:01"
+		"CheckForLatestBeta":"hex:00"
+		"AddIncludePreferShortestRelativePath":"hex:01"
+		"ExtAsp":".asp;.aspx;.hta;.asa;.asax;.ascx;.ashx;.asmx;.master;"
+		"EnhColorWizardBar":"hex:01"
+		"StableSymbolsInItalics":"hex:00"
+		"ShowLineNumbersInFindRefResults":"hex:01"
+		"FilterType":0
+		"Format":{
+			"Macros":"hex:ff,80,00,00,ff,ff,ff,00"
+			"Functions":"hex:ff,c0,c0,00,ff,ff,ff,00"
+			"Variable":"hex:80,80,ff,00,ff,ff,ff,00"
+			"Text":"hex:ff,d7,00,00,00,00,00,00"
+			"Operator":"hex:ff,ad,5b,00,00,00,00,00"
+			"TypoError":"hex:ff,00,00,00,ff,00,00,00"
+			"ReferenceAssign":"hex:00,00,00,00,ff,e4,e1,00"
+			"ContextError":"hex:00,ff,00,00,ff,ff,ff,00"
+			"Keyword":"hex:c0,c0,c0,00,00,00,00,00"
+			"Number":"hex:98,fb,98,00,00,00,00,00"
+			"HighlightCurrentLine":"hex:c0,c0,c0,00,eb,eb,eb,00"
+			"String":"hex:98,fb,98,00,00,00,00,00"
+			"ColumnIndicator":"hex:ff,e0,80,00,ff,ff,ff,00"
+			"FindResultsHighlight":"hex:00,00,00,00,ff,ff,b7,00"
+			"Comment":"hex:66,66,66,00,00,00,00,00"
+			"Undefined":"hex:ff,00,00,00,ff,ff,ff,00"
+			"Matched Brace/Paren":"hex:ff,ff,ff,00,ff,ff,ff,00"
+			"Mismatched Brace/Paren":"hex:ff,00,00,00,ff,ff,ff,00"
+			"Reference":"hex:00,00,00,00,e0,ff,ff,00"
+			"Classes and Types":"hex:c0,c0,ff,00,ff,ff,ff,00"
+		}
+		"AutoHighlightReferences":"hex:00"
+		"AutoHighlightReferences2":"hex:00"
+		"ColorPrinting":"hex:00"
+		"RenameInComments":"hex:01"
+		"FindRefsAlternateSharedFileBehavior":"hex:00"
+		"EnhColorTooltips":"hex:00"
+		"RTFCopy":"hex:00"
+		"CheckForLatestVersion":"hex:00"
+		"ExtHtml3":".htm;.html;.shtml;"
+		"ExtIdl":".idl;.odl;"
+		"OutlineAutoUpdate":"hex:01"
+		"KeepBookmarks":"hex:00"
+		"BrowserAppCommands":1
+		"CorrectCase":"hex:00"
+		"ExtSource":".c;.cpp;.cc;.cxx;.tli;"
+		"AutoSizeListboxes":"hex:01"
+		"EnableFsisAltDir":"hex:01"
+		"DisplayParamsInMethodsList":"hex:01"
+		"CompleteWithReturn":"hex:01"
+		"IVMOptions":0
+		"MethodsInFile_Events":"hex:01"
+		"AutoHighlightReferencesEx":"hex:00"
+		"ExtensionsToIgnore":".ctc;.css;.config;.xaml;.vbs;"
+		"OnFocusCycleThread":"hex:01"
+		"UnderlineSpellingErrors":0
+		"ExtHtml2":".htm;.html;.shtml;"
+		"ExtXml2":".xml;.resx;.config;.manifest;"
+		"GotoInterfaceBehavior":2
+		"MethodsInFile_Members":"hex:00"
+		"EnableStatusBarMessages":"hex:01"
+		"ExtVB":".vb;.vbs;.dsm;.bas;.cls;.frm;.dob;"
+		"SuggestionTimeout":200
+		"RestrictVaToPrimaryFileTypes":"hex:00"
+		"OneStepHelp":"hex:01"
+		"MultipleProjSupport":"hex:01"
+		"AutoMatch":"hex:00"
+		"DisplayFilteringToolbar":"hex:01"
+		"MarginContextMenu":"hex:01"
+		"AutoListIncludes":"hex:01"
+		"Platforms":"Win32 (x86);"
+		"EnablePasteMenu":"hex:01"
+		"IncludeRefactoringInListboxes":"hex:01"
+		"FindRefsDisplayUnknown":"hex:01"
+		"NullptrSuggestionDefault1":"hex:00"
+		"ListIcons":"hex:01"
+		"ExtResource":".rc;.rc2;"
+		"SiWDlgTypeFilter":0
+		"ResizeSuggestionListOnUpDown":"hex:01"
+		"DefGuess2":"hex:01"
+		"ExtendCommentsOnNewline":"hex:00"
+		"FindRefsDisplayIncludes":"hex:01"
+		"EnhancedFormat":"hex:01"
+		"EnableParameterHelp":"hex:01"
+		"LargeFileSizeThreshold":5000000
+		"AllowAcronyms":"hex:01"
+		"UseOverrideKeywordInImplementInterface":"hex:00"
+		"UpdateHcbOnMouseOver":"hex:01"
+		"VAViewCurTab2":"0"
+		"MethodsInFile_Properties":"hex:01"
+		"Win32 (x86)":{
+			"AdditionalInclude":""
+			"Library Dirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\MsC\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\LIB;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\LIB;"
+			"SystemInclude":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\StdLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\LibC\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\ATL\\include;"
+			"GotoSourceDirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\SRC;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\ATL\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\CRT\\SRC;"
+		}
+		"MiniHelpAtTop":"hex:01"
+		"OverrideRepairCase1":"hex:01"
+		"InitColoringOptions":"No"
+		"InstalledDir":"c:\\program files\\microsoft visual studio\\visualultimate\\addins\\visual assist x\\"
+		"ShowBraceMismatches":"hex:01"
+		"MarkCurrentLine":"hex:00"
+		"VaViewGotoDefinition":"hex:01"
+		"CompleteWithAny":"hex:00"
+		"ResetOptions":"No"
+		"ExtensionlessFileIsHeader":"hex:00"
+		"AsciiWin32Defs":"hex:01"
+		"AutoDisplayRefactorButton":"hex:01"
+		"#ifdef string":"_DEBUG"
+		"ContextPrefix":"hex:00"
+		"CompleteWithTab":"hex:00"
+		"ExtBinary2":".exe;.dll;.obj;.tlb;.pkg;.ocx;.olb;.netmodule;"
+		"ParseFilesInDirectoryIfSolutionEmpty2":"hex:01"
+		"InitialSuggestionBoxHeightInItems":5
+		"FiWDlg2ColWidth1":518
+		"FisDlgAColWidth1":143
+		"EnhColorListboxes":"hex:00"
+		"DisplayRefactorButton":"hex:01"
+		"MethodsInFile_Defines":"hex:00"
+		"DismissSuggestionListOnUpDown":"hex:00"
+		"EnumerateVsLangReferences":"hex:01"
+		"DisplayXSuggestions":4
+		"Win32 (x86)\\AdditionalInclude":""
+		"OutlineAllowDrag":"hex:01"
+		"MethodsInFile_Scope":"hex:01"
+		"FiWDlg2RestrictToWorkspace":1
+		"FixSmartPtrOperators":"hex:01"
+		"SiWDlgColWidth1":464
+		"ExtensionsToIgnore2":".ctc;.config;"
+		"IgnoreForwardDecls":"hex:00"
+		"VAViewCurTab4":"1"
+		"EnableNuGetRepositoryLookup":"hex:00"
+		"ExtCS2":".cs;.csx;"
+		"RenameCommentAndStringReferences":"hex:00"
+		"ScopedSuggestions":"hex:01"
+		"ForceCaseInsensitiveFilters":"hex:01"
+		"AutoM_Insert":"hex:00"
+		"SimpleWordMatchHighlights":"hex:00"
+		"FnParenGap":0
+		"EnableWin8ColorHook":"hex:01"
+		"RenameWiderScopeReferences":"hex:01"
+		"FisDlgARestrictToWorkspace":1
+		"HCBOptions":0
+		"CloseSuggestionListOnExactMatch":"hex:00"
+		"ColumnIndicatorColumn":75
+		"InstalledBuildNo":"1908"
+		"ShrinkMemberListboxes":"hex:01"
+		"MaximumScreenReparseLineCount":300
+		"FisDlgAColWidth3":71
+		"ContextWindowWidth":441
+		"ExtAsp2":".asp;.aspx;.hta;.asa;.asax;.ascx;.ashx;.asmx;.master;.vbhtml;.cshtml;"
+		"ParseNuGetRepositoryFiles":"hex:00"
+		"SurroundSelection":1
+		"CurrentLineMarkerStyle":4
+		"FiWDlg2ColWidth3":71
+		"ExtPHP":".php;"
+		"LimitSysMacroParsingV2":"hex:01"
+		"ListboxFlags":0
+		"ListNonInheritedMembersFirst":"hex:00"
+		"AllowGotoOnDirtyFindRefsNav":"hex:00"
+		"newKey":"Yes"
+		"MethodsInFile_Regions":"hex:01"
+		"ExtBinary":".exe;.dll;.obj;.tlb;.pkg;.ocx;.olb;"
+		"ParseLocalTypesForGotoNav":"hex:01"
+		"AllowScopeFallback":"hex:01"
+		"UseThemedCompletionBoxSelection":1
+		"ShowMRUHints":"hex:01"
+		"BoldNonInheritedMembers":"hex:01"
+		"BraceAutoInsertStyle":3
+		"DisplayProjectNodesInRenameResults":"hex:01"
+		"ExtHtml":".htm;.html;.asp;.aspx;.hta;.shtml;.xml;.asa;.asax;.ascx;.ashx;.asmx;.master;"
+		"ExtPlainText":".txt;.log;.dat;.ini;.reg;.rgs;.bak;.inf;.def;.pkgdef;.mak;.mac;.ctc;.sln;.bat;.cmd;.ps1;.va;"
+		"AddIncludeTokenStyle":0
+		"WorkspaceItemCount":10
+		"IDENavigationBarReminder":"2015.04.15"
+		"CurrentLineVisualStyle":8448
+		"DisplayCommentAndStringReferences":"hex:00"
+		"BoldBraceMatching":"hex:01"
+		"ColorBuildOutput":"hex:01"
+		"rapidFire":"hex:01"
+		"AutoBackup":"hex:01"
+		"ExtVB3":".vb;.dsm;.bas;.cls;.frm;.dob;"
+		"HighlightFindReferencesByDefault":"hex:01"
+		"MakeSuggestions":"hex:01"
+		"FilterScope":0
+		"ShowScopeTooltips":"hex:01"
+		"MRUOptions":1
+		"AllowShorthand":"hex:01"
+		"va_x.INI":{
+			"WindowPositions":{
+				"ID=0x00000388":{
+					"Right":950
+					"Left":36
+					"State":-1
+					"Visibility":0
+					"Bottom":769
+					"Top":0
+					"(valid)":1
+					"SameMonitor":1
+				}
+				"AutoComplete_height":48
+				"ID=0x000000a6":{
+					"Right":913
+					"Left":0
+					"State":-1
+					"Visibility":0
+					"Bottom":1018
+					"Top":616
+					"(valid)":1
+					"SameMonitor":1
+				}
+				"ID=0x00000117":{
+					"Right":1050
+					"Left":29
+					"State":-1
+					"Visibility":0
+					"Bottom":922
+					"Top":0
+					"(valid)":1
+					"SameMonitor":1
+				}
+				"ID=0x0000038c":{
+					"Right":1020
+					"Left":580
+					"State":-1
+					"Visibility":0
+					"Bottom":699
+					"Top":473
+					"(valid)":1
+				}
+				"AutoComplete_width":142
+			}
+			"Find":{ }
+		}
+		"DimmedMenuitemOpacity":60
+		"ExtVB2":".vb;.dsm;.bas;.cls;.frm;.dob;"
+		"DefaultAddIncludeDelimiter":"\\"
+		"EnhColorViews":"hex:00"
+		"AllowUncPaths":"hex:01"
+		"ShowScope":"hex:01"
+		"EnableUiTomato":"hex:01"
+		"SkipLocalMacros":"hex:00"
+		"UnderlineTypos":"hex:01"
+		"ExtJS":".js;"
+		"SuppressListboxes":"hex:00"
+		"ExtJava":".jav;.java;.jsl;"
+		"EnhColorSourceWindows":"hex:00"
+		"MessageBoxFailureNotifications":"hex:01"
+		"HighlightReferences":"hex:01"
+		"FormatDoxygenTags":"hex:01"
+		"FunctionCallParens":"()"
+		"DisplayWiderScopeReferences":"hex:01"
+		"LineCommentSlashCount":2
+		"ColumnIndicatorDisplay":"hex:00"
+		"OutlineFilterFlags":-5
+		"LastTrialDate":"29"
+		"DisplayReferencesFromAllProjects":"hex:01"
+		"CompleteWithAnyVsOverride":"hex:00"
+		"UseSystemLocale":0
+		"MouseOvers":"hex:01"
+		"ExtractToSrource":"hex:00"
+		"ExtXaml":".xaml;"
+		"EnableAutoComments":"hex:01"
+		"NewFileOpen":"hex:01"
+		"GiveCommentsPrecedence":"hex:01"
+		"GotoOnCtrlLeftClick":"hex:00"
+		"MethodsListNameFilter":"hex:01"
+		"RestrictVaListboxesToC/C++":"hex:00"
+		"FixPtrOperators":"hex:00"
+		"PopulateFsisFilterWithEditorSelection":"hex:01"
+		"FiWDlg2ColWidth2":143
+		"CodeTemplateTooltips":"hex:01"
+		"ExtPerl":".pl;.cgi;"
+		"SurroundSelectionCharList":"'/*{#("
+		"SupressUnderlines":"hex:00"
+		"FisDlgAColWidth2":429
+		"ExtensionsToIgnore3":""
+		"SiWDlgColWidth0":500
+		"SelectImplementation":"hex:01"
+		"EnableProjectSymbolFilter":"hex:01"
+		"ClassMemberNamingBehavior":1
+		"PromptedForRemoteDesktopOptimization":"hex:01"
+		"smartPaste":"hex:00"
+		"ModThread":"hex:00"
+		"ExtVbs":".vbs;.svb;"
+		"ExtXml":".xml;"
+		"PartialSnippetShortcutMatches":"hex:00"
+		"RecommendUpdateAfterLicenseExpires":"hex:00"
+		"TabInvokesIntellisense":"hex:00"
+		"EnableAutoComplete":"hex:01"
+		"VAViewCurTab5":"2"
+		"Platform":"Win32 (x86)"
+		"HistoryCheck":"2018.07.01"
+	}
+	"Source Control":{
+		"Disabled":1
+	}
+	"Workspace":{
+		"LastProject":""
+	}
+	"Layout":{
+		"FullScreen":0
+		"FullScreenRect":"x:16863233, y:1342177616, w:5156864, h:637619889"
+		"FullScreenFlags":0
+		"Statusbar":1
+		"Clock":0
+		"NormalScreenMaximized":0
+		"Version":16
+		"DisableFileDep":0
+		"ReloadProject":0
+		"OutputWindowSplitterPos":272
+		"NormalScreenRect":"x:-2626, y:49, w:977, h:771"
+		"NonFullScreenMaximized":0
+		"NonFullScreenRect":"x:-65536, y:-1, w:65535, h:0"
+	}
+	"Interpreters":{
+		"Browser":"iexplore.exe"
+	}
+	"General":{
+		"ProfilerInstalled":1
+		"TileGridSize":"16,15"
+		"ToolTips":1
+		"AppWindowSize":"1600,1106"
+		"DlgEdDblClickEditCode":0
+		"PropertiesPushPin":0
+		"LargeToolBars":0
+		"MaximizeApp":1
+		"WindowMenuItems":10
+		"AppWindow":"80,0"
+		"WindowMenuSorted":1
+		"PinGoToDlg":0
+		"MFCPath32Bit":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\MFC"
+		"MaximizeDoc":1
+		"LastSplashScreen":"tumblr_oxthkmr5dZ1qhoe3vo1_640.gif"
+		"MRUListsOnFileMenu":0
+		"ToolTipKeys":1
+		"Tip of the Day":0
+		"WorkspaceAuto":1
+		"PropertiesWindow":"-1002,975"
+		"PackageCount":18
+		"TraditionalMenu":0
+	}
+}

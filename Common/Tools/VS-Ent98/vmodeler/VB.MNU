@@ -1,0 +1,22 @@
+Menu Tools
+{	
+	Menu "Visual &Basic"
+	{
+		Option "&Reverse Engineering Wizard..."
+		{
+			enable %model:writeable
+			RoseScript $VBADDIN_SCRIPT_PATH\RVBReWiz.ebx
+		}
+
+		Option "Re&vert to Last Saved"
+		{
+			RoseScript $VBADDIN_SCRIPT_PATH\RVBRestore.ebx
+		}
+		Separator
+		Option "&Import VB6 Classes"
+		{
+			enable %model:writeable
+			RoseScript $VBADDIN_SCRIPT_PATH\vb6.ebx
+		}
+	}
+}

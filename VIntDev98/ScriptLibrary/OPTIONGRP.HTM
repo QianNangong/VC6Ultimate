@@ -1,0 +1,543 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 OptionGroup Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateOptionGroup(strName,funcInit,objParent)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+
+	var strTag = '<' + 'TABLE border=0 cellpadding=0 cellspacing=0 id="' + strName + '_BORDER"><TR><TD><TABLE border=0 name="' + strName + '" id="' + strName + '"></TABLE></TD></TR></TABLE>';
+	
+	if ((typeof(objParent) == 'object') && (objParent != null))
+		objParent.insertAdjacentHTML('BeforeEnd',strTag);
+	else
+		document.write(strTag);
+
+	var objOptionGroup = eval(strName);
+	if (typeof(objOptionGroup) != 'object')
+		return null;
+	objOptionGroup._objBorder = eval(strName + '_BORDER');
+
+	//events
+	OPT_ONCHANGE = 'onchange';
+	
+	// instrinsic members
+	//	id & name : RO
+	
+	//private members
+	objOptionGroup._nAlignment = 0;
+	objOptionGroup._nMaxID = 0;
+	objOptionGroup._objRowSource = null;
+	objOptionGroup._objDataSource = null;
+	objOptionGroup._strDataField = '';
+
+	// public methods
+	objOptionGroup.isVisible = _OPT_isVisible;
+	objOptionGroup.hide = _OPT_hide;
+	objOptionGroup.show = _OPT_show;
+	objOptionGroup.setBorder = _OPT_setBorder;
+	objOptionGroup.getBorder = _OPT_getBorder;
+	objOptionGroup.setAlignment = _OPT_setAlignment;
+	objOptionGroup.getAlignment = _OPT_getAlignment;
+	objOptionGroup.getButton = _OPT_getButton;
+	objOptionGroup.addItem = _OPT_addItem;
+	objOptionGroup.removeItem = _OPT_removeItem;
+	objOptionGroup.clear = _OPT_clear;
+	objOptionGroup.getCount = _OPT_getCount;
+	objOptionGroup.getValue = _OPT_getValue;
+	objOptionGroup.setValue = _OPT_setValue;
+	objOptionGroup.getCaption = _OPT_getCaption;
+	objOptionGroup.setCaption = _OPT_setCaption;
+	objOptionGroup.selectByValue = _OPT_selectByValue;
+	objOptionGroup.selectByCaption = _OPT_selectByCaption;
+	objOptionGroup.selectByIndex = _OPT_selectByIndex;
+	objOptionGroup.getSelectedIndex = _OPT_getSelectedIndex;
+	objOptionGroup.getRowSource = _OPT_getRowSource;
+	objOptionGroup.setRowSource = _OPT_setRowSource;
+	objOptionGroup.getDataSource = _OPT_getDataSource;
+	objOptionGroup.setDataSource = _OPT_setDataSource;
+	objOptionGroup.getDataField = _OPT_getDataField;
+	objOptionGroup.setDataField = _OPT_setDataField;
+	objOptionGroup.advise = _OPT_advise;
+	objOptionGroup.adviseDefaultHandler = _OPT_adviseDefaultHandler;
+	objOptionGroup.unadvise = _OPT_unadvise;
+	objOptionGroup.display = _OPT_display;
+
+	// private methods
+	objOptionGroup._getTags = __OPT_getTags;
+	objOptionGroup._setBindings = __OPT_setBindings;
+	objOptionGroup._setSingleBind = __OPT_setSingleBind ;
+	objOptionGroup._fireEvent = _OPT__fireEvent;
+
+	// advise for default eventhandlers
+	objOptionGroup._objEventManager = CreateEventManager();
+	objOptionGroup._fireEvent('_OPT__onbeforefuncinit(' + objOptionGroup.id + ')');
+	objOptionGroup._fireEvent(funcInit);
+	return objOptionGroup;
+}
+
+function _OPT_isVisible()
+{	return (this._objBorder.style.visibility != 'hidden');	}	
+
+function _OPT_hide()
+{	this._objBorder.style.visibility = 'hidden';	}	
+	
+function _OPT_show()
+{	this._objBorder.style.visibility = 'visible';	}	
+	
+function _OPT_getBorder()
+{	return this._objBorder.border;	}
+
+function _OPT_setBorder(nBorder)
+{	this._objBorder.border = nBorder;	}
+
+function _OPT_getAlignment()
+{	return this._nAlignment;	}
+
+function _OPT_setAlignment(nAlignment)
+{
+	if (typeof(nAlignment) != 'undefined' && (nAlignment == '0' || nAlignment == '1'))
+	{
+		if (nAlignment != this._nAlignment)
+		{
+			this._nAlignment = Number(nAlignment);
+			if (nAlignment == 1)
+			{
+				var nLen = this.rows.length
+				var objRow = this.insertRow();
+				for (var i = 0; i < nLen; i++)
+				{
+					objRow.insertCell().innerHTML = this.rows(0).cells(0).innerHTML;
+					this.deleteRow(0);
+				}	
+			}
+			else
+			{
+				var nLen = this.rows(0).cells.length;
+				for (var i = 1; i < nLen; i++)
+				{
+					this.insertRow().insertCell().innerHTML = this.rows(0).cells(1).innerHTML;
+					this.rows(0).deleteCell(1);
+				}
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+function _OPT_getButton(nIndex)
+{
+	var objCell = this._getTags(nIndex);
+	if (objCell != null)
+		return objCell.children(0);
+	return null;
+}
+
+function _OPT_addItem(strText,value,nIndex)
+{
+	var objCell;
+	if (typeof(value) == 'undefined')
+		value = strText;
+
+	if (this._nAlignment == '0')
+	{
+		if ((typeof(nIndex) == 'number') && (nIndex >= 0) && (nIndex < this.rows.length))
+			objCell = this.insertRow(nIndex).insertCell();
+		else
+			objCell = this.insertRow().insertCell();
+	}
+	else
+	{
+		if ((typeof(nIndex) == 'number') && (nIndex >= 0) && (nIndex < this.rows(0).cells.length))
+			objCell = this.rows(0).insertCell(nIndex);
+		else
+			objCell = this.rows(0).insertCell();
+	}
+
+	if (typeof(value) == 'string')
+		value = encodeHTMLQuotes(value);
+		
+	var strTag = '<' + 'INPUT type="radio" id="' + this.id + this._nMaxID + '" name="' + this.id + '_value" value="' + value + '" onchange="JavaScript:_OPT__fireEvent()">';
+	strTag += '<' + 'LABEL for="' + this.id + this._nMaxID + '" htmlfor="' + this.id + this._nMaxID + '" id="' + this.id + this._nMaxID + '_LBL">';
+	strTag += strText + '</LABEL>';
+	
+	objCell.innerHTML = strTag;
+	if (this._objDataSource != null && this._objDataSource.isDHTMLAware() && this._strDataField != '')
+	{
+		this._setSingleBind(objCell,true);
+	}
+	this._nMaxID++;
+}
+
+function _OPT_removeItem(nIndex)
+{
+	if (typeof(nIndex) == 'undefined')
+		nIndex = this.getSelectedIndex();
+
+	if (!isNaN(parseInt(nIndex)) && nIndex >= 0 && nIndex < this.getCount())
+	{
+		if (this._nAlignment == 0)
+			this.deleteRow(Number(nIndex));
+		else
+			this.rows(0).deleteCell(Number(nIndex))
+		return true;
+	}
+	return false;
+}
+
+function _OPT_clear()
+{
+	if (this._nAlignment == 0)
+	{
+		var nLen = this.rows.length;
+		for (var i = 0; i < nLen; i++)
+			this.deleteRow(0);
+	}
+	else
+	{
+		var nLen = this.rows(0).cells.length;
+		for (var i = 0; i < nLen; i++)
+			this.rows(0).deleteCell(0);
+	}
+
+	this._nMaxID = 0;
+	return true;
+}
+
+function _OPT_getCount()
+{	
+	if (this._nAlignment == 0)
+		return this.rows.length;
+	else
+		return this.rows(0).cells.length;
+}
+
+function _OPT_getValue(nIndex)
+{
+	var objCell = this._getTags(nIndex);
+	if (objCell != null)
+		return objCell.children(0).value;
+	return '';	
+}
+
+function _OPT_setValue(value,nIndex)
+{
+	var objCell = this._getTags(nIndex);
+	if (objCell != null)
+	{
+		objCell.children(0).value = value;
+		return true;
+	}
+	return false;
+}
+	
+function _OPT_getCaption(nIndex)
+{
+	var objCell = this._getTags(nIndex);
+	if (objCell != null)
+		return objCell.children(1).innerHTML;
+	return '';		
+}
+
+function _OPT_setCaption(strCaption,nIndex)
+{
+	var objCell = this._getTags(nIndex);
+	if (objCell != null)
+	{
+		objCell.children(1).innerHTML = String(strCaption);
+		return true;
+	}
+	return false;
+}
+
+function _OPT_selectByValue(value)
+{	// check for match in table
+	var objCell = null;
+	var nLen = this.getCount();
+			
+	for (var i=0; i < nLen; i++)
+	{
+		if (this._nAlignment == 0)	
+			objCell = this.rows(i).cells(0);
+		else						
+			objCell = this.rows(0).cells(i);
+				
+		if (value == objCell.children(0).value)
+		{
+			objCell.children(0).checked = true;
+			return i;
+		}
+	}
+		
+	return -1;
+}
+
+function _OPT_selectByCaption(strCaption)
+{	// check for match in table
+	var objCell = null;
+	var nLen = this.getCount();
+	for (var i=0; i < nLen; i++)
+	{
+		if (this._nAlignment == 0)	
+			objCell = this.rows(i).cells(0);
+		else						
+			objCell = this.rows(0).cells(i);
+
+		if (String(strCaption) == objCell.children(1).innerHTML)
+		{
+			objCell.children(0).checked = true;
+			return i;
+		}
+	}
+	return -1;
+}
+
+function _OPT_selectByIndex(nIndex)
+{
+	if (!isNaN(parseInt(nIndex)))
+	{	
+		if (nIndex >= 0 && nIndex < this.getCount())
+		{
+			var objCell = null;
+			if (this._nAlignment == 0)	
+				objCell = this.rows(nIndex).cells(0);
+			else						
+				objCell = this.rows(0).cells(nIndex);
+			objCell.children(0).checked = true;
+			return nIndex;
+		}
+	}
+	return -1;
+}
+
+function _OPT_getSelectedIndex()
+{	// find index of checked item
+	var objCell = null;
+	var nLen = this.getCount();
+	for (var i=0; i < nLen; i++)
+	{
+		if (this._nAlignment == 0)
+			objCell = this.rows(i).cells(0);
+		else						
+			objCell = this.rows(0).cells(i);
+
+		if (objCell.children(0).checked == true)
+			return i;
+	}
+	return -1;
+}
+
+function _OPT_getRowSource()
+{	return this._objRowSource;	}
+
+function _OPT_setRowSource(objRecordset,listField,boundField)
+{	
+	if (typeof(objRecordset) == 'object' && this.getCount() == 0)
+	{	// only allow setting one lookup source to be consistent with server
+		var nPos = objRecordset.absolutePosition;
+		this._objRowSource = objRecordset;
+		objRecordset.moveFirst();
+		while (!objRecordset.EOF)
+		{
+			var objFields = objRecordset.fields;
+			this.addItem(objFields.getValue(listField),objFields.getValue(boundField));
+			objRecordset.moveNext();
+		}
+		objRecordset.moveAbsolute(nPos);
+		return true;
+	}	
+	return false;
+}
+
+function _OPT_getDataSource()
+{	return this._objDataSource;	}
+		
+function _OPT_setDataSource(objDataSource)
+{
+	if (typeof(objDataSource) != 'object')
+		return false;
+
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this._setBindings(false);
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+	
+	if ((this._objDataSource == null) || (objDataSource != null && this._objDataSource.id != objDataSource.id))
+	{
+		if (this._objDataSource != null)
+			this._objDataSource.unadvise(this._afterOpenID);
+			
+		this._afterOpenID = objDataSource.advise(RS_ONAFTEROPEN, this.id + '.setDataSource(' + objDataSource.id + ');');		
+	}
+	
+	this._objDataSource = objDataSource;
+	if ((objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (objDataSource.isDHTMLAware())
+		{
+			this._setBindings(true);
+		}	
+		else
+		{
+			this._rowEnterID = objDataSource.advise(RS_ONROWENTER, '_OPT__onrowenter(' + objDataSource.getID() + ', ' + this.name + ', "' + this._strDataField + '");');
+			this._rowExitID = objDataSource.advise(RS_ONROWEXIT, '_OPT_onrowexit(' + objDataSource.getID() + ', ' + this.name + ', "' + this._strDataField + '");');
+		}
+	}		
+	return true;
+}
+	
+function _OPT_getDataField()
+{	return this._strDataField;	}	
+
+function _OPT_setDataField(strDataField)
+{
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this._setBindings(false);
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+
+	this._strDataField = strDataField;
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this._setBindings(true);
+		}	
+		else
+		{
+			this._rowEnterID = this._objDataSource.advise(RS_ONROWENTER, '_OPT__onrowenter(' + this._objDataSource.getID() + ', ' + this.ID + ', "' + strDataField + '");');
+			this._rowExitID = this._objDataSource.advise(RS_ONROWEXIT, '_OPT__onrowexit(' + this._objDataSource.getID() + ', ' + this.ID + ', "' + strDataField + '");');
+		}
+	}		
+	return true;
+}
+
+function _OPT_display()
+{	}
+
+function _OPT_advise(strEvent,funcToCall)
+{
+	var nAdviseID = this._objEventManager.advise(strEvent,funcToCall);
+	if (nAdviseID != -1)
+		eval('this.' + strEvent + ' = _OPT__fireEvent;');
+		
+	return nAdviseID;
+}
+	
+function _OPT_adviseDefaultHandler(strName,strEvent)
+{
+	var nAdviseID = this._objEventManager.adviseDefaultHandler(strName,strEvent);
+	if (nAdviseID != -1)
+		eval("this." + strEvent + " = _OPT__fireEvent;");
+}
+
+function _OPT_unadvise(strEvent,nAdviseID)
+{
+	return this._objEventManager.unadvise(strEvent,nAdviseID);
+}
+	
+function __OPT_getTags(nIndex)
+{
+	if (typeof(nIndex) == 'undefined')
+		nIndex = this.getSelectedIndex();
+
+	var objCell = null;
+	if (!isNaN(parseInt(nIndex)) && nIndex >= 0 && nIndex < this.getCount())
+	{
+		if (this._nAlignment == 0)	
+			objCell = this.rows(Number(nIndex)).cells(0);
+		else						
+			objCell = this.rows(0).cells(Number(nIndex));
+	}
+	return objCell;
+}
+
+function __OPT_setBindings(bBind)
+{
+	var nLen = this.getCount();
+	if (this._nAlignment == 0)
+	{
+		for (var i=0; i < nLen; i++)
+		{
+			var objCell = this.rows(i).cells(0);
+			this._setSingleBind(objCell,bBind);
+		}
+	}
+	else
+	{
+		for (var i=0; i < nLen; i++)
+		{
+			var objCell = this.rows(0).cells(i);
+			this._setSingleBind(objCell, bBind);
+		}			
+	}
+		
+}
+
+function __OPT_setSingleBind(objCell,bBind)
+{
+	if (objCell != null)
+	{
+		if (bBind)
+		{
+			objCell.children(0).dataSrc = '#' + this._objDataSource.getDHTMLDataSourceID();
+			objCell.children(0).dataFld = this._strDataField;
+		}
+		else
+		{
+			objCell.children(0).dataSrc = '';
+			objCell.children(0).dataFld = '';
+		}
+	}
+}
+
+function _OPT__fireEvent(funcToFire)
+{
+	if (typeof(funcToFire) == 'undefined')
+	{
+	
+		var strOptionGroup = window.event.srcElement.name;
+		strOptionGroup = strOptionGroup.substring(0,strOptionGroup.length-6);
+		var objOptionGroup = eval(strOptionGroup);
+		if (typeof(objOptionGroup) == 'object' && objOptionGroup._objEventManager != null)
+			objOptionGroup._objEventManager.fireEvent('on' + window.event.type);
+	}
+	else
+		_EM__fireEvent(funcToFire);
+}
+
+function _OPT__onrowenter(objRecordset,objOptionGroup,strDataField)
+{	objOptionGroup.selectByValue(objRecordset.fields.getValue(strDataField) + '');	}
+	
+function _OPT__onrowexit(objRecordset,objOptionGroup,strDataField)
+{
+	var value = objOptionGroup.getValue();
+	if (typeof(value) != 'undefined' && value != null)
+		objRecordset.fields.setValue(strDataField, value);
+}
+
+function _OPT__onbeforefuncinit(objOptionGroup)
+{	objOptionGroup.adviseDefaultHandler(objOptionGroup.id,OPT_ONCHANGE);	}
+
+

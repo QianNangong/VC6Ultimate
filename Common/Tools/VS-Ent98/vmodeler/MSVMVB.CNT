@@ -1,0 +1,119 @@
+:Base msvmvb.HLP
+:Title Round-Trip Engineering a Visual Basic Application
+1 Round-Trip Engineering a Visual Basic Application
+2 Frequently Asked Questions
+3 Editing Diagrams and VB Classes=FAQ_Editing_Diagrams_and_Classes
+3 Generating Visual Basic Code=FAQ_Generating_Code
+3 Reverse Engineering Visual Basic Code=FAQ_RE
+3 Visual Basic Integration=FAQ_VB_Integration
+2 Concepts
+3 Round-Trip Engineering=CONCEPTS_Round_Trip_Engineering
+3 Code Generation=CONCEPTS_Code_Generation
+3 Reverse Engineering=CONCEPTS_Reverse_Engineering
+3 Visual Basic Model Properties=CONCEPTS_VB_Model_Properties
+2 How To...
+3 Round-Trip Engineer a Visual Basic Application
+4 Starting from a Model=VB_RTE_Step_by_Step_from_Model@Msvmvb.HLP>(w95sec)
+4 Starting with a Visual Basic Project=VB_RTE_Step_by_Step_from_Project@Msvmvb.HLP>(w95sec)
+4 Creating a New Model=VB_RTE_Creating_the_Model@Msvmvb.HLP>(w95sec)
+4 Contents of a New Model=VB_RTE_Contents_of_a_New_Model@Msvmvb.HLP>(w95sec)
+4 Evolving the Generated Code=VB_RTE_Evolving_the_Gen_Code@Msvmvb.HLP>(w95sec)
+3 Generate Visual Basic Code
+4 Generating a New Visual Basic Project from a Model=CG_VB1_Generating_a_New_VB_Project_from_a_Model@Msvmvb.HLP>(w95sec)
+4 Updating a Visual Basic Project from Changes in a Model=CG_VB1_Updating_a_VB_Project_from_Changes_in_a_Model@Msvmvb.HLP>(w95sec)
+4 Previewing a Class=CG_VB1_Previewing_Classes@Msvmvb.HLP>(w95sec)
+4 Selecting the Type of Project Item to Generate for a Class=cg_vb1_Selecting_Component_Type@Msvmvb.HLP>(w95sec)
+4 Generating Debug Code=cg_vb1_Generating_Debug_Code_etc@Msvmvb.HLP>(w95sec)
+4 Generating Error Handling Code=cg_vb1_Generating_Error_Handling_Code@Msvmvb.HLP>(w95sec)
+4 Generating Add-Code Comments=cg_vb1_Generating_Add_Code_Comments@Msvmvb.HLP>(w95sec)
+4 Naming Data Members=CG_VB1_Naming_Data_Members@Msvmvb.HLP>(w95sec)
+4 Using Model Properties Other Than Those Available in the Code Generation Wizard=CG_VB1_Using_Other_Model_Properties@Msvmvb.HLP>(w95sec)
+3 Reverse Engineer a Model from a Visual Basic Project
+4 Creating a Model from a Visual Basic Project=VB_REV_Creating_a_New_Rose_Model@Msvmvb.HLP>(w95sec)
+4 Updating an Existing Model=VB_REV_Updating_an_Existing_Rose_Model@Msvmvb.HLP>(w95sec)
+3 Add Existing Software Components to a Model
+4 Importing VB Classes=VB_REV_Importing_VB_Classes@Msvmvb.HLP>(w95sec)
+4 Adding External Components to a Model=VB_REV_Adding_External_Components@Msvmvb.HLP>(w95sec)
+4 Adding Components from a Visual Basic Project=VB_REV_Adding_Visual_Basic_Components@Msvmvb.HLP>(w95sec)
+3 Model and Generate Collection Classes
+4 Generating a New User-Defined Collection Class During Code Generation=cg_vb1_Generating_a_Class_Together_with@Msvmvb.HLP>(w95sec)
+4 Assigning a New User-Defined Collection Class to a Class and Generate It Later=cg_vb1_Assigning_a_New_Collection_Class_and_Generate_It_Later@Msvmvb.HLP>(w95sec)
+4 Assigning an Existing Collection Class to a Class=cg_vb1_Assigning_an_Existing_Collection_Class_to_a_Class@Msvmvb.HLP>(w95sec)
+2 Reference
+3 Model to Visual Basic Mapping
+4 Overview=M_B_RTE6_Design_to_Code_Cor
+4 Classes and Packages
+5 Classes=CG_VB3_Classes
+5 Interfaces=CG_VB3_Interfaces
+5 Class Utilities=CG_VB3_Class_Util
+5 Collection Classes=CG_VB3_Collection_Classes
+5 Logical Packages=CG_VB3_Class_Cat
+4 Properties
+5 Properties=CG_VB3_Attrs_and_Ops
+4 Relationships
+5 Association Relationship=CG_VB3_Association_Rel
+5 Aggregation Relationship=CG_VB3_Aggregate
+5 Dependency Relationship=CG_VB3_Uses_Rel
+5 Generalization Relationship=CG_VB3_Inheritance_Rel
+5 Advanced Relationship Mappings
+6 Navigability=CG_VB3_Nav
+6 Containment Adornments=CG_VB3_Containment
+6 Cardinality/Multiplicity=CG_VB3_Card_and_Mult
+4 Methods
+5 User-Defined Methods=CG_KC3_User_Defined_Operations
+5 Method Parameter Passing=CG_VB3_Op_Param_Passing
+5 Property Get/Set/Let Procedures=CG_VB3_Property_Operations
+5 DLL Library Usage=CG_VB3_DLL_Library_Usage
+5 Events=CG_VB3_Event
+5 Entry and Exit Code=CG_VB3_Op_EntryCode_ExitCode
+5 Initialization and Termination Methods=CG_VB3_Init_and_Term_Ops
+4 Components
+5 Components=CG_VB3_Components
+5 Interfaces=CG_VB3_Interfaces
+4 Stereotypes
+5 Visual Basic Stereotypes Overview=VB_Stereotypes_Overview
+5 Stereotypes of Classes=VB_Stereotypes_Class
+5 Stereotypes of Methods=VB_Stereotypes_Method
+5 Stereotypes of Components=VB_Stereotypes_Component
+3 Visual Basic to Model Mapping
+4 Overview=VB_REV_Code_to_Model_Corr
+4 Visual Basic Projects=VB_REV_RE_of_VB_Projects
+4 Class Modules, Forms, MDI Forms, Property Pages, User Documents, User Controls=VB_REV_RE_of_Class_Modules
+4 Modules=VB_REV_RE_of_Modules
+4 ActiveX Components=VB_REV_RE_of_ActiveX_Components
+4 Code Comments=VB_REV_RE_of_Code_Comments
+3 Visual Basic Model Properties
+4 Overview=M_B_RTE5_Code_Generation_Pr
+4 Component Properties
+5 Overview of Component Properties=M_B_RTE2_Comp_Props
+5 ProjectFile=CG_VBPRP_comp_Project_File
+4 Class Properties
+5 Overview of Class Properties=M_B_RTE2_Class_Props
+5 CollectionClass=CG_VBPRP_class_Container_Class
+5 Creatable=CG_VBPRP_class_Creatable
+5 GenerateInitialization and GenerateTermination=CG_VBPRP_class_Generate_Init_and_Term
+5 OptionBase=CG_VBPRP_class_Option_Base
+5 OptionCompare=CG_VBPRP_class_Option_Compare
+5 OptionExplicit=CG_VBPRP_class_Option_Explicit
+4 Property and Role Properties
+5 Overview of Property Properties=M_B_RTE2_Class_Attr_Props
+5 Overview of Role Properties=M_B_RTE2_Roles
+5 DataMemberName=CG_VBPRP_attr_Data_Member_Name
+5 GenerateDataMember=CG_VBPRP_attr_Generate_Data_Member
+5 GenerateGet/Set/LetOperation=CG_VBPRP_attr_Generate_Get_Set_Let_Op
+5 IsConst=CG_VBPRP_attr_IsConst
+5 NameIfUnlabeled=CG_VBPRP_attr_Name_If_Unlabeled
+5 New=CG_VBPRP_attr_New
+5 Subscript=CG_VBPRP_has_Subscript
+5 WithEvents=CG_VBPRP_attr_WithEvents
+4 Method Properties
+5 Overview of Method Properties=M_B_RTE2_Op_Props
+5 AliasName=CG_VBPRP_op_Alias_Name
+5 EntryCode=CG_VBPRP_op_Entry_Code
+5 ExitCode=CG_VBPRP_op_Exit_Code
+5 IsStatic=CG_VBPRP_op_Is_Static
+5 LibraryName=CG_VBPRP_op_Library_Name
+5 OperationName=CG_VBPRP_op_Operation_Name
+4 Generalization Relationship Properties
+5 Overview of Generalization Properties=M_B_RTE2_Generalization_Props
+5 ImplementsDelegation=CG_VBPRP_generalization_Implements_Delegation

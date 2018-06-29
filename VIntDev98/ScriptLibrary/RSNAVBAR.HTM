@@ -1,0 +1,352 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 RecordsetNavbar Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateRecordsetNavbar(strName,funcInit,objParent)
+{
+	if (typeof(strName) == 'string' && strName != '')
+	{
+		if (typeof(RSNB_ONFIRSTCLICK) == 'undefined')
+		{	// define RSNB constants
+			RSNB_ONFIRSTCLICK = 'onfirstclick';
+			RSNB_ONPREVIOUSCLICK = 'onpreviousclick';
+			RSNB_ONNEXTCLICK = 'onnextclick';
+			RSNB_ONLASTCLICK = 'onlastclick';
+
+			RSNB_BUTTONFIRST = 0;
+			RSNB_BUTTONPREV = 1;
+			RSNB_BUTTONNEXT = 2;
+			RSNB_BUTTONLAST = 3;
+
+			RSNB_ALIGN_VERTICAL = 0;
+			RSNB_ALIGN_HORIZONTAL = 1;
+
+			RSNB_MASK_FIRSTIMAGE = 1;
+			RSNB_MASK_FIRSTCAPTION = 2;
+			RSNB_MASK_PREVIMAGE = 4;
+			RSNB_MASK_PREVCAPTION = 8;
+			RSNB_MASK_NEXTIMAGE = 16;
+			RSNB_MASK_NEXTCAPTION = 32;
+			RSNB_MASK_LASTIMAGE = 64;
+			RSNB_MASK_LASTCAPTION = 128;
+
+			_RSNB_BUTTONCOUNT = 4;
+			_RSNB_BUTTONNAMES = new Array('First','Previous','Next','Last');
+		}
+			
+		if ((objParent != null) && (typeof(objParent) == 'object'))
+		{
+		    var strHTML = '<' + 'span name="' + strName + '" id="' + strName + '"></span>';
+		    objParent.insertAdjacentHTML('BeforeEnd',strHTML);   
+		}
+		else
+			document.write('<' + 'span name="' + strName + '" id="' + strName + '"></span>');
+		
+		objSpan = eval(strName);
+		if ((objSpan == null) || (typeof(objSpan) != 'object'))
+			return null;
+
+		//public members
+		objSpan.pageSize = 1;
+		objSpan.updateOnMove = true;
+		objSpan.isVisible = _RSNB_isVisible;
+		objSpan.show = _RSNB_show;
+		objSpan.hide = _RSNB_hide;
+		objSpan.getAlignment = _RSNB_getAlignment;
+		objSpan.setAlignment = _RSNB_setAlignment;
+		objSpan.setButtonStyles = _RSNB_setButtonStyles; 
+		objSpan.getButtonStyles = _RSNB_getButtonStyles; 
+		objSpan.cancelOperation = _RSNB_cancelOperation;
+		objSpan.isOperationCancelled = _RSNB_isOperationCancelled;
+		objSpan.getButton = _RSNB_getButton;
+		objSpan.getDataSource = _RSNB_getDataSource;
+		objSpan.setDataSource = _RSNB_setDataSource;
+		objSpan.display = _RSNB_display;
+		objSpan.advise = _RSNB_advise;
+		objSpan.unadvise = _RSNB_unadvise;
+		
+		//private members
+		objSpan._onfirstclick = _RSNB__onfirstclick;
+		objSpan._onpreviousclick = _RSNB__onpreviousclick;
+		objSpan._onnextclick = _RSNB__onnextclick;
+		objSpan._onlastclick = _RSNB__onlastclick;
+
+		objSpan._nAlignment = RSNB_ALIGN_HORIZONTAL;
+		objSpan._objDataSource = null;
+		objSpan._fireEvent = _RSNB__fireEvent;
+		objSpan._bCancelOperation = false;
+		objSpan._nButtonMask = 0;
+		objSpan._bCreated = false;
+
+		// advise for default eventhandlers
+		objSpan._objEventManager = CreateEventManager();
+		objSpan._fireEvent('_RSNB__onbeforefuncinit(' + objSpan.id + ')');
+		objSpan._fireEvent(funcInit);
+			
+		return objSpan;
+	}
+	return null;
+}
+
+function _RSNB__GenerateRecordsetNavbar(objSpan,nButtonMask)
+{
+	var strSepContent = '<br>';
+	var strName = objSpan.name;
+	var nAlignment = objSpan._nAlignment;
+	this._nButtonMask = nButtonMask;	
+	
+	if (nAlignment == RSNB_ALIGN_HORIZONTAL)	
+		strSepContent = ' ';
+		
+	var strSpanContent = ' ';
+	var buttonType;
+	var objButton = null;
+		
+	if ((nButtonMask & (RSNB_MASK_FIRSTIMAGE | RSNB_MASK_FIRSTCAPTION)) != 0)
+	{
+		buttonType = ((nButtonMask & RSNB_MASK_FIRSTIMAGE) != 0) ? 1 : 0;
+		objButton = CreateButton(strName + '_Button0',null,objSpan);
+		objButton.advise(BTN_ONCLICK,strName + '._onfirstclick()');
+		objButton.setStyle(buttonType);
+	        strSpanContent = strSepContent;
+	}
+
+	var strSeparatorSpan = '<span id="' + strName + '_Span0">' + strSpanContent + '</span>';
+	objSpan.insertAdjacentHTML('BeforeEnd',strSeparatorSpan);
+	strSpanContent = '';
+
+	if ((nButtonMask & (RSNB_MASK_PREVIMAGE | RSNB_MASK_PREVCAPTION)) != 0)
+	{
+		buttonType = ((nButtonMask & RSNB_MASK_PREVIMAGE) != 0) ? 1 : 0;
+		objButton = CreateButton(strName + '_Button1',null,objSpan);
+		objButton.advise(BTN_ONCLICK,strName + '._onpreviousclick()');
+		objButton.setStyle(buttonType);
+	        strSpanContent = strSepContent;
+	}
+
+	strSeparatorSpan = '<span id="' + strName + '_Span1">' + strSpanContent + '</span>';
+	objSpan.insertAdjacentHTML('BeforeEnd',strSeparatorSpan);
+	strSpanContent = '';
+
+	if ((nButtonMask & (RSNB_MASK_NEXTIMAGE | RSNB_MASK_NEXTCAPTION)) != 0)
+	{
+		buttonType = ((nButtonMask & RSNB_MASK_NEXTIMAGE) != 0) ? 1 : 0;
+		objButton = CreateButton(strName + '_Button2',null,objSpan);
+		objButton.advise(BTN_ONCLICK,strName + '._onnextclick()');
+		objButton.setStyle(buttonType);
+	        strSpanContent = strSepContent;
+	}
+
+	strSeparatorSpan = '<span id="' + strName + '_Span2">' + strSpanContent + '</span>';
+	objSpan.insertAdjacentHTML('BeforeEnd',strSeparatorSpan);
+	strSpanContent = '';
+ 
+	if ((nButtonMask & (RSNB_MASK_LASTIMAGE | RSNB_MASK_LASTCAPTION)) != 0)
+	{
+		buttonType = ((nButtonMask & RSNB_MASK_LASTIMAGE) != 0) ? 1 : 0;
+		objButton = CreateButton(strName + '_Button3',null,objSpan);
+		objButton.advise(BTN_ONCLICK,strName + '._onlastclick()');
+		objButton.setStyle(buttonType);
+	}
+	objSpan._bCreated = true;			
+}
+
+
+function _RSNB_isVisible()
+{    return (this.style.visibility != 'hidden');	}
+
+function _RSNB_show()
+{    this.style.visibility = 'visible';	}
+
+function _RSNB_hide()
+{    this.style.visibility = 'hidden';	}
+
+function _RSNB_getAlignment()
+{    return this._nAlignment;	}
+
+function _RSNB_setAlignment(nAlignment)
+{
+	if(!isNaN(parseInt(nAlignment)))
+	{
+		this._nAlignment = nAlignment;	
+		if (this._bCreated)
+		{
+			var strToInsert = '<br>';
+			if (nAlignment == RSNB_ALIGN_HORIZONTAL)
+				strToInsert = '';
+				
+			for (var nIndex = 0; nIndex < 3; ++ nIndex)
+			{
+				var objSpan = document.all(this.id + '_Span' + nIndex)
+				if ((objSpan != null) && (objSpan.innerHTML != strToInsert))
+					objSpan.innerHTML = strToInsert;
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+function _RSNB_setButtonStyles(nButtonMask)
+{	_RSNB__GenerateRecordsetNavbar(this, nButtonMask);	}
+
+function _RSNB_getButtonStyles()
+{	return this._nButtonMask;	}
+	
+function _RSNB_cancelOperation()
+{    this._bCancelOperation = true;		}
+
+function _RSNB_isOperationCancelled()
+{    return this._bCancelOperation;		}
+
+function _RSNB_getButton(nIndex)
+{
+    if ((nIndex >= RSNB_BUTTONFIRST) && (nIndex <= RSNB_BUTTONLAST))
+		return document.all(this.id + '_Button' + nIndex);
+	return null;
+}
+
+function _RSNB_getDataSource()
+{    return this._objDataSource;	}
+
+function _RSNB_setDataSource(objRecordset)
+{    this._objDataSource = objRecordset;	}
+
+function _RSNB_advise(strEvent,funcToCall)
+{    return this._objEventManager.advise(strEvent,funcToCall);	}
+
+function _RSNB_unadvise(strEvent, nAdviseID)
+{    return this._objEventManager.unadvise(strEvent, nAdviseID);	}
+
+function _RSNB_display()
+{	}
+
+function _RSNB__onfirstclick()
+{
+	this._objEventManager.fireEvent(RSNB_ONFIRSTCLICK);
+	if (this._objDataSource != null && !this._bCancelOperation)
+	{
+		if (this.updateOnMove)
+			this._objDataSource.updateRecord();
+		this._objDataSource.moveFirst();
+	}
+	else
+		this._bCancelOperation = false;
+}
+
+function _RSNB__onpreviousclick()
+{
+	if (this._objDataSource == null)
+	{
+		this._objEventManager.fireEvent(RSNB_ONPREVIOUSCLICK);
+		this._bCancelOperation = false;
+	}
+	else if (!this._objDataSource.BOF)
+	{
+		this._objEventManager.fireEvent(RSNB_ONPREVIOUSCLICK);
+		if (!this._bCancelOperation)
+		{
+			if (this.updateOnMove)
+				this._objDataSource.updateRecord();
+			if (this.pageSize > 1)
+			{	// move to first record of previous page
+				var curPos = this._objDataSource.absolutePosition;
+				var nCount = this._objDataSource.getCount();
+				if (this._objDataSource.EOF)	curPos = nCount;
+				if (curPos > 0 && nCount > 0)
+				{
+					var curPage = (curPos - (curPos % this.pageSize)) / this.pageSize;
+					if (curPage > 1)
+					{
+						this._objDataSource.moveAbsolute(((curPage-1) * this.pageSize) + 1);
+					}
+					else
+						this._objDataSource.moveFirst();
+					return;
+				}
+			}
+
+			// otherwise, move to previous record
+			this._objDataSource.movePrevious();
+
+			if (this._objDataSource.BOF)
+				this._objDataSource.moveFirst();
+		}
+		else
+			this._bCancelOperation = false;
+	}
+}
+
+function _RSNB__onnextclick()
+{
+	if (this._objDataSource == null)
+	{
+		this._objEventManager.fireEvent(RSNB_ONNEXTCLICK);
+		this._bCancelOperation = false;
+	}
+	else if (!this._objDataSource.EOF)
+	{
+		this._objEventManager.fireEvent(RSNB_ONNEXTCLICK);
+		if (!this._bCancelOperation)
+		{
+			if (this.updateOnMove)
+				this._objDataSource.updateRecord();
+				
+			if (this.pageSize > 1)
+			{	// move to first record of next page
+				var curPos = this._objDataSource.absolutePosition;
+				var nCount = this._objDataSource.getCount();
+				if (this._objDataSource.BOF)	curPos = 1;
+				if (curPos > 0 && nCount > 0)
+				{
+					var curPage = (curPos - ((curPos - 1) % this.pageSize)) / this.pageSize;
+					var newPos = curPage * this.pageSize;
+					if (newPos + this.pageSize <= nCount)
+						newPos += this.pageSize;
+					this._objDataSource.moveAbsolute(newPos);
+					return;
+				}
+			}
+
+			// otherwise, move to next record
+			this._objDataSource.moveNext();
+				
+			if (this._objDataSource.EOF)
+				this._objDataSource.moveLast();
+		}
+		else
+			this._bCancelOperation = false;
+	}
+}
+
+function _RSNB__onlastclick()
+{
+	this._objEventManager.fireEvent(RSNB_ONLASTCLICK);
+	if (this._objDataSource != null && !this._bCancelOperation)
+	{
+		if (this.updateOnMove)
+			this._objDataSource.updateRecord();
+		this._objDataSource.moveLast();
+	}
+	else
+		this._bCancelOperation = false;
+}
+
+function _RSNB__fireEvent(funcToFire)
+{
+    if (typeof(funcToFire) == 'undefined')
+		this._objEventManager.fireEvent('on' + window.event.type);
+    else
+        _EM__fireEvent(funcToFire);
+}
+
+function _RSNB__onbeforefuncinit(objSpan)
+{
+	objSpan._objEventManager.adviseDefaultHandler(objSpan.id, RSNB_ONFIRSTCLICK, true);
+	objSpan._objEventManager.adviseDefaultHandler(objSpan.id, RSNB_ONPREVIOUSCLICK, true);
+	objSpan._objEventManager.adviseDefaultHandler(objSpan.id, RSNB_ONNEXTCLICK, true);
+	objSpan._objEventManager.adviseDefaultHandler(objSpan.id, RSNB_ONLASTCLICK, true);
+}

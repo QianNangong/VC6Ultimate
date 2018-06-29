@@ -1,0 +1,66 @@
+/*
+-------------------------------------------------------------------------------
+File:				varpc.idl
+Purpose:		RPC Interfaces for Visual Studio Analyzer Eventing
+System:			Visual Studio Analyzer Analysis.
+Copyright:	(c) 1997, Microsoft Corporation
+						All Rights Reserved
+Tabs:				2,2
+-------------------------------------------------------------------------------
+*/
+
+import "vaevt.idl";
+
+[
+uuid(6c736d30-e80d-11d0-96e7-00a0c90f27e2),
+version(1.0)
+]
+interface IRPC_MicrosoftVisualStudioAnalyzer
+{
+	long VSAOpenConnection    ([out] long *vaaId);
+	long VSACloseConnection   ([in] long vaaId);
+	long VSABeginSession      ([in] long vaaId,
+		[in, string] wchar_t *guidSourceID,
+		[in, string] wchar_t *strSessionName);
+	
+	long VSAEndSession        ([in] long vaaId);	
+	long VSAIsActive          ([in] long vaaId);
+
+
+	long VSAFireEvent         ([in] long vaaId,
+		[in, string] wchar_t *guidEvent,
+                               [in] long prgCount,
+                               [in, string, size_is(prgCount)] 
+                                             wchar_t *prgKeys[],
+                               [in, string, size_is(prgCount)] 
+                                             wchar_t *prgValues[],
+		[in] long dwTimeLow,			// The local time of the event, or 0. (Low 32 bits)
+		[in] long dwTimeHigh,			// The local time of the event, or 0. (High 32 bits)
+		[in] VSAEventFlags dwFlags	// See above
+		);
+		
+		
+		long VSARegisterSource    ([in, string] wchar_t *strVisibleName,
+		[in, string] wchar_t *guidSourceID);
+	
+	long VSAIsSourceRegistered([in, string] wchar_t *guidSourceID);
+	
+	long VSARegisterStockEvent([in, string] wchar_t *guidSourceID,
+		[in, string] wchar_t *guidEventID);
+	
+	long VSARegisterCustomEvent([in, string] wchar_t *guidSourceID,
+		[in, string] wchar_t *guidEventID,
+		[in, string] wchar_t *strVisibleName,
+		[in, string] wchar_t *strDescription,
+		[in] long nEventType,
+		[in, string] wchar_t *guidCategory);
+	
+	long VSARegisterEventCategory ([in, string] wchar_t *guidSourceID,
+		[in, string] wchar_t *guidCategoryID,
+		[in, string] wchar_t *guidParentID,
+		[in, string] wchar_t *strVisibileName,
+		[in, string] wchar_t *strDescription);
+	
+	long VSAUnregisterSource  ([in, string] wchar_t *guidSourceID);
+
+}

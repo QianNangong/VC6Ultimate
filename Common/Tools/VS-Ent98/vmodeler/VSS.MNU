@@ -1,0 +1,42 @@
+
+Menu Tools
+{
+    Separator
+    Menu &SourceSafe
+    {
+	Option "&Get Latest..."
+	{
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\ssgetlatest.ebx
+	}
+	Option "Check &Out..."
+ 	{
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\sscheckout.ebx
+	}
+	Option "Check &In..."
+	{
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\sscheckin.ebx 
+	}
+	Option "&Undo Check Out..."
+	{	
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\ssundo.ebx 
+	}
+	Separator
+	Option "&Add To Source Control..."
+	{
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\ssadd.ebx
+	}
+	Option "&Remove From Source Control..."
+	{
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\ssremove.ebx
+	}
+	Option "Start &Explorer"
+	{
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\ssstart.ebx
+	}
+	Option "&Clear SourceSafe Information..."
+	{
+		RoseScript $SOURCESAFEADDIN_SCRIPT_PATH\ssclear.ebx
+	}
+    }
+}
+

@@ -1,0 +1,631 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 Recordset Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateRecordset(strName,funcInit,objParent)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+
+	var objRecordset = new _Recordset(strName);
+	eval(strName + ' = objRecordset');
+
+	var strSpan = '<' + 'SPAN id="' + strName + '_SPAN"></SPAN>';
+	strSpan = strSpan + '<' + 'SPAN id="' + strName + '_SPAN_AUX" datasrc=#' + strName + '_RDS datafld=0 ></SPAN>';
+
+	if ((typeof(objParent) == 'object') && (objParent != null))
+		objParent.insertAdjacentHTML('BeforeEnd',strSpan);
+	else
+		document.write(strSpan);
+
+	objRecordset._spanTag = document.all[strName + '_SPAN'];
+
+	// always fire init for recordset
+	_EM__fireEvent('_RS__onbeforefuncinit(' + objRecordset.id + ')');
+	_EM__fireEvent(funcInit);
+	return objRecordset;
+}
+
+function _Recordset(strName)
+{
+	if (typeof(_bRSPrototypeCalled) == 'undefined')
+		_RS__Prototype();
+
+	// public members
+	this.id = strName;
+	this.name = strName;
+	this.absolutePosition = -1;
+	this.fields = null;
+	this.BOF = true;
+	this.EOF = true;
+
+	// private members
+	this._rsRDS = null;
+	this._rsADO = null;
+	this._spanTag = null;
+	this._count = -1;
+	this._bookmark = 0;
+	this._strConn = '';
+	this._strSQL = '';
+	this._bDelete = false;
+	this._bDSChanged = false;
+	this._bDSComplete = false;
+	this._bCancelUpdate = false;
+	this._bFiringOnBeforeUpdate = false;
+	this._bFiringOnRowEnter = false;
+
+	// advise for default eventhandlers
+	this._objEventManager = CreateEventManager();
+}
+
+function _RS__Prototype()
+{
+	//public members
+	_Recordset.prototype.getCount = _RS_getCount;
+	_Recordset.prototype.moveNext = _RS_moveNext;
+	_Recordset.prototype.movePrevious = _RS_movePrevious;
+	_Recordset.prototype.moveFirst = _RS_moveFirst;
+	_Recordset.prototype.moveLast = _RS_moveLast;
+	_Recordset.prototype.moveAbsolute = _RS_moveAbsolute;
+	_Recordset.prototype.move = _RS_move;
+	_Recordset.prototype.updateRecord = _RS_updateRecord;
+	_Recordset.prototype.cancelUpdate = _RS_cancelUpdate;
+	_Recordset.prototype.addRecord = _RS_addRecord;
+	_Recordset.prototype.addImmediate = _RS_addImmediate;
+	_Recordset.prototype.deleteRecord = _RS_deleteRecord;
+	_Recordset.prototype.advise = _RS_advise;
+	_Recordset.prototype.unadvise = _RS_unadvise;
+
+	_Recordset.prototype.getRecordSource = _RS_getRecordSource;
+	_Recordset.prototype.setRecordSource = _RS_setRecordSource;
+	_Recordset.prototype.open = _RS_open;
+	_Recordset.prototype.isOpen = _RS_isOpen;
+	_Recordset.prototype.close = _RS_close;
+	_Recordset.prototype.getConnectString = _RS_getConnectString;
+	_Recordset.prototype.getSQLText = _RS_getSQLText;
+	_Recordset.prototype.setSQLText = _RS_setSQLText;
+	_Recordset.prototype.requery = _RS_requery;
+	_Recordset.prototype.setBookmark = _RS_setBookmark;
+	_Recordset.prototype.getBookmark = _RS_getBookmark;
+	_Recordset.prototype.isDHTMLAware = _RS_isDHTMLAware;
+	_Recordset.prototype.getDHTMLDataSourceID = _RS_getDHTMLDataSourceID;
+
+	//events
+	RS_ONBEFOREOPEN = 'onbeforeopen';
+	RS_ONAFTEROPEN = 'onafteropen';
+	RS_ONROWENTER = 'onrowenter';
+	RS_ONROWEXIT = 'onrowexit';
+	RS_ONDATASETCHANGED = 'ondatasetchanged';
+	RS_ONDATASETCOMPLETE = 'ondatasetcomplete';
+	RS_ONBEFOREUPDATE = 'onbeforeupdate';
+	RS_ONAFTERUPDATE = 'onafterupdate';
+
+	//private members 
+	_Recordset.prototype._connect = _RS__connect;
+	_Recordset.prototype._syncBOFandEOF = _RS__syncBOFandEOF;
+	_Recordset.prototype._fireEvent = _RS__fireEvent;
+	_Recordset.prototype._isEmpty = _RS__isEmpty;
+	_bRSPrototypeCalled = 1;
+}
+
+function _RS__syncBOFandEOF()
+{
+	if (this._rsRDS != null)
+	{
+		if (this._bDelete)
+		{
+			//If the recordset becomes empty by deleting,
+			//RDS won't set BOF and EOF.
+			this._bDelete = false;
+			var nCount = this._rsRDS.recordset.RecordCount;
+			if (nCount <= 0)
+			{
+				this.BOF = true;
+				this.EOF = true;
+			}
+
+			if (this.absolutePosition > nCount)
+				this.absolutePosition = nCount;
+		}
+		else
+		{
+			this.BOF = false;
+			this.EOF = false;
+			this.absolutePosition = this._rsRDS.recordset.AbsolutePosition;
+			if ((this.absolutePosition == -2) || (this.absolutePosition == -1))	// adPosBOF or adPosUnk
+				this.BOF = true;
+			if ((this.absolutePosition == -3) || (this.absolutePosition == -1))	// adPosEOF or adPosUnk
+				this.EOF = true;
+		}
+	}
+}
+
+function _RS_getCount()
+{
+	if (this._count < 0)
+	{
+		if (this.isOpen() && (!this.BOF || !this.EOF))
+		{
+			this._count = this._rsRDS.recordset.RecordCount;
+			if (this._count <= 0)
+			{
+				var curPos = this._rsRDS.recordset.AbsolutePosition;
+				if (curPos > 0)
+				{
+					this._count = 0;
+					this._rsRDS.recordset.MoveFirst();
+					while (!this._rsRDS.recordset.EOF)
+					{
+						this._count++;
+						this._rsRDS.recordset.MoveNext();
+					}
+					this._rsRDS.recordset.AbsolutePosition = curPos;
+				}
+			}
+		}
+		else
+			return 0;
+	}
+	return this._count;
+}
+
+function _RS_moveNext(bReverse)
+{
+	if (!this._isEmpty())
+	{
+		if ((bReverse + '') == 'true')
+		{
+			this._rsRDS.recordset.MovePrevious();
+			if (this.BOF)	return false;
+		}
+		else
+		{
+			this._rsRDS.recordset.MoveNext();
+			if (this.EOF)	return false;
+		}
+
+		return true;
+	}
+	return false;
+}
+
+function _RS_movePrevious()
+{	return this.moveNext(true);	}
+
+function _RS_moveLast(bReverse)
+{
+	if (!this._isEmpty())
+	{
+		if ((bReverse + '') == 'true')
+			this._rsRDS.recordset.MoveFirst();
+		else
+			this._rsRDS.recordset.MoveLast();
+
+		return true;
+	}
+	return false;
+}
+
+function _RS_moveFirst()
+{	return this.moveLast(true);	}
+
+function _RS_moveAbsolute(nIndex)
+{
+	if (typeof(nIndex) == 'number' && !this._isEmpty())
+	{
+		this._rsRDS.recordset.AbsolutePosition = nIndex;
+		return true;
+	}
+	return false;
+}
+
+function _RS_move(nIndex)
+{	// move relative to current record
+	if (typeof(nIndex) == 'number' && !this._isEmpty())
+	{
+		this._rsRDS.recordset.Move(nIndex);
+		return true;
+	}
+	return false;
+}
+
+function _RS_updateRecord()
+{
+	if (this.isOpen() && !this._bFiringOnBeforeUpdate)
+	{
+		this._bFiringOnBeforeUpdate = true;
+		this._objEventManager.fireEvent(RS_ONBEFOREUPDATE);
+		this._bFiringOnBeforeUpdate = false;
+		if (!this._bCancelUpdate)
+		{
+			this._rsRDS.SubmitChanges();
+			this._objEventManager.fireEvent(RS_ONAFTERUPDATE);
+			return true;
+		}
+		this._bCancelUpdate = false;
+	}
+	return false;
+}
+
+function _RS_cancelUpdate()
+{
+	if (this.isOpen())
+	{
+		this._count = -1;
+		this._bCancelUpdate = true;
+		this._rsRDS.CancelUpdate();
+		return true;
+	}
+	return false;
+}
+
+function _RS_addRecord()
+{
+	if (this.isOpen() && !this._bFiringOnBeforeUpdate)
+	{
+		if (this._count >= 0)
+			++this._count;
+		this._rsRDS.recordset.AddNew();
+		return true;
+	}
+	return false;
+}
+
+function _RS_addImmediate(fieldList, fieldValues)
+{
+	if (this.isOpen() && !this._bFiringOnBeforeUpdate)
+	{
+		if (this._count >= 0)
+			++this._count;
+		this._rsRDS.recordset.AddNew(fieldList, fieldValues);
+		this.updateRecord();
+		return true;
+	}
+	return false;
+}
+
+function _RS_deleteRecord()
+{
+	if (!this._isEmpty())
+	{
+		if (this._count >= 0)
+			--this._count;
+		this._bDelete = true;
+		this._rsRDS.recordset.Delete();
+		this.updateRecord();
+		return true;
+	}
+	return false;
+}
+
+function _RS_advise(strEvent,funcToCall)
+{
+	if (this.isOpen() &&
+		((strEvent == RS_ONROWENTER && this._bDSChanged) ||
+		 (strEvent == RS_ONDATASETCHANGED && this._bDSChanged) ||
+		 (strEvent == RS_ONDATASETCOMPLETE && this._bDSComplete)))
+	{
+		this._fireEvent(funcToCall);
+	}
+	return this._objEventManager.advise(strEvent,funcToCall);
+}
+
+function _RS_unadvise(strEvent,nAdviseID)
+{	return this._objEventManager.unadvise(strEvent,nAdviseID);	}
+
+function _RS_getRecordSource()
+{
+	if (this._rsRDS != null)
+		return this._rsRDS.recordset;
+
+	return null;
+}
+
+//function _RS_setRecordSource(rsADO) OR
+function _RS_setRecordSource(strConn,strSQL)
+{
+	if (typeof(strConn) == 'string')
+	{	// given a connect and SQL string
+		this._strConn = unescape(strConn);
+		return this.setSQLText(strSQL);
+	}
+
+	if (typeof(strConn) == 'object')
+	{	// given an ADO object
+		this._strConn = '';
+		this._strSQL = '';
+
+		if (this._rsRDS != null)
+			this._rsRDS.SourceRecordset = strConn;
+		else
+		{
+			this._rsADO = strConn;
+			this.open();
+		}
+
+		return true;
+	}
+	return false;
+}
+
+function _RS_open()
+{
+	this._objEventManager.fireEvent(RS_ONBEFOREOPEN);
+	this._connect();
+	if (this._rsADO != null)
+		this._rsRDS.SourceRecordset = this._rsADO;
+	this._objEventManager.fireEvent(RS_ONAFTEROPEN);
+}
+
+function _RS_isOpen()
+{
+	if (this._rsRDS != null)
+	{
+		if ((this._rsRDS.ReadyState == 2) || (this._rsRDS.ReadyState == 4))
+			return true;
+	}
+	return false;
+}
+
+function _RS_close()
+{
+	this._rsRDS = null;
+	this._count = -1;
+}
+
+function _RS_getConnectString()
+{
+	return this._strConn;
+}
+
+function _RS_getSQLText()
+{
+	if (this._rsRDS != null)
+		return this._rsRDS.SQL;
+	else
+		return this._strSQL;
+}
+
+function _RS_setSQLText(strSQL)
+{
+	if (typeof(strSQL) == 'string')
+	{
+		this._strSQL = strSQL;
+		if (this._rsRDS != null)
+			this._rsRDS.SQL = strSQL;
+		return true;
+	}
+	return false;
+}
+
+function _RS_requery()
+{
+	if (this.isOpen())
+	{
+		this._rsRDS.Refresh();
+		this._count = -1;
+	}
+}
+
+function _RS_setBookmark(bookmark)
+{
+	this._bookmark = bookmark;
+	if (this.isOpen() && this._bookmark > 0)
+	{
+		if (this._rsRDS.recordset.Supports(8192))
+		{	// supports bookmarks
+			this._rsRDS.recordset.Bookmark = this._bookmark;
+		}
+		else
+		{	// use AbsolutePosition
+			this._rsRDS.recordset.AbsolutePosition =  this._bookmark * 1;
+		}
+		return true;
+	}
+	return false;
+}
+
+function _RS_getBookmark()
+{
+	if (this.isOpen())
+	{
+		if (this._rsRDS.recordset.Supports(8192))
+		{	// supports bookmarks
+			return this._rsRDS.recordset.Bookmark;
+		}
+		else
+		{	// use AbsolutePosition
+			return this._rsRDS.recordset.AbsolutePosition;
+		}
+	}
+	return this._bookmark;
+}
+
+function _RS_isDHTMLAware()
+{	return true;	}
+
+function _RS_getDHTMLDataSourceID()
+{
+	if (this._rsRDS != null)
+		return (this.name + '_RDS');
+	return '';
+}
+
+function _RS__connect()
+{
+	var strServer = 'http://' + document.domain;
+	var strRDS = '';
+	strRDS = strRDS + '<' + 'OBJECT classid=clsid:BD96C556-65A3-11D0-983A-00C04FC29E33 height=1 style="LEFT: 0px; TOP: 0px" width=1';
+	strRDS = strRDS + ' id=' + this.name + '_RDS>\n'; 
+	strRDS = strRDS + '<PARAM NAME="Server" VALUE="' + strServer + '">\n';
+	if (this._strConn != '')
+		strRDS = strRDS + '<PARAM NAME="Connect" VALUE="' + encodeHTMLQuotes(this._strConn) + '">\n';
+	if (this._strSQL != '')
+		strRDS = strRDS + '<PARAM NAME="SQL" VALUE="' + encodeHTMLQuotes(this._strSQL) + '">\n';
+	strRDS = strRDS + '</OBJECT>';
+	this._spanTag.innerHTML = strRDS;
+	this._rsRDS = document.all[this.name + '_RDS'];
+	this.fields = CreateFields(this._rsRDS);
+	this._rsRDS.onrowenter = _RS__onrowenter;
+	this._rsRDS.onrowexit = _RS__onrowexit;
+	this._rsRDS.ondatasetcomplete = _RS__ondatasetcomplete;
+	this._rsRDS.ondatasetchanged = _RS__ondatasetchanged;
+	this._bDSChanged = false;
+	this._bDSComplete = false;
+	this._count = -1;
+
+	return true;
+}
+
+function _RS__fireEvent(funcToFire,bUseEvent)
+{
+	if ((typeof(bUseEvent) == 'boolean') && (bUseEvent))
+	{
+		var strRS = event.srcElement.id;
+		strRS = strRS.substring(0,strRS.length-4);	// strip _RDS to get name
+		var _objRS = eval(strRS);
+		if (typeof(_objRS) == 'object')
+		{
+			if (funcToFire == RS_ONDATASETCOMPLETE)
+			{
+				_objRS._bDSComplete = true;
+			}
+			if (funcToFire == RS_ONDATASETCHANGED)
+			{
+				_objRS._syncBOFandEOF();
+				_objRS.fields = CreateFields(_objRS._rsRDS);
+				_objRS._bDSChanged = true;
+			}
+			if (funcToFire == RS_ONROWENTER)
+			{
+				if (_objRS._bFiringOnRowEnter)
+					return;
+
+				_objRS._bFiringOnRowEnter = true;
+				_objRS._syncBOFandEOF();
+				_objRS.fields = CreateFields(_objRS._rsRDS);
+				_objRS._bFiringOnRowEnter = false;
+			}
+			if (_objRS._objEventManager != null)
+				_objRS._objEventManager.fireEvent(funcToFire);
+		}
+	}
+	else
+	{	// fire recordset initFunc immediately
+		if (typeof(funcToFire) == 'string')
+			eval(funcToFire);
+		else if (typeof(funcToFire) == 'function')
+			funcToFire();
+	}
+}
+
+function _RS__ondatasetcomplete()
+{	_RS__fireEvent(RS_ONDATASETCOMPLETE,true);	}
+
+function _RS__ondatasetchanged()
+{	_RS__fireEvent(RS_ONDATASETCHANGED,true);	}
+
+function _RS__onrowenter()
+{	_RS__fireEvent(RS_ONROWENTER,true);	}
+
+function _RS__onrowexit()
+{	_RS__fireEvent(RS_ONROWEXIT,true);	}
+
+function _RS__isEmpty()
+{	return (!this.isOpen() || (this.BOF && this.EOF))	}
+
+function _RS__onbeforefuncinit(objRecordset)
+{
+	objRecordset._objEventManager.adviseDefaultHandler(objRecordset.id,RS_ONBEFOREOPEN, true);
+	objRecordset._objEventManager.adviseDefaultHandler(objRecordset.id,RS_ONROWENTER, true);
+	objRecordset._objEventManager.adviseDefaultHandler(objRecordset.id,RS_ONROWEXIT, true);
+	objRecordset._objEventManager.adviseDefaultHandler(objRecordset.id,RS_ONDATASETCHANGED, true);
+	objRecordset._objEventManager.adviseDefaultHandler(objRecordset.id,RS_ONDATASETCOMPLETE, true);
+	objRecordset._objEventManager.adviseDefaultHandler(objRecordset.id,RS_ONBEFOREUPDATE, true);
+	objRecordset._objEventManager.adviseDefaultHandler(objRecordset.id,RS_ONAFTERUPDATE, true);
+}
+
+// ************************************************************************
+// Fields Object
+// ************************************************************************
+
+function CreateFields(rsRDS)
+{
+	if (typeof(rsRDS) == 'object' && rsRDS != null)
+		return new _Fields(rsRDS);
+	return null;
+}
+
+function _Fields(rsTag)
+{
+	_Fields_Prototype();
+	this.rsTag = rsTag;
+}
+
+function _Fields_Prototype()
+{
+	_Fields.prototype.getName = _FS_getName;
+	_Fields.prototype.getValue = _FS_getValue;
+	_Fields.prototype.setValue = _FS_setValue;
+	_Fields.prototype.getCount = _FS_getCount;
+	_Fields.prototype._isValid = _FS__isValid;
+}
+
+function _FS_getName(nIndex)
+{
+	if (typeof(nIndex) == 'number' && nIndex >= 0 && nIndex < this.getCount())
+	{
+		fsTmp =  this.rsTag.recordset.Fields;
+		return fsTmp(nIndex).name;
+	}
+	return '';
+}
+
+function _FS_getValue(field)
+{
+	var r = '';
+	if (this._isValid() && (typeof(field) == 'number' || typeof(field) == 'string'))
+	{
+		fsTmp =  this.rsTag.recordset.Fields;
+		r = fsTmp(field).value;
+		if (r == null)
+			r = '';
+	}
+	return r;
+}
+
+function _FS_setValue(field,value)
+{
+	if ((typeof(field) == 'number' || typeof(field) == 'string') && typeof(value) != 'undefined')
+	{	// validate field as updatable
+		if (this._isValid)
+		{
+			fsTmp =  this.rsTag.recordset.Fields;
+			var nAttributes = Number(fsTmp(field).Attributes);
+			if ((nAttributes & 4) || (nAttributes & 8))
+			{	// field may be updated, adFldUpdatable=4, adFldUnknownUpdatable=8
+				if (value == '' && (nAttributes & 32))
+				{	// field is nullable, adFldIsNullable=32
+					value = null;
+				}
+				fsTmp(field).value = value;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+function _FS_getCount()
+{
+	fsTmp =  this.rsTag.recordset.Fields;
+	if (typeof(fsTmp) == 'object')
+	    	return fsTmp.count;
+	return 0;
+}
+
+function _FS__isValid()
+{	return !(this.rsTag.recordset.BOF || this.rsTag.recordset.EOF);	}

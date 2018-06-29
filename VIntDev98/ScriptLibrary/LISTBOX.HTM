@@ -1,0 +1,351 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 Listbox Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateListbox(strName,funcInit,objParent)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+
+	// create SELECT tag in document
+	var strTag = '<SELECT name="' + strName + '" id="' + strName + '" size=1></SELECT>'
+	if ((typeof(objParent) == 'object') && (objParent != null))
+		objParent.insertAdjacentHTML('BeforeEnd',strTag);
+	else
+		document.write(strTag);
+
+	var objSelect = document.all[strName];
+	if (typeof(objSelect) != 'object')
+		return null;
+	var bNameExists = eval('typeof(' + strName + ') == "object"');
+	if (!bNameExists)	
+		eval(strName + ' = objSelect');
+
+	//events
+	LB_ONCHANGE = 'onchange';
+	
+	// intrinsic properties
+	//		name AND id		RO
+	//		disabled		RW
+	//		size			RW
+	//		selectedIndex	RW
+
+	// extended methods
+	objSelect.isVisible	= _LB_isVisible;
+	objSelect.show = _LB_show;
+	objSelect.hide = _LB_hide;
+	objSelect.addItem = _LB_addItem;
+	objSelect.removeItem = _LB_removeItem;
+	objSelect.clear = _LB_clear;
+	objSelect.getCount = _LB_getCount;
+	objSelect.getValue = _LB_getValue;
+	objSelect.setValue = _LB_setValue;
+	objSelect.getText = _LB_getText;
+	objSelect.setText = _LB_setText;
+	objSelect.selectByValue = _LB_selectByValue;
+	objSelect.selectByText = _LB_selectByText;
+	objSelect.getRowSource = _LB_getRowSource;
+	objSelect.setRowSource = _LB_setRowSource;
+	objSelect.getDataSource = _LB_getDataSource;
+	objSelect.setDataSource = _LB_setDataSource;
+	objSelect.getDataField = _LB_getDataField;
+	objSelect.setDataField = _LB_setDataField;
+	objSelect.advise = _LB_advise;
+	objSelect.adviseDefaultHandler = _LB_adviseDefaultHandler;
+	objSelect.unadvise = _LB_unadvise;
+	objSelect.display = _LB_display;
+
+
+	//private members
+	objSelect._objRowSource = null;
+	objSelect._objDataSource = null;
+	objSelect._dataField = '';
+	objSelect._fireEvent = _LB__fireEvent;
+
+	// advise for default eventhandlers
+	objSelect._objEventManager = CreateEventManager();
+	objSelect._fireEvent('_LB__onbeforefuncinit(' + objSelect.id + ')');
+	objSelect._fireEvent(funcInit);
+	return objSelect;
+}
+
+function _LB_isVisible()
+{	return (this.style.visibility != 'hidden');	}
+
+function _LB_show()
+{	this.style.visibility = 'visible';	}
+
+function _LB_hide()
+{	this.style.visibility = 'hidden';	}
+
+function _LB_addItem(strText,value,nIndex)
+{	
+	var nCount = this.getCount();
+	if (typeof(value) == 'undefined')
+		value = strText;
+	if (typeof(nIndex) == 'undefined')
+		nIndex = nCount;
+	if (!isNaN(parseInt(nIndex)))
+	{	// add item at given nIndex
+		var opt = document.createElement('OPTION');
+		opt.text = String(strText);
+		opt.value = value;
+		if (nIndex < 0)		// add as first item in list
+			nIndex = 0;
+		if (nIndex < nCount)
+		{	// insert item at given index
+			this.add(opt,nIndex);
+			return nIndex;
+		}	
+		else
+		{	// add item to end of list
+			this.add(opt);
+			return nCount;		
+		}
+	}
+	return -1;	// failed to add item
+}
+
+function _LB_removeItem(nIndex)
+{	
+	if (typeof(nIndex) == 'undefined')
+		nIndex = this.selectedIndex;
+	if (!isNaN(parseInt(nIndex)) && nIndex >= 0 && nIndex < this.getCount())
+	{	// remove item at nIndex
+		this.options.remove(nIndex);
+		return true;
+	}
+	return false;
+}
+
+function _LB_clear()
+{	this.options.length = 0;	}
+
+function _LB_getCount()
+{	return this.options.length;	}
+
+function _LB_getValue(nIndex)
+{
+	if (typeof(nIndex) == 'undefined')
+		nIndex = this.selectedIndex;
+	if (!isNaN(parseInt(nIndex)) && nIndex >= 0 && nIndex < this.getCount())
+		return this.item(Number(nIndex)).value;
+	return '';
+}
+
+function _LB_setValue(value,nIndex)
+{
+	if (typeof(nIndex) == 'undefined')
+		nIndex = this.selectedIndex;
+	if (!isNaN(parseInt(nIndex)) && nIndex >= 0 && nIndex < this.getCount())
+	{
+		this.item(Number(nIndex)).value = value;
+		return true;
+	}
+	return false;
+}
+
+function _LB_getText(nIndex)
+{
+	if (typeof(nIndex) == 'undefined')
+		nIndex = this.selectedIndex;
+	if (!isNaN(parseInt(nIndex)) && nIndex >= 0 && nIndex < this.getCount())
+		return this.item(Number(nIndex)).text;
+	return '';
+}
+
+function _LB_setText(strText,nIndex)
+{
+	if (typeof(nIndex) == 'undefined')
+		nIndex = this.selectedIndex;
+	if (!isNaN(parseInt(nIndex)) && nIndex >= 0 && nIndex < this.getCount())
+	{
+		this.item(Number(nIndex)).text = String(strText);
+		return true;
+	}
+	return false;
+}
+	
+function _LB_selectByValue(value)
+{
+	for (var i=0; i < this.getCount(); i++)
+	{
+		if (value == this.options(i).value)
+		{
+			this.selectedIndex = i;
+			return i;
+		}
+	}
+	return -1;
+}
+
+function _LB_selectByText(strText)
+{	
+	for (var i=0; i < this.getCount(); i++)
+	{
+		if (strText == this.options(i).text)
+		{
+			this.selectedIndex = i;
+			return i;
+		}
+	}
+	return -1;
+}
+	
+function _LB_getRowSource()
+{	return this._objRowSource;	}
+
+function _LB_setRowSource(objRecordset,listField,boundField)
+{	
+	if (typeof(objRecordset) == 'object' && this.getCount() == 0)
+	{	// only allow setting one lookup source to be consistent with server
+		var nPos = objRecordset.absolutePosition;
+		this._objRowSource = objRecordset;
+		objRecordset.moveFirst();
+		while (!objRecordset.EOF)
+		{
+			var objFields = objRecordset.fields;
+			this.addItem(objFields.getValue(listField),objFields.getValue(boundField));
+			objRecordset.moveNext();
+		}
+		objRecordset.moveAbsolute(nPos);
+		return true;
+	}	
+	return false;
+}
+
+function _LB_getDataSource()
+{	return this._objDataSource;		}
+
+function _LB_setDataSource(objDataSource)
+{
+	if (typeof(objDataSource) != 'object')
+		return false;
+
+	if ((this._objDataSource != null) && (this._dataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+	
+	if ((this._objDataSource == null) || (objDataSource != null && this._objDataSource.id != objDataSource.id))
+	{
+		if (this._objDataSource != null)
+			this._objDataSource.unadvise(this._afterOpenID);
+			
+		this._afterOpenID = objDataSource.advise(RS_ONAFTEROPEN, this.id + '.setDataSource(' + objDataSource.id + ');');
+	}
+
+	this._objDataSource = objDataSource;
+	if ((objDataSource != null) && (this._dataField != ''))
+	{
+		if (objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '#' + objDataSource.getDHTMLDataSourceID();
+			this.dataFld = this._dataField;
+		}	
+		else
+		{
+			this._rowEnterID = objDataSource.advise(RS_ONROWENTER, '_LB__onrowenter(' + objDataSource.id + ', ' + this.name + ', "' + this._dataField + '");');
+			this._rowExitID = objDataSource.advise(RS_ONROWEXIT, '_LB__onrowexit(' + objDataSource.id + ', ' + this.name + ', "' + this._dataField + '");');
+		}
+	}		
+	return true;
+}	
+	
+function _LB_getDataField()
+{	return this._dataField;		}
+
+function _LB_setDataField(dataField)
+{
+	if ((this._objDataSource != null) && (this._dataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+
+	this._dataField = dataField;
+	if ((this._objDataSource != null) && (this._dataField != ''))
+	{	
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '#' + this._objDataSource.getDHTMLDataSourceID();
+			this.dataFld = dataField;
+		}	
+		else
+		{
+			this._rowEnterID = this._objDataSource.advise(RS_ONROWENTER, '_LB__onrowenter(' + this._objDataSource.id + ', ' + this.name + ', "' + dataField + '");');
+			this._rowExitID = this._objDataSource.advise(RS_ONROWEXIT, '_LB__onrowexit(' + this._objDataSource.id + ', ' + this.name + ', "' + dataField + '");');
+		}
+	}		
+	return true;
+}
+
+function _LB_advise(strEvent,funcToCall)
+{
+	var nAdviseID = this._objEventManager.advise(strEvent,funcToCall);
+	if (nAdviseID != -1)
+		eval('this.' + strEvent + ' = _LB__fireEvent;');
+}
+
+function _LB_adviseDefaultHandler(strName,strEvent)
+{
+	var nAdviseID = this._objEventManager.adviseDefaultHandler(strName,strEvent);
+	if (nAdviseID != -1)
+		eval("this." + strEvent + " = _LB__fireEvent;");
+}
+
+function _LB_unadvise(strEvent,nAdviseID)
+{
+	return this._objEventManager.unadvise(strEvent,nAdviseID);
+}
+
+function _LB_display()		// do nothing for DHTML case
+{	}
+
+function _LB__fireEvent(funcToFire)
+{
+	if (typeof(funcToFire) == 'undefined')
+	{
+		if (this._objEventManager != null)
+			this._objEventManager.fireEvent('on' + window.event.type);
+	}
+	else
+		_EM__fireEvent(funcToFire);
+}
+
+function _LB__onrowenter(objRecordset,objListbox,dataField)
+{
+	objListbox.select(objRecordset.fields.getValue(dataField) + '');
+	return true;
+}
+
+function _LB__onrowexit(objRecordset,objListbox,dataField)
+{
+	var selValue = objListbox.getValue();
+	if (selValue != null && selValue != 'undefined')
+		objRecordset.fields.setValue(selValue);
+	return true;
+}
+
+function _LB__onbeforefuncinit(objListbox)
+{	objListbox.adviseDefaultHandler(objListbox.id, LB_ONCHANGE);	}

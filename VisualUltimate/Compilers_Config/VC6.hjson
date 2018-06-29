@@ -1,0 +1,22 @@
+{
+	BaseConfig:"Common.hjson"
+
+	Vars:[
+		{
+			BaseDir:%CurDir%\..\..
+		}
+	]
+
+	Platforms:[
+		{ W32x86:"1200" }
+		{ W64x86:"1400" }
+	]
+
+	Flags:[
+		/AppIcon %BaseDir%/VisualUltimate/Icons/vc6.ico
+	]
+
+	Environment:{
+		_MSC_VER:"1200"
+	}
+}

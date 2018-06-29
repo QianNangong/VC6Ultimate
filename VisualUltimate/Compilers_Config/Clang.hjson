@@ -1,0 +1,56 @@
+{
+	BaseConfig:"Common.hjson"
+
+	Vars:[
+		{
+			VC6Dir:..\..\..\..
+		}
+		{
+			VCIncludeDir:Q:\@Projets\Windows
+		}
+	]
+
+	Include:[
+		%VCIncludeDir%\PlatformSDK\Include
+		%VCIncludeDir%\LibC\INCLUDE
+		%VCIncludeDir%\ATL\include
+	]
+
+	Path:[
+		%VC6Dir%\Common\MSDev98\Bin
+		%VC6Dir%\VC98\BIN
+		%VC6Dir%\Common\TOOLS
+		%VC6Dir%\VisualUltimate\TOOLS
+		%VC6Dir%\Common\TOOLS\WINNT
+		%VC6Dir%\VisualUltimate\system32
+		%VC6Dir%\VC98\BIN\clang
+	]
+
+	Lib:[
+		%VC6Dir%\VC98\vc12\PlatformSDK\lib
+		%VC6Dir%\VC98\vc12\LIB
+		%VC6Dir%\VC98\vc12\ATL\LIB
+		%VC6Dir%\VC98\vc12\WinSDK7.1A\LIB
+	]
+
+	Sources:[
+		%VC6Dir%\VC98\vc12\ATL\INCLUDE
+		%VC6Dir%\VC98\vc12\CRT\SRC
+		%VC6Dir%\VC98\vc12\WinSDK7.1A\INCLUDE
+	]
+
+	Platforms:[
+		{ W32x86:"1800" }
+		{ W64x86:"1800" }
+	]
+
+	Flags:[
+		/AppIcon %VC6Dir%\Icons\LLVM.ico
+	]
+
+	Environment:{
+		_MSC_VER:"1800"
+		_COMPILER:"clang"
+		_PLATFORM:"W32x86"
+	}
+}

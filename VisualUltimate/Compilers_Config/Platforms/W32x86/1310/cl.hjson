@@ -1,0 +1,40 @@
+{
+	Vars:[
+		{
+			BaseDir:%CurDir%\..\..\..\..\..
+		}
+		{
+			CompilerFolder:vc7
+		}
+		{
+			MainFolder:%BaseDir%\VC98\%CompilerFolder%
+		}
+	]
+
+	Include:[
+		%MainFolder%\Include
+		%MainFolder%\Include\crt
+		%MainFolder%\Include\atl
+	]
+
+	Path:[
+		%BaseDir%\VisualUltimate\Compilers\%CompilerFolder%
+		%BaseDir%\Common\MSDev98\Bin
+		%BaseDir%\VC98\BIN
+		%BaseDir%\Common\TOOLS
+		%BaseDir%\VisualUltimate\TOOLS
+		%BaseDir%\Common\TOOLS\WINNT
+		%BaseDir%\VisualUltimate\system32
+	]
+
+	Lib:[
+		%MainFolder%\lib
+	]
+
+	Sources:[
+		%MainFolder%\src\ATL
+		%MainFolder%\src\CRT
+		%MainFolder%\src\MFC
+	]
+
+}

@@ -1,0 +1,9 @@
+"Filter"
+[
+	"Data"
+	{
+		FormatVersion = 1
+		WriterVersion = 1
+		Expression = "(Machine = \"All Machines\" AND Component = \"PerfMon Dynamic Source\" AND (Category = \"PerfMon Events\" AND ((Category = \"Memory\" AND (Event = \"Memory::Available Bytes\" OR Event = \"Memory::Page Faults/sec\")) OR (Category = \"System\" AND Event = \"System::% Total Processor Time\"))))"
+	}
+]

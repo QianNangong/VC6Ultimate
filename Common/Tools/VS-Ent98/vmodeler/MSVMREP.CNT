@@ -1,0 +1,10 @@
+:Base msvmrep.HLP
+:Title Microsoft Repository and VCM Integration
+1 Microsoft Repository and VCM Integration
+2 Overview=REPOSIT_Repository_Integration_Overview
+2 How To...
+3 Publish a Model to Visual Component Manager=REPOSIT_Publishing_to_Repository@msvmrep.HLP>(w95sec)
+3 Export a Model to the Microsoft Repository=REPOSIT_Exporting_to_Repository@msvmrep.HLP>(w95sec)
+3 Browse a Published Model in Visual Component Manager=REPOSIT_Browsing_a_published_model@msvmrep.HLP>(w95sec)
+3 Import a Model from the Microsoft Repository=REPOSIT_Importing_from_Repository@msvmrep.HLP>(w95sec)
+3 Import Model Elements from Visual Component Manager=REPOSIT_Importing_model_elements_from_Repository@msvmrep.HLP>(w95sec)

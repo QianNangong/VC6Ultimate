@@ -1,0 +1,8 @@
+Menu Kludge
+{	
+	Option "Do Nothing"
+	{
+		RoseScript mumble.ebx
+	}
+}
+

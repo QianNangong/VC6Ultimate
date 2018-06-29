@@ -1,0 +1,233 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 Checkbox Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateCheckbox(strName,funcInit,objParent)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+
+	var strTag = '<' + 'INPUT TYPE="checkbox" id="' + strName + '" name="' + strName + '">';
+	strTag += '<' + 'LABEL id="' + strName + '_LBL" name="' + strName + '_LBL" for="' + strName + '" htmlfor="' + strName + '"></LABEL>';
+
+	if ((typeof(objParent) == 'object') && (objParent != null))
+		objParent.insertAdjacentHTML('BeforeEnd',strTag);
+	else
+		document.write(strTag);
+
+	var objCheckbox = document.all[strName];
+	if (typeof(objCheckbox) != 'object')
+		return null;
+	var bNameExists = eval('typeof(' + strName + ') == "object"');
+	if (!bNameExists)	
+		eval(strName + ' = objCheckbox');
+
+	//events
+	CHK_ONCLICK = 'onclick';
+	
+	//intrinsic properties
+	//		name AND id		RO
+	//		disabled		RW
+	//		value			RW
+
+	//public methods
+	objCheckbox.hide = _CHK_hide;
+	objCheckbox.show = _CHK_show;
+	objCheckbox.isVisible = _CHK_isVisible;
+	objCheckbox.getChecked = _CHK_getChecked;
+	objCheckbox.setChecked = _CHK_setChecked;
+	objCheckbox.getCaption = _CHK_getCaption;
+	objCheckbox.setCaption = _CHK_setCaption;
+	objCheckbox.getDataSource = _CHK_getDataSource;
+	objCheckbox.setDataSource = _CHK_setDataSource;
+	objCheckbox.getDataField = _CHK_getDataField;
+	objCheckbox.setDataField = _CHK_setDataField;
+	objCheckbox.advise = _CHK_advise;
+	objCheckbox.adviseDefaultHandler = _CHK_adviseDefaultHandler;
+	objCheckbox.unadvise = _CHK_unadvise;
+	objCheckbox.display = _CHK_display;
+	
+	//private members
+	objCheckbox._objDataSource = null;
+	objCheckbox._strDataField = '';
+	objCheckbox._objLabel = eval(objCheckbox.name + '_LBL');
+	objCheckbox._fireEvent = _CHK__fireEvent;
+	
+	// advise for default eventhandlers
+	objCheckbox._objEventManager = CreateEventManager();
+	objCheckbox._fireEvent('_CHK__onbeforefuncinit(' + objCheckbox.id + ')');
+	objCheckbox._fireEvent(funcInit);
+	return objCheckbox;
+}
+
+function _CHK_isVisible()
+{	return (this.style.visibility != 'hidden');	}
+
+function _CHK_hide()
+{
+	this.style.visibility = 'hidden';
+	this._objLabel.style.visibility = 'hidden';
+}	
+
+function _CHK_show()
+{
+	this.style.visibility = 'visible';
+	this._objLabel.style.visibility = 'visible';
+}	
+
+function _CHK_getCaption()
+{	return this._objLabel.innerHTML;	}
+
+function _CHK_setCaption(strCaption)
+{	this._objLabel.innerHTML = strCaption;	}
+
+function _CHK_getChecked()
+{	return this.checked;	}
+
+function _CHK_setChecked(value)
+{	this.checked = (value != 'false' && value != '0' && value != '');	}
+
+function _CHK_getDataSource()
+{	return this._objDataSource;	}
+	
+function _CHK_setDataSource(objDataSource)
+{
+	if (typeof(objDataSource) != 'object')
+		return false;
+
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this._objDataSource.unadvise(this._beforeUpdateID);
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+	
+	if ((this._objDataSource == null) || (objDataSource != null && this._objDataSource.id != objDataSource.id))
+	{
+		if (this._objDataSource != null)
+			this._objDataSource.unadvise(this._afterOpenID);
+			
+		this._afterOpenID = objDataSource.advise(RS_ONAFTEROPEN, this.id + '.setDataSource(' + objDataSource.id + ');');		
+	}
+	
+	this._objDataSource = objDataSource;
+	if ((objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (objDataSource.isDHTMLAware())
+		{
+			this._beforeUpdateID = objDataSource.advise(RS_ONBEFOREUPDATE, '_CHK__onbeforeupdate(' + this.name + ');');
+			this.dataSrc = '#' + objDataSource.getDHTMLDataSourceID();
+			this.dataFld = this._strDataField;
+		}	
+		else
+		{
+			this._rowEnterID = objDataSource.advise(RS_ONROWENTER, '_CHK__onrowenter(' + objDataSource.getID() + ', ' + this.name + ', "' + this._strDataField + '");');
+			this._rowExitID = objDataSource.advise(RS_ONROWEXIT, '_CHK_onrowexit(' + objDataSource.getID() + ', ' + this.name + ', "' + this._strDataField + '");');
+		}
+	}		
+	return true;
+}
+
+function _CHK_getDataField()
+{	return this._strDataField;	}	
+
+function _CHK_setDataField(strDataField)
+{
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this._objDataSource.unadvise(this._beforeUpdateID);
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+
+	this._strDataField = strDataField;
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this._beforeUpdateID = this._objDataSource.advise(RS_ONBEFOREUPDATE, '_CHK__onbeforeupdate(' + this.name + ');');
+			this.dataSrc = '#' + this._objDataSource.getDHTMLDataSourceID();
+			this.dataFld = strDataField;
+		}	
+		else
+		{
+			this._rowEnterID = this._objDataSource.advise(RS_ONROWENTER, '_CHK__onrowenter(' + this._objDataSource.getID() + ', ' + this.ID + ', "' + strDataField + '");');
+			this._rowExitID = this._objDataSource.advise(RS_ONROWEXIT, '_CHK__onrowexit(' + this._objDataSource.getID() + ', ' + this.ID + ', "' + strDataField + '");');
+		}
+	}		
+	return true;
+}
+
+function _CHK_advise(strEvent,funcToCall)
+{
+	var nAdviseID = this._objEventManager.advise(strEvent,funcToCall);
+	if (nAdviseID != -1)
+		eval('this.' + strEvent + ' = _CHK__fireEvent;');
+	return nAdviseID;
+}
+
+function _CHK_adviseDefaultHandler(strName,strEvent)
+{
+	var nAdviseID = this._objEventManager.adviseDefaultHandler(strName,strEvent);
+	if (nAdviseID != -1)
+		eval("this." + strEvent + " = _CHK__fireEvent;");
+}
+
+function _CHK_unadvise(strEvent,nAdviseID)
+{	return this._objEventManager.unadvise(strEvent,nAdviseID);	}
+
+function _CHK_display()
+{	}
+
+function _CHK__fireEvent(funcToFire)
+{
+	if (typeof(funcToFire) == 'undefined')
+	{
+		if (this._objEventManager != null)
+			this._objEventManager.fireEvent('on' + window.event.type);
+	}
+	else
+		_EM__fireEvent(funcToFire);
+}
+
+function _CHK__onrowenter(objRecordset,objCheckbox,strDataField)
+{	objCheckbox.setChecked(objRecordset.fields.getValue(strDataField));	}
+
+function _CHK__onrowexit(objRecordset,objTextBox,strDataField)
+{
+	var chkValue = objCheckbox.getChecked();
+	if (typeof(chkValue) != 'undefined' && chkValue != null)
+		objRecordset.fields.setValue(strDataField, chkValue);
+}
+
+function _CHK__onbeforefuncinit(objCheckbox)
+{	objCheckbox.adviseDefaultHandler(objCheckbox.id, CHK_ONCLICK);	}
+
+function _CHK__onbeforeupdate(objCheckbox)
+{
+	if (objCheckbox.checked == false)
+	{
+		//Make sure we have a default value
+		objCheckbox.checked = true;
+		objCheckbox.checked = false;
+	}	
+}

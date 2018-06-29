@@ -1,0 +1,864 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Draft//EN">
+<html>
+
+<head>
+<title>Visual Studio Enterprise Edition Readme</title>
+<meta name="MS-HAID" content="readmeve">
+
+<BODY BGCOLOR="#FFFFFF" onclick="checkExpand()">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+
+</head>
+
+<script language="JSCRIPT">
+
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           event.returnValue=false;
+        }
+     }
+  }
+
+</script>
+
+<h2>Visual Studio Enterprise Edition Readme</h2>
+
+<p>&copy; 1998 Microsoft Corporation. All rights reserved. </p>
+
+<p>Other product and company names herein may be the trademarks of their respective owners. </p>
+
+<p><i>Visual Studio Readme</i> includes updated information for the documentation provided with Microsoft&#174; Visual Studio&#8482; &#8212; Development System for Windows&#174; and the Internet. The information in this document is more up-to-date than the information in the Help system.</p>
+
+<h3><p>Contents <font color="#000000" size="2" face="Verdana,Arial,Helvetica">- Click any of the items below</font></p></h3>
+
+<p>For installation issues pertaining to the Visual Studio 6.0 suite, see <a href="install.htm">General Installation Notes</a>.</p>
+
+	<blockquote>
+<UL><B><P>Note</B>&nbsp;&nbsp;&nbsp;Be sure all headings in the table of contents are expanded when you search this Readme for a topic. In this way, you will know when the search finds the topic among the TOC headings.</P></UL>
+	</blockquote>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="APE">Application Performance Explorer</a></h5>
+
+	<blockquote>
+<div id="APEChild">
+
+<p><a class=ex href="#" title="Click to expand or collapse." id="APEKnownProblems">Known Problems</a>
+
+	<blockquote>
+<div id="APEKnownProblemsChild" >
+
+<p><a href="#ConfiguringRemoteAutomationSecurityWhenUsingRemoteAPEComponents">Configuring Remote Automation Security When Using Remote APE Components</a></p>
+
+<p><a href="#compatibilityissuesbetweenvs6apeandvb5ape">Compatibility Issues Between the Application Performance Explorer Included with Visual Studio 6.0 and the Version Included with Visual Basic 5.0</a></p>
+
+<p><a href="#AdjustingdefaultsettingstouseAPEandMTS">Adjusting Default Settings to Use APE and MTS</a></p>
+
+<p><a href="#ApplicationPerformanceExplorerServerSideSetup">Application Performance Explorer Server-Side Setup May Generate Error</a></p>
+
+<p><a href="#SomeProfilesMayNotRuntoCompletionwithaNonEnglishDigitGroupingSymbol">Some Profiles May Not Run to Completion with a Non-English Digit Grouping Symbol</a></p>
+
+	</blockquote>
+</div>
+
+	</blockquote>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="SBP">Solution Building, Packaging, and Deployment</a></h5>
+
+	<blockquote>
+<div id="SBPChild">	
+
+<p><a href="#SBPGeneralNotes">General Notes</a></p>
+
+<p><a class=ex href="#" title="Click to expand or collapse." id="SBPKnownProblems">Known Problems</a>
+
+	<blockquote>
+<div id="SBPKnownProblemsChild" >
+
+<p><a href="#FrontPageExtensionsupportlimited">Microsoft FrontPage Extension Support Limited When Using Microsoft Development Environment Deployment Feature</a></p>
+
+<p><a href="#CannotDecipherMultiByteCharacterSet">Microsoft Development Environment Self-Extracting Package/Installation Feature Cannot Decipher Multi-Byte Character Set (MBCS) Characters Defining the TMP Environment Variable</a></p>
+
+<p><a href="#Deployinganddebuggingupdated">Deploying and Debugging Updated Visual J++ Authored COM Servers that Run in IIS</a></p>
+
+<p><a href="#ExternalDependencyDownloadlimitationsinIE4">External Dependency Download Limitations in Internet Explorer 4</a></p>
+
+<p><a href="#FrontPageServersRequitea7bitURL">FrontPage Servers Require a 7-bit URL for Deployment</a></p>
+
+<p><a href="#BuildMayFailonComputerswithAntiVirusSoftware">Build May Fail on Computers with Anti-Virus Software</a></p>
+
+<p><a href="#DeployedHTMLFilesCanGetCorrupted">Deployed HTML Files Can Get Corrupted If Quotes Are Not Put Around Certain Values</a></p>
+
+<p><a href="#DeployingServerComponentFails">Deploying Server Component Fails If the Specified Destination is a Floppy Drive</a></p>
+
+<p><a href="#DeploymentfailsonNECmachineswithoutCdrives">Deployment Fails on NEC Machines Without C: Drives</a></p>
+
+	</blockquote>
+
+</div>
+
+	</blockquote>
+	</blockquote>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="VCM">Visual Component Manager</a></h5>
+
+	<blockquote>
+<div id="VCMChild" >
+
+<p><a class=ex href="#" title="Click to expand or collapse." id="VCMKnownProblems">Known Problems</a>
+
+	<blockquote>
+<div id="VCMKnownProblemsChild" >
+
+<p><a href="#RelatedFilesTab">&#34;Related Files Tab (Component Properties Dialog Box)&#34; Topic Incorrect</a></p>
+
+<p><a href="#RemovingRepository10RegistryKeys">Removing Repository 1.0 Registry Keys</a></p>
+
+<p><a href="#AddingrepositorytablestoanexistingMDBfile">Adding Repository Tables to an Existing .mdb File</a></p>
+
+	</blockquote>
+	</blockquote>
+	</blockquote>
+	</blockquote>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="VM">Visual Modeler</a></h5>
+
+	<blockquote>
+<div id="VMChild" >
+
+<p><a class=ex href="#" title="Click to expand or collapse." id="VMKnownProblems">Known Problems</a>
+
+	<blockquote>
+<div id="VMKnownProblemsChild" >
+
+<p><a href="#InstallingMSVMwithoutSourceSafeInstalled">Installing MSVM without Visual SourceSafe Installed</a></p>
+
+<p><a href="#Reverseengineeringwizardorcodegenerationwizardappearstostopworkingduringoperation">Reverse Engineering Wizard or Code Generation Wizard Appears to Stop Working During Operation</a></p>
+
+<p><a href="#VCMFCapplicationgeneratedviaMSVMfailstolink">VC++ MFC Application Generated via MSVM Fails to Link</a></p>
+
+<p><a href="#UniversalNamingConventionnotsupportedinRoseinifile">Universal Naming Convention Not Supported in Rose.ini File</a></p>
+
+<p><a href="#PublishingamodeltoVisualComponentManagertwiceinarowwithoutsaving">Publishing a Model to Visual Component Manager Twice in a Row Without Saving</a></p>
+
+<p><a href="#Attemptingtoimportfromaninvalidrepositorycausesfailure">Attempting to Import from an Invalid Repository Causes Failure</a></p>
+
+	</blockquote>
+	</blockquote>
+
+	</div>
+
+     <!------------------------------------------------------------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="VSA">Visual Studio Analyzer</a></h5>
+
+	<blockquote>
+<div id="VSAChild" >
+
+<p><a class=ex href="#" title="Click to expand or collapse." id="VSAKnownProblems">Known Problems</a>
+
+	<blockquote>
+<div id="VSAKnownProblemsChild" >
+
+<p><a href="#ClosingandReopeningaProject">Closing and Reopening a Project with a New Event Log Disables Event Recording</a></p>
+
+<p><a href="#AddRemoveColumnsDialogBox">Add/Remove Columns Dialog Box Topic is Incorrect</a></p>
+
+<p><a href="#DelaysinVisualStudioAnalyzer">Delays in Visual Studio Analyzer</a></p>
+
+<p><a href="#DuplicateInstancesoftheVisualStudioAnalyzerServer">Duplicate Instances of the Visual Studio Analyzer Server on Windows 95</a></p>
+
+<p><a href="#ReconnectingtoaWIndows95Machine">Reconnecting to a Windows 95 Computer After Terminating the Local Event Concentrator Class</a></p>
+
+<p><a href="#MachineTemporarilyHangsOnReboot">Computer Temporarily Hangs on Reboot After Editing Local Event Concentrator Class</a></p>
+
+<p><a href="#ClickingCancelinResponsetoDiskFullErrorMessage">Clicking Cancel in Response to Disk Full Error Message Can Result in Lost Event Log</a></p>
+
+<p><a href="#SettingupVisualStudioAnalyzeronaBackup">Setting up Visual Studio Analyzer on a Backup Domain Controller</a></p>
+
+<p><a href="#NT4SP4RequiredtoSeeVisualStudioAnalyzerEventsfromCOM">Windows NT 4, SP4 Required to See Visual Studio Analyzer Events from COM</a></p>
+
+<p><a href="#PassingNullValuesintheprgKeysandprgValuesParametersofVSAFireEvent">Passing Null Values in the prgKeys and prgValues Parameters of VSAFireEvent</a></p>
+
+<p><a href="#ParametersSwitchedinRegisterSourceExampleVisualBasic">Parameters Switched in RegisterSource Example (Visual Basic)</a></p>
+
+<p><a href="#IncorrectNamesinSampleCode">Incorrect Names in Sample Code</a></p>
+
+<p><a href="#FilteringisNotSupportedforAllEventFields">Filtering is Not Supported for All Event Fields</a></p>
+
+<p><a href="#UsingParameterswithPredefinedEventsinVisualBasic">Using Parameters with Predefined Events in Visual Basic</a></p>
+
+<p><a href="#EventsMightNotDisplay">Events Might Not Display in the Block Diagram Views as They Arrive</a></p>
+
+<p><a href="#VisualStudioAnalyzerandMicrosoftWindowsTerminalServer">Visual Studio Analyzer and Microsoft Windows Terminal Server</a></p>
+
+</div>
+
+	</blockquote>
+
+<p><a href="#VSAKnownLimitations">Known Limitations</a></p>
+
+</div>
+
+	</blockquote>
+	</blockquote>
+	</blockquote>
+
+<p>&nbsp;</p>
+
+     <!------------------------------------------------------------------->
+
+<h3><a name="rmmscApplicationPerformanceExplorer"></a>Application Performance Explorer</h3>
+
+<h4><a name="rmmscKnownProblemsinApplicationPerformanceExplorer"></a>Known Problems in Application Performance Explorer</h4>
+
+<h5><a name="ConfiguringRemoteAutomationSecurityWhenUsingRemoteAPEComponents"></a>Configuring Remote Automation Security When Using Remote APE Components</h5>
+
+<P>In order to use Remote Automation (RA) to communicate with remote APE components, you may have to configure RA security using the Remote Automation Connection Manager (Racmgr32.exe).</P>
+
+<p><b>To configure RA security</b></p>
+
+<ol>
+
+<li>Start Racmgr32.exe and click the Client Access tab.</li>
+
+<li>Select either &#34;Allow All Remote Creates&#34; or &#34;Allow Remote Creates by Key&#34;.</li>
+
+<li>If &#34;Allow Remote Creates by Key&#34; is selected, make sure the &#34;Allow Remote Activation&#34; check box is checked for each APE component.</li>
+
+</ol>
+
+<P>RA supports the following levels of authentication:</P>
+
+<TABLE>
+
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+
+<TR>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<B><P>Name</B></font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<B><P>Value</B></font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<B><P>Description</B></font></td>
+</tr>
+
+<tr>
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Default</font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>0</font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Use Network default.</font></td>
+</tr>
+
+<tr>
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>None</font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>1</font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>No authentication.</font></td>
+</tr>
+
+<tr>
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Connect</font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>2</font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Connection to the server is authenticated.</font></td>
+</tr>
+
+<tr>
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Call</font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>3</font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Authenticates only at the beginning of each remote procedure call, when the server receives the request. Does not apply to connection-based protocol sequences (those that start with the prefix &#34;ncacn&#34;).</font></td>
+</tr>
+
+<tr>
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Packet</font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>4</font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Verifies that all data received is from the expected client.</font></td>
+</tr>
+
+<tr>
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Packet Integrity</font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>5</font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Verifies that none of the data transferred between client and server has been modified.</font></td>
+</tr>
+
+<tr>
+<TD WIDTH="22%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Packet Privacy</font></td>
+
+<TD WIDTH="10%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>6</font></td>
+
+<TD WIDTH="68%" VALIGN="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+<P>Verifies all other levels and encrypts the argument values of each remote procedure call.</font></td>
+</tr>
+
+</font>
+
+</TABLE>
+
+<P>APE profiles are initially installed with an authentication level of 1 (&#34;None&#34;) because Windows 95 supports only that level of authentication. However, if additional security is desired, the level of authentication of a profile can be changed by modifying the profile collection file (the Aemanagr.ini file) by using a text editor such as Notepad.</P>
+
+<P>Each profile in the profile collection file begins with the name of the profile within square brackets, such as [Peak performance, synchronous (CPU, Pool)]. The attributes of the profile follow, using the format &lt;name&gt;=&lt;value&gt; (such as &#34;Task Duration=1&#34;). To change the authentication level, change the value of the &#34;Authentication&#34; attribute of the selected profile and save the file.</P>
+
+<h5><a name="compatibilityissuesbetweenvs6apeandvb5ape">Compatibility Issues Between the Application Performance Explorer (APE) that Ships with Visual Studio 6.0 and the Version that Shipped with Visual Basic 5.0</a></h5>
+
+<p>There are known compatibility issues between the Application Performance Explorer (APE) that ships with Visual Studio 6.0 and the APE that shipped with Visual Basic 5.0.</p>
+
+<b>To avoid the compatibility issues, do one of the following: </b>
+
+<ul>
+
+<li>Before installing Visual Studio 6.0 and APE</i> on the computer that has the version of APE shipped with VB 5, first uninstall APE from VB, and then install Visual Studio and APE.</li> 
+
+<li>If you have installed Visual Studio 6.0 and APE</i> on the same computer that has the VB5 APE, uninstall the VB APE and then reinstall the Visual Studio APE.</li>
+
+</ul>
+
+<h5><a name="AdjustingdefaultsettingstouseAPEandMTS">Adjusting Default Settings to Use APE and MTS</a></h5>
+
+<p>After installing the APETEST database onto your SQL Server, you must adjust some of the default settings in order to use APE and MTS.</p>
+
+	<blockquote>
+<B><P>Note</B>&nbsp;&nbsp;&nbsp;If you haven't already installed the APETEST database on your SQL Server, you should do that first. To learn how to install the APETEST database, search for the topic &#34;APE Database Setup Wizard&#34; in <i>MSDN Library Visual Studio 6.0</i>.</p>
+	</blockquote>
+ 
+<p><b>To configure the APETEST database installation to work with MTS</b></p>
+
+<ol>
+
+<li>Start Microsoft SQL Enterprise Manager.</li>
+
+<li>In the Databases folder, right-click the APETEST database and click Edit.</li>
+
+<li>Click the Options tab.</li>
+
+<li>Select the Truncated Log on Checkpoint check box and click OK.</li>
+
+<li>In the Databases folder, right-click the tempdb database and click Edit.</li>
+
+<li>Click Expand.</li>
+
+<li>In the Data Device box, select &lt;new&gt;.</li>
+
+<li>In the New Database Device dialog box, in the Name box, type tempdbData.</li>
+
+<li>In the Size (MB) box, type 10.</li>
+
+<li>Click Create Now, and finally click OK.</li>
+
+<li>Click Expand Now.</li>
+
+<li>Click Expand.</li>
+
+<li>In the Log Device box, select &lt;new&gt;.</li>
+
+<li>In the New Database Device dialog box, in the Name box, type tempdbLog.</li>
+
+<li>In the Size (MB) box, type 10.</li>
+
+<li>Click Create Now, and finally click OK.</li>
+
+</ol>
+
+<p><b>To configure the allowable number of user connections</b></p>
+
+<ol>
+
+<li>Start Microsoft SQL Enterprise Manager.</li>
+
+<li>Right-click the server and click Configure.</li>
+
+<p>For example, if your server is named CORONA, in the Server Manager child window, right-click CORONA and then click Configure.</p>
+
+<li>Click the Configuration tab.</li>
+
+<li>In the Configuration box, increase the number of user connections by at least 15.</li>
+
+</ol>
+
+	<blockquote>
+<B><P>Note</B>&nbsp;&nbsp;&nbsp;If you are running APETEST on an established production database server, you may not have access permission to adjust the current number of user connections. In this case, you should ask your database administrator to increase the number of current user connections by at least 15 connections to support APE testing.</p>
+	</blockquote>
+
+<h5><a name="ApplicationPerformanceExplorerServerSideSetup">Application Performance Explorer Server-Side Setup May Generate Error</a></h5>
+
+<p>While installing the APE server-side components, you may see an error referring to an incorrect version of OLEAUT32.dll. You may dismiss this error and continue with the installation.</p>
+
+<p>However, this error message may indicate that the Microsoft Transaction Server Package was not installed correctly. To confirm that it was installed correctly, run the Transaction Server Explorer and look for all installed MTS packages on your computer. Visual Studio APE Package should be listed.</p>
+
+<p>To install the package, AEMTSSVC.pkg, run the MTS Transaction Server Explorer from the Start menu and install the package to the local computer using the MTS Explorer.</p>
+
+<h5><a name="SomeProfilesMayNotRuntoCompletionwithaNonEnglishDigitGroupingSymbol">Some Profiles May Not Run to Completion with a Non-English Digit Grouping Symbol</a></h5>
+
+<p>Some of the profiles in Application Performance Explorer rely on the format of the values returned by its server components. A problem will occur if the regional settings of the computer do not specify an English Comma (&#34;,&#34;) as the digit grouping symbol.</p>
+
+<p>To avoid this problem, change the digit grouping symbol to be an English Comma (&#34;,') while running the Application Performance Explorer or its server components.</p>
+
+<P><b>To change the digit grouping symbol</b></p>
+
+<ol>
+
+<li>Open Control Panel.</li>
+<li>Select Regional Settings.</li>
+<li>Select the Number tab on the Regional Settings Properties window.</li>
+<li>Change the contents of the field labeled &#34;Digit grouping symbol&#34; to &#34;,&#34; (without quotes).</li>
+<li>Click the OK button and close Control Panel.</li>
+
+</ol>
+
+     <!------------------------------------------------------------------->
+
+<h3><a name="rmmscSolutionBuildPackageandDeploy"></a>Solution Building, Packaging, and Deployment</h3>
+
+<h4><a name="SBPGeneralNotes"></a>General Notes</h4>
+
+<p>If you are installing VJ++ of VS on NT5, you will also need to install signcode.exe from the NT5 NTSDK or the IE INETSDK for NT5, and then ensure that signcode is on the Windows path.</p>
+
+<h4><a name="rmmscKnownProblemsinSolutionBuildPackageandDeploy"></a>Known Problems in Solution Building, Packaging, and Deployment</h4>
+
+<h5><a name="FrontPageExtensionsupportlimited"></a>Microsoft FrontPage Extension Support Limited When Using Microsoft Development Environment Deployment Feature</h5>
+
+<p>When using the Microsoft development environment deployment feature, you should be aware that servers which have the FrontPage acceptor installed as the default acceptor cannot support posting to URLs which contain non-7-bit characters.  This is because the FrontPage acceptor is non-UTF8 compliant, and Visual Studio encodes all URLs in an encoded UTF8 format so that deployment between computers having different code pages is possible.  When posting to a server which has the FrontPage acceptor installed as the default acceptor, URLs should be formed from characters in the range 0x20 through 0x7f (32 through 127).</p>
+
+<p>If the server supports Posting acceptor 2.0 as the default acceptor, then this limitation does not occur.</p>
+
+<h5><a name="CannotDecipherMultiByteCharacterSet"></a>Microsoft Development Environment Self-Extracting Package/Installation Feature Cannot Decipher Multi-Byte Character Set (MBCS) Characters Defining the TMP Environment Variable</h5>
+
+<p>Running a self-extracting executable created by the development environment self-extracting package/installation feature on an international operating system that allows the use of MBCS characters (for example, Japanese, Chinese, and so on) will fail if the TMP environment variable is set with MBCS characters. To solve this problem temporarily, you can change the TMP environment variable to use Single byte characters instead.</p>
+
+<p><b>To temporarily change the TMP variable to Single byte characters</p></b>
+
+<ol>
+
+<li>On the target computer, create a new dir using Single byte characters: c:\temp.</li>
+
+<li>Open an MS-DOS window and run the command, &#34;set TMP=c:\temp&#34;.</li>
+
+<li>Type &#34;set&#34; to verify that the TMP variable was set properly.</li>
+
+<li>Execute the installer from this MS-DOS window.</li>
+
+</ol>
+
+<p>Any executable launched from within the MS-DOS window will use the temporarily set TMP variable until the window is closed.</p>
+
+<h5><a name="Deployinganddebuggingupdated"></a>Deploying and Debugging Updated Visual J++ Authored COM Servers that Run in IIS</h5>
+
+<p>You can deploy Visual J++ authored COM servers that are called from ASP pages in Microsoft Internet Information Server (IIS). Once IIS has executed an ASP page that loads a Visual J++ authored COM server, IIS will cache the server in its internal storage. If you then deploy an updated version of the COM server to IIS and try to execute it, the new version will not be loaded, and IIS will continue to use the old version until IIS is stopped and restarted.</p>
+
+<p><b>To make IIS use the updated version of the COM class by restarting IIS</b></p>
+
+<ol>
+
+<li>On the Microsoft Windows NT system, go to the Start menu and click Windows NT Option Pack. Click Personal Web Manager or Microsoft Internet Information Server.</li>
+
+<li>If you are using the Personal Web Manager, click Personal Web Manager, and then click Stop on the Main page.</li>
+
+<p>- or -</p>
+
+<li value=2>If you are using the Internet Service Manager, click Internet Service Manager, and expand the IIS node. Expand the computer's node. Select the Default Web Site and click the Stop button on the IIS toolbar.</li>
+
+<li value=3>Restart IIS using the Play button.</li>
+
+</ol>
+
+<h5><a name="ExternalDependencyDownloadlimitationsinIE4"></a>External Dependency Download Limitations in Internet Explorer 4</h5>
+
+<p>You can build a .cab file distribution unit with an external dependency in another .cab file distribution unit, so that both distribution units will be downloaded to the client computer when the client views the Web page that hosts the distribution unit. However, be aware that Internet Explorer 4 does not track changes to the versions of external dependencies &#8212; creating a situation in which the first .cab file is downloaded but the updated dependency is not.</p>
+
+<p>For example, if you modify both distribution units, update their version numbers, and update the dependency's version number in the External Dependency tab of the Cabinet Properties dialog box, the first .cab file will be downloaded, but the second will not.</p>
+
+<p>To resolve this, you might change the friendly name of the second .cab file distribution unit. This will cause the second .cab file to be downloaded again. Be aware that both versions of the .cab file distribution unit will now be installed on the client computer.</p>
+
+<h5><a name="FrontPageServersRequitea7bitURL"></a>FrontPage Servers Require a 7-bit URL for Deployment</h5>
+
+<p>Microsoft Visual Studio supports deployment between computers with differing code pages.  It does this by converting the URL to a tokenized UTF-8 format, so that characters outside of the range 0x20 - 0x7f can be used in URLs.  Thus, if you specify the following URL on an English computer for your deployment target:</p>
+
+	<blockquote>
+<p>http://myserver/‹÷</p>
+	</blockquote>
+
+<p>The characters ‹ and ÷ are hi-ASCII and are not necessarily supported outside of the scope of the current code page, and so the URL used internally for the purpose of deployment will be:</p>
+
+	<blockquote>
+<p>http://myserver/%c3%9c%c3%96</p>
+	</blockquote>
+
+<p>since 0xc3 0x9c is the UTF-8 representation of the hi-ASCII character ‹, and 0xc3 0x96 is the UTF-8 representation of the hi-ASCII character ÷.  The server will then &#34;decode&#34; this URL, and place the files in the appropriate location, so that from the client computer you can still access the deployed files by using the URL &#34;http://myserver/‹÷/{name of the file}&#34;.</p>
+
+<p>A problem occurs, however,  because FrontPage servers do not understand tokenized URLs, and will interpret the encoded URL literally without decoding it.  Thus, if you deployed a solution to a FrontPage server, and used the URL &#34;http://myserver/‹÷&#34;, Microsoft Visual Studio may indicate that the files were deployed successfully, but the files will in fact be deployed to &#34;http://myserver/%c3%9c%c3%96&#34;.  You will therefore be unable to access the files, either for browsing or debugging, by using &#34;http://myserver/‹÷/{name of the file}&#34;.</p>
+
+<p>Because of this limitation, it is important to use only 7-bit characters in URLs when deploying to FrontPage servers; specifically, characters in the range 0x20 - 0x7f (Microsoft Visual Studio does not encode the &#34;space&#34; character 0x20 in deployment URLs).  Hi-ASCII and MBCS characters should be avoided when deploying to FrontPage servers.  Alternately, you can install Microsoft Posting Acceptor 2.0 on the server, which fully supports UTF-8 encoded URLs for deployment.  See the installation documentation for instructions on how to install Posting Acceptor 2.0 onto your server from the Microsoft Visual Studio CDs.</p>
+
+<h5><a name="BuildMayFailonComputerswithAntiVirusSoftware"></a>Build May Fail on Computers with Anti-Virus Software</h5>
+
+<p>If you build a setup distribution unit that contains large files on a computer that has anti-virus software installed, the build process can fail with file access errors. If this happens, try turning off the anti-virus software on that computer.</p>
+
+<h5><a name="DeployedHTMLFilesCanGetCorrupted"></a>Deployed HTML Files Can Get Corrupted If Quotes Are Not Put Around Certain Values</h5>
+
+<p>If you include delimiting characters when assigning values to tag attributes in HTML files &#8212; such characters include semicolons, colons, or angle brackets &#8212; the values must be contained within quotation marks, as per W3C standards. The HTML editor in Microsoft Visual Studio does not do this, and in fact will remove quotation marks from values when an HTML file is loaded into the editor. Therefore, when the deployment engine updates the file's CODEBASE links, the deployment parser may stop reading in the value when the first standard HTML delimiter is encountered. If this happens, only part of the value will be saved back to the file before the file is actually deployed. (The deployment engine works with a temporary copy of the file, so the original is unaffected by this.)</p>
+
+<p>To avoid this problem, manually put quotes around the values which contain delimiters before deploying the file. You will need to do this whenever you open the HTML file for editing in the Visual Studio HTML editor, since the editor will strip the quotation marks when the file is reopened, or the view type in the editor is changed.</p>
+
+<h5><a name="DeployingServerComponentFails"></a>Deploying Server Component Fails If the Specified Destination is a Floppy Drive</h5>
+
+<p>If you specify the floppy drive of a network server computer as the destination for server component installation for deployment, the deployment will fail even if no error messages are given. This is due to an inability to create folders on the floppy drive.</p>
+
+<p>To correct the problem, right-click on the Server Components service in the deployment target and select &#34;Deployment Target Settings.&#34; In the resulting dialog box, change the installation drive and directory so that a hard drive location on the network server is specified. (Since the default location for server component installation is the C: drive, users deploying to NEC PC's will want to change that default location, as C: may specify a floppy drive on those machines.)</p>
+
+<h5><a name="DeploymentfailsonNECmachineswithoutCdrives"></a>Deployment Fails on NEC Machines Without C: Drives</h5>
+
+<p>Deployment in the Microsoft development environment relies on the Microsoft Web Publishing API. The Web Publishing API attempts to create temporary files on the C: drive of a machine. On NEC machines, the C: drive is generally a floppy drive, and so if the drive does not exist, or if there is no media in the drive, then deployment will fail. There is currently no workaround for this problem.</p>
+
+     <!------------------------------------------------------------------->
+
+<h3><a name="rmmscVisualComponentManager"></a>Visual Component Manager</h3>
+
+<h4><a name="rmmscKnownProblemsinVisualComponentManager"></a>Known Problems in Visual Component Manager</h4>
+
+<h5><a name="RelatedFilesTab"></a>&#34;Related Files Tab (Component Properties Dialog Box)&#34; Topic Incorrect</h5>
+
+<p>Visual Component Manager User Interface Reference: The topic &#34;Related Files Tab (Component Properties Dialog Box)&#34; incorrectly states that the tab is used to display and enter files that are related to the selected component. In fact, none of the information displayed on this tab can be modified. You can add related files to a component only when publishing or re-publishing the component. For more information, search online, with <b>Search titles only</b> selected, for &#34;Publishing Components&#34; in the MSDN Library Visual Studio 6.0 documentation.</p>
+
+<h5><a name="RemovingRepository10RegistryKeys"></a>Removing Repository 1.0 Registry Keys</h5>
+
+<p>If you installed VCM 5.0 (previously available for web download) you will have the following Windows Registry keys setup. They were necessary for VCM 5.0 and the 1.0 version of the Repository.
+If you find the following Registry entries then it safe to remove them and may, in fact, improve VCM 6.0 performance.</p>
+
+<ul>
+
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheMaxAnnProps</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheMaxObjects</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheRelshipMaxCollections</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheRelshipMaxRows</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\MaxRowCacheAge</li>
+
+</ul>
+
+<h5><a name="AddingrepositorytablestoanexistingMDBfile"></a>Adding Repository Tables to an Existing .mdb File</h5>
+
+<p>If you try to open an existing .mdb file from within VCM that is not a repository database (i.e., it does not contain the repository structure/tables), you will be asked if you want the repository tables added to the database. You should not do this for normal use; the repository should generally be in a separate database. This will work, but it can take as long as 10 minutes to create the repository structure in an existing .mdb file.</p>
+
+<p>To create a brand new .mdb file containing the repository structure, right-click in the folder outline, click Repository, click New, and then enter the name of the file you want to create.</p>
+
+     <!------------------------------------------------------------------->
+
+<h3><a name="rmmscVisualModeler"></a>Visual Modeler</h3>
+
+<h4><a name="rmmscKnownProblemsinVisualModeler"></a>Known Problems in Visual Modeler</h4>
+
+<h5><a name="InstallingMSVMwithoutSourceSafeInstalled"></a>Installing MSVM without Visual SourceSafe Installed</h5>
+
+<p>Visual SourceSafe must be installed before MSVM is installed. Failure to do so will mean that MSVM will be unable to store models in Visual SourceSafe. If Visual SourceSafe is installed after MSVM, reinstall MSVM to enable the integration.</p>
+
+<h5><a name="Reverseengineeringwizardorcodegenerationwizardappearstostopworkingduringoperation"></a>Reverse Engineering Wizard or Code Generation Wizard Appears to Stop Working During Operation</h5>
+
+<p>It has come to our attention that it is possible to load a Visual Basic Project which, although it appears to have loaded correctly, contains references to  components which are not readable or are no longer installed. If this happens, and you attempt to reverse engineer or forward engineer into a VB project in this state, the MSVM components may appear to be hung as it tries to access these components, or MSVM may present a &#34;No Visual Basic Project was selected for Reverse Engineering&#34; message.</p>
+
+<p>If this condition occurs, verify that all the classes and modules and forms in the project are readable via the VB editor. Remove references to ActiveX components which are no longer on the system.</p>
+
+<h5><a name="VCMFCapplicationgeneratedviaMSVMfailstolink"></a>VC++ MFC Application Generated via MSVM Fails to Link</h5>
+
+<p>MSVM makes an assumption that all MFC classes generated via MSVM require &#34;#include stdafx.h&#34; in their header declaration.  In some cases, this is not valid, and inclusion of the #include will cause linkage errors. Should this occur, the designer should remove the unneeded #include in the source code.</p>
+
+<h5><a name="UniversalNamingConventionnotsupportedinRoseinifile"></a>Universal Naming Convention Not Supported in Rose.ini File</h5>
+
+<p>If you are an advanced user, you may want to alter the behavior of MSVM by editing the Rose.ini file directly. You should be aware that the Rose.ini functionality has not been tested against UNC, and you should use fully qualified path names should MSVM have trouble accessing files referred to in the initialization file.</p>
+
+<h5><a name="PublishingamodeltoVisualComponentManagertwiceinarowwithoutsaving"></a>Publishing a Model to Visual Component Manager Twice in a Row Without Saving</h5>
+
+<p>After a model is published to Visual Component Manager, information about the MS-Repository identifiers is stored in the model.  Publication, therefore, changes the model, and it needs to be saved. A second attempt to publish a model without saving between the publications will cause Visual Modeler to present an error message indicating that the model needs to be saved before publication.  Save the model and republish.</p>
+
+<h5><a name="Attemptingtoimportfromaninvalidrepositorycausesfailure"></a>Attempting to Import from an Invalid Repository Causes Failure</h5>
+
+<p>In the unlikely event that you attempt to import from an invalid repository database, an &#34;Invalid Page Fault&#34; may be declared.</p>
+
+     <!------------------------------------------------------------------->
+
+<h3><a name="rmmscVisualStudioAnalyzer"></a>Visual Studio Analyzer</h3>
+
+<h4><a name="rmmscKnownProblemsinVisualStudioAnalyzer"></a>Known Problems in Visual Studio Analyzer</h4>
+
+<h5><a name="ClosingandReopeningaProject"></a>Closing and Reopening a Project with a New Event Log Disables Event Recording</h5>
+
+<p>If you create a Visual Studio Analyzer project and create an event log, then close and save the project, when you reopen the project you cannot record events into the event log. This happens because Visual Studio Analyzer seals the event logs in a project when you close the project. Once an event log is sealed, you cannot add anything to it. Saving a project does not seal the event log, so if you want to save the log and then record events into it, click File, then Save All.</p>
+
+<h5><a name="AddRemoveColumnsDialogBox"></a>Add/Remove Columns Dialog Box Topic is Incorrect</h5>
+
+<p>The help topic for the Add/Remove Columns dialog box states that you can use the dialog box to customize the columns displayed in several views, including the Summary view. This is incorrect; you cannot customize the columns in the Summary view.</p>
+
+<h5><a name="DelaysinVisualStudioAnalyzer"></a>Delays in Visual Studio Analyzer</h5>
+
+<p>If the system path on a Windows NT computer contains a network drive, you may see long delays in Visual Studio Analyzer when connecting to the computer, when editing a filter, or when activating a filter.  To work around the problem, either remove the network drive from your system path, or use dcomcnfg.exe to change the MSVSA Local Event Concentrator Class to run as a domain user who has access to the network drive.</p>
+
+<h5><a name="DuplicateInstancesoftheVisualStudioAnalyzerServer"></a>Duplicate Instances of the Visual Studio Analyzer Server on Windows 95</h5>
+
+<p>If you are not receiving events from one or more of the components on a Windows 95 computer, you might have multiple copies of the Local Event Concentrator (valec.exe) running. You can check for this on Windows 95 by pressing CTRL+ALT+DEL and reviewing the Close Program dialog box. If you do find multiple copies of valec.exe listed, it means that event collection from the computer is in an inconsistent state. You might need to reboot to collect events from components that are already running.</p>
+
+<h5><a name="ReconnectingtoaWIndows95Machine"></a>Reconnecting to a Windows 95 Computer After Terminating the Local Event Concentrator Class</h5>
+
+<p>If you terminate the Local Event Concentrator (valec.exe) on a Windows 95 computer, you might not be able to reconnect to that computer. The following steps might make it possible to reconnect to the computer to collect more events without rebooting. Complete these steps in the order they appear.</p>
+
+	<blockquote>
+<B><P>Note</B>&nbsp;&nbsp;&nbsp;These steps might stop event collection from the components currently running on the Windows 95 computer.</p>
+	</blockquote>
+
+<p><b>To restart the Visual Studio Analyzer Server</b></p>
+
+<ol>
+
+<li>On the Windows 95 Visual Studio Analyzer remote server computer, end all instances of valec.exe that are currently running. Use CTRL+ALT+DEL to view the Close Program dialog box and terminate each valec.exe task.</li>
+
+<li>Shut down the Visual Studio Analyzer Server by right-clicking its icon in the system tray, then clicking Exit.</li>
+
+<li>Shut down all event-generating components that were running when a valec.exe task was terminated.</li>
+
+<li>Restart the Visual Studio Analyzer Server from the Start menu.</li>
+
+</ol>
+
+<p><b>To reconnect to the Windows 95 Visual Studio Analyzer remote server computer</b></p>
+
+<ol>
+
+<li>On the Visual Studio Analyzer local client computer, in the Project Explorer, click the icon representing the Windows 95 Visual Studio Analyzer remote server computer.</li>
+
+<li>Right-click to display the shortcut menu, then click Remove <i>machinename</i>.</li>
+
+<li>Click the Machines node in the Project Explorer.</li>
+
+<li>Right-click to display the shortcut menu, then click Connect to Machine. Type the computer's name in the Connect to Machine dialog box and click OK.</li>
+
+<li>Click the icon representing the computer, then right-click to display the shortcut menu and click Connect.</li>
+
+</ol>
+
+<p>If you still cannot reconnect to the computer after following these steps, you will need to reboot the Visual Studio Analyzer remote server computer.</p>
+
+<h5><a name="MachineTemporarilyHangsOnReboot"></a>Computer Temporarily Hangs on Reboot After Editing Local Event Concentrator Class</h5>
+
+<p>Editing the security profile for the MSVSA Local Event Concentrator class while the Local Event Concentrator class is running causes the computer to hang temporarily on reboot. Before you edit the security profile, make sure Visual Studio Analyzer is not running. You can ensure that Visual Studio Analyzer is not running by looking for the valec.exe and devenv.exe processes in the Task List; neither process should be listed.</p>
+
+<h5><a name="ClickingCancelinResponsetoDiskFullErrorMessage"></a>Clicking Cancel in Response to Disk Full Error Message Can Result in Lost Event Log</h5>
+
+<p>If your local drive is full when you try to save an event log, Visual Studio Analyzer warns you of this condition by displaying an error message. The error message gives you the choice of clearing some space on your drive and clicking OK to try the save again, or clicking Cancel to dismiss the error message. If you click Cancel the event log might be deleted or left in an unreadable state.</p>
+
+<h5><a name="SettingupVisualStudioAnalyzeronaBackup"></a>Setting up Visual Studio Analyzer on a Backup Domain Controller</h5>
+
+<p>When you install the Visual Studio Analyzer (either client or server side components) on to a computer running Microsoft Windows NT, a user account is created to run parts of Visual Studio Analyzer.</p>
+
+<p>If you install Visual Studio Analyzer on a backup domain controller (BDC), this account cannot be created, because the backup domain controller must mirror the account structure of the primary domain controller. In this case, you will be prompted for a user account and password; you should specify the user account in the format &#34;DomainName\UserID&#34;. The account you specify should be a domain account with the right to log on as a batch job and with sufficient privileges to collect performance counter data.  See the Visual Studio Analyzer documentation for details on how to configure security. If you get the account details wrong, you will be unable to monitor the BDC, although you will be able to monitor other machines. If you wish to change the details, you should use DCOMCNFG to modify the identity properties for the MSVSA Local Event Concentrator Class.</p>
+
+<p>Note that the password will not be validated by Windows NT security during setup.</p>
+
+<h5><a name="NT4SP4RequiredtoSeeVisualStudioAnalyzerEventsfromCOM"></a>Windows NT 4, SP4 Required to See Visual Studio Analyzer Events from COM</h5>
+
+<p>If you want to see Visual Studio Analyzer events from COM, you need to install Windows NT 4, SP 4 on any computer where you want to track COM events using Visual Studio Analyzer. In addition, you should install Windows NT 4, SP 4 on any computer where you collect Visual Studio Analyzer events so you can benefit from performance improvements. You can download Windows NT 4, SP4 from the Web at <a href="http://www.microsoft.com/">www.microsoft.com</a>.</p>
+
+<h5><a name="PassingNullValuesintheprgKeysandprgValuesParametersofVSAFireEvent"></a>Passing Null Values in the prgKeys and prgValues Parameters of VSAFireEvent</h5>
+
+<p>If you are using the VsaRpcl interface to generate Visual Studio Analyzer events, make sure that you pass at least one set of parameters in the prgKeys and prgValues arrays and an appropriate count in prgCount. The parameter values can be pointers to empty strings, but they cannot be null pointers. If the prgCount is zero, the VSAFireEvent method will return an error and the event you want will not be generated.</p>
+
+<h5><a name="ParametersSwitchedinRegisterSourceExampleVisualBasic"></a>Parameters Switched in RegisterSource Example (Visual Basic)</h5>
+
+<p>The Visual Basic example for RegisterSource includes the following line:</p>
+
+<ul>
+<p>mESI.RegisterSource sSourceGUID, sSourceName</p>
+</ul>
+
+<p>The code that works is:</p>
+
+<ul>
+<p>mESI.RegisterSource sSourceName, sSourceGUID</p>
+</ul>
+
+<h5><a name="IncorrectNamesinSampleCode"></a>Incorrect Names in Sample Code</h5>
+
+<p>Visual Basic and Visual J++ code examples for the Visual Studio Analyzer automation interfaces (ISystemDebugEventFireAuto and ISystemDebugEventInstallAuto) contain incorrect names for the automation interfaces. If you copy any of these code examples, you'll need to use your code editor's Search and Replace function to change all instances of the following names:</p>
+
+<ul>
+
+<p><i>From</i> MSVSAAutomatableInprocEventCreator <i>to</i> MSVSAInprocEventCreator</p>
+
+<p><i>From</i> MSVSAAutomatableEventSourceInstaller <i>to</i> MSVSAEventSourceInstaller</p>
+
+</ul>
+
+<p>Also, the Visual Basic example for ISystemDebugEventFireAuto invokes the wrong object. After you correct the names, find the following line:</p>
+
+<ul>
+
+<p>Set mIEC = New MSVSAAutomatableEventSourceInstaller</p>
+
+</ul>
+
+<p>and change the line to read:</p>
+
+<ul>
+
+<p>Set mIEC = New MSVSAInprocEventCreator</p>
+
+</ul>
+
+<h5><a name="FilteringisNotSupportedforAllEventFields"></a>Filtering is Not Supported for All Event Fields</h5>
+
+<p>Some event fields do not support filtering. Those fields that do not support filtering are as follows:</p>
+
+<ul>
+
+<br>Arguments
+<br>Causality ID
+<br>Correlation ID
+<br>Duration
+<br>Dynamic Event Data
+<br>Exception
+<br>Index (Event ID)
+<br>Return Value
+<br>Security Identity
+<br>Source Thread
+<br>Target Thread
+
+</ul>
+
+<p>In addition, filtering with the Contains or DoesNotContain operator is not supported for non-string fields such as Component, Category and Event.</p>
+
+<p>The fields that do support filtering are as follows:</p>
+
+<ul>
+
+<br>Category
+<br>Component
+<br>Event
+<br>Handle
+<br>Machine
+<br>Process
+<br>ProcessID
+<br>Session
+<br>SourceComponent
+<br>SourceHandle
+<br>SourceMachine
+<br>SourceProcess
+<br>SourceProcessID
+<br>SourceSession
+<br>TargetComponent
+<br>TargetHandle
+<br>TargetMachine
+<br>TargetProcess
+<br>TargetProcessID
+<br>TargetSession
+
+</ul>
+
+<h5><a name="UsingParameterswithPredefinedEventsinVisualBasic"></a>Using Parameters with Predefined Events in Visual Basic</h5>
+
+<p>The Visual Studio Analyzer predefined events accept several parameter values. These parameter values are passed to the FireEvent method in the Keys and Values arrays. The Keys array contains the parameter names, which must be strings. The Values array contains the parameter values, which can be either strings or numbers.</p>
+
+<p>You can find a list of these parameter values and their definitions if you search online in MSDN Library Visual Studio 6.0 for &#34;VSAStandardParameter&#34;. The syntax listed for VSAStandardParameter is Visual C++-specific. If you want to use any of these parameter values, you need to define constants for them. You can make this easier by creating a constant for each parameter value and saving the list of constants in a global file.</p>
+
+<p>The following code defines constants for each parameter value:</p>
+
+<ul>
+
+<br>Public Const PARAM_SourceMachine = &#34;SourceMachine&#34;
+<br>Public Const PARAM_SourceProcessID = &#34;SourceProcessId&#34;
+<br>Public Const PARAM_SourceThread = &#34;SourceThread&#34;
+<br>Public Const PARAM_SourceComponent = &#34;SourceComponent&#34;
+<br>Public Const PARAM_SourceSession = &#34;SourceSession&#34;
+<br>Public Const PARAM_TargetMachine = &#34;TargetMachine&#34;
+<br>Public Const PARAM_TargetProcessID = &#34;TargetProcessId&#34;
+<br>Public Const PARAM_TargetThread = &#34;TargetThread&#34;
+<br>Public Const PARAM_TargetComponent = &#34;TargetComponent&#34;
+<br>Public Const PARAM_TargetSession = &#34;TargetSession&#34;
+<br>Public Const PARAM_SecurityIdentity = &#34;SecurityIdentity&#34;
+<br>Public Const PARAM_CausalityID = &#34;CausalityID&#34;
+<br>Public Const PARAM_SourceProcessName = &#34;SourceProcessName&#34;
+<br>Public Const PARAM_TargetProcessName = &#34;TargetProcessName&#34;
+<br>Public Const PARAM_SourceHandle = &#34;SourceHandle&#34;
+<br>Public Const PARAM_TargetHandle = &#34;TargetHandle&#34;
+<br>Public Const PARAM_Arguments = &#34;Arguments&#34;
+<br>Public Const PARAM_ReturnValue = &#34;ReturnValue&#34;
+<br>Public Const PARAM_Exception = &#34;Exception&#34;
+<br>Public Const PARAM_CorrelationID = &#34;CorrelationID&#34;
+<br>Public Const PARAM_SourceGUID = &#34;SourceGUID&#34;
+<br>Public Const PARAM_SessionName = &#34;SessionName&#34;
+<br>Public Const PARAM_DynamicEventData = &#34;DynamicEventData&#34;
+<br>Public Const PARAM_EventCounter = &#34;EventCounter&#34;
+
+</ul>
+
+<h5><a name="EventsMightNotDisplay"></a>Events Might Not Display in the Block Diagram Views as They Arrive</h5>
+
+<p>If you set the same filter as both the recording filter and the filter you apply to views, and if you have more than one block diagram view open while you are recording events, you might notice that only the block diagram view you opened first shows blocks representing the recorded events. The other block diagram views will not show the events until you either remove the filter from those views or open a new copy of those views.</p>
+
+<h5><a name="VisualStudioAnalyzerandMicrosoftWindowsTerminalServer"></a>Visual Studio Analyzer and Microsoft Windows Terminal Server</h5>
+
+<p>If you are running a component that generates Visual Studio Analyzer events from a Microsoft Windows Terminal Server client, add the following entry to the system registry of the Terminal Server console:</p>
+
+	<blockquote>
+<p>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Terminal Server\Compatibility\CLSID\{6C736D4F-CBD1-11D0-B3A2-00A0C91E29FE}</p>
+	</blockquote>
+
+<p>Under this key you should add the value &#34;fSystemGlobalClass&#34; as a DWORD and set it to 0x1.</p>
+
+<p>This key will prevent multiple occurences of valec.exe running in the computer all at once. If you have too many occurences of valec.exe running, the computer eventually starts displaying an error message because it runs out of resources.</p>
+
+<h4><a name="VSAKnownLimitations"></a>Known Limitations</h5>
+
+<p>Event playback is suspended when Visual Studio Analyzer does not have focus.</p>
+
+<p>Make sure you stop Visual Studio Analyzer's RPC service (called the Visual Studio Analyzer RPC bridge service) before you install any software.</p>
+
+<p>If you are running Visual Studio Analyzer on Windows 95, you should close the Timeline view before you import large .csv files into an event log.</p>
+
+<p>If you select a large (2000 events or more) number of events in the Chart or Event List views while the Timeline view is open, you might notice a delay before the selection completes. This is normal behavior. Close the Timeline view before you select a large number of events in other views.</p>
+
+</body>
+</html>

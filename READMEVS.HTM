@@ -1,0 +1,285 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Draft//EN">
+<html>
+
+<head>
+<title>Visual Studio Readme</title>
+<meta name="MS-HAID" content="readmevs"></head>
+<BODY BGCOLOR="#FFFFFF" link="#0000FF" vlink="#660066" onclick="checkExpand()">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">
+
+<!------------------------Scripting---------------------->
+
+<script language="JSCRIPT">
+
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           event.returnValue=false;
+        }
+     }
+  }
+
+</script>
+
+<!------------------Readme Intro---------------------------------------->
+
+<h1>Visual Studio Readme</h1>
+
+<p>&#169; 1998 Microsoft Corporation. All rights reserved. </p>
+<P>Other product and company names herein may be the trademarks of their respective owners. </P>
+<p>
+<p><i>Visual Studio Readme</i> contains vital information about Microsoft&#174; Visual Studio&#8482; 6.0 -- Development System for Windows&#174; and the Internet. This information may apply to all or a number of the products shipped in the suite. This Readme updates the information provided in the <i>MSDN Library Visual Studio 6.0</i> documentation.</p>
+<p><i>Visual Studio Readme</i> is one of a &#34;family&#34; of Readmes shipped with the suite. All product Readme files reside at the root of Visual Studio compact disc 1. These Readme files (install.htm, plus several others called readme<i>XX</i>.htm, where <i>XX</i> signifies a product) use current Web technology so users can find and view their information quickly. They may be viewed with a Web browser, such as Microsoft&#174; Internet Explorer 4, or in Notepad.</p>
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="PrintingInstructions">How do I print all the available Readme files at one time from Microsoft Internet Explorer?</a></h5>
+
+<div id="PrintingInstructionsChild" onclick="cl_script_data"  style="display:none">
+
+<a name="#ieinstructions"></a>
+<blockquote>
+<ol>
+<li>Open readme<i>XX</i>.htm, or install.htm, in Microsoft Internet Explorer.</li>
+<li>On the <b>File</b> menu, click <b>Print</b>.</li>
+<li>In the <b>Print</b> dialog box, set the printing options you want.</li>
+<li>Select <b>Print all linked documents</b> and click <b>OK</b>.</li>
+</ol> 
+</blockquote>
+</div>
+</p>
+<hr align=left color=black SIZE=1 width=320>
+<!-----------------------TOC--------------------------------->
+
+<p>
+<h3>Contents</h3>
+<blockquote><b>Note</b>&nbsp;&nbsp;&nbsp;Be sure all headings in the table of contents are expanded when you search this Readme for a topic. In this way, you will know when the search finds the topic among the TOC headings.
+</blockquote>
+</p>
+
+<!-------------------Section 1---------------->
+
+<h5><a class=ex href="#" title="Click to expand or collapse." id="VisualStudioIssues">General Visual Studio Issues</a></h5>
+
+<div id="VisualStudioIssuesChild">
+
+	<blockquote>
+	
+<a href="install.htm" title="Jumps to install.htm">Installation Notes</a> (install.htm) covers general installation issues, including side by side product installations, affecting the Visual Studio 6.0 suite of products.</blockquote>
+
+	<blockquote>	
+<a href="#sqlserverdebugger">Microsoft SQL Server Must Run Under a Valid User Account and Not &#34;System Account&#34; for SQL Debugging</a></blockquote>
+
+	<blockquote>
+<a href="#webregistration">Registering Visual Studio 6.0 Products on the Web</a></blockquote>
+	
+	<blockquote>
+<a href="#viewinginwindows98">Viewing Visual Studio Windows in Windows 98</a></blockquote>
+	
+	</div>
+	
+<h5><a class=ex href="#" title="Click to expand or collapse." id="viewerissues">Visual Studio Help Viewer Issues</a></h5>
+
+<div id="viewerissuesChild">
+	<blockquote>
+<a href="#samplecodecopynpaste">Sample Code Sometimes Does Not Cut and Paste Properly</a></blockquote> 
+	
+<blockquote><a href="#updatinghtmlhelpsdk">Users May Update the Version of HTML Help SDK Shipped with Visual Studio</a></blockquote> 
+	
+<blockquote><a href="#findinginfoonhtmltags">Finding Information on HTML Tags</a></blockquote>
+
+<blockquote><a href="#helpforado">Finding Help for ADO Objects</a></blockquote>
+
+</div>
+<p>
+<h5>For other issues on the Help system for the Visual Studio suite of products, go to:</h5>
+<p><a href="readmeDN.htm" title="Jumps to readmeDN.htm">MSDN&#8482;, the Microsoft Developer Network Readme.</a></p>
+<p>
+
+<!------------------------------------------------->
+<h5>If you acquired any of the following products in the Visual Studio suite, and need specific information, click the product name.</h5>
+<p>
+<a href="readmeve.htm" title="Jumps to the VS Enterprise Edition Readme (readmeVE.htm).">Microsoft&#174; Visual Studio&#8482;, Enterprise Edition</a></p>
+<p>
+<a href="readmevb.htm" title="Jumps to the Visual Basic Readme (readmeVB.htm).">Microsoft&#174; Visual Basic&#174; </a></p>
+<p>
+<a href="readmevc.htm" title="Jumps to the Visual C++ Readme (readmeVC.htm).">Microsoft&#174; Visual C++&#174; </a></p>
+<p>
+<a href="readmedt.htm" title="Jumps to the VS Database Tools Readme (readmeDT.htm).">Microsoft&#174; Visual Database Tools&#8482;</a></p>
+<p>
+<a href="readmevf.htm" title="Jumps to the VS FoxPro Readme (readmeVF.htm).">Microsoft&#174; Visual FoxPro&#8482;</a></p>
+<p>
+<a href="readmevi.htm" title="Jumps to the Visual InterDev Readme (readmeVI.htm).">Microsoft&#174; Visual InterDev&#8482;</a></p>
+<p>
+<a href="readmevj.htm" title="Jumps to the Visual J++ Technology Preview 2 (readmeVJ.htm).">Microsoft&#174; Visual J++&#8482;</a></p>
+<p>
+<a href="readmess.htm" title="Jumps to the Visual SourceSafe Readme (readmess.htm).">Microsoft&#174; Visual SourceSafe&#8482;</a></p>
+<p>
+<hr align=left color=black SIZE=1 width=640>
+
+<!------------------------CONTENTS--------------------->
+<!--SECTION 1:General Installation Notes-->
+
+<!---------------------------------->
+<!--SECTION 2-->
+
+<h3><a name="vsissues">General Visual Studio Issues</a></h3>
+
+<p>The information in this section applies to several or all products shipped in the Visual Studio suite. It is more current than the information provided with the suite's online documentation. </p>
+<br>
+          <!------------------------------------------------------>
+          <!--(Sec. 2) TOPIC 1-->
+
+<h4><a name="sqlserverdebugger">Microsoft SQL Server Must Run Under a Valid User Account and Not &#34;System Account&#34; for SQL Debugging</a></h4>
+<p>
+To enable debugging on your Microsoft SQL Server, you must install the server side components of this version of Visual Studio on your SQL Server. You also must run Microsoft SQL Server under a valid user account and not under the &#34;System Account.&#34; Under &#34;System Account,&#34; SQL Server runs at a higher security level and cannot communicate with remote applications such as the Microsoft SQL Debugger.</p>
+To configure the SQL Server login account for SQL Debugging:
+<ol><li>
+Open Control Panel by clicking the <B>Start</B> button, then <B>Settings</B>, and then <B>Control Panel</B>.</li>
+<li>
+Double-click <B>Services</B>, select <B>MSSQLServer</B>, then click <B>Startup</B>.</li>
+<li>
+Click <B>&#34;This Account&#34;</B> (option) and set the login ID to a valid user account and password.</li>
+<li>
+Click <B>OK</B> to close the dialog box and save your configuration.</li></ol>
+<p>
+<b>Note</b>&nbsp;&nbsp;&nbsp;Any errors encountered while debugging the SQL Server will be listed in the event log. Use this log to troubleshoot your debugging process.</p>
+<br>
+          <!--------------------------------------------------->
+          <!--(Sec. 2) TOPIC 2-->
+		  
+<h4><a name="webregistration">Registering Visual Studio 6.0 Products on the Web</a></h4>
+<p>
+At the end of setup of Visual Studio 6.0 products, the Installation Wizard directs you to the online registration page. If you were not able to register at the time of setup, you may register later on the Web. The location is <a href="http://www.microsoft.com/isapi/redir.dll?Prd=vstudio&Pver=98&Ar=register">http://www.microsoft.com/isapi/redir.dll?Prd=vstudio&amp;Pver=98&amp;Ar=register</a>.
+</p>
+
+          <!--------------------------------------------------->
+          <!--(Sec. 2) TOPIC 3-->
+		  
+<h4><a name="viewinginwindows98">Viewing Visual Studio Windows in Windows 98</a></h4>
+<p>
+To view Visual Studio window captions in Windows 98, make sure that your screen color display is set higher than 256 colors (requires 16-bit color or higher).</p>
+
+<hr align=left color=black SIZE=1 width=320>
+<!------------------------->
+<!--SECTION 3-->
+
+<h3>Help Viewer Issues</h3>
+
+<p>This section lists issues concerning the online help viewer shipped with Visual Studio 6.0. For information on the Help system for the Visual Studio suite of products, go to: 
+<a href="readmeDN.htm" title="Jumps to readmeDN.htm">MSDN&trade;, the Microsoft Developer Network Readme.</a></p>
+
+		  <!--------------------------------------------------->
+          <!--(Sec. 3) TOPIC 1-->
+		  
+<h4><a name="samplecodecopynpaste">Sample Code Sometimes Does Not Cut and Paste Properly</a></h4>
+<p>
+Line breaks and formatting information may not copy correctly when you copy and paste sample code from the MSDN Library Visual Studio documentation to your code editor. To work around this issue, do one of the following:</p>
+<ul><li>Manually edit the line breaks after you copy the code.</li>
+<li>View the sample code source, copy the entire code sample, including the <B>&lt;pre&gt;</B> and <B>&lt;/pre&gt;</B> tags, paste it to your code editor, and then delete the unwanted sections from the pasted version.</li>
+</ul>
+
+		  <!--------------------------------------------------->
+          <!--(Sec. 3) TOPIC 2-->
+		  
+<h4><a name="updatinghtmlhelpsdk">Users May Update the Version of HTML Help SDK Shipped with Visual Studio</a></h4>
+<p>
+Visual Studio 6.0 ships with a version of HTML Help SDK, which you may update. To get the latest version of the HTML Help SDK, go to <a href="http://www.microsoft.com/workshop/author/htmlhelp/">http://www.microsoft.com/workshop/author/htmlhelp</a></p>
+
+          <!------------------------------------------------------>
+          <!--(Sec. 3) TOPIC 3-->
+
+<h4><a name="findinginfoonhtmltags">Finding Information on HTML Tags</a></h4>
+<p>
+HTML tags are not included in the keyword index and cannot be accessed through F1 lookup. If you need information on HTML tags, use the online documentation Table of Contents.</p>
+<p>Click the MSDN Library Visual Studio 6.0 icon and open the Platform SDK folder. You can find the reference to HTML Elements at:
+<table border="0" width="90%">
+<tr>
+    <td width="100%"><font face="verdana,arial,helvetica" SIZE=2>&nbsp;&raquo;&nbsp;Platform SDK</font></td>
+</tr> 
+</table>
+<table border="0" width="90%"> 
+<tr>
+    <td width="5%">&nbsp;</td>
+    <td width="95%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;Internet/Intranet/Extranet Services</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="10%">&nbsp;</td>
+    <td width="90%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;Dynamic HTML</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="15%">&nbsp;</td>
+    <td width="85%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;DHTML References</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="20%">&nbsp;</td>
+    <td width="80%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;HTML References</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="25%">&nbsp;</td>
+    <td width="75%"><font face="verdana,arial,helvetica" SIZE=2><b>&raquo;&nbsp;HTML Elements</b></font></td>
+  </tr>
+</table>
+<p>You may create a new subset and use it in Full Text Search to quickly find information.
+<p><b>To create a new subset</b>
+<ol><li>On the <b>View</b> menu of the <i>MSDN Library Visual Studio 6.0</i>, click <b>Define Subset</b>.</li>
+<li>In the <b>Define Subset</b> dialog box, navigate to</li>
+<table border="0" width="90%">
+<tr>
+    <td width="100%"><font face="verdana,arial,helvetica" SIZE=2>&nbsp;&raquo;&nbsp;Platform SDK</font></td>
+</tr> 
+</table>
+<table border="0" width="90%"> 
+<tr>
+    <td width="5%">&nbsp;</td>
+    <td width="95%"><font face="verdana,arial,helvetica" SIZE=2>&raquo;&nbsp;Internet/Intranet/Extranet Services</font></td>
+  </tr>
+</table>
+<table border="0" width="90%"> 
+  <tr>
+    <td width="10%">&nbsp;</td>
+    <td width="90%"><font face="verdana,arial,helvetica" SIZE=2><b>&raquo;&nbsp;Internet Explorer Platform SDK</b></font></td>
+  </tr>
+</table>
+<li>Click <b>Add</b> so all folders included in the subset are identified on the right window of the dialog box.</li>
+<li>Type a name for the subset in <b>Save new subset as</b>, and click <b>Save</b>.</li></ol>
+<p><b>To use this new subset to narrow your search</b>
+<ol><li>On the left pane of the online documentation, click the <b>Search </b>tab.</li>
+<li>In the <b>Active Subset</b> list, click the name of the subset you just created.</li>
+<li>In the <b>Type in the word(s) to search for</b> box, type the HTML tag you want to search, and select <b>Match similar words</b>.</li>
+<li>Click <b>List Topics</b> to begin your search.</li>
+</ol>
+          <!--------------------------------------------------->
+          <!--(Sec. 3) TOPIC 4-->
+		  
+<h4><a name="#helpforado">Finding Help for ADO Objects</a></h4>
+<p>When using the ADO objects (for example, Recordset, Connection, Command, Parameter, ADOR, RDS, and RDS Server object in Visual Basic), you cannot get context-sensitive Help on the object or its properties, events, or methods. That is, if you have a reference to the object, and you use one of its features, selecting the code and pressing F1 will not display a help topic. Instead, you will either get a wrong topic, or the &#34;Keyword Not Found&#34; topic.</p>
+<p>However, you can get help on any of the object's properties, events, or methods by using the online documentation Index:</p>
+<ol><li>If the MSDN documentation viewer is not open, on the <b>Help </b>menu, click <b>Contents</b>.</li>
+<li>Click the <b>Index</b> tab.</li>
+<li>Type the name of the property, event, or method including the word &#34;collection&#34; &#34;property,&#34; &#34;event,&#34; or &#34;method&#34; as appropriate.</li>
+<li>From the list of available topics, select the appropriate topic that includes &#34;ADO&#34; in its title.</li>
+</ol>
+<p>For example, to get help on the Recordset object's Open method, type &#34;Open method,&#34; and select &#34;Open Method (ADO Recordset)&#34; from the list.</p>
+<blockquote><b>Note</b>&nbsp;&nbsp;&nbsp;You can also find additional help on other ADO topics, such as the ADO object model, by looking in the MSDN Library Table of Contents: open <b>Platform SDK</b>, and under <b>Database and Messaging Services</b>, go to <b>Microsoft Data Access SDK</b>.</blockquote>
+
+<!--------------->
+
+
+
+</font>
+</body>
+</html>

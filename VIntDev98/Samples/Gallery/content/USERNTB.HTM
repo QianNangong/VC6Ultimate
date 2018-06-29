@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+</HEAD>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<BR><BR>
+<P>This sample uses three files: UserNote.asp, DelNote.asp 
+and SendNote.asp. </P>
+<UL>
+    <LI>UserNote.asp displays messages sent by other 
+    members of the organization to the user logged into this page.
+    <LI>DelNote.asp deletes messages from the list of 
+    stored messages.
+    <LI>SendNote.asp stores messages from the user that are 
+    to be sent to other users of the organization. </LI></UL>
+
+<P>UserNote.asp uses a recordset control and a data-bound 
+grid control to display messages that have been posted for the user. </P>
+
+<P>The messages are retrieved from the UserNote table in 
+the Gallery database. The recordset queries the table to find any messages for 
+the current user. Below is the SQL statement used to achieve this: </P>
+
+<FONT face=Courier>
+function DTCRecordset1_onbeforeopen() { <BR>&nbsp;&nbsp; newSQL = &quot;Select * FROM UserNote WHERE 
+(TO = '&quot; + Request.ServerVariables(&quot;AUTH_USER&quot;) + &quot;')&quot;; <BR>&nbsp;&nbsp; DTCRecordset1.setSQL(newSQL); <BR>
+} 
+</FONT>
+
+<P>If there are no messages for the current user, the grid 
+is not displayed and there is only a link to send messages. If there are 
+messages for the current user they are displayed in the grid. The grid displays 
+the message text as well as who the message is from. There is also an option to 
+delete each message. </P>
+
+<P>DelNote.asp is called when the user wants to delete a 
+particular message. The ID number of the message is passed to DelNote.asp and 
+the corresponding record is deleted from the database. After the message is 
+deleted the user is redirected back to the UserNote.asp page. </P>
+
+<P>SendNote.asp uses data-bound controls in conjunction 
+with the FormManagervictlFormManagerControl control to store user input into the 
+UserNote table. </P>
+
+<P>There are two controls that accept input: a 
+textboxvictlTextBoxControl control denotes who the message is being sent to and 
+a text area control contains the message. </P>
+
+<P>When addressing the message to another member of your 
+organization you must enter both the domain and user name (such as, 
+Domain1\User1). This address is not case sensitive. In this example the message 
+is limited to 255 characters.</P></FONT>
+
+</BODY>
+</HTML>

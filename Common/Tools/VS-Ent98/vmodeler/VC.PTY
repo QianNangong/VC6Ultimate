@@ -1,0 +1,57 @@
+
+(object Petal
+    version    	40)
+
+(list Attribute_Set
+    (object Attribute
+	tool       	"VC++"
+	name       	"roseId"
+	value      	"753117540")
+    (object Attribute
+	tool       	"VC++"
+	name       	"propertyId"
+	value      	"809135966")
+    (object Attribute
+	tool       	"VC++"
+	name       	"default__Class"
+	value      	(list Attribute_Set
+	    (object Attribute
+		tool       	"VC++"
+		name       	"Generate"
+		value      	TRUE)
+	    (object Attribute
+		tool       	"VC++"
+		name       	"HeaderFile"
+		value      	"AUTO GENERATE")
+    ))
+    (object Attribute
+	tool       	"VC++"
+	name       	"default__Operation"
+	value      	(list Attribute_Set
+	    (object Attribute
+		tool       	"VC++"
+		name       	"OperationIsConst"
+		value      	FALSE)
+	    (object Attribute
+		tool       	"VC++"
+		name       	"OperationKindSet"
+		value      	(list Attribute_Set
+		    (object Attribute
+			tool       	"VC++"
+			name       	"Non-virtual"
+			value      	200)
+		    (object Attribute
+			tool       	"VC++"
+			name       	"Abstract"
+			value      	201)
+		    (object Attribute
+			tool       	"VC++"
+			name       	"Virtual"
+			value      	202)))
+            (object Attribute
+		tool       	"VC++"
+		name       	"OperationKind"
+		value      	("OperationKindSet" 200))
+    ))
+  )
+    

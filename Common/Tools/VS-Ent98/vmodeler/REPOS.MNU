@@ -1,0 +1,16 @@
+Menu Tools
+{	
+  Separator
+    Option "&Publish to VCM..."
+    {
+	RoseScript $REPOSADDIN_SCRIPT_PATH\RVSReposPu.ebx
+    }
+    Option "Export to &Repository..."
+    {
+	RoseScript $REPOSADDIN_SCRIPT_PATH\RVSReposEx.ebx
+    }
+    Option "&Import from Repository..."
+    {
+	RoseScript $REPOSADDIN_SCRIPT_PATH\RVSReposIm.ebx
+    }
+}

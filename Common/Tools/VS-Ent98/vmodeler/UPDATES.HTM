@@ -1,0 +1,373 @@
+<html>
+<body bgcolor=#ffffff>
+ 
+<strong><a href="configuration.htm">[PREVIOUS]</a></strong>
+[NEXT] -
+<a href="releasenote.htm">[Home]</a> 
+<a href="installation.htm">[Installation]</a>
+<a href="configuration.htm">[Configurations]</a>
+[Problems and Limitations]
+<hr><br>
+ 
+<head><title>Known Problems and Limitations
+of Visual Modeler 2.0
+ </title></head>
+
+<a name="465148">
+<center><h1> Known Problems and Limitations<br>
+of Visual Modeler 2.0
+ </h1></center>
+</a><a name="445443">
+<p>The following is a list of known problems and limitations in Visual Modeler 2.0.
+The number preceding each item is a bug tracking identifier. Please refer to this
+number if you have a support question about the problem.
+</p>
+</a><a name="454567">
+<h4> 110167	Problems nesting a logical package within itself
+</h4>
+</a><a name="454579">
+<p>Create a logical package <code><b>cat</b></code>, then open <code><b>cat</b></code>'s principal diagram and 
+place another view of <code><b>cat</b></code> there. Copying <code><b>cat</b></code> causes it to get the 
+"no model item" adornment.
+</p>
+</a><a name="456454">
+<h4> 110330, 115594<br>
+Carriage returns or spaces in icon names can cause 
+problems
+</h4>
+</a><a name="456455">
+<p>If an icon name spans multiple lines (that is, contains a 
+carriage return) only the last line of the name is visible in the 
+icon's specification.
+</p>
+</a><a name="456456">
+<p>Workaround: Use the text box on the icon to view the entire 
+name. Better yet, avoid using carriage returns or spaces in icon 
+names.
+</p>
+</a><a name="467751">
+<h4> 111040, 115707<br>
+Problems with unnamed model items
+</h4>
+</a><a name="467950">
+<p>For example, update cannot resolve unnamed model items.
+</p>
+</a><a name="467752">
+<p>Workaround: Be sure to name all items in the model. (Naming 
+relationships is not required.)
+</p>
+</a><a name="497000">
+<p>Assume that you have classes in your model that have 
+method arguments of class X. If you go into class X and 
+change its name to Y, the arguments are not updated; they 
+remain of class X, not class Y.
+</p>
+</a><a name="467906">
+<h4> 115002	Some menu items not gray when they should be in read-
+only diagrams
+</h4>
+</a><a name="478813">
+<p>For example, <kbd><b>Change Into</b></kbd> is not grayed out on the <kbd><b>Edit</b></kbd> menu even 
+when all the items on the <kbd><b>Change Into</b></kbd> submenu are grayed out.
+</p>
+</a><a name="480459">
+<p>Workaround: Can usually be fixed up by dragging the substate 
+out and then back in.
+</p>
+</a><a name="467881">
+<h4> 115773	Query &gt; Expand Classes does not always filter relationships 
+correctly
+</h4>
+</a><a name="467952">
+<h4> 115955	Compartment items lost toggling Show Operation 
+Signature
+</h4>
+</a><a name="467883">
+<p>If <code><b>Show Method Signature</b></code> is set to ON for a given model, 
+but set to OFF in the current Visual Modeler session, the operation will 
+not be shown when the model is read in.
+</p>
+</a><a name="467889">
+<p>Workaround: The setting for <code><b>Show Method Signature</b></code> 
+should be chosen ONCE for all users who are sharing models 
+and NOT be changed.
+</p>
+</a><a name="501803">
+<h4> 120272	Double click on generalization arrow head does not raise 
+property sheet
+</h4>
+</a><a name="498823">
+<p>To select or raise the property sheet for an generalization 
+relationship, place your cursor on the relationship line rather 
+than the arrow head.
+</p>
+</a><a name="499102">
+<p>You can redisplay the windows by pressing <kbd><b>F2</b></kbd> or by minimizing 
+and maximizing Visual Modeler.
+</p>
+</a><a name="499093">
+<h4> 121024	Visual Modeler crashes when some background programs are running
+</h4>
+</a><a name="498857">
+<p>Visual Modeler  crashes sporadically when some utility programs are 
+running in the background. After Dark is such a utility; the 
+mouse-utility Point32 is another.
+</p>
+</a><a name="499044">
+<h4> 121627	Pressing the Cancel button while printing may not have 
+any effect
+</h4>
+</a><a name="499069">
+<p>If the <kbd><b>Cancel</b></kbd> button in the Cancel Printing dialog box does not 
+work (after you do a <kbd><b>Print Specifications</b></kbd> or <kbd><b>Print Diagrams</b></kbd>), press the 
+escape key to force a cancel.   The reason the <kbd><b>Cancel</b></kbd> button does 
+not work is usually because of insufficient disk space or not 
+enough free memory.
+</p>
+</a><a name="499120">
+<h4> 121877	OLE linking only pastes what is visible in the window
+</h4>
+</a><a name="498960">
+<p>To see the entire diagram in another application, choose <kbd><b>View</b></kbd> &gt; 
+<kbd><b>Fit in Window</b></kbd> in Visual Modeler before you copy and paste into the other 
+application.
+</p>
+</a><a name="498957">
+<h4> 121919	Copy and paste into PowerPoint with "visibility as icons" 
+does not work correctly
+</h4>
+</a><a name="498946">
+<p>If you encounter this problem, restart PowerPoint and 
+copy/paste again with "visibility as icons" off.
+</p>
+</a><a name="498911">
+<h4> 121945	Loading Visual Modeler models by choosing them in Windows 
+Explorer can cause crash
+</h4>
+</a><a name="499178">
+<p>Because the Setup wizard does not completely register Visual Modeler 
+with Windows, if you attempt to start Visual Modeler the first time by 
+double clicking a model in Windows Explorer, Visual Modeler may crash. 
+After Visual Modeler has been run once, the registration is complete and 
+double clicking model files will work correctly.
+</p>
+</a><a name="499259">
+<h4> 121976	Adding methods and properties to classes can cause them 
+to be erroneously resized
+</h4>
+</a><a name="498892">
+<p>If a class icon is incorrectly resized after a method or 
+a property is added, you can select the class and use the mouse 
+to resize it.
+</p>
+</a><a name="498975">
+<h4> 121980	Context-sensitive help doesn't work for some menus
+</h4>
+</a><a name="499341">
+<h4> 122048	Label buttons
+</h4>
+</a><a name="499344">
+<p>Visual Modeler does not support label buttons, but there may still be 
+references to label buttons in pictures of screens in the 
+documentation.
+</p>
+</a><a name="501675">
+<h4> 122230, 122231, 122232<br>
+Problems with "What's This?" help
+</h4>
+</a><a name="501676">
+<p>There are several problems with "What's This?" in the online 
+help:
+</p>
+</a><ul><a name="501678">
+<li>You may encounter the following message when using 
+"What's This?" help:
+
+</a><a name="501685">
+<p><code><b>No Help Topic is associated with this item.
+</b></code></p>
+</a><a name="501687">
+<p>This does not necessarily imply that there is no help 
+available for the item. Often the "What's This?" help 
+mechanism for the item simply has not been connected. 
+Click on the <kbd><b>Help</b></kbd> button in the dialog box and you will be 
+able to traverse to the information you need.
+</p>
+</a><a name="501680">
+<li>In some cases, "What's This?" help will display a large 
+screen of information that is clipped at the bottom. If the 
+information you are interested in is not displayed, click on 
+the <kbd><b>Help</b></kbd> button in the dialog box and you will be able to 
+traverse to the information you need.
+</p>
+</a><a name="501709">
+<li>There are pop-up links in some "What's This?" help topics, 
+but you cannot traverse to the associated pop-up windows 
+with "What's This?" help. As is normal with "What's This?" 
+help topics, as soon as you click the mouse once, the help 
+topic goes away. To follow a pop-up link that is displayed, 
+click on the dialog box's <kbd><b>Help</b></kbd> button and then you will be 
+able to traverse to the pop-up window.
+
+</a></ul><a name="501785">
+<p>In short, when you are in a Visual Modeler dialog box and "What's This?" 
+help (or the <kbd><b>?</b></kbd> in the window banner) does not help you, try the 
+<kbd><b>Help</b></kbd> button instead.
+</p>
+</a></ul><a name="505275">
+<h4> 122339	Separate name spaces not supported
+</h4>
+</a><a name="505277">
+<p>UML packages are
+intended to be unique name spaces. However, Visual Modeler does not 
+support separate name spaces; names must be unique 
+throughout the entire model. So, for example, in models:
+</p>
+</a><ul><a name="505291">
+<li>A logical package and a class cannot have the same name.
+
+</a><a name="505293">
+<li>Two different classes, in two different packages, cannot 
+have the same simple name.
+
+</a></ul>
+<h4> 123352	Visual Modeler Add-Ins require a single running Visual Basic 5
+</h4>
+</a>
+<p>The Visual Modeler Add-Ins can operate only if a single Visual Basic 5
+application is running. If multiple Visual Basic 5 applications are running,
+the code generation and reverse engineering tools in Visual Modeler
+cannot be used.
+
+</a></ul>
+<h4> 123522	Component view not used for code generation
+</h4>
+</a>
+<p>No code is generated for model items in the Component view, that is, for
+EXEs and DLLs.
+
+</a></ul>
+<h4> 123716	Documentation not saved when exporting to repository
+</h4>
+</a>
+<p>When exporting a model to the repository, the documentation is not saved.
+
+</a></ul>
+<h4> 124217	Creatable Option for classes
+</h4>
+</a>
+<p>The Creatable code generation option for classes does not use the correct
+Visual Basic 5 naming. The Creatable option values in Visual Modeler correspond 
+to the following instancing properties in Visual Basic 5: OnNewProcess = 3-SingleUse, 
+GlobalOnNewProcess = 4-GlobalSingleUse, InSameProcess = 5-MultiUse, 
+GlobalInSameProcess = 6-GlobalMultiUse.
+
+</a></ul>
+<h4> 124251	Visual Modeler Add-Ins Menus makes Visual Basic 5 crash on exit
+</h4>
+</a>
+<p>The Visual Modeler Add-In Menus may, under some
+circumstances, cause Visual Basic 5 to crash when quitting the application.
+This problem occurs if the Visual Modeler Add-In Menus is running in the add-in manager
+together with either &quot;VB Add-In Toolbar&quot; or &quot;Source Code Control&quot;. Please
+refer to the Microsoft Knowledge Base, article ID Q167213, for explanation
+and workarounds.
+
+<head><title>Additional Information
+ </title></head>
+
+<a name="465149">
+<center><h2> Additional Information
+ </h2></center>
+
+</a></ul>
+<h4> 	Registration problems
+</h4>
+</a>
+<p>In some configurations the installation program may have problems
+registering the DLLs used by Visual Modeler. If, for example, the <kbd><b>Tools>
+Class Wizard</b></kbd> command fails to execute, run the <CODE><B>REGRVB.BAT</B></CODE> program from the
+folder in which Visual Modeler is installed.
+
+</a></ul>
+<h4> 	DAO 3.5 Object Library Needed in OrderSys Example
+</h4>
+</a>
+<p>The order system example, located in the <CODE><B>\Samples\Ordersystem</B></CODE> folder, needs
+the Microsoft DAO 3.5 object library. Your Visual Basic 5 product may be
+installed without this component. If the DAO library is missing, you can add
+it in the following way: 
+</p>
+</a><ol>
+<a name="492028">
+<li>Run the Visual Basic installation program and select a Custom installation.
+</a><a name="492029">
+<li>Select the Data Access option in the displayed dialog box.
+
+</a></ul>
+<h4> 	Full ActiveX Interface Names
+</h4>
+</a>
+<p>Visual Modeler supports only one name space; a class name must be unique within a
+model. In OLE, an ActiveX component constitutes its own name space. Thus, two ActiveX
+components can export the same interface name. You can instruct the
+Visual Modeler reverse engineering tool to create unique class names by
+combining the ActiveX name and the class name, for example: DAO.Database.
+The default behavior of Visual Modeler is to use short ActiveX names. To
+use long ActiveX names, change LongActiveXNames to Yes in your <CODE><B>rose.ini</B></CODE>
+file, which is found in the Windows folder.
+
+</a></ul>
+<h4> 	Deletion of Component Members in Visual Basic 5
+</h4>
+</a>
+<p>Visual Modeler synchronizes your Visual Basic project and model
+during code generation and reverse engineering by removing deleted members.
+The default behavior in Visual Modeler is to remove members by commenting
+the code. To turn this off and have the tool completely remove the members from
+the code, set CommentMethods to No in your <CODE><B>rose.ini</B></CODE> file, which is found in
+the Windows folder.
+
+</a></ul>
+<h4> 	Deletion of Collection Classes in Visual Modeler
+</h4>
+</a>
+<p>User-defined collection classes can be automatically created in Visual Modeler by changing the CollectionClass option for a class. To delete a
+created collection class from the model:
+</p>
+</a><ol>
+<a name="492030">
+<li>Select the collection class in the browser and choose <kbd><b>Edit> Delete from Model</b></kbd>.
+</a><a name="492031">
+<li>Reset the CollectionClass option on the item class to Collection.
+
+</a></ul>
+<h4> 	Online Help Find Tab
+</h4>
+</a>
+<p>If you choose to build a Find database of a subset of the available help
+files using the &quot;Customize search capabilities&quot; alternative, you may get the
+error message &quot;Unable to display the Find tab&quot;, or the resulting database
+may contain words from help files other than the selected files.
+
+</p>
+</a>
+
+<hr>
+<strong><a href="configuration.htm">[PREVIOUS]</a></strong>
+[NEXT] -
+<a href="releasenote.htm">[Home]</a> 
+<a href="installation.htm">[Installation]</a>
+<a href="configuration.htm">[Configurations]</a>
+[Problems and Limitations]
+<hr><br>
+
+
+</address>
+
+<!-- HTML created with Quadralay WebWorks Publisher 3.0.8 -->
+<!-- on 02/03/97 at 22:07:06. -->
+
+</body>
+</html>
+

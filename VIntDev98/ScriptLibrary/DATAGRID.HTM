@@ -1,0 +1,574 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 DataGrid Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateDataGrid(strName,funcInit,objParent)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+
+	// create tag in document
+	var strTag = '<TABLE cellspacing="0" cellpadding="0" name="' + strName + '" id="' + strName + '"><TR><TD></TD></TR></TABLE>'
+	if (typeof(objParent) == 'object')
+		objParent.insertAdjacentHTML('BeforeEnd',strTag);
+	else
+		document.write(strTag);
+
+	var objTable = document.all[strName];
+	if (typeof(objTable) != 'object')
+		return null;
+	var bNameExists = eval('typeof(' + strName + ') == "object"');
+	if (!bNameExists)	
+		eval(strName + ' = objTable');
+	
+	// public members
+	objTable.tableAttributes = '';		// <TABLE tableAttributes>
+	objTable.headerAttributes = '';		// <TR headerAttributes>
+	objTable.headerWidth = new Array;	// <TD> width attributes
+	objTable.headerFormat = '';			// <TH>headerFormat colHeader[nCol]</TH>
+	objTable.colHeader = new Array;
+	objTable.rowAttributes = new Array;	// <TR rowAttributes[nRow]>
+	objTable.rowFormat = new Array;		
+	objTable.colData = new Array;		// <TD colAttributes[nCol]>rowFormat[nRow] colData[nCol]</TD>
+	objTable.colAttributes = new Array;	// OR
+	objTable.colFormat = new Array;		// <TD colAttributes[nCol]>colFormat[nCol] colData[nCol]</TD>
+	objTable.pageSize = 0;
+	objTable.allColumns = false;
+	objTable.hiliteAttributes = '';
+	objTable.hasPageNumber = false;
+	objTable.displayHeader = true;
+	objTable.navbarAlignment = 'center';
+	
+	// published methods
+	objTable.show = _DG_show;
+	objTable.hide = _DG_hide;
+	objTable.isVisible = _DG_isVisible;
+	objTable.getPagingNavbar = _DG_getPagingNavbar;
+	objTable.getRecordsetNavbar = _DG_getRecordsetNavbar;
+	objTable.bindAllColumns = _DG_bindAllColumns;
+	
+	// public methods
+	objTable.getDataSource = _DG_getDataSource;
+	objTable.setDataSource = _DG_setDataSource;
+	objTable.showPageNavbar = _DG_showPageNavbar;
+	objTable.showRecordNavbar = _DG_showRecordNavbar;
+	
+	// private methods
+	objTable._fireEvent = _DG__fireEvent;
+	objTable._evalRowInfo = _DG__evalRowInfo;
+	objTable._evalSingleRow = _DG__evalSingleRow;
+	objTable._display = _DG__display;
+	objTable._syncTableProperties = _DG__syncTableProperties;
+	objTable.onclick = _DG__onclick;
+	objTable.onkeydown = _DG__onkeydown;
+		
+	// private members
+	objTable._objDataSource = null;
+	objTable._objNavbar = null;
+	objTable._objRecNavbar = null;
+	objTable._rowCount = 0; 
+	objTable._bExclusive = false;
+	objTable._bEvalingInfo = false;
+	objTable._curPage = 0;
+	objTable._rowInfo = new Array;
+	
+	objTable._objEventManager = CreateEventManager();
+	objTable._fireEvent(funcInit);
+	objTable._auxID = 'DataGrid';
+	if (document.body.onafterupdate == null)
+	{
+		DG_ONAFTERUPDATE = 'datagridonafterupdate';
+		document.body.onafterupdate = _DG__bodyonafterupdate;
+	}
+	
+	return objTable;
+}
+
+function _DG_show()
+{
+	this.style.visibility = 'visible';
+	this._display();
+	this._syncTableProperties();
+}
+
+function _DG_hide()
+{	this.style.visibility = 'hidden';	}
+
+function _DG_isVisible()
+{	return (this.style.visibility != 'hidden');	}
+	
+function _DG_getPagingNavbar()
+{	return document.all(this.id + '_PageNavbar');	}
+
+function _DG_getRecordsetNavbar()
+{	return document.all(this.id + '_RecordNavbar');	}
+
+function _DG_bindAllColumns()
+{	
+	this.allColumns = true;	
+	this._curPage = -1;
+	_DG__onrowenter(this);
+}
+	
+function _DG_getDataSource()
+{	return this._objDataSource;		}
+
+function _DG_setDataSource(objDataSource)
+{
+	if (typeof(objDataSource) != 'object')
+		return false;
+	
+	if (this._objDataSource != null)
+	{
+		this._objDataSource.unadvise(RS_ONROWENTER, this._onrowenterID);
+		this._objDataSource.unadvise(RS_ONAFTERUPDATE, this._onafterupdateID);		
+		this._objDataSource.unadvise(DG_ONAFTERUPDATE, this._dgonafterupdateID);
+		this._objDataSource.unadvise(RS_ONDATASETCOMPLETE, this._ondatasetcompleteID);
+	}
+	
+	this._objDataSource = objDataSource;
+	
+	var objNavbar = this.getRecordsetNavbar();
+	if (objNavbar != null)
+		objNavbar.setDataSource(objDataSource);
+	
+	objNavbar = this.getPagingNavbar();
+	if (objNavbar != null)
+		objNavbar.setDataSource(objDataSource);
+		
+	if (this._objDataSource != null)
+	{
+		this._bExclusive = true;
+		this._onrowenterID = objDataSource.advise(RS_ONROWENTER, '_DG__onrowenter(' + this.name + ');');
+		this._onafterupdateID = objDataSource.advise(RS_ONAFTERUPDATE, '_DG__onafterupdate(' + this.name + ', true);');
+		this._dgonafterupdateID = objDataSource.advise(DG_ONAFTERUPDATE, '_DG__onafterupdate(' + this.name + ', false);');
+		this._ondatasetcompleteID = objDataSource.advise(RS_ONDATASETCOMPLETE, this.name + '._curPage = -1;_DG__onrowenter(' + this.name + ');');
+		this._bExclusive = false;
+	}
+	
+		
+	return true;
+}
+
+function _DG_showPageNavbar(nButtonMask,nAlignment)
+{
+	var objNavbar = this.getPagingNavbar();
+		
+	if (objNavbar == null)
+	{
+		var objRecNavbar = this.getRecordsetNavbar();
+		if (objRecNavbar == null)
+		{
+			this.insertRow().insertCell().innerHTML = '<TABLE navbar="1" width=100% border=0><TR><TD align=' + this.navbarAlignment + '></TD><TD align=right valign=middle></TD></TR></TABLE>';
+			objNavbar =  CreateRecordsetNavbar(this.name + '_PageNavbar',	null,
+								this.rows(1).cells(0).children(0).rows(0).cells(0));
+		}
+		else
+		{
+			var nPlace = (objRecNavbar.children.length - (objRecNavbar.children.length % 2)) / 2;
+			objNavbar =  CreateRecordsetNavbar(this.name + '_PageNavbar',	null, objRecNavbar.children(nPlace));
+		}
+		
+		objNavbar.setAlignment(nAlignment);
+		objNavbar.setButtonStyles(nButtonMask);
+		objNavbar.updateOnMove = false;
+		if (this._objDataSource != null)
+			objNavbar.setDataSource(this._objDataSource);
+	
+		objNavbar.pageSize = this.pageSize;			 
+	}
+	
+	return	objNavbar;
+}
+
+function _DG_showRecordNavbar(nButtonMask,nAlignment)
+{
+	var objRecNavbar = this.getRecordsetNavbar();
+	if (objRecNavbar == null)
+	{
+		var objNavbar = this.getPagingNavbar();
+		if (objNavbar == null)
+		{
+			this.insertRow().insertCell().innerHTML = '<TABLE navbar="1" width=100% border=0><TR><TD align=' + this.navbarAlignment + '></TD><TD align=right valign=middle></TD></TR></TABLE>';
+			objRecNavbar =  CreateRecordsetNavbar(this.name + '_RecordNavbar', 
+								null, this.rows(1).cells(0).children(0).rows(0).cells(0));
+		}
+		else
+		{
+			var nPlace = (objNavbar.children.length - (objNavbar.children.length % 2)) / 2;
+			objRecNavbar =  CreateRecordsetNavbar(this.name + '_RecordNavbar', null, objNavbar.children(nPlace));	
+		}
+		
+		objRecNavbar.setAlignment(nAlignment);
+		objRecNavbar.setButtonStyles(nButtonMask);
+		objRecNavbar.updateOnMove = false;
+		if (this._objDataSource != null)
+			objRecNavbar.setDataSource(this._objDataSource);
+	}
+	
+	return objRecNavbar;
+}
+
+function _DG__fireEvent(funcToFire)
+{
+	if (typeof(funcToFire) == 'undefined')
+	{
+		if (this._objEventManager != null) 
+			this._objEventManager.fireEvent('on' + window.event.type);
+	}
+	else
+		_EM__fireEvent(funcToFire);
+}
+
+function _DG__evalRowInfo()
+{
+	var objRS = this._objDataSource;
+	if (objRS.absolutePosition > (this.pageSize * this._curPage))
+		this._rowInfo.length = objRS.absolutePosition - this.pageSize * this._curPage - 1;
+	else
+		this._rowInfo.length = 0;
+	
+	if (this.allColumns)
+	{	// auto-generate data from recordset
+		this.colHeader.length = 0;
+		this.colData.length = 0;
+		this.headerWidth.length = 0;
+		var nCount = objRS.fields.getCount();
+		for (var i=0; i < nCount; i++)
+		{
+			if (this.displayHeader)
+			{
+				this.colHeader[i] = '"' + objRS.fields.getName(i) + '"';
+				this.headerWidth[i] = '';
+			}
+			this.colData[i] = objRS.name + '.fields.getValue(' + i + ')';
+		}
+	}
+			
+	if (this.hasPageNumber)
+	{
+		var nPages = 1;
+		var nCount = objRS.getCount();
+		var strHTML = '';
+		
+		if (nCount > 0 && this.pageSize > 0)
+			nPages = ((nCount  - 1) / this.pageSize) + 1;
+		strHTML += '<FONT size=2><NOBR>Page : ' + (this._curPage + 1) + ' of ' + parseInt(nPages) + '</NOBR></FONT>';
+		this.rows(1).cells(0).children(0).rows(0).cells(1).innerHTML = strHTML;
+	}
+	
+	this._rowInfo[this._rowInfo.length] = this._evalSingleRow();
+	this._bEvalingInfo = true;
+	for (this._rowCount = this._rowInfo.length; (this._rowCount < this.pageSize && !objRS.EOF) || (this.pageSize == 0 && !objRS.EOF); ++ this._rowCount)
+		objRS.moveNext();
+	this._bEvalingInfo = false;
+	
+	this._rowCount = 0;			
+}
+
+function _DG__evalSingleRow(hilite)
+{
+	if (this._objDataSource.EOF)
+		return '';
+		
+	var strDetail = '';
+	var nCols = this.colData.length;
+	for (var nCol=0; nCol < nCols; nCol++)
+	{	
+		// apply column attributes to <TD>
+		strDetail += '<TD';
+		if (typeof(hilite) != 'undefined')
+			strDetail += ' ' + hilite;
+		
+		if (nCol < this.colAttributes.length)
+			strDetail += ' ' + this.colAttributes[nCol];
+	
+		strDetail += '>';
+
+		// determine format per data column
+		if (typeof(this.colFormat[nCol]) != 'undefined')
+		{ // use column format
+			strDetail += this.colFormat[nCol];
+		}
+		else if (this.rowFormat.length)
+		{ // use row format
+			var nRow = this._rowCount % this.rowFormat.length;
+			strDetail += this.rowFormat[nRow];
+		}
+
+		strDetail += eval(this.colData[nCol]);
+		strDetail += '</TD>\n';
+	}
+
+	return strDetail;
+}
+
+function _DG__display()
+{	
+	var objRS = this._objDataSource;
+
+	var strHeader = '<TABLE ' + this.tableAttributes + '>\n';
+	var nHeaderCols = this.colHeader.length;
+	if (nHeaderCols)
+	{
+		strHeader += '<TR ' + this.headerAttributes + '>\n';
+		for (var nCol=0; nCol < nHeaderCols; nCol++)
+			strHeader += '<TH ' + this.headerWidth[nCol] + '>' + this.headerFormat + eval(this.colHeader[nCol]) + '</TH>\n';
+					
+		strHeader += '</TR>\n';
+	}
+	
+	var strBody = '';
+	var nRowToScroll = 0;
+	
+	for (this._rowCount = 0; this._rowCount < this._rowInfo.length; ++this._rowCount)
+	{
+		var nPos = (this._curPage) * this.pageSize + this._rowCount + 1;
+		if (this.rowAttributes.length)
+		{	// apply row attributes to <TR>
+			var nRow = this._rowCount % this.rowAttributes.length;
+			strBody += '<TR ' + this.rowAttributes[nRow] + '>\n';
+		}
+		else
+			strBody += '<TR>\n';
+			
+		if (this.hiliteAttributes.length && nPos == this._objDataSource.absolutePosition)
+		{
+			nRowToScroll =  this._rowCount;
+			strBody +=  this._evalSingleRow(this.hiliteAttributes);
+		}
+		else
+			strBody += this._rowInfo[this._rowCount];
+			
+		strBody += '</TR>';
+	}
+	
+	this._rowCount = 0;
+	var objInnerTable = this.rows(0).cells(0);
+	objInnerTable.innerHTML = strHeader + strBody + '</TABLE>';	
+	//fix scrollIntoView and hilite for TDs
+	if (objInnerTable.children(0).rows(nRowToScroll) != null)
+		objInnerTable.children(0).rows(nRowToScroll).scrollIntoView(true);
+} 
+
+function _DG__syncTableProperties()
+{
+	var objInnerTable = this.rows(0).cells(0).children(0);
+	this.align = objInnerTable.align;
+	this.width = objInnerTable.width;
+	objInnerTable.width = "100%";
+	this.bgcolor = objInnerTable.bgcolor;
+}
+
+function _DG__onclick()
+{
+	var objDataGrid = event.srcElement;
+	var bFound = false;
+	var nIndexAux = 0;
+	var nIndex = 0;
+	
+	if (document.selection.type != 'None')
+		return;
+
+	while ((!bFound) && (typeof(objDataGrid) != 'undefined') && (objDataGrid != null))
+	{
+		if (typeof(objDataGrid.navbar) == 'string')
+			return;
+			
+		if (objDataGrid.tagName == 'TR')
+		{
+			nIndex = nIndexAux;
+			nIndexAux = objDataGrid.rowIndex;
+		}
+		
+		if ((typeof(objDataGrid._auxID) == 'string') && (objDataGrid._auxID == 'DataGrid'))
+			bFound = true;
+		else
+			objDataGrid	= objDataGrid.parentElement;
+	}
+		
+	if ((bFound) && (typeof(objDataGrid.hiliteAttributes) != 'undefined') && (objDataGrid.hiliteAttributes != null) && (objDataGrid.hiliteAttributes.length))
+	{
+		var objRS = objDataGrid._objDataSource;
+
+		if ((typeof(objRS) != 'undefined') && (objRS != null))
+		{
+			var nPos = objRS.absolutePosition;
+			var nOffset = objDataGrid.pageSize * objDataGrid._curPage;
+				
+			if ((this.colHeader.length == 0) || !this.displayHeader) ++nIndex;
+			
+			if (nIndex != 0)
+				objRS.moveAbsolute(nOffset + nIndex);
+					
+			objDataGrid.focus();
+		}		
+	}
+ }
+ 
+function _DG__onkeydown()
+{
+	var objDataGrid = event.srcElement;
+	var bFound = false;
+	
+	while ((!bFound) && (typeof(objDataGrid) != 'undefined') && (objDataGrid != null))
+	{
+		if ((typeof(objDataGrid._auxID) == 'string') && (objDataGrid._auxID == 'DataGrid'))
+			bFound = true;
+		else
+			objDataGrid	= objDataGrid.parentElement;
+	}
+	
+	if ((bFound) && (typeof(objDataGrid.hiliteAttributes) != 'undefined') && (objDataGrid.hiliteAttributes != null) && (objDataGrid.hiliteAttributes.length))
+	{
+		var objRS = objDataGrid._objDataSource;		
+		if (objRS != null)
+		{
+			var nKey = window.event.keyCode;
+			if (nKey == 40) //down arrow
+			{
+				if (!objRS.EOF)
+					objRS.moveNext();
+			}
+			else if (nKey == 38) //up arrow
+			{
+				if (!objRS.BOF)
+					objRS.movePrevious();
+			}
+			else if (nKey == 34)
+			{
+				var nPos = objRS.absolutePosition + objDataGrid.pageSize;
+				if (nPos > objRS.getCount())
+					objRS.moveLast();
+				else
+					objRS.moveAbsolute(nPos);
+					
+			}
+			else if (nKey == 33)
+			{
+				var nPos = objRS.absolutePosition - objDataGrid.pageSize;
+				if (nPos < 1)
+					objRS.moveFirst();
+				else
+					objRS.moveAbsolute(nPos);
+					
+			}
+			else if (nKey == 36)
+				objRS.moveFirst();
+			else if (nKey == 35)
+				objRS.moveLast();
+			else
+				return;
+				
+		}
+	}	
+}
+
+function _DG__onrowenter(objDataGrid)
+{
+	if (! objDataGrid._bExclusive)
+	{
+		if (objDataGrid._bEvalingInfo)
+			objDataGrid._rowInfo[objDataGrid._rowInfo.length] = objDataGrid._evalSingleRow();	
+		else
+		{
+			var objRS = objDataGrid._objDataSource;
+			var nPos = objRS.absolutePosition;
+			if (nPos <= 0)
+			{
+				if ((nPos == 0) || (nPos == -1)) //Start, unknown or empty recordset
+					objDataGrid._rowInfo.length = 0;
+				else 	
+					return;
+			}
+			else
+			{
+				var curPage;		
+				if (objDataGrid.pageSize > 0)
+					curPage = ((nPos -1) - ((nPos - 1) % objDataGrid.pageSize)) / objDataGrid.pageSize;
+				else
+					curPage = 0;
+					
+				if (curPage != objDataGrid._curPage)	
+				{	
+					if (typeof(objRS._rsRDS.InternetTimeout) == 'undefined')
+					{	// RDS 1.5 does not allow cursor movement in onrowenter handler
+						if (window.event != null && window.event.type == 'rowenter')
+						{	// defer movement until after exiting onrowenter handler
+							window.setTimeout('_DG__onrowenter(' + objDataGrid.id + ')',0);
+							return;
+						}
+					}
+
+					objDataGrid._bExclusive = true;
+					objRS.moveAbsolute((curPage * objDataGrid.pageSize) + 1);
+					objDataGrid._bExclusive = false;
+					
+					objDataGrid._curPage = curPage;
+					objDataGrid._evalRowInfo();
+					
+					objDataGrid._bExclusive = true;
+					objRS.moveAbsolute(nPos);
+					objDataGrid._bExclusive = false;
+				}	
+			}	
+			objDataGrid._display();
+			objDataGrid._syncTableProperties();
+		}
+	}
+}
+
+function _DG__onafterupdate(objDataGrid, bDisplay)
+{
+	var objRS = objDataGrid._objDataSource;
+	var	nPos = objRS.absolutePosition;
+
+	if ((objDataGrid.pageSize == 0) || ((nPos > objDataGrid._curPage * objDataGrid.pageSize) && 
+		(nPos <= (objDataGrid._curPage + 1) * objDataGrid.pageSize)))
+	{
+		objDataGrid._evalRowInfo();
+			
+		objDataGrid._bExclusive = true;
+		objRS.moveAbsolute(nPos);
+		objDataGrid._bExclusive = false;
+	}
+	else if (nPos == 0)
+		objDataGrid._rowInfo.length = 0;
+
+	if (typeof(bDisplay) == 'boolean' && bDisplay == true)
+	{
+		objDataGrid._display();
+		objDataGrid._syncTableProperties();
+	}
+}
+
+function _DG__bodyonafterupdate()
+{	
+	var objRS = _DG__findRecordSource(event.srcElement);
+	
+	if ((objRS != null) && (typeof(objRS._objEventManager) != 'undefined'))
+		objRS._objEventManager.fireEvent(DG_ONAFTERUPDATE);
+}
+
+function _DG__findRecordSource(objSrcElement)
+{
+	var bFound = false;
+	var objSrc = objSrcElement;
+	
+	while ((!bFound) && (typeof(objSrc) != 'undefined') && (objSrc != null))
+	{
+		if (typeof(objSrc.getDataSource) != 'undefined')
+			bFound = true;
+		else
+			objSrc = objSrc.parentElement;
+	}	
+	
+	if (bFound)
+		return objSrc.getDataSource();
+	else
+		return null;
+}
+

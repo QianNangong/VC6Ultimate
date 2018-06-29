@@ -1,0 +1,131 @@
+
+; Dependency file for setup wizards.
+
+[Version]
+Version=6.0.88.4
+
+; Run-time Dependencies for MSDBRptR.dll (MSDBRpt.dll)
+
+; Default Dependencies ------------------------------------------------------
+
+[MSDBRptR.dll]
+Dest=$(WinSysPath)
+Register=$(DLLSelfRegister)
+Version=6.0.88.4
+Uses1=MSStdFmt.dll
+Uses2=ComCat.dll
+Uses3=
+CABFileName=MSDBRptR.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=MSDBRptR.inf
+
+[ComCat.dll]
+Dest=$(WinSysPathSysFile)
+Register=$(DLLSelfRegister)
+Uses1=
+
+; Localized Dependencies -------------------------------------------- 
+
+; ** German (DE) ***
+; (0007 = German)
+;
+[MSDBRptR.dll <0007>]
+Uses1=DBRpRDE.dll
+Uses2=
+
+[DBRpRDE.dll <0007>]
+Uses1=
+CABFileName=DBRpRDE.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRDE.inf
+
+; ** French (FR) ***
+; (000C = French)
+;
+[MSDBRptR.dll <000C>]
+Uses1=DBRpRFR.dll
+Uses2=
+
+[DBRpRFR.dll <000C>]
+Uses1=
+CABFileName=DBRpRFR.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRFR.inf
+
+; ** Italian (IT) ***
+; (0010 = Italian)
+;
+[MSDBRptR.dll <0010>]
+Uses1=DBRpRIT.dll
+Uses2=
+
+[DBRpRIT.dll <0010>]
+Uses1=
+CABFileName=DBRpRIT.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRIT.inf
+
+; ** Spanish (ES) ***
+; (000A = Spanish)
+;
+[MSDBRptR.dll <000A>]
+Uses1=DBRpRES.dll
+Uses2=
+
+[DBRpRES.dll <000A>]
+Uses1=
+CABFileName=DBRpRES.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRES.inf
+
+; ** Japanese (JP) ***
+; (0011 = Japanese)
+;
+[MSDBRptR.dll <0011>]
+Uses1=DBRpRJP.dll
+Uses2=
+
+[DBRpRJP.dll <0011>]
+Uses1=
+CABFileName=DBRpRJP.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRJP.inf
+
+; ** Korean (KO) ***
+; (0012 = Korean)
+;
+[MSDBRptR.dll <0012>]
+Uses1=DBRpRKO.dll
+Uses2=
+
+[DBRpRKO.dll <0012>]
+Uses1=
+CABFileName=DBRpRKO.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRKO.inf
+
+; ** Chinese Traditional (CHT) ***
+; (0404 = Chinese Traditional)
+;
+[MSDBRptR.dll <0404>]
+Uses1=DBRpRCHT.dll
+Uses2=
+
+[DBRpRCHT.dll <0404>]
+Uses1=
+CABFileName=DBRpRCHT.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRCHT.inf
+
+; ** Chinese Simplified (CHS) ***
+; (0804 = Chinese Simplified)
+;
+[MSDBRptR.dll <0804>]
+Uses1=DBRpRCHS.dll
+Uses2=
+
+[DBRpRCHS.dll <0804>]
+Uses1=
+CABFileName=DBRpRCHS.cab
+CABDefaultURL=http://activex.microsoft.com/controls/vb6
+CABINFFile=DBRpRCHS.inf

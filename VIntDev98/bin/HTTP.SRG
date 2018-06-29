@@ -1,0 +1,78 @@
+[HKEY_CLASSES_ROOT\.asp]
+"Content Type"="REG_SZ:text/asp"
+
+[HKEY_CLASSES_ROOT\.asa]
+"Content Type"="REG_SZ:text/asa"
+
+[HKEY_CLASSES_ROOT\.avi]
+"Content Type"="REG_SZ:video/avi"
+
+[HKEY_CLASSES_ROOT\.bmp]
+"Content Type"="REG_SZ:image/bmp"
+
+[HKEY_CLASSES_ROOT\.cdf]
+"Content Type"="REG_SZ:application/x-netcdf"
+
+[HKEY_CLASSES_ROOT\.class]
+"Content Type"="REG_SZ:java/*"
+
+[HKEY_CLASSES_ROOT\.css]
+"Content Type"="REG_SZ:text/css"
+
+[HKEY_CLASSES_ROOT\.gif]
+"Content Type"="REG_SZ:image/gif"
+
+[HKEY_CLASSES_ROOT\.htm]
+"Content Type"="REG_SZ:text/html"
+
+[HKEY_CLASSES_ROOT\.html]
+"Content Type"="REG_SZ:text/html"
+
+[HKEY_CLASSES_ROOT\.htx]
+"Content Type"="REG_SZ:text/html"
+
+[HKEY_CLASSES_ROOT\.java]
+"Content Type"="REG_SZ:java/*"
+
+[HKEY_CLASSES_ROOT\.jfif]
+"Content Type"="REG_SZ:image/jpeg"
+
+[HKEY_CLASSES_ROOT\.jpe]
+"Content Type"="REG_SZ:image/jpeg"
+
+[HKEY_CLASSES_ROOT\.jpeg]
+"Content Type"="REG_SZ:image/jpeg"
+
+[HKEY_CLASSES_ROOT\.jpg]
+"Content Type"="REG_SZ:image/jpeg"
+
+[HKEY_CLASSES_ROOT\.js]
+"Content Type"="REG_SZ:application/x-javascript"
+
+[HKEY_CLASSES_ROOT\.ls]
+"Content Type"="REG_SZ:application/x-javascript"
+
+[HKEY_CLASSES_ROOT\.mocha]
+"Content Type"="REG_SZ:application/x-javascript"
+
+[HKEY_CLASSES_ROOT\.movie]
+"Content Type"="REG_SZ:video/x-sgi-movie"
+
+[HKEY_CLASSES_ROOT\.mpe]
+"Content Type"="REG_SZ:video/mpeg"
+
+[HKEY_CLASSES_ROOT\.mpeg]
+"Content Type"="REG_SZ:video/mpeg"
+
+[HKEY_CLASSES_ROOT\.mpg]
+"Content Type"="REG_SZ:video/mpeg"
+
+[HKEY_CLASSES_ROOT\.pl]
+"Content Type"="REG_SZ:application/x-perl"
+
+[HKEY_CLASSES_ROOT\.stm]
+"Content Type"="REG_SZ:text/html"
+
+[HKEY_CLASSES_ROOT\.wav]
+"Content Type"="REG_SZ:audio/x-wav"
+

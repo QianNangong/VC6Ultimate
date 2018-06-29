@@ -1,0 +1,29 @@
+"VersionInfo"
+[
+	"Current"
+	{
+		FormatVersion=1
+		WriterVersion=1
+	}
+]
+"Filters"
+[
+	"List"
+	{
+		Count =0
+	}
+]
+"Machines"
+[
+	"List"
+	{
+		Count =0
+	}
+]
+"EventLogs"
+[
+	"List"
+	{
+		Count =0
+	}
+]

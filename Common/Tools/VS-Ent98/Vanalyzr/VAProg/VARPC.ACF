@@ -1,0 +1,15 @@
+/*
+-------------------------------------------------------------------------------
+File:				varpc.acf
+Purpose:		RPC Interfaces for Visual Studio Analyzer Eventing
+System:			Visual Studio Analyzer Analysis.
+Copyright:	(c) 1997, Microsoft Corporation
+						All Rights Reserved
+Tabs:				2,2
+-------------------------------------------------------------------------------
+*/
+
+[implicit_handle(handle_t VsaRpcl_IfHandle)]
+interface IRPC_MicrosoftVisualStudioAnalyzer
+{
+}

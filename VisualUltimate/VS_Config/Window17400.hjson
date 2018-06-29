@@ -1,0 +1,80 @@
+{
+	Name: "Menu bar",
+	MenuItems: [
+		{
+			CmdID: "MenuFile",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuEdit",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuView",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuInsert",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuProject",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuBuild",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuDebug",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuImage",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuLayout",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuTools",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuWindow",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuHelp",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuMacros",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "MenuAddins",
+			State: "S20|S80",
+			Width: 0,
+		}
+		{
+			CmdID: "VU_Options",
+			State: "S200",
+			Width: 0,
+		}
+	]
+}

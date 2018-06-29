@@ -1,0 +1,15 @@
+STRINGTABLE DISCARDABLE 
+BEGIN
+	3	"Execute Method Begin"
+	4	"Execute Method End"
+	6	"Ready Method Begin"
+	7	"Worker"
+	8	"Ready Method End, New Service"
+	9	"Ready Method End, No Service"
+	10	"DoService Received"
+	11	"Call rejected retry"
+	12	"Error: "
+
+	//User defined errors
+	32767	"Invalid Lib.Class.Method parameter"
+END

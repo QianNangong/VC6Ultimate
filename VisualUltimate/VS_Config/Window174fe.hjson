@@ -1,0 +1,10 @@
+{
+	Name: "CLang Context",
+	MenuItems: [
+		{
+			CmdID: "New",
+			State: "S200",
+			Width: 0,
+		}
+	]
+}

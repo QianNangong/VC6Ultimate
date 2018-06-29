@@ -1,0 +1,14 @@
+STRINGTABLE DISCARDABLE 
+BEGIN
+	20000	"Error allocating handle"
+	20001	"Error setting attribute"
+	20002	"Error connecting driver"
+	20003	"Error executing query"
+	20004	"Error fetching record"
+	20005	"Error closing cursor"
+	20006	"Error freeing handle"
+	20007	"Error disconnecting driver"
+	20008	"Error getting data"
+	20009	"Error ending transaction"
+	20010	"Resource deadlock error"
+END

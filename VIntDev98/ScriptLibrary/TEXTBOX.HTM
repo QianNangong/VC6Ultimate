@@ -1,0 +1,364 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 Textbox Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateTextbox(strName,funcInit,objParent)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+
+	// constants
+	TXT_TEXTBOX = 0;
+	TXT_TEXTAREA = 1;
+	TXT_PASSWORD = 2;
+
+	var strTag = '<SPAN id="' + strName + '_SPAN">';
+	strTag = strTag + '<INPUT type="text" name="' + strName + '" id="' + strName + '">';
+	strTag = strTag + '</SPAN>'	
+
+	if ((typeof(objParent) == 'object') && (objParent != null))
+		objParent.insertAdjacentHTML('BeforeEnd',strTag);
+	else
+		document.write(strTag);
+
+	//append public members
+	var objTextbox = _TXT__createMembers(strName);
+	if ((typeof(objTextbox) != 'object') || (objTextbox == null))
+		return null;
+
+	//events
+	TXT_ONCHANGE = 'onchange';
+
+	//private members
+	objTextbox._objEventManager = null;
+	objTextbox._objDataSource = null;
+	objTextbox._strDataField = '';	
+	objTextbox._nRowCount = 1;
+	objTextbox._nStyle = TXT_TEXTBOX;
+
+	// advise for default eventhandlers
+	objTextbox._objEventManager = CreateEventManager();
+	objTextbox._fireEvent('_TXT__onbeforefuncinit(' + objTextbox.id + ')');
+	objTextbox._fireEvent(funcInit);
+	return objTextbox;
+}
+
+function _TXT__createMembers(strName)
+{
+	var objParentSpan = document.all[strName + '_SPAN'];
+	var objTextbox = objParentSpan.children(0);
+	if (typeof(objTextbox) != 'object')
+		return null;
+
+	// ensure strName is defined in global namespace
+	var bDefineAsGlobal =	eval('typeof(' + strName + ') == "undefined"') ||
+							typeof(objParentSpan._makeglobal) != 'undefined';
+	if (bDefineAsGlobal)
+	{	// scoped within a form, define in global namespace
+		eval(strName + ' = objTextbox');
+		objParentSpan._makeglobal = 1;
+	}
+
+	objTextbox.hide = _TXT_hide;
+	objTextbox.show = _TXT_show;
+	objTextbox.isVisible = _TXT_isVisible;
+	objTextbox.getColumnCount = _TXT_getColumnCount;
+	objTextbox.setColumnCount = _TXT_setColumnCount;
+	objTextbox.getRowCount = _TXT_getRowCount;
+	objTextbox.setRowCount = _TXT_setRowCount;	
+	objTextbox.getMaxLength = _TXT_getMaxLength;
+	objTextbox.setMaxLength = _TXT_setMaxLength;
+	objTextbox.getDataSource = _TXT_getDataSource;
+	objTextbox.setDataSource = _TXT_setDataSource;
+	objTextbox.getDataField = _TXT_getDataField;
+	objTextbox.setDataField = _TXT_setDataField;
+	objTextbox.getStyle = _TXT_getStyle;
+	objTextbox.setStyle = _TXT_setStyle;
+	objTextbox.advise = _TXT_advise;
+	objTextbox.adviseDefaultHandler = _TXT_adviseDefaultHandler;
+	objTextbox.unadvise = _TXT_unadvise;
+	objTextbox.display = _TXT_display;
+	objTextbox._fireEvent = _TXT__fireEvent;
+	objTextbox.onbeforeupdate = _TXT__onbeforeupdate;
+	objTextbox._objSpan = eval(strName + '_SPAN');
+	return objTextbox;
+}
+
+function _TXT_hide()
+{	this.style.visibility = 'hidden';	}	
+
+function _TXT_show()
+{	this.style.visibility = 'visible';	}	
+
+function _TXT_isVisible()
+{	return (this.style.visibility != 'hidden');	}	
+
+function _TXT_getColumnCount()
+{
+	if (this._nStyle == TXT_TEXTAREA)
+		return this.cols;
+	else
+		return this.size;
+}	
+
+function _TXT_setColumnCount(nColumnCount)
+{
+	if (!isNaN(parseInt(nColumnCount)) && nColumnCount > 0)
+	{
+		if (this._nStyle == TXT_TEXTAREA)
+			this.cols = Number(nColumnCount);
+		else
+			this.size = Number(nColumnCount);	
+		return true;
+	}
+	return false;
+}
+
+function _TXT_getRowCount()
+{	return this._nRowCount;	}
+
+function _TXT_setRowCount(nRowCount)
+{
+	if (!isNaN(parseInt(nRowCount)) && nRowCount > 0)
+	{
+		this._nRowCount = nRowCount;	
+		if (this._nStyle == TXT_TEXTAREA)
+			this.rows = Number(nRowCount);
+		return true;
+	}
+	return false;
+		
+}
+
+function _TXT_getMaxLength()
+{
+	if (this._nStyle == TXT_TEXTAREA)
+		return this.cols;
+	else
+		return this.maxLength;
+}
+
+function _TXT_setMaxLength(nMaxLength)
+{
+	if (!isNaN(parseInt(nMaxLength)) && nMaxLength > 1 && this._nStyle != TXT_TEXTAREA)
+	{
+		this.maxLength = nMaxLength;	
+		return true;
+	}
+	return false;
+}
+
+function _TXT_getDataSource()
+{	return this._objDataSource;	}
+	
+function _TXT_setDataSource(objDataSource)
+{
+	if (typeof(objDataSource) != 'object')
+		return false;
+
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+
+	if ((this._objDataSource == null) || (objDataSource != null && this._objDataSource.id != objDataSource.id))
+	{
+		if (this._objDataSource != null)
+			this._objDataSource.unadvise(this._afterOpenID);
+		if (objDataSource != null)
+			this._afterOpenID = objDataSource.advise(RS_ONAFTEROPEN, this.id + '.setDataSource(' + objDataSource.id + ');');		
+	}
+	
+	this._objDataSource = objDataSource;
+
+	if ((objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '#' + objDataSource.getDHTMLDataSourceID();
+			this.dataFld = this._strDataField;
+		}	
+		else
+		{
+			this._rowEnterID = objDataSource.advise(RS_ONROWENTER, '_TXT__onrowenter(' + objDataSource.id + ', ' + this.id + ', "' + this._strDataField + '");');
+			this._rowExitID = objDataSource.advise(RS_ONROWEXIT, '_TXT_onrowexit(' + objDataSource.id + ', ' + this.id + ', "' + this._strDataField + '");');
+		}
+	}		
+	return true;
+}
+
+function _TXT_getDataField()
+{	return this._strDataField;	}	
+
+function _TXT_setDataField(strDataField)
+{
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '';
+			this.dataFld = '';
+		}
+		else
+		{
+			this._objDataSource.unadvise(this._rowEnterID);
+			this._objDataSource.unadvise(this._rowExitID);
+		}
+	}
+
+	this._strDataField = strDataField;
+
+	if ((this._objDataSource != null) && (this._strDataField != ''))
+	{	
+		if (this._objDataSource.isDHTMLAware())
+		{
+			this.dataSrc = '#' + this._objDataSource.getDHTMLDataSourceID();
+			this.dataFld = strDataField;
+		}	
+		else
+		{
+			this._rowEnterID = this._objDataSource.advise(RS_ONROWENTER, '_TXT__onrowenter(' + this._objDataSource.id + ', ' + this.id + ', "' + strDataField + '");');
+			this._rowExitID = this._objDataSource.advise(RS_ONROWEXIT, '_TXT__onrowexit(' + this._objDataSource.id + ', ' + this.id + ', "' + strDataField + '");');
+		}
+	}		
+	return true;
+}
+
+function _TXT_getStyle()
+{	return this._nStyle;	}
+
+function _TXT_setStyle(nStyle)
+{
+	if (!isNaN(parseInt(nStyle)) && (nStyle >= TXT_TEXTBOX) && (nStyle <= TXT_PASSWORD))
+	{
+		if (this._nStyle != nStyle)
+		{	// type of tag needs to be changed
+			// save current state
+			var bVisible = this.isVisible();
+			var bDisabled = this.disabled;
+			var value = this.value;
+			var strName = this.name;
+			var nRowCount = this.getRowCount();
+			var nColCount = this.getColumnCount();
+			var nMaxLength = this.getMaxLength();
+			var objEventManager = this._objEventManager;
+			var objDataSource = this._objDataSource;
+			var strDataField = this._strDataField;
+
+			// replace previous tag with new tag
+			var strTag;
+			if (nStyle == TXT_TEXTAREA)
+				strTag = '<TEXTAREA name="' + strName + '" id="' + strName + '" rows=' + nRowCount + ' style="visiblity:hidden"></TEXTAREA>';
+			else if (nStyle == TXT_PASSWORD)
+				var strTag = '<INPUT type="password" name="' + strName + '" id="' + strName + '" style="visiblity:hidden">';
+			else
+				var strTag = '<INPUT type="text" name="' + strName + '" id="' + strName + '" style="visiblity:hidden">';
+			this._objSpan.innerHTML = strTag;
+
+			// restore previous state
+			var objTextbox = _TXT__createMembers(strName);
+			if ((typeof(objTextbox) != 'object') || (objTextbox == null))
+				return false;
+
+			objTextbox._nStyle = nStyle;
+			objTextbox.value = value;
+			objTextbox.disabled = bDisabled;
+			objTextbox.setRowCount(nRowCount);
+			objTextbox.setColumnCount(nColCount);
+			objTextbox.setMaxLength(nMaxLength);
+			objTextbox.setDataSource(objDataSource);
+			objTextbox.setDataField(strDataField);
+			if (bVisible)	objTextbox.show();
+
+			objTextbox._objEventManager = objEventManager;
+			if (objEventManager != null)
+			{	//re-attach all event handlers
+				var nEvents = objEventManager.getEventCount();
+				for (var i=0; i < nEvents; i++)
+					eval('objTextbox.' + objEventManager.getEvent(i) + ' = _TXT__fireEvent;');
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+function _TXT_advise(strEvent,funcToCall)
+{
+	var nAdviseID = this._objEventManager.advise(strEvent,funcToCall);
+	if (nAdviseID != -1)
+		eval('this.' + strEvent + ' = _TXT__fireEvent;');
+	
+	return nAdviseID;
+}
+
+function _TXT_adviseDefaultHandler(strName,strEvent)
+{
+	var nAdviseID = this._objEventManager.adviseDefaultHandler(strName,strEvent);
+	if (nAdviseID != -1)
+		eval("this." + strEvent + " = _TXT__fireEvent;");
+}
+
+function _TXT_unadvise(strEvent,nAdviseID)
+{	return this._objEventManager.unadvise(strEvent,nAdviseID);	}
+
+function _TXT_display()
+{	}
+
+function _TXT__fireEvent(funcToFire)
+{
+	if (typeof(funcToFire) == 'undefined')
+	{
+		if (this._objEventManager != null)
+			this._objEventManager.fireEvent('on' + window.event.type);
+	}
+	else
+		_EM__fireEvent(funcToFire);
+}
+
+function _TXT__onrowenter(objRecordset,objTextbox,strDataField)
+{	objTextbox.value = objRecordset.fields.getValue(strDataField) + '';	}
+
+function _TXT__onrowexit(objRecordset,objTextbox,strDataField)
+{
+	var txtValue = objTextbox.value;
+	if (typeof(txtValue) != 'undefined')
+		objRecordset.fields.setValue(strDataField, txtValue);
+}
+
+function _TXT__onbeforeupdate()
+{
+	var objTextbox = window.event.srcElement;
+	if (objTextbox._objDataSource != null && objTextbox._strDataField != '')
+	{
+		if (typeof(objTextbox._objDataSource._rsRDS) != 'undefined')
+		{
+			var fieldType = objTextbox._objDataSource._rsRDS.recordset.Fields(objTextbox._strDataField).type;
+			//adDate, adDBDate, adDBTime, adDBTimeStamp
+			if ((fieldType == 7) || (fieldType == 133) || (fieldType == 134) || (fieldType == 135))
+			{
+				if (!isNaN(Date.parse(objTextbox.value)))
+					objTextbox._objDataSource.fields.setValue(objTextbox._strDataField, objTextbox.value);
+			}
+		}
+	}	
+}
+
+function _TXT__onbeforefuncinit(objTextbox)
+{	objTextbox.adviseDefaultHandler(objTextbox.id, TXT_ONCHANGE);	}
+
+
+
+

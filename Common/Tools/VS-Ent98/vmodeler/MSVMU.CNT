@@ -1,0 +1,83 @@
+:Base msvmu.hlp
+:Title Visual Modeler
+:Index Frequently Asked Questions-VM =Quest.hlp
+:Index Quick Start with Visual Modeler =Qstart.hlp
+:Index Round-Trip Engineering a Visual Basic Application =Msvmvb.hlp
+:Index Generating Code for a Visual C++ Application =Msvmcpp.hlp
+:Index Microsoft Visual SourceSafe Integration =Msvmss.hlp
+:Index Microsoft Repository Integration =Msvmrep.hlp
+:Link quest.hlp
+:Link qstart.hlp
+:Link Msvmvb.hlp
+:Link Msvmcpp.hlp
+:Link Msvmss.hlp
+:Link Msvmrep.hlp
+1 Visual Modeler
+2 Frequently Asked Questions
+3 What is Visual Modeler?=FAQ_What_Is_VM@quest.hlp
+3 What is a model in Visual Modeler?=FAQ_What_Is_a_Model@quest.hlp
+3 How is the Logical View documented?=FAQ_How_Is_the_Logical_View@quest.hlp
+3 How can Visual Modeler help during design?=FAQ_How_can_VB_help_during_design@quest.hlp
+3 How can Visual Modeler help during implementation?=FAQ_How_Can_VB_help_during_implementation@quest.hlp
+3 How can Visual Modeler help during further development?=FAQ_How_can_VB_help_during_further_development@quest.hlp
+3 How do I start using Visual Modeler?=FAQ_How_Do_I_Start_Using_VM@quest.hlp
+3 How do I get help online?=FAQ_How_Do_I_Get_More_Help@quest.hlp
+3 Editing Diagrams and Classes=FAQ_CORE_Editing_Diagrams_and_Classes@quest.hlp
+2 Concepts
+3 Analysis and Design=CONCEPTS_Analysis_and_Design
+3 Three-Tiered Architectural Approach (Overview)=CONCEPTS_Three_Tier_Architecture_Overview
+3 Three-Tiered Diagrams (Overview)=SCREEN_Three_Tiered_Diagrams
+2 How To...
+3 Manage Model Properties
+4 Displaying or Modifying the Values of Model Properties=CG_CORE_Display_Model_Props@msvmu.hlp>(w95sec)
+4 Removing an Overriding Item Level Model Property=CG_CORE_Remove_Prop@msvmu.hlp>(w95sec)
+4 Making a Model Property Item Specific=CG_CORE_Make_Prop_Item_Spec@msvmu.hlp>(w95sec)
+4 Reinstalling the State and Value of the Last Committed Change=CG_CORE_Reinstate_State_Value@msvmu.hlp>(w95sec)
+4 Attaching a Model Property Set to a Single Element or a Collection of Elements=CG_CORE_Attaching_Model_Prop_Set@msvmu.hlp>(w95sec)
+4 Displaying or Editing a Specific Model Property Set=CG_CORE_Display_Edit_Model_Props@msvmu.hlp>(w95sec)
+4 Creating a New Model Property Set=CG_CORE_Create_New_Model_Prop_Set@msvmu.hlp>(w95sec)
+4 Deleting a Model Property Set=CG_CORE_Delete_Model_Prop_Set@msvmu.hlp>(w95sec)
+3 Create and Work in a Model
+4 Using Drag and Drop in a Model=HT_MODEL_Drag_and_Drop_in_a_Model@msvmu.hlp>(w95sec)
+4 Using Drag and Drop in a Specification=HT_MODEL_Drag_and_Drop_in_a_Specification@msvmu.hlp>(w95sec)
+4 Navigating in the Tab Pages=HT_MODEL_Navigate_in_the_Tab_Pages@msvmu.hlp>(w95sec)
+4 Using OLE=HT_MODEL_OLE@msvmu.hlp>(w95sec)
+4 Navigating with the Keyboard=HT_MODEL_Keyboard_Ope@msvmu.hlp>(w95sec)
+4 Using Command Accelerators=HT_MODEL_Command_Accelerato@msvmu.hlp>(w95sec)
+4 Using the Mouse to Create and Edit Diagrams=HT_MODEL_Create_Edit_Diagrams@msvmu.hlp>(w95sec)
+4 Using Scripts on Sequence Diagrams=HT_MODEL_Scripts@ROSEU.HLP>(w95sec)
+4 Printing a Diagram into a Microsoft Word Document=HT_MODEL_Print_Diagram@msvmu.hlp>(w95sec)
+4 Creating Components=HT_MODEL_Creating_Components@msvmu.hlp>(w95sec)
+4 Assigning Classes and Interfaces to Components=HT_MODEL_Assigning_Classes_to_Components@msvmu.hlp>(w95sec)
+4 Choosing Fundamental Types for a Class=HT_MODEL_Choosing_Fundamental_Types@msvmu.hlp>(w95sec)
+3 Navigate Using the Browser
+4 Creating and Editing Model Elements in the Browser=HT_BROW_Creat_Edit_Model_Comp@msvmu.hlp>(w95sec)
+4 Using Drag and Drop in the Browser=HT_BROW_Browser_Drag_and_Drop@msvmu.hlp>(w95sec)
+4 Navigating a Model Using the Browser=HT_BROW_Browser@msvmu.hlp>(w95sec)
+4 Hiding and Viewing the Browser=HT_BROW_Hiding_Viewing_Browser@msvmu.hlp>(w95sec)
+4 Positioning the Browser=HT_BROW_Positioning_Browser@msvmu.hlp>(w95sec)
+4 Expanding and Compressing the Browser Tree=HT_BROW_Expand_Collaps_Browser_Tree@msvmu.hlp>(w95sec)
+3 Use the Toolbox
+4 Customizing the Diagram Toolbox=HT_TOOL_Customize_Diagram_Toolbox
+4 Modifying the Position of the Diagram Toolbox=HT_TOOL_Position_and_Shape
+4 Setting the Toolbox's Locking Mode=HT_TOOL_Locking_Mode
+4 Setting the Toolbox's Visibility Mode=HT_TOOL_Visibility_Mode
+4 Modifying the Shape of the Diagram Toolbox=HT_TOOL_Modifying_Shape_Diag_Tool
+3 Set Diagram Properties
+4 Showing the Signature of Existing Methods=HT_PROP_Show_operation_Signature_Exis_operation@msvmu.hlp>(w95sec)
+4 Showing the Signature of New Methods=HT_PROP_Show_operation_Signature_New_operation@msvmu.hlp>(w95sec)
+4 Showing Visibility=HT_PROP_Showing_Visibility
+4 Setting the Font Size and Style for Existing Text=HT_PROP_Fnt_Sz_Style_Exis_Text@msvmu.hlp>(w95sec)
+4 Setting the Font Size and Style for New Text=HT_PROP_Fnt_Sze_Style_New_Text@msvmu.hlp>(w95sec)
+4 Resizing Icons Automatically=HT_PROP_Resizing_Icons_Automatically@msvmu.hlp>(w95sec)
+4 Showing Properties and Methods for Existing Icons=HT_PROP_Showing_cap_attributes_cap_operation__Exis_Icons@msvmu.hlp>(w95sec)
+4 Showing Properties and Methods for New Icons=HT_PROP_Show_cap_attributes_cap_operation_New_Icons@msvmu.hlp>(w95sec)
+4 Suppressing Properties and Methods for Existing Icons=HT_PROP_Suppress_attributes_operation_Existing_Icons
+4 Suppressing Properties and Methods for New Icons=HT_PROP_Suppress_attributes_operation_New_Icons
+2 Reference
+3 Notation=BOOCH_Notation
+:Include Qstart.cnt
+:Include Msvmvb.cnt
+:Include Msvmcpp.cnt
+:Include Msvmss.cnt
+:Include Msvmrep.cnt

@@ -1,0 +1,801 @@
+{
+	DockWorkers: [
+		{
+			BarName: "Output"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_BOTTOM
+			ID: 2
+			field_24: 2
+			ToolbarID: 29184
+			rcToolbar: [100, 100, 450, 250]
+			ThicknessBar: [100, 100]
+			field_28: 0
+			Chepa2: {
+				field_0: 0
+				rcClient: [-1, 25, 1051, 125]
+			}
+			ToolBarDockInfo: {
+				DockingStyle: DS_BOTTOM
+				z: -1
+				shift: -1
+				breadth: 1052
+				thickness: 100
+			}
+		}
+		{
+			BarName: "Watch"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_FLOATING
+			ID: 25
+			field_24: 2
+			ToolbarID: 29185
+			rcToolbar: [-569, 1120, -219, 1270]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Variables"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_FLOATING
+			ID: 25
+			field_24: 2
+			ToolbarID: 29186
+			rcToolbar: [-634, 606, -284, 756]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Registers"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_FLOATING
+			ID: 25
+			field_24: 3
+			ToolbarID: 29187
+			rcToolbar: [100, 100, 450, 250]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Memory"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_FLOATING
+			ID: 25
+			field_24: 3
+			ToolbarID: 29188
+			rcToolbar: [120, 120, 470, 270]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Call Stack"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_FLOATING
+			ID: 25
+			field_24: 3
+			ToolbarID: 29189
+			rcToolbar: [140, 140, 490, 290]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Disassembly"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: true
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_FLOATING
+			ID: 25
+			field_24: 3
+			ToolbarID: 29191
+			rcToolbar: [160, 160, 510, 310]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Workspace"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: true
+				bF400: false
+				bF800: false
+			}
+			field_2C: 5
+			DockingStyle: DS_LEFT
+			ID: 5
+			field_24: 1
+			ToolbarID: 29456
+			rcToolbar: [100, 120, 450, 250]
+			ThicknessBar: [196, 100]
+			field_28: 0
+			Chepa2: {
+				field_0: 0
+				rcClient: [-1, -1, 195, 1363]
+			}
+			ToolBarDockInfo: {
+				DockingStyle: DS_LEFT
+				z: 3
+				shift: -1
+				breadth: 1364
+				thickness: 196
+			}
+		}
+		{
+			BarName: "Menu bar"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: true
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_TOP
+			ID: 1
+			field_24: 65535
+			ToolbarID: 29696
+			rcToolbar: [-1050, -271, -465, -215]
+			ThicknessBar: [100, 56]
+			field_28: 0
+			Chepa2: {
+				field_0: 0
+				rcClient: [0, -1, 1052, 55]
+			}
+			ToolBarDockInfo: {
+				DockingStyle: DS_TOP
+				z: -3
+				shift: 0
+				breadth: 1052
+				thickness: 56
+			}
+		}
+		{
+			BarName: "Standard"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 1
+			field_24: 65535
+			ToolbarID: 29697
+			rcToolbar: [-865, -14, -264, 16]
+			ThicknessBar: [100, 30]
+			field_28: 0
+			ToolBarDockInfo: {
+				DockingStyle: DS_TOP
+				z: 8
+				shift: -1
+				breadth: 608
+				thickness: 30
+			}
+		}
+		{
+			BarName: "Build"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 4
+			field_24: 65535
+			ToolbarID: 29698
+			rcToolbar: [147, 129, 633, 159]
+			ThicknessBar: [100, 30]
+			field_28: 0
+			ToolBarDockInfo: {
+				DockingStyle: DS_TOP
+				z: 4
+				shift: -1
+				breadth: 493
+				thickness: 30
+			}
+		}
+		{
+			BarName: "Full Screen"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 1
+			field_24: 65535
+			ToolbarID: 29699
+			rcToolbar: [6, 21, 33, 51]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Build MiniBar"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 4
+			field_24: 65535
+			ToolbarID: 29953
+			rcToolbar: [-856, 0, -714, 30]
+			ThicknessBar: [100, 30]
+			field_28: 0
+			ToolBarDockInfo: {
+				DockingStyle: DS_TOP
+				z: 7
+				shift: -1
+				breadth: 149
+				thickness: 30
+			}
+		}
+		{
+			BarName: "ATL"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_TOP
+			ID: 7
+			field_24: 65535
+			ToolbarID: 29953
+			rcToolbar: [-1050, -294, -1050, -294]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Resource"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 3
+			field_24: 65535
+			ToolbarID: 29955
+			rcToolbar: [-1050, -294, -1050, -294]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Dialog"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_BOTTOM
+			ID: 3
+			field_24: 65535
+			ToolbarID: 29956
+			rcToolbar: [-1050, -294, -1050, -294]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Controls"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 4
+			DockingStyle: DS_FLOATING
+			ID: 3
+			field_24: 65535
+			ToolbarID: 29957
+			rcToolbar: [560, 150, 632, 325]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Graphics"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: false
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 4
+			DockingStyle: DS_RIGHT
+			ID: 3
+			field_24: 65535
+			ToolbarID: 29958
+			rcToolbar: [560, 100, 634, 330]
+			ThicknessBar: [86, 100]
+			field_28: 0
+			ToolBarDockInfo: {
+				DockingStyle: DS_RIGHT
+				z: -2
+				shift: -1
+				breadth: 243
+				thickness: 86
+			}
+		}
+		{
+			BarName: "Colors"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 4
+			DockingStyle: DS_RIGHT
+			ID: 3
+			field_24: 65535
+			ToolbarID: 29959
+			rcToolbar: [560, 342, 631, 459]
+			ThicknessBar: [83, 100]
+			field_28: 0
+			ToolBarDockInfo: {
+				DockingStyle: DS_RIGHT
+				z: -2
+				shift: 196
+				breadth: 130
+				thickness: 83
+			}
+		}
+		{
+			BarName: "Text Tool"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: true
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 4
+			DockingStyle: DS_FLOATING
+			ID: 3
+			field_24: 65535
+			ToolbarID: 29960
+			rcToolbar: [402, 100, 552, 200]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Edit"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 2
+			field_24: 65535
+			ToolbarID: 30207
+			rcToolbar: [-1050, -294, -1050, -294]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Debug"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: true
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 25
+			field_24: 65535
+			ToolbarID: 30208
+			rcToolbar: [7, 127, 234, 183]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Browse"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: true
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 2
+			field_24: 65535
+			ToolbarID: 30209
+			rcToolbar: [-1050, -294, -1050, -294]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Source Control"
+			Flags: {
+				Visible: false
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 5
+			field_24: 1
+			ToolbarID: 30480
+			rcToolbar: [-1050, -294, -1050, -294]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Record"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: true
+				bF008: true
+				Showable: false
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_FLOATING
+			ID: 24
+			field_24: 65535
+			ToolbarID: 30560
+			rcToolbar: [-1050, -294, -1050, -294]
+			ThicknessBar: [100, 100]
+			field_28: 0
+		}
+		{
+			BarName: "Window Tabs"
+			Flags: {
+				Visible: true
+				AllowsTopBottomDock: true
+				AllowsLeftRightDock: true
+				bF004: false
+				bF008: false
+				Showable: true
+				bF040: false
+				bF100: false
+				bF200: false
+				bF400: false
+				bF800: false
+			}
+			field_2C: 3
+			DockingStyle: DS_BOTTOM
+			ID: 1
+			field_24: 65535
+			ToolbarID: 29951
+			rcToolbar: [-834, -138, -807, -116]
+			ThicknessBar: [100, 22]
+			field_28: 0
+			Chepa2: {
+				field_0: 0
+				rcClient: [0, -1, 1052, 21]
+			}
+			ToolBarDockInfo: {
+				DockingStyle: DS_BOTTOM
+				z: -1
+				shift: 0
+				breadth: 1052
+				thickness: 22
+			}
+		}
+	],
+	DockWindows: [
+		{
+			DockingStyle: DS_TOP
+			LastRawNo0_ID: 0x8000000E
+			LastRaw0_ID: 0x7FFFFFFC
+			Raws: [
+				{
+					z: 65535
+					ID: 0x7FFFFFFD
+					Floating: false
+					b04: false
+					FullLine: true
+					ToolbarID: 0
+				}
+				{
+					z: 55
+					ID: 0x7FFFFFFF
+					Floating: false
+					b04: false
+					FullLine: false
+					ToolbarID: 0
+				}
+			]
+		}
+		{
+			DockingStyle: DS_BOTTOM
+			LastRawNo0_ID: 0x00000001
+			LastRaw0_ID: 0x7FFFFFFD
+			Raws: [
+				{
+					z: 65535
+					ID: 0x7FFFFFFF
+					Floating: false
+					b04: false
+					FullLine: true
+					ToolbarID: 0
+				}
+				{
+					z: 20
+					ID: 0xFFFFFFFF
+					Floating: true
+					b04: false
+					FullLine: false
+					ToolbarID: 0
+				}
+				{
+					z: 124
+					ID: 0x00000000
+					Floating: true
+					b04: false
+					FullLine: false
+					ToolbarID: 0
+				}
+			]
+		}
+		{
+			DockingStyle: DS_LEFT
+			LastRawNo0_ID: 0x80000004
+			LastRaw0_ID: 0x7FFFFFFD
+			Raws: [
+				{
+					z: 65535
+					ID: 0x80000003
+					Floating: true
+					b04: false
+					FullLine: false
+					ToolbarID: 0
+				}
+				{
+					z: 199
+					ID: 0x7FFFFFFF
+					Floating: false
+					b04: false
+					FullLine: false
+					ToolbarID: 0
+				}
+			]
+		}
+		{
+			DockingStyle: DS_RIGHT
+			LastRawNo0_ID: 0x80000000
+			LastRaw0_ID: 0x7FFFFFFD
+			Raws: [
+				{
+					z: 65535
+					ID: 0x7FFFFFFF
+					Floating: false
+					b04: false
+					FullLine: false
+					ToolbarID: 0
+				}
+			]
+		}
+	]
+}

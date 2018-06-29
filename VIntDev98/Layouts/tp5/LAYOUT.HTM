@@ -1,0 +1,85 @@
+<!--METADATA TYPE="DesignerControl" startspan
+<object classid="clsid:1F56DB70-9821-11D1-B7B7-00C04FD6564F"></object>
+-->
+<!-- Layout Header Begin -->
+<!--METADATA TYPE="DesignerControl" endspan-->
+<script language="javascript">
+function highlight(Label) {
+	window.status = Label;
+	if (window.event.srcElement.className == "mstheme-horiz-navtxt-g") {
+		window.event.srcElement.className = "mstheme-horiz-navtxt-gs";
+		displaylabel(Label);
+	}
+	else if (window.event.srcElement.className == "mstheme-horiz-navtxt-gs") {
+		window.event.srcElement.className = "mstheme-horiz-navtxt-g";
+		displaylabel(Label);
+	}
+}
+
+function reset() {
+	window.status = "";
+	if (window.event.srcElement.className == "mstheme-horiz-navtxt-gs") {
+		window.event.srcElement.className = "mstheme-horiz-navtxt-g"
+		displaylabel("");
+	}
+	else if (window.event.srcElement.className == "mstheme-horiz-navtxt-g") {
+		window.event.srcElement.className = "mstheme-horiz-navtxt-gs";
+		displaylabel("");
+	}
+}
+
+function displaylabel(Label) {
+	document.all.description.innerText = Label;
+}
+
+document.onmouseout = reset;
+</script>
+<table border="0" width="100%" height="100%">
+<tr>
+<td align="center" height="80" width="100%" colspan="2">
+<!--METADATA TYPE="DesignerControl" startspan
+<OBJECT classid="clsid:705396F5-3471-11D1-B693-006097C9A884"><PARAM NAME="Type" VALUE="6"><PARAM NAME="IncludeHome" VALUE="0"><PARAM NAME="IncludeParent" VALUE="0"><PARAM NAME="Appearance" VALUE="0"><PARAM NAME="Orientation" VALUE="0"><PARAM NAME="UseTable" VALUE="1"><PARAM NAME="UseTheme" VALUE="1"><PARAM NAME="HTMLFragment" VALUE=""><PARAM NAME="CurrentHTMLFragment" VALUE=""><PARAM NAME="UseObjectSyntax" VALUE="0"><PARAM NAME="ScriptLanguage" VALUE="0"><PARAM NAME="FrameTarget" VALUE=""><PARAM NAME="AlternatePage" VALUE=""></OBJECT>
+-->
+<!--METADATA TYPE="NavBar" endspan-->
+<!--webbot bot="vinavbar" tag="table" s-type="banner" b-include-home="false" b-include-up="false" s-orientation="horizontal" s-rendering="graphics" b-use-table="true" b-use-theme="true" s-script-lang="VBScript" b-use-object-syntax="false" u-page s-target s-html-fragment s-selected-html-fragment startspan --><!--webbot bot="vinavbar" endspan i-checksum="0" -->
+<!--METADATA TYPE="NavBar" startspan-->
+
+<!--METADATA TYPE="DesignerControl" endspan-->
+</td>
+</tr>
+<tr>
+<td width="110" height="100%" valign=top>
+<!-- This is where the preview text will be displayed -->
+<div id="description" style="height: 30; background-color: white; color: black; font-size: 16pt; font-weight: bold; border: 1 solid black; text-align: center; vertical-align: middle;">
+</div>
+<!-- End of preview text -->
+<!--METADATA TYPE="DesignerControl" startspan
+<OBJECT classid="clsid:705396F5-3471-11D1-B693-006097C9A884"><PARAM NAME="Type" VALUE="3"><PARAM NAME="IncludeHome" VALUE="0"><PARAM NAME="IncludeParent" VALUE="0"><PARAM NAME="Appearance" VALUE="2"><PARAM NAME="Orientation" VALUE="1"><PARAM NAME="UseTable" VALUE="1"><PARAM NAME="UseTheme" VALUE="1"><PARAM NAME="HTMLFragment" VALUE="&lt;a href=#URL# onmouseover=highlight('#LABEL#')&gt;&lt;span class=mstheme-horiz-navtxt-g&gt;#LABEL#&lt;/span&gt;&lt;/a&gt;&lt;br&gt;"><PARAM NAME="CurrentHTMLFragment" VALUE="&lt;a href=#URL# onmouseover=highlight('#LABEL#')&gt;&lt;span class=mstheme-horiz-navtxt-gs&gt;#LABEL#&lt;/span&gt;&lt;/a&gt;&lt;br&gt;"><PARAM NAME="UseObjectSyntax" VALUE="0"><PARAM NAME="ScriptLanguage" VALUE="0"><PARAM NAME="FrameTarget" VALUE=""><PARAM NAME="AlternatePage" VALUE=""></OBJECT>
+-->
+<!--METADATA TYPE="NavBar" endspan-->
+<!--webbot bot="vinavbar" tag="table" s-type="siblings" s-rendering="html" s-html-fragment="&lt;a href=#URL# onmouseover=highlight('#LABEL#')&gt;&lt;span class=mstheme-horiz-navtxt-g&gt;#LABEL#&lt;/span&gt;&lt;/a&gt;&lt;br&gt;" s-selected-html-fragment="&lt;a href=#URL# onmouseover=highlight('#LABEL#')&gt;&lt;span class=mstheme-horiz-navtxt-gs&gt;#LABEL#&lt;/span&gt;&lt;/a&gt;&lt;br&gt;" b-include-up="false" b-use-theme="false" b-use-table="false" b-include-home="true" startspan -->
+<!--webbot bot="vinavbar" endspan i-checksum="0" -->
+<!--METADATA TYPE="NavBar" startspan-->
+
+<!--METADATA TYPE="DesignerControl" endspan-->
+</td>
+<td width="690" valign=top>
+<!--METADATA TYPE="DesignerControl" startspan
+<object classid="clsid:1F56DB71-9821-11D1-B7B7-00C04FD6564F"></object>
+-->
+<!-- Layout Header End -->
+<!--METADATA TYPE="DesignerControl" endspan-->
+
+<!--METADATA TYPE="DesignerControl" startspan
+<object classid="clsid:1F56DB72-9821-11D1-B7B7-00C04FD6564F"></object>
+-->
+<!-- Layout Footer Begin -->
+<!--METADATA TYPE="DesignerControl" endspan-->
+</td>
+</table>
+<!--METADATA TYPE="DesignerControl" startspan
+<object classid="clsid:1F56DB73-9821-11D1-B7B7-00C04FD6564F"></object>
+-->
+<!-- Layout Footer End -->
+<!--METADATA TYPE="DesignerControl" endspan-->
+    

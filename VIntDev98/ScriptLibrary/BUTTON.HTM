@@ -1,0 +1,177 @@
+// ************************************************************************<BR>
+// Microsoft Script Library<BR>
+// Visual InterDev 6.0 Button Object for DHTML<BR>
+// Copyright 1998 Microsoft Corporation. All Rights Reserved.<BR>
+// <B>Do not modify in design view. Switch to source view.</B><BR>
+// ************************************************************************<BR>
+// <SCRIPT>
+function CreateButton(strName,funcInit,objParentElem)
+{
+	if (typeof(strName) != 'string' || strName == '')
+		return null;
+	
+	var strTag = '<SPAN id="' + strName + '_SPAN">';
+	strTag = strTag + '<input type=button name="' + strName + '" id="' + strName + '">';
+	strTag = strTag + '</SPAN>'	
+
+	if ((typeof(objParentElem) == 'object') && (objParentElem != null))
+		objParentElem.insertAdjacentHTML('BeforeEnd',strTag);
+	else
+		document.write(strTag);
+
+	//append public members
+	var objButton = _BTN__createMembers(strName);
+	if ((typeof(objButton) != 'object') || (objButton == null))
+		return null;
+
+	// events
+	BTN_ONCLICK = 'onclick';
+	// constants
+	BTN_TEXT = 0;
+	BTN_IMAGE = 1;
+
+	//private members
+	objButton._objEventManager = null;
+	objButton._nStyle = BTN_TEXT;
+
+	// advise for default eventhandlers
+	objButton._objEventManager = CreateEventManager();
+	objButton._fireEvent('_BTN__onbeforefuncinit(' + objButton.id + ')');
+	objButton._fireEvent(funcInit);
+	return objButton;
+}
+
+function _BTN__createMembers(strName)
+{
+	var objParentSpan = document.all[strName + '_SPAN'];
+	var objButton = objParentSpan.children(0);
+	if (typeof(objButton) != 'object')
+		return null;
+
+	// ensure strName is defined in global namespace
+	var bDefineAsGlobal =	eval('typeof(' + strName + ') == "undefined"') ||
+							typeof(objParentSpan._makeglobal) != 'undefined';
+	if (bDefineAsGlobal)
+	{	// scoped within a form, define in global namespace
+		eval(strName + ' = objButton');
+		objParentSpan._makeglobal = 1;
+	}
+
+	objButton.isVisible = _BTN_isVisible;
+	objButton.show = _BTN_show;
+	objButton.hide = _BTN_hide;
+	objButton.setStyle = _BTN_setStyle;
+	objButton.getStyle = _BTN_getStyle;
+	objButton.advise = _BTN_advise;
+	objButton.adviseDefaultHandler = _BTN_adviseDefaultHandler;
+	objButton.unadvise = _BTN_unadvise;
+	objButton.display = _BTN_display;
+	objButton._fireEvent = _BTN__fireEvent;
+	objButton._objSpan = eval(strName + '_SPAN');
+	return objButton;
+}
+
+function _BTN_isVisible()
+{	return (this.style.visibility != 'hidden');	}
+
+function _BTN_show()
+{	this.style.visibility = 'visible';	}
+
+function _BTN_hide()
+{	this.style.visibility = 'hidden';	}
+
+function _BTN_setStyle(nStyle)
+{
+	if (!isNaN(parseInt(nStyle)) && nStyle != this._nStyle)
+	{
+		// type of tag needs to be changed
+		// save current state
+		var bVisible = this.isVisible();
+		var bDisabled = this.disabled;
+		var objEventManager = this._objEventManager;
+		var strValue = '';
+		var strSrc = '';
+		var stralt = '';
+		if ((this.value + '') != 'undefined')
+			strValue = this.value;
+		if ((this.src + '') != 'undefined')
+			strSrc = this.src;
+		if ((this.alt + '') != 'undefined')
+			stralt = this.alt;
+			
+		// replace previous tag with new tag
+		var strTag = '<input type=';
+		if (nStyle == 0)
+			strTag += 'button ';
+		else
+			strTag += 'image alt="' + stralt + '" ';		
+		strTag += 'name="' + this.name + '" id="' + this.id + '" style="visibility:hidden">';
+		this._objSpan.innerHTML = strTag;
+
+		//append public members
+		var objButton = _BTN__createMembers(this.name);
+		if ((typeof(objButton) != 'object') || (objButton == null))
+			return null;
+
+		objButton.value = strValue;
+		objButton.src = strSrc;
+		objButton.alt = stralt;
+		objButton.disabled = bDisabled;
+		if (bVisible)	objButton.show();
+		objButton._objEventManager = objEventManager;
+		if (objEventManager != null)
+		{	//re-attach all event handlers
+			var nEvents = objEventManager.getEventCount();
+			for (var i=0; i < nEvents; i++)
+				eval('objButton.' + objEventManager.getEvent(i) + ' = _BTN__fireEvent;');
+		}
+
+		objButton._nStyle = nStyle;			
+		return true;
+	}
+	return false;
+}
+
+function _BTN_getStyle(nStyle)
+{	return this._nStyle;	}
+	
+function _BTN_advise(strEvent,funcToCall)
+{
+    var nAdviseID = this._objEventManager.advise(strEvent,funcToCall);
+    if (nAdviseID != -1)
+        eval('this.' + strEvent + ' = _BTN__fireEvent;');
+    return nAdviseID;
+}
+
+function _BTN_adviseDefaultHandler(strName,strEvent)
+{
+    var nAdviseID = this._objEventManager.adviseDefaultHandler(strName,strEvent);
+    if (nAdviseID != -1)
+        eval('this.' + strEvent + ' = _BTN__fireEvent;');
+}
+
+function _BTN_unadvise(strEvent, nAdviseID)
+{
+    return this._objEventManager.unadvise(strEvent,nAdviseID);
+}
+
+function _BTN_display()
+{	}
+
+function _BTN__fireEvent(funcToFire)
+{
+    if (typeof(funcToFire) == 'undefined')
+    {
+        if (this._objEventManager != null)
+            this._objEventManager.fireEvent('on' + window.event.type);
+        if (this._nStyle == 0)
+            return true;
+        else
+            return false;
+    }
+    else
+        _EM__fireEvent(funcToFire);
+}
+
+function _BTN__onbeforefuncinit(objButton)
+{	objButton.adviseDefaultHandler(objButton.id, BTN_ONCLICK);	}

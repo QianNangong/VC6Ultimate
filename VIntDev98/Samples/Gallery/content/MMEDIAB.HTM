@@ -1,0 +1,44 @@
+<html>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT>
+<P>This example has only one file: 
+<UL>
+    <LI>MMedia.htm contains enhancements for and links to 
+    multimedia effects. 
+    </LI></UL>
+<P>The first two multimedia enhancements in this file are 
+from HTML tags. The first one is used to set the background sound that is played 
+when this page is loaded in the browser:</P><FONT face=Courier>&lt;BGSOUND SRC=Utopia.wav&gt; 
+</FONT>
+
+<P>The second enhancement plays an AVI file continuously in 
+the page using a Microsoft(r) Internet Explorer enhanced version of the 
+<FONT face=Courier>&lt;IMG&gt; tag:</P>&lt;IMG 
+DYNSRC=&quot;Earthsml.avi&quot; LOOP=Infinite&gt;</FONT>
+
+<P>The next multimedia enhancement in this file uses the 
+Microsoft ActiveMovie control, directly embedded in the page so that a separate 
+program does not need to run. 
+<P>The following settings load the multimedia file, 
+Clouds.avi, into the player and set properties of the object to control how the 
+object is displayed and run:</P>
+<P>
+<FONT face=Courier>&lt;OBJECT 
+ID=&quot;ActiveMovie1&quot; WIDTH=267 HEIGHT=155 
+CLASSID=&quot;CLSID:05589FA1-C356-11CE-BF01-00AA0055595A&quot;&gt; 
+</FONT>
+<FONT face=Courier><BR>&nbsp;&nbsp; 
+&lt;PARAM NAME=&quot;_ExtentX&quot; VALUE=&quot;7038&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;_ExtentY&quot; 
+VALUE=&quot;4101&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM 
+NAME=&quot;ShowDisplay&quot; VALUE=&quot;0&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;AllowHideDisplay&quot; 
+VALUE=&quot;0&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM 
+NAME=&quot;AllowHideControls&quot; VALUE=&quot;0&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;AutoStart&quot; VALUE=&quot;0&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;AutoRewind&quot; 
+VALUE=&quot;1&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM 
+NAME=&quot;Appearance&quot; VALUE=&quot;0&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;FileName&quot; 
+VALUE=&quot;Clouds.avi&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM 
+NAME=&quot;AllowChangeDisplayMode&quot; VALUE=&quot;0&quot;&gt; <BR>&nbsp;&nbsp; &lt;PARAM NAME=&quot;DisplayForeColor&quot; 
+VALUE=&quot;0&quot;&gt; <BR>&lt;/OBJECT&gt; 
+</FONT></P></FONT>
+</BODY>
+</html>

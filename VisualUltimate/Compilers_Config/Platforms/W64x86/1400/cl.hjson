@@ -1,0 +1,49 @@
+{
+	Vars:[
+		{
+			BaseDir:%CurDir%\..\..\..\..\..
+		}
+		{
+			CompilerFolder:vc7_64
+		}
+		{
+			MainFolder:%BaseDir%\VC98\%CompilerFolder%
+		}
+		{
+			WinHeaders:Q:\@Projets\Windows
+		}
+	]
+
+	Include:[
+		%WinHeaders%\PlatformSDK\Include
+		%WinHeaders%\LibC\Include
+		%WinHeaders%\ATL\include
+	]
+
+	Path:[
+		%BaseDir%\Common\MSDev98\Bin
+		%BaseDir%\VC98\BIN
+		%BaseDir%\Common\TOOLS
+		%BaseDir%\VisualUltimate\TOOLS
+		%BaseDir%\Common\TOOLS\WINNT
+		%BaseDir%\VisualUltimate\system32
+		%BaseDir%\VC98\BIN\%CompilerFolder%
+	]
+
+	Lib:[
+		%MainFolder%\PlatformSDK\lib
+		%MainFolder%\LIB
+		%MainFolder%\ATL\LIB
+	]
+
+	Sources:[
+		%MainFolder%\SRC\MFC
+		%MainFolder%\SRC\ATL
+		%MainFolder%\SRC\ATL\atl21asm
+		%MainFolder%\SRC\ATL\atlAMD64		
+		%MainFolder%\SRC\CRT
+		%MainFolder%\SRC\CRT\SYS
+		%MainFolder%\SRC\CRT\IA64
+	]
+
+}

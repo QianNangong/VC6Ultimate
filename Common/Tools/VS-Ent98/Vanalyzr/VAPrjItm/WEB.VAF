@@ -1,0 +1,9 @@
+"Filter"
+[
+	"Data"
+	{
+		FormatVersion = 1
+		WriterVersion = 1
+		Expression = "(Machine = \"All Machines\"AND (Component = \"JScript Event Source\" OR Component = \"VBScript Event Source\" OR Component = \"Web Event Source\") AND Category = \"All Regular Events\")"
+	}
+]

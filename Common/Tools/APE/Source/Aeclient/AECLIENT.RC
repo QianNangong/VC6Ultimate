@@ -1,0 +1,66 @@
+STRINGTABLE DISCARDABLE 
+BEGIN
+	//Logging strings
+	1	"*** Do *NOT* Localize any string that starts with '***'.  They are comments to be used by localizers to identify sections.  They also mark the beginning of a new 'section' within the String Table."
+	2	"Client"
+	3	"Callback Received"
+	4	"Callback Error Received"
+	5	"Asynchronous Service Posted"
+
+	7	"Error:  RunTest"
+	9	"RunTest Collision Retry"
+
+	12	"Error:  WaitPeriod property"
+	13	"Start Test Received"
+	14	"Stop Test Received"
+	16	"Test Started"
+	17	"Test Complete"
+	18	"Calls Complete"
+	19	"Callbacks Complete"
+	20	"Initializing Test"
+	
+	21	"Synchronous Service Posted"
+	22	"DoService Posted"
+	23	"Writing Temporary Log File"
+	24	"No authentication used"
+	26	"Disk full, logging turned off."
+	27	"PoolMgr rejection retries exhausted."
+	28	"Could not create MTS Service. Check the documentation for further help."
+	29	"*** Font information for all forms.  Index 30 is the Character set, Index 31 is Font name, Index 32 is Font Size"
+	30	"0"
+	31	"Tahoma"
+	32	"10"
+	50	"Error:  "
+	
+	//U/I captions
+	100	"*** U/I captions"
+	101	"Client"		//Form Caption
+	102	"Calls Made"		//Calls Made Caption
+	103	"Calls Returned"	//Calls Returned Caption
+	
+	110	"Successful Transactions:"
+	111	"Aborted Transactions:"
+	112	"Begin MTS Transaction"
+	113	"End MTS Transaction - Failed"
+	114	"End MTS Transaction - Succeeded"
+	115	"MTS Transaction Status"
+
+	//Racreg32 error codes with 200 added for offset
+	200	"*** Racreg32 error codes with 200 added for offset"
+	201	"Unknown run time error occurred"
+	202	"No protocol was specified"
+	203	"No server machine name was specified"
+	204	"An error occurred reading from the registry"
+	205	"An error occurred writing to the registry"
+	206	"Both the ProgID and CLSID parameters were missing"
+	207	"There is no local server (either in-process or cross-process, 16-bit or 32-bit)"
+	208	"There was an error looking for the Proxy DLLs, check that they were installed properly"
+
+	//Errors
+	32000	"Error descriptions"
+	32767	"OLE collision retries exhausted"
+	32765	"A required parameter is missing."
+	32750	"An error occurred changing server connection settings: <NAME>."
+	32740	"An error occured during communication with remote services. Refer to the APE troubleshooting in help."
+	32739	"Remote Automation Failure: Microsoft Windows 95 cannot create named pipes. Select a different Remote Automation protocol."
+END

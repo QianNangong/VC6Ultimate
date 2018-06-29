@@ -1,0 +1,6 @@
+#include "..\AEInclud\ODBCAPI.rc"
+STRINGTABLE DISCARDABLE 
+BEGIN
+	1000	"Could not create account object"
+	1001	"Error posting to account"
+END

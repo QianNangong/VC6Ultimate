@@ -1,0 +1,561 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Draft//EN">
+<html>
+<head>
+
+<title>Visual InterDev Readme</title>
+<meta name="MS-HAID" content="ReadmeVI">
+
+<BODY BGCOLOR="#FFFFFF" onclick="checkExpand()">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000" link="#0000FF" vlink="#660066">
+</head>
+
+<!--                                                                         -->
+<!--                            BEGIN JSCRIPT                                -->
+<!--                                                                         -->
+<script language="JSCRIPT">
+
+  function checkExpand( )
+  {
+     if ("" != event.srcElement.id)
+     {
+        var ch = event.srcElement.id + "Child";
+        var el = document.all[ch];
+        if (null != el)
+        {
+           el.style.display = "none" == el.style.display ? "" : "none";
+           if (el.style.display != "none")
+           //   el.scrollIntoView(true);
+           event.returnValue=false;
+        }
+     }
+  }
+
+</script>
+<!--                                                                         -->
+<!--                             END JSCRIPT                                 -->
+<!----------------------------------------------------------------------------->
+
+
+<!--                         BEGIN README INTRO                              -->
+
+<h2>Visual InterDev Readme</h2>
+
+<p>&#169; 1998 Microsoft Corporation. All rights reserved. </p>
+
+<p>Other product and company names herein may be the trademarks of their respective owners. </p>
+
+<p><i>Visual InterDev&#8482; Readme</i> includes updated information for the documentation provided with Microsoft&#174; Visual Studio&#8482;  -- Development System for Windows&#174; and the Internet. The information in this document is more up-to-date than the information in the Help system. Many of the issues outlined in this document will be corrected in upcoming releases.</p>
+
+<p>For <i>general installation issues</i> on the Visual Studio 6.0 suite of products, including side by side product installation for installing more than one Visual Studio product on the same computer, see the <a href="install.htm" title="Jumps to the installation readme (install.htm).">Installation Notes</a> readme (install.htm).</p>
+<p>For issues that are specific to the Microsoft&#174; Visual Database Tools which are installed with Visual InterDev, see the <a href="ReadmeDT.htm">Microsoft Visual Database Tools Readme</a>. For issues on the Help system, see the <a href="readmeDN.htm" title="Jumps to readmeDN.htm">MSDN&#8482;, the Microsoft Developer Network Readme</a>.</p>
+
+<!--                            END README INTRODUCTION                      -->
+
+<!----------------------------------------------------------------------------->
+<!--                               BEGIN TOC                                 -->
+
+<h3><p>Contents <font color="#000000" size="2" face="Verdana,Arial,Helvetica">- Click any of the items below</font></p></h3>
+<p><B>Note</B>&nbsp;&nbsp;&nbsp;Be sure all headings in the table of contents are expanded when you search this Readme for a topic. In this way, you will know when the search finds the topic among the TOC headings.</p>
+
+<h5><a class=ex href="#" title="Click to expand or collapse" id="viInstall">Visual InterDev Installation Notes</a></h5>
+<div id="viInstallChild">
+<blockquote>
+<p><a href="#viinstallvi">Installing Visual InterDev</a></p>
+<p><a href="#viinstallsp">Setting up Your Computer for Stored Procedure Versioning through Microsoft Visual SourceSafe and for Stored Procedure Debugging</a></p>
+<p><a href="#viinstallsamp">Installing and Running the Sample Application</a></p>
+<p><a href="#viinstallFP">Installing FrontPage 98</a></p>
+</blockquote>
+</div>
+
+<h5><a href="#viNewHead">What's New in Visual InterDev </a></h5>
+
+
+
+<h5><a class=ex href="#" title="Click to expand or collapse" id="viIssues">Known Issues</a></h5>
+<div id="viIssuesChild">
+<blockquote>
+<h5>Installation</h5>
+<p><a href="#viuninstall">Uninstalling pre-release versions of Visual InterDev</a></p>
+<p><a href="#vi17102">Upgrading Web applications created with a pre-release version</a></p>
+<p><a href="#vi18849">Remote Machine Debugging server component must be installed with Windows NT Option Pack</a></p>
+<p><a href="#vi19636">Installation problems with the Visual InterDev RAD Remote Deployment Support server component</a></p>
+
+<h5>Product Related</h5>
+<p><a href="#vi10232">Source control does not support file names containing semi-colons </a></p>
+<p><a href="#vi16001">Ignore events in the Script Outline view for FRAME, IFRAME, FRAMESET, OPTION</a></p>
+<p><a href="#vi17600">Class names containing underscores are not supported</a></p>
+<p><a href="#vi17633">The editor does not support "&lt;script&gt;" or "&lt;/script&gt;" within JavaScript or VBScript comments</a></p>
+<p><a href="#vi18201">Visual InterDev does not support the ActiveMovie control</a></p>
+<p><a href="#vi18321">When working offline and editing in Design view, relative URLs of image files must be edited manually</a></p>
+<p><a href="#vi18682">Visual InterDev does not support hierarchical recordsets</a></p>
+<p><a href="#vi18901">Changes to Client Script Debugging in ASP Pages</a></p>
+<p><a href="#vi19676">Browsing "User Notification" sample using Netscape</a></p>
+<p><a href="#vi20341">Issue concerning window_onload event not firing</a></p>
+
+<p><a href="#wt8069">"[FrontPage vinavbar component]" appears when browsing a page</a></p>
+<p><a href="#wt2946">Difference in CSS implementation between Netscape and Internet Explorer</a></p>
+<p><a href="#wt7754">Use server-level default document properties only</a></p>
+
+<h5>Visual Component Manager</h5>
+<p><a href="#RelatedFilesTab">"Related Files Tab (Component Properties Dialog Box)" topic incorrect</a></p>
+<p><a href="#RemovingRepository10RegistryKeys">Removing Repository 1.0 Registry Keys</a></p>
+<p><a href="#AddingrepositorytablestoanexistingMDBfile">Adding repository tables to an existing .mdb file</a></p>
+
+</blockquote>
+</div>
+
+
+<p>&nbsp;</p>
+<!--                                                                         -->
+<!--                           END CONTENTS TOC                              -->
+<!----------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------->
+<!--                             BEGIN CONTENTS                              -->
+<!--                                                                         -->
+
+     <!--                                                               -->
+     <!--    Visual InterDev Installation Notes                         -->
+     <!--                                                               -->
+
+<h3><a name="viinstall"></a><a name="viinstallvi"></a>Visual InterDev Installation Notes</h3>
+
+<h4>Installing Visual InterDev</h4>
+
+<P>You can install Visual InterDev on a client and on a server. The steps below are required for installing both the client and server portions of Visual InterDev. Note that you will need to install some server components with a client installation.</P>
+<OL>
+<LI>Insert installation compact disc #1 into your computer.</LI><br><br>
+<LI>Setup.exe automatically runs the Installation Wizard. The wizard steps you through the installation process. 
+<br><B>Note</B>&nbsp;&nbsp;&nbsp;Depending on your selections and your current configuration, the wizard will prompt you to install different required components and to reboot Windows one or more times during the installation process. After each reboot, the wizard automatically returns to the proper step.</LI><br><br>
+<li>Follow the steps of the Installation Wizard until you are prompted to select either <b>Install Visual InterDev 6.0</b> or <b>Server Applications</b>.
+<ul><br>
+<li>To install the client portion of Visual InterDev, select <b>Install Visual InterDev 6.0</b> and then see <a href="#viInstallClient">Client Installation</a> below.</li>
+<li>To install the server portion of Visual InterDev, select <b>Server Applications</b> and then see <a href="#viInstallServer">Server Installation</a> below.</li>
+<br><br>If you want to install the client and server portions of Visual InterDev on the same computer, begin with the Client Installation.
+</ul>
+</li>
+</ol>
+
+<a name="viInstallClient"></a>
+<h4>Client Installation</h4>
+<P>If you are using the computer as a client only, you will still need to install certain server components in order to take full advantage of all the product's functionality.</P>
+<OL>
+<li>Follow the steps of the Visual InterDev 6.0 Wizard. When prompted, select either a <b>Typical</b> or <b>Custom</b> installation.</li><br><br>
+<li>After the Visual InterDev client has been installed on your computer, you are prompted to install MSDN&#8482;, the Microsoft Developer Network. Note that you need to install MSDN in order for F1 Help to work and to have access to the Visual InterDev documentation.</li><br><br>
+<li>After MSDN is installed, you arrive at the Server Setups screen.
+<ul><br>
+<li>If you are installing the Visual InterDev server on the same computer, stop here and continue with <a href="#viInstallServer">Server Installation</a> below.</li>
+<li>If you are installing only the Visual InterDev client on the computer, continue with the following steps for Windows NT or Windows 9x.</li>
+</ol>
+
+<p><b><i>If you're installing on Windows NT</i></b></p>
+<p>The following components are required for the PageNavbar design-time control, remote debugging, and previewing active server pages on your local machine. You may choose not to select these components if you do not want to take advantage of these features.</p>
+<ol>
+<LI>Select <B>Launch BackOffice Installation Wizard</B> and click <B>Install</B>.</LI><br><br>
+<LI>The BackOffice Installation Wizard will prompt you to select a <B>Custom</B> or <B>Visual InterDev Developer</B> option. Select <B>Custom </B> and click <B>Next</B>.</li><br><br>
+<li>Verify the disk space requirements and click <b>Next</b>.</li><br><br>
+<li>Select <B>Front Page Server Extensions</B> and <b>MS Data Access Components</b> from the top level of the components list.</li><br><br>
+<li>Expand the <B>Windows NT Option Pack</B> node and select:
+<br>
+<ul><b>Internet Information Server</b> <i>- for NT Server</i>
+<br><b>Microsoft Management Console</b>
+<br><b>NT Option Pack Common Files</b>
+<br><b>Personal Web Server (PWS)</b> <i>- for NT Workstation</i>
+<br><b>Transaction Server</b>
+</ul></li><br>
+<li>Uncheck the remaining components. As you uncheck the other components, the wizard might display a message that warns you of various dependencies. You can choose <B>Yes </B>to ignore the dependencies because you are using this computer as a client for Visual InterDev, not as a server.</li><br><br>
+<LI>Continue with the remaining steps of the wizard.</LI>
+</ol>
+
+<p><b><i>If you're installing on Windows 9x</i></b></p>
+<p>The following components are required for the PageNavbar design-time control, remote debugging, and previewing active server pages on your local machine. You may choose not to select these components if you do not want to take advantage of these features.</p>
+<ol>
+<li>Select <b>NT Option Pack Common Files</b> and click the <b>Install</b> button. This launches the Microsoft Personal Web Server Setup.
+<ul><br>
+<li>When prompted to select <b>Minimum</b>, <b>Typical</b>, or <b>Custom</b>, select <b>Custom</b>.</li>
+<li>When the list of components is displayed, select the following:
+<dir>
+<b>Common Program Files</b>
+<br><b>Microsoft Data Access Components 1.5</b>
+<br><b>Personal Web Server (PWS)</b>
+<br><b>Transaction Server</b>
+</dir></li>
+<li>Uncheck the remaining components. As you uncheck the other components, the wizard might display a message that warns you of various dependencies. You can choose <B>Yes </B>to ignore the dependencies because you are using this computer as a client for Visual InterDev, not as a server.</li>
+<li>Continue with the remaining steps of the Personal Web Server Setup.</li>
+</ul>
+</li><br>
+<li>When you return to the Server Setups screen, select <b>FrontPage 98 Server Extensions</b> and click <b>Install</b>.</li><br><br>
+<LI>Continue with the remaining steps of the wizard.</LI>
+</ol>
+
+<a name="viInstallServer"></a>
+<h4>Server Installation</h4>
+<P>You can install the server components on the same computer as the client, or you can install them on a different computer. Follow the steps for Windows NT or Windows 9x below.</P>
+<h5>Server Installation for Windows NT</h5>
+<p>Perform the following steps if you're installing the server on Windows NT.</p>
+<OL>
+<LI>When prompted by the wizard, select <B>Launch BackOffice Installation Wizard</B> and click <B>Install</B>.</LI><br><br>
+<LI>The BackOffice Installation Wizard will prompt you to select the <B>Custom</B> or <B>Visual InterDev Developer</B> option. Select the <b>Custom</b> option and click <b>Next</b>.</li><br><br>
+<li>Select the following options:
+<dir><b>Windows NT Option Pack 4.0</b>
+<br><b>MS Data Access Components</b>
+<br><b>Remote Machine Debugging</b>
+<br><b>FrontPage Server Extensions</b>
+<br><b>Visual InterDev Server</b>
+</DIR></li><br>
+<li>Before you click <b>Next</b>, expand the <b>Windows NT Option Pack 4.0</b> node. In addition to the options selected by default, select the <b>Visual InterDev RAD Remote Deployment Support</b> node. Then expand the <b>Visual InterDev RAD Remote Deployment Support</b> node and select the second instance of <b>Visual InterDev RAD Remote Deployment Support</b>. Make sure that <b>Visual InterDev RAD Remote Deployment Support</b> is selected at both levels.
+</li><br><br>
+<li>Click <b>Next</b> and continue with the remaining steps of the BackOffice Installation Wizard.</LI><br><br>
+<li>The following patch corrects problems related to debugging active server pages and for updating the Global.asa file. After the Installation Wizard has finished, apply this patch.
+<br><br>
+<ul>
+<li>Run \IIS\WinNT\ASP2FIX1.EXE from the installation disc.
+<dir>For Visual InterDev Professional version, it's located on CD1.
+<br>For Visual Studio Professional version, it's located on CD2.
+<br>For Visual Studio Enterprise Edition, it's located on CD3.</dir>
+</li>
+<li>Reboot when prompted.</li>
+</ul>
+</li>
+</OL>
+
+
+<h5>Server Installation for Windows 9x</h5>
+<p>When the Installation Wizard arrives at the <b>Server Setups</b> screen, you will be prompted to make a selection from the <b>Server Components</b> list. Install each of the components as instructed below.</p>
+<p><B>Note&nbsp;&nbsp;&nbsp;</B>In order to assure that your server is set up correctly, you must install the server components in the order that they are listed on the Server Setups screen.</p>
+
+<OL>
+<li>Select <b>NT Option Pack (for Windows 9x)</b> and click <b>Install</b>. This launches the Microsoft Personal Web Server Setup.
+<ul><br>
+<li>When prompted to select <b>Minimum</b>, <b>Typical</b>, or <b>Custom</b>, select <b>Typical</b>.</li>
+<li>Continue with the remaining steps of the Personal Web Server Setup.</li>
+</ul>
+</li><br>
+<li>Select <b>FrontPage 98 Server Extensions</b> and click <b>Install</b>.</li><br><br>
+<li>Select <b>Data Access Components 2.0</b> and click <b>Install</b>.</li><br><br>
+<li>Select <b>Visual InterDev Server Components</b> and click <b>Install</b>.</li><br><br>
+<li>Click <b>Next</b> and continue with the remaining steps of the Installation Wizard.</LI><br><br>
+<li>The following patch corrects problems related to debugging active server pages and for updating the Global.asa file. After the Installation Wizard has finished, apply this patch.
+<br><br>
+<ul>
+<li>Stop the Web server. In an MS-DOS Prompt window, run the command:
+<br><dir><b>pws /stop</b></dir></li>
+<li>In the \&lt;windows&gt;\system\inetsrv directory, rename Asp.dll to Asp.old.</li>
+<li>Copy \IIS\Win9x\Asp.dll from the installation disc to your \&lt;windows&gt;\system\inetsrv directory.
+<dir>For Visual InterDev Professional version, it's located on CD1.
+<br>For Visual Studio Professional version, it's located on CD2.
+<br>For Visual Studio Enterprise Edition, it's located on CD3.</dir>
+</li>
+<li>Restart the Web server. In an MS-DOS Prompt window, run the command:
+<br><dir><b>pws /start</b></dir></li>
+<ul>
+</li>
+</OL>
+<br>
+
+
+<h5>Production Server Installation for Windows NT</h5>
+<p>To ensure that your Web application will run properly on a production server installed with Windows NT, you must install some of the Visual Studio server components on that computer.</p>
+<p><B>Note&nbsp;&nbsp;&nbsp;</B>Windows 95 and Windows 98 are not recommended as production server platforms for running Visual InterDev 6.0 applications.</p>
+<p>The components needed on a production server are:</p>
+<ul>
+<li>Windows NT Service Pack 3</li>
+<li>Internet Information Server version 3.0 or later (Visual Studio 6.0 includes Internet Information Server 4.0)</li>
+<li>Data Access Components (to ensure that your application's data-based operations function correctly)</li>
+<li>Visual InterDev server (which installs the proper versions of the scripting engines and the Data Environment run-time files)</li>
+</ul>
+<p>Furthermore, if you intend to deploy an application to the production server, you may want to install the FrontPage Server Extensions or the Visual Studio Posting Acceptor.</p>
+<p>Perform the following steps to install the server components on a Windows NT production server.</p>
+<ol>
+<li>When prompted by the wizard, select Launch BackOffice Installation Wizard and click <b>Install</b>.</li><br><br>
+<li>The BackOffice Installation Wizard will prompt you to select the <b>Custom</b> or <b>Visual InterDev Developer</b> option. Select the <b>Custom</b> option and click <b>Next</b>.</li><br><br>
+<li>Select the following options:
+<br><dir><b>Windows NT Option Pack 4.0</b>
+<br><b>MS Data Access Components</b>
+<br><b>Front Page Server Extensions</b> - <i>Optional</i>
+<br><b>Posting Acceptor (2.0)</b> - <i>Optional</i>
+<br><b>Visual InterDev Server</b></dir>
+</li><br>
+<li>Click <b>Next</b> and continue with the remaining steps of the BackOffice Installation Wizard.</li><br><br>
+</ol>
+
+
+<h4><a name="viinstallsp"></a>Setting up Your Computer for Stored Procedure Versioning through Microsoft Visual SourceSafe and for Stored Procedure Debugging</h4>
+<p>If you have the Visual Studio Enterprise Edition, you can set up your computer for versioning and debugging stored procedures. When versioning or debugging stored procedures, the SQL Server will be logging into Visual SourceSafe to perform the necessary operations on the Visual SourceSafe database. Therefore, the SQL Server will require appropriate permissions to perform these actions. To reduce security issues, it is recommended that you set the SQL Server service to run as a logged on user.</p>
+<p><b>To set the SQL Server service to run as a logged on user </b></p>
+<ol>
+<li>Click <b>Start Menu</b>, <b>Control Panel</b>, and then run <b>Services</b>.<br><br></li>
+<li>Select the service <b>MSSQLServer</b> and click the <b>Startup</b> button.<br><br></li>
+<li>In the Service dialog box, select the option <b>This Account</b>.<br><br></li>
+<li>In the <b>This Account</b> text box type a domain and user name (e.g., "domain\username") that has access to the server where the Visual SourceSafe server is installed. Type a password in the <b>Password</b> text box. Click <b>OK</b>.<br><br></li>
+<li>Stop the <b>MSSQLServer</b> service and then restart it.<br><br></li>
+</ol>
+<p>If your SQL server is on a different server than your Web server, you need to install the SQL Server Debugging and Visual InterDev Server components on the SQL server. You can install these server components from the BackOffice Installation Wizard.</p>
+<p><b>To install the SQL Server Debugging and Visual InterDev Server components</b></p>
+<ol>
+<li>Run the Visual Studio Enterprise Edition setup.</li><br><br>
+<li>When prompted, select <b>Launch BackOffice Installation Wizard</b> and click <b>Install</b>.</li><br><br>
+<li>On the first screen of the BackOffice Installation Wizard, select <b>Custom</b>.</li><br><br>
+<li>When prompted with a list of <b>BackOffice Programs and Their Components</b>, select <b>SQL Server Debugging</b> and <b>Visual InterDev Server</b>.</li><br><br>
+<li>Continue with the remaining steps of the wizard.</li>
+</ol>
+<br>
+<h4><a name="viinstallsamp"></a>Installing and Running the Sample Application</h4>
+
+<p>In order to run the Sample Gallery application, follow these steps.</p>
+<p><b>To install the Visual InterDev Gallery sample application</b></p>
+<ol>
+<li>In Visual InterDev, if the New Project dialog box isn't visible, choose <b>New Project</b> from the <b>File</b> menu.</li><br><br>
+<li>In the <b>New</b> tab of the New Project dialog box, select the <b>Sample App Wizard</b> icon, enter a name for the project, and choose <b>Open</b>.</li><br><br>
+<li>Follow the steps in the Sample Application Wizard.</li>
+</ol>
+
+<p><b>To run the Visual InterDev Gallery sample</b></p>
+<ul>
+<li>After installing the sample, right-click <b>default.htm</b> in the Project Explorer and choose <b>View in Browser</b>.</li></ul>
+If you view the "User Notification" page using Netscape, see <a href="#vi19676">Browsing "User Notification" sample using Netscape</a> under "Known Issues".
+
+<p><b>Note</b>&nbsp;&nbsp;&nbsp; If you have trouble viewing the data pages, display the Property Pages dialog box for the data connection you created, which appears under the Global.asa file in the Project Explorer. On the Authentication tab, select <b>Save Design time authentication</b>, and make sure that the <b>User name</b> option contains "admin".</p>
+
+
+<h4><a name="viinstallFP"></a>Installing FrontPage 98</h4>
+<p>The installation compact discs include a setup of Microsoft&#174; FrontPage&#174; 98. It is not necessary to run the FrontPage setup to use Visual InterDev. However, it has been included for your use if you so desire.</p>
+<p><b>To install FrontPage 98</b>
+<ol>
+<li>Run \FrontPage\setup.exe from the installation compact disc.
+<br><b>Note</b>&nbsp;&nbsp;&nbsp;If you have the Professional version of Visual InterDev, the FrontPage folder is located on CD 1. If you have the Enterprise version of Visual Studio, the FrontPage folder is located on CD 2.</li><br><br>
+<li>When prompted on the Setup Type screen to select a Typical or Custom installation, select the <b>Custom</b> option.</li><br><br>
+<li>On the Select Components screen, make sure that the <b>FrontPage Personal Web Server</b> option is <i>not</i> selected. Visual InterDev does not support the FrontPage Personal Web Server.
+<br><b>Note</b>&nbsp;&nbsp;&nbsp;If you choose to install the FrontPage Personal Web Server on your computer, it is required that you first install IIS version 3.0 or later.</li><br><br>
+<li>Continue with the FrontPage installation wizard.</li>
+</ol>
+
+
+
+
+
+     <!--                                                               -->
+     <!--    What's New in Visual InterDev                               -->
+     <!--                                                               -->
+
+<p>&nbsp;</p>
+<h3><a name="viNewHead"></a>What's New in Visual InterDev</h3>
+<p>
+To find out about the features that are new to this version of Visual InterDev, see the "What's New" topic in the Visual InterDev documentation in the MSDN Library Visual Studio 6.0 documentation. To see the documentation, choose <b>Contents </b>from the <b>Help </b>menu.</p>
+For late-breaking news and product updates, be sure to visit the Visual InterDev Web site at <a href="http://msdn.microsoft.com/vinterdev">http://msdn.microsoft.com/vinterdev</a>.
+
+
+<!--                                                               -->
+     <!--    Known Issues                                               -->
+     <!--                                                               -->
+
+<p>&nbsp;</p>
+<h3>Known Issues</h3>
+<p>The following issues are known in this version of Visual InterDev.</p>
+
+
+
+<br><h3>Known Issues:&nbsp;&nbsp;&nbsp;Installation</h3>
+
+<h4><a name="viuninstall"></a>Uninstalling pre-release versions of Visual InterDev</h4>
+<p><b>Warning</b>&nbsp;&nbsp;&nbsp;If you have installed a pre-release version of Visual InterDev 6.0, you must fully remove it before installing this final release version. Some of the older file versions are not compatible with the versions in this release.</p>
+<p>It is recommended that you remove previous pre-release versions of Visual InterDev 6.0 by reinstalling the entire operating system on a newly formatted hard drive or on a separate hard drive partition. This will ensure that Visual InterDev and all the components that it depends on are installed properly. The setup program that is used by this final version is new. Therefore, the only way to ensure proper installation of this final version is to install it on a "clean" system.</p>
+<p>If installing on a "clean" system is not possible, follow the steps below.</p>
+<p><b>To uninstall a pre-release version of Visual InterDev</b></p>
+<ol type=1>
+<li>Click <b>Start</b>, <b>Control Panel</b> and then run the <b>Add/Remove Programs</b> applet.<br><br></li>
+<li>Select <b>Microsoft Visual Studio 98 Enterprise Edition</b>.<br><br></li>
+<li>When prompted, select <b>Remove All</b>.<br><br></li>
+<li>After you have finished removing the program, open Windows Explorer and delete all files in the <b>\Program Files\Microsoft Visual Studio</b> folder.<br><br></li>
+<li>Click <b>Start</b>, <b>Run</b> and enter REGEDIT.<br><br></li>
+<li>In the Registry Editor, delete the registry key <b>HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\6.0</b>.<br><br></li>
+<li>Delete the registry key <b>HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\6.0</b>.<br><br></li>
+
+</ol>
+
+<h4><a name="vi17102"></a>Upgrading Web applications created with a pre-release version</h4>
+<p>If you used a pre-release version of Visual InterDev to create a Web application, you will need to upgrade the application in order for the script library and the data environment to function correctly.</p>
+
+<p><b>On the server</p></b>
+<ul>
+<li>Delete the "_ScriptLibrary" directory from the Web application on the server.
+</ul>
+
+<p><b>On the workstation</p></b>
+<ol>
+<li>Create a new Web project.
+<br>When prompted in step 2 of the Web Project Wizard to specify your Web, select <b>Connect to an existing Web application</b> and select your existing Web application from the list box.
+<br>If prompted to create a new script library, choose <b>Yes</b>.
+<br><br><b>Note</b>&nbsp;&nbsp;&nbsp;All developers who use this Web application must create a new Web project on their workstations.</li><br><br>
+<li>If your project contains data commands, you need to upgrade them. To do this, display the Data Environment, right-click any data command and choose <b>Refresh</b>.</li><br><br>
+<li>For each page that contains a data-bound control or the PageObject control, you must open the file, switch to Source view, "dirty" it (add and remove a space), switch back to Design view and then save the file.</li><br><br>
+<li>Because the scripting object model has changed, you need to update all ASP pages that had the scripting object model enabled. You can recognize which pages were enabled by checking to see if they contain the following lines. If the following lines do exist, you need to delete them.
+<br><br>Delete these lines from the top of the ASP page:
+<blockquote><font face="Courier">
+&lt;!--METADATA TYPE="EditorGenerated" startspan &lt;COMMENT&gt;
+<br>Visual InterDev Scripting Object Model - Page Header
+<br>Do not modify between these meta data tags
+<br>&lt;/COMMENT&gt; --&gt;
+<br>&lt;!--#include file="_ScriptLibrary/pm.asp"--&gt;
+<br>&lt;% if StartPageProcessing() Then Response.End() %&gt;
+<br>&lt;FORM name=thisForm METHOD=post&gt;
+<br>&lt;!--METADATA TYPE="EditorGenerated" endspan--&gt;
+</font></blockquote>
+Delete these lines from the bottom of the ASP page:
+<blockquote><font face="Courier">
+&lt;!--METADATA TYPE="EditorGenerated" startspan &lt;COMMENT&gt;
+<br>Visual InterDev Scripting Object Model - Page Footer
+<br>Do not modify between these meta data tags
+<br>&lt;/COMMENT&gt; --&gt;
+<br>&lt;% EndPageProcessing() %&gt;
+<br>&lt;/FORM&gt;
+<br>&lt;!--METADATA TYPE="EditorGenerated" endspan--&gt;
+</font></blockquote></li>
+
+<li>After deleting the lines, right-click on the editor and choose <b>Properties</b>. Under the ASP settings, select the option <b>Enable the scripting object model</b>. Choose <b>OK</b> to close the dialog box and then save the file.</li>
+</ol>
+
+<h4><a name="vi18849"></a>Remote Machine Debugging server component must be installed with Windows NT Option Pack</h4>
+<p>In order to ensure that debugging functions correctly, the Remote Machine Debugging component must be installed when the Windows NT Option Pack is installed. If the Windows NT Option Pack is reinstalled, the Remote Machine Debugging component must also be reinstalled. 
+<p>Both the Windows NT Option Pack and the Remote Machine Debugging component can be installed by the BackOffice Installation Wizard which is accessed from the Visual InterDev and Visual Studio setup programs.</p>
+
+<h4><a name="vi19636"></a>Installation problems with the Visual InterDev RAD Remote Deployment Support server component</h4>
+<p>If the Visual InterDev RAD Remote Deployment Support server component was not installed successfully on the server, you will receive the following message when attempting to register a component on the server:
+</p>
+<p><dir>"This feature is not enabled on the master Web server. See the Visual InterDev product documentation to learn how to enable server component registration with FrontPage Server Extensions."</dir></p>
+<p>If you receive this message, follow these steps to install the server component in order to avoid the problem when creating new projects:</p>
+<ol>
+<li>On the Windows <b>Start</b> menu, choose <b>Settings</b>, and then <b>Control Panel</b>.</li>
+<li>Double-click <b>Add/Remove Programs</b>.</li>
+<li>From the list of software on the Install/Uninstall tab, select <b>Windows NT 4.0 Option Pack</b>.</li>
+<li>Click <b>Add/Remove</b> to launch the Windows NT 4.0 Option Pack Setup.</li>
+<li>In the Option Pack Setup, click <b>Add/Remove</b> when prompted. This displays a list of the Option Pack components.</li>
+<li>Check the <b>Visual InterDev RAD Remote Deployment Support</b> option.</li>
+<li>Click <b>Next</b> and continue with the Option Pack Setup.</li>
+<li>Then, to correct the problem for existing projects, copy fp30reg.dll from:
+<br>&nbsp;&nbsp;&nbsp;"\Program Files\Microsoft FrontPage\version 3.0\isapi\_vti_bin\_vti_aut"
+<br>to the master server at:
+<br>&nbsp;&nbsp;&nbsp;"\inetpub\wwwroot\[projectname]\_vti_bin\_vti_aut"</li>
+</ol>
+<p><b>Note</b>&nbsp;&nbsp;&nbsp; If you use the BackOffice Installation Wizard to see which components are installed, the wizard will not display the correct status of the Visual InterDev RAD Remote Deployment Support component. You must view its installation status with Add/Remove Programs on the Control Panel.</p>
+
+
+<br><h3>Known Issues:&nbsp;&nbsp;&nbsp;Product Related</h3>
+
+<h4><a name="vi10232"></a>Source control does not support file names containing semi-colons</h4>
+<p>If you attempt to enable source control on a Web project that contains a file with a semi-colon (;) in its file name, the product will fail. Avoid using file names containing semi-colons.</p>
+
+<h4><a name="vi16001"></a>Ignore events in the Script Outline view for FRAME, IFRAME, FRAMESET, OPTION</h4>
+<p>When you add a FRAME, IFRAME, FRAMESET, or OPTION element to a page, the element's ID will appear in the Script Outline view. If you expand the element in the Script Outline, you will see a list of events. However, these elements do not fire events. Therefore, ignore the events that appear under these elements in Script Outline.</p>
+
+<h4><a name="vi17600"></a>Class names containing underscores are not supported</h4>
+<p>Class names that contain underscores (e.g., "my_Class") are not supported by Microsoft Internet Explorer 4.0. Therefore, when creating classes in the CSS editor, it is a good idea to create classes without underscores (e.g., "myClass").</p>
+
+<h4><a name="vi17633"></a>The editor does not support "&lt;script&gt;" or "&lt;/script&gt;" within JavaScript or VBScript comments</h4>
+<p>Do not include "&lt;script&gt;" or "&lt;/script&gt;" inside JavaScript or VBScript comments. The editor treats the commented &lt;script&gt; tags as if they were uncommented HTML. This results in incorrect color coding and causes event handlers generated by the Script Outline to be inserted in the wrong place.</p>
+
+<h4><a name="vi18201"></a>Visual InterDev does not support the ActiveMovie control</h4>
+<p>If you manually add the ActiveMovie control to the Toolbox, and then add an ActiveMovie control to a page, Visual InterDev will fail.</p>
+
+<h4><a name="vi18321"></a>When working offline and editing in Design view, relative URLs of image files must be edited manually</h4>
+<p>You can add an image file to a page by choosing <b>Image</b> on the <b>HTML</b> menu. If you do this when working offline and in Design view, Visual InterDev will create an absolute URL, beginning with "file://", that is local to the machine. To work around this, choose one of the following: 
+<ul>
+<li>Add the image in Source View.
+<li>Add the image in Design view and specify an absolute URL in the <b>Picture Source</b> option of the Insert Image dialog box.
+<li>Add the image in Design view and then edit the URL manually in Source view.
+</ul></p>
+
+<h4><a name="vi18682"></a>Visual InterDev does not support hierarchical recordsets</h4>
+<p>When you display the properties dialog box for a data command, three tabs appear on the dialog box, <b>General</b>, <b>Parameters</b>, and <b>Advanced</b>. In the Visual Studio help topics for the Command Properties dialog box, there are six tabs listed. Three of these tabs (<b>Relation</b>, <b>Grouping</b>, <b>Aggregates</b>) do not appear in the dialog box when called from Visual InterDev because Visual InterDev does not support hierarchical recordsets.</p>
+
+<h4><a name="vi18901"></a>Changes to Client Script Debugging in ASP Pages</h4>
+<p>When Internet Information Server (IIS) processes an ASP page, the resulting page sent to the browser can be considerably different than what you see when you edit the ASP page in the editor. Server script can generate new client content dynamically, or conversely, a large quantity of server script can result in only a few lines of client HTML output.  This situation introduces problems when you set breakpoints in client script inside an ASP page because the line on which you set the breakpoint can move dramatically within the file by the time the page reaches the browser.</p>
+<p>The solution is to enable client-side debugging in ASP pages. Doing so specifies that IIS tracks the location of client script breakpoints in an ASP page, and passes the location of those breakpoints to Internet Explorer, so that Internet Explorer can stop at the correct locations.
+</p>
+<p>The process of enabling client-side debugging for ASP pages is described in the Visual InterDev help topic "Debugging Client Script." However, the process has changed slightly. In the topic, under "Enabling Client Script Debugging for ASP Pages," change Step 3 of the procedure to read:</p>
+<blockquote>3. Under <b>Server script</b>, make sure that the <b>Automatically enable ASP server-side script debugging on launch</b> option is checked.</blockquote>
+<p>Later in the topic, under "Debugging Client Script Within a Solution," Step 5 has changed. The text should now read:</p>
+<blockquote>5. If debugging for client script in ASP pages has not been enabled as described above, Visual InterDev displays a message prompting you to enable debugging for ASP pages. Your options are:
+<ul>
+<li>Choose <b>Yes</b> if you are working with an ASP page and want Visual InterDev to automatically enable debugging.</li>
+<li>Choose <b>No</b> if you if you are working with an HTM page and will not be navigating to an ASP page during your debugger session.</li>
+</ul></blockquote>
+
+<h4><a name="vi19676"></a>Browsing "User Notification" sample using Netscape</h4>
+<P>The Gallery sample includes a "User Notification" page. In order for this sample to work properly when browsed in Netscape Navigator, you need to enable <b>Basic Authentication</b> for the UserNote directory on the Web server.</P>
+<P><B>To enable Basic Authentication</B></P>
+<OL>
+<LI>Open the Microsoft Management Console on your Web server. From the Windows <B>Start </B>menu, select <B>Programs</B>, <B>Windows NT 4.0 Option Pack</B>, <B>Internet Information Server</B>, and then <B>Internet Service Manager</B>.</LI>
+<LI>In the <B>Gallery</B> Web site, right-click the <B>UserNote</B> folder and choose <B>Properties</B>.</LI>
+<LI>On the <B>Directory Security</B> tab, click the <B>Edit</B> button under <B>Anonymous Access and Authentication Control</B>.</LI>
+<LI>In the Authentication Methods dialog box, make sure that <B>Basic Authentication</B> and <B>Windows NT Challenge/Response</B> are selected and that <B>Allow Anonymous Access</B> is not selected.</LI>
+<LI>Click <b>OK</b> to close the dialog boxes.</LI>
+</OL>
+<P>When browsing the "User Notification" page using Netscape you will be prompted for a user name and password. To be compatible with Microsoft Internet Explorer, enter the domain name and user name (e.g., "YourDomain\UserName") in the <B>User</B> text box.</P>
+
+<h4><a name="vi20341"></a>Issue concerning window_onload event not firing</h4>
+<p>When you output HTML in server events (for example, by including response.write() statements in the thisPage_onenter event), the browser will create an implied &lt;BODY&gt; tag that overrides the attributes that you may have set on the <BODY> tag, and the window_onload event is not fired. Therefore, attributes that you may have set on the &lt;BODY&gt; tag will not be used, and the window_onload event is not fired.  To avoid this problem, defer all HTML output until the content portion of the page.  Use script only to set up state that is used to compose the page.  If you need to output HTML prior to the content portion of the page, then you should set the &lt;BODY&gt; tag attributes programmatically using client-side code (for example, window.onload = "return window_onload()").</p>
+
+<h4><a name="wt8069">"[FrontPage vinavbar component]" appears when browsing a page</a></h4>
+<p>"[FrontPage vinavbar component]" is displayed by the browser when the navbar bot is not installed properly on the server. To fix the problem, verify that the <b>vinavbar</b> directory exists on the server. It is typically located at "\Program Files\Microsoft FrontPage\version3.0\bots\vinavbar".</p>
+<ul>
+<li>If the directory does exist, recalculate the links on the server:
+<dir>Run Fpsrvadm.exe on the server. Fpsrvadm.exe is typically found in "\Program Files\Microsoft FrontPage\version3.0\bin". 
+<br>When prompted to "Please enter command," select option #8, "recalculate links."
+<br>When prompted to "Enter Web name," press ENTER. Do not type a Web name. This ensures that links are recalculated for all Webs recursively from the root Web.
+</dir></li>
+<br>
+<li>If the directory does not exist, reinstall the FrontPage Server Extensions from the installation compact disc by running FP98ext\setup.exe. After they are installed, recalculate the links.</li>
+</ul>
+
+<h4><a name="wt2946"></a>Difference in CSS implementation between Netscape and Internet Explorer</h4>
+<p>Netscape Navigator and Communicator versions 4.0 through 4.03 implement cascading style sheets (CSS) differently than Internet Explorer. Navigator interprets relative URLs as relative to the document rather than to the linked CSS file. To work around this difference:
+<ul>
+<li>Copy, but do not move, all of the images from the directory of the theme that you are using to the directory that contains the document that references the CSS file. </li>
+<br>- or -
+<li>Change the relative URLs in your CSS files to the appropriate absolute URLs.</li>
+</ul>
+
+<h4><a name="wt7754"></a>Use server-level default document properties only</h4>
+<p>If you are running an IIS 4.0 Web server, you may encounter a problem with the ability to set a default document (welcome page) for each directory on your Web server. When using Site Designer, the default document information is taken from the Web server's server-level (root-level) properties and not from the directory-level properties. To work around this, set the default document at the Web server's server-level properties page.</p>
+<p><B>Note</B>&nbsp;&nbsp;&nbsp;After you re-set the properties, the change only affects new projects.</p>
+
+
+<br><h3>Known Issues:&nbsp;&nbsp;&nbsp;Visual Component Manager</h3>
+
+<h4><a name="RelatedFilesTab"></a>"Related Files Tab (Component Properties Dialog Box)" topic incorrect</h4>
+<p>Visual Component Manager User Interface Reference: The topic "Related Files Tab (Component Properties Dialog Box)" incorrectly states that the tab is used to display and enter files that are related to the selected component. In fact, none of the information displayed on this tab can be modified. You can add related files to a component only when publishing or re-publishing the component. For more information, search online, with <b>Search titles only</b> selected, for "Publishing Components" in the MSDN Library Visual Studio 6.0 documentation.</p>
+
+<h4><a name="RemovingRepository10RegistryKeys"></a>Removing Repository 1.0 Registry Keys</h4>
+<p>If you installed VCM 5.0 (previously available for Web download) you will have the following Windows Registry keys setup. They were necessary for VCM 5.0 and the 1.0 version of the Repository.
+If you find the following Registry entries then it is safe to remove them and may, in fact, improve VCM 6.0 performance.</p>
+<ul>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheMaxAnnProps</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheMaxObjects</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheRelshipMaxCollections</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\CacheRelshipMaxRows</li>
+<li>HKEY_LOCAL_MACHINE\Software\Microsoft\Repository\MaxRowCacheAge</li>
+</ul>
+
+<h4><a name="AddingrepositorytablestoanexistingMDBfile"></a>Adding repository tables to an existing .mdb file</h4>
+<p>If you try to open an existing .mdb file from within VCM that is not a repository database (i.e., it does not contain the repository structure/tables), you will be asked if you want the repository tables added to the database. You should not do this for normal use; the repository should generally be in a separate database. This will work, but it can take as long as 10 minutes to create the repository structure in an existing .mdb file.</p>
+<p>To create a brand new .mdb file containing the repository structure, right-click in the folder outline, click Repository, click New, and then enter the name of the file you want to create.</p>
+
+
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<!--                                                                         -->
+<!--                             END CONTENTS                                -->
+<!----------------------------------------------------------------------------->
+</body>
+</html>

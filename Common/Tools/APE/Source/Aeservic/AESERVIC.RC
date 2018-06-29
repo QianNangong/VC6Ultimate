@@ -1,0 +1,31 @@
+#include "..\AEInclud\ODBCAPI.rc"
+STRINGTABLE DISCARDABLE 
+BEGIN
+
+	2	"Service"
+	3	"Begin MTS Transaction"
+	4	"End MTS Transaction - Failed"
+	5	"End MTS Transaction - Succeeded"
+	6	"MTS Transaction Status"
+	7	"Successful Transactions:"
+	8	"Aborted Transactions:"
+	9	"Begin Database Query"
+	10	"End Database Query"
+	
+	20	"Error opening service connection"
+	21	"Error in Execute method"
+	22	"Error performing database query"
+	23	"Error parsing database query"
+	24	"Could not create MTS Service. Check the documentation for further help."
+
+	//	"*** Font information for all forms.  Index 30 is the Character set, Index 		
+	//	31 is Font name, Index 32 is Font Size"
+	30	"0"
+	31	"Tahoma"
+	32	"10"
+
+	//Error Strings
+	32766	"Invalid data was found in the variant"
+	32765	"The Activity Duration was negative or greater than <NUMBER>."
+	32764	"Invalid data container type"
+END

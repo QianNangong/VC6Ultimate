@@ -1,0 +1,18 @@
+{
+	BaseConfig:"Common.hjson"
+
+	Vars:[
+		{
+			BaseDir:%CurDir%\..\..
+		}
+	]
+
+	Platforms:[
+		{ W32x86:"1310" }
+		{ W64x86:"1400" }
+	]
+
+	Environment:{
+		_MSC_VER:"1310"
+	}
+}

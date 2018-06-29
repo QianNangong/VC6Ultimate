@@ -1,0 +1,66 @@
+<html>
+<BODY bgColor=#ffffff leftMargin=40 link=#500000 vLink=#505050>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<FONT SIZE=4 COLOR=#500000>Behind the Scenes</FONT></FONT>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<P>This sample uses three files:</P></FONT>
+<UL>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+    <LI>RandomAd.asp displays the randomly selected 
+    advertisement.
+    <LI>RandomAd.txt defines which advertisements to use.
+    <LI>AdRedir.asp redirects the user after an ad is 
+    chosen.</FONT></LI></UL>
+<FONT FACE="Verdana, Arial, Helvetica" SIZE=2>
+<P>RandomAd.asp uses just two lines of script to display 
+the advertisement. The first line creates the object reference to the AdRotator 
+component and the second line gets information from the RandomAd.txt file to 
+display the ad:
+<P>&lt;%Set ad = 
+Server.CreateObject(&quot;MSWC.AdRotator&quot;)%&gt;<BR>&lt;%= ad.GetAdvertisement(&quot;RandomAd.txt&quot;) %&gt;</P>  
+
+<P>RandomAd.txt is used as the rotator schedule file. The 
+rotator schedule file contains information that the Advertisement Rotator 
+component uses to manage and display the various advertisement images. In it, 
+you specify the details for the advertisements, such as the size of the 
+advertisement space, the image files to use, and the percentage of time that 
+each file should be displayed.
+<P>The rotator schedule file has two sections: * The first 
+section sets parameters that apply to all advertisement images in the rotation 
+schedule. * The second section specifies file and location information for each 
+individual advertisement and the weight of display time that each advertisement 
+should receive. The weight is a number between 0 and 4,294,967,295 that 
+indicates the relative weight of the advertisement. 
+<P>For example, if a rotator schedule file contains three 
+ads with weights set to 2, 3, and 5, the first advertisement is displayed 20 
+percent of the time, the second 30 percent of the time, and the third 50 percent 
+of the time.
+<P>A line containing only an asterisk separates the two 
+sections (*). Below is a portion of the RandomAd.txt file that shows one 
+advertisement entry:
+<P>
+<FONT face=Courier>REDIRECT 
+AdRedir.asp<BR>
+WIDTH 468<BR>
+HEIGHT 
+60<BR>
+BORDER 1<BR>
+*<BR>
+../images/rollover.gif<BR>
+http://www.microsoft.com/frontpage<BR>
+Free Beta Copy 
+of Microsoft FrontPage 98<BR>
+2 <BR></P>
+</FONT>
+<P>AdRedir.asp redirects users to the appropriate URL after 
+they have clicked on the advertisement.
+<P> 
+<FONT face=Courier>&lt;%<BR> If 
+Request.QueryString(&quot;url&quot;) &lt;&gt; &quot;&quot; Then <BR>&nbsp;&nbsp; Response.Redirect(Request.QueryString(&quot;url&quot;))<BR> 
+End If <BR>%&gt; 
+</FONT></P>
+<P> can also include script in the redirection file to count 
+the number of users that have clicked on a particular advertisement and save 
+this information to a file on the server.</FONT></P></FONT>
+</BODY>
+</html>
