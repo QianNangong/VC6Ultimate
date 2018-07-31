@@ -15,10 +15,7 @@
 		/Y3
 		/SplashScreenDir %BaseDir%\VisualUltimate\SplashScreens
 		/SplashScreenBlocked *
-		/SplashScreenAllowed MAIAR
-		/SplashScreenAllowed BONNE_GRAINE
-		/SplashScreenAllowed ST_CLAUDE
-		/SplashScreenAllowed PC-LEDOUX
+		/SplashScreenAllowed MY_OFFICE_COMPUTER_NAME
 		/SplashScreenDir_SFW %BaseDir%\VisualUltimate\SplashScreens_SFW
 	#		/NOLOGO
 	]

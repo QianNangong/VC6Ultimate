@@ -7,14 +7,14 @@
 			CompilerFolder:vc7
 		}
 		{
-			MainFolder:%BaseDir%\VC98\%CompilerFolder%
+			SDKFolder:%BaseDir%\VisualUltimate\WindowsSDKs\%CompilerFolder%
 		}
 	]
 
 	Include:[
-		%MainFolder%\Include
-		%MainFolder%\Include\crt
-		%MainFolder%\Include\atl
+		%SDKFolder%\Include
+		%SDKFolder%\Include\atl
+		%SDKFolder%\Include\crt
 	]
 
 	Path:[
@@ -28,13 +28,12 @@
 	]
 
 	Lib:[
-		%MainFolder%\lib
+		%SDKFolder%\LIB
 	]
 
 	Sources:[
-		%MainFolder%\src\ATL
-		%MainFolder%\src\CRT
-		%MainFolder%\src\MFC
+		%SDKFolder%\SRC\ATL
+		%SDKFolder%\SRC\CRT
+		%SDKFolder%\SRC\MFC
 	]
-
 }

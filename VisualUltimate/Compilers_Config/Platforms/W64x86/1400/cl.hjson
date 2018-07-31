@@ -7,40 +7,34 @@
 			CompilerFolder:vc7_64
 		}
 		{
-			MainFolder:%BaseDir%\VC98\%CompilerFolder%
-		}
-		{
-			WinHeaders:Q:\@Projets\Windows
+			SDKFolder:%BaseDir%\VisualUltimate\WindowsSDKs\%CompilerFolder%
 		}
 	]
 
 	Include:[
-		%WinHeaders%\PlatformSDK\Include
-		%WinHeaders%\LibC\Include
-		%WinHeaders%\ATL\include
+		%SDKFolder%\Include
+		%SDKFolder%\Include\atl
+		%SDKFolder%\Include\crt
 	]
 
 	Path:[
+		%BaseDir%\VisualUltimate\Compilers\%CompilerFolder%
 		%BaseDir%\Common\MSDev98\Bin
 		%BaseDir%\VC98\BIN
 		%BaseDir%\Common\TOOLS
 		%BaseDir%\VisualUltimate\TOOLS
 		%BaseDir%\Common\TOOLS\WINNT
 		%BaseDir%\VisualUltimate\system32
-		%BaseDir%\VC98\BIN\%CompilerFolder%
 	]
 
 	Lib:[
-		%MainFolder%\PlatformSDK\lib
-		%MainFolder%\LIB
-		%MainFolder%\ATL\LIB
+		%SDKFolder%\LIB
+		%SDKFolder%\LIB\ATLMFC
 	]
 
 	Sources:[
 		%MainFolder%\SRC\MFC
 		%MainFolder%\SRC\ATL
-		%MainFolder%\SRC\ATL\atl21asm
-		%MainFolder%\SRC\ATL\atlAMD64		
 		%MainFolder%\SRC\CRT
 		%MainFolder%\SRC\CRT\SYS
 		%MainFolder%\SRC\CRT\IA64

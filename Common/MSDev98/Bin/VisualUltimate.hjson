@@ -1,0 +1,7 @@
+{
+	VisualUltimateDir:"../../../VisualUltimate"
+	UserConfigDir:"VS_Config"
+	HelpDir:"Help"
+	ProjectTemplateDir:"Project_Templates"
+	CompilersConfigDir:"Compilers_Config"
+}

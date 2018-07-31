@@ -2,6 +2,14 @@
 	Name: "Menu bar",
 	MenuItems: [
 		{
+			CmdID: "VU_CommandFinder",
+			State: "S2|S200",
+			Width: 0,
+		}
+		{
+			State: "SEPARATOR",
+		}
+		{
 			CmdID: "MenuFile",
 			State: "S20|S80",
 			Width: 0,
@@ -70,6 +78,9 @@
 			CmdID: "MenuAddins",
 			State: "S20|S80",
 			Width: 0,
+		}
+		{
+			State: "SEPARATOR",
 		}
 		{
 			CmdID: "VU_Options",

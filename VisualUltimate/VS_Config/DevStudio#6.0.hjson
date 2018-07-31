@@ -1,7 +1,6 @@
 {
 	"":0
 	"Macros":{
-		"C:\\Program Files\\Microsoft Visual Studio\\COMMON\\MSDEV98\\MACROS\\TEMPORARYQUICKMACRO.DSM":"0"
 		"Reload":2
 		"C++":{
 			"MACROC++.DLL":{
@@ -9,8 +8,7 @@
 				"SourceFile":"MacroC++\\Code\\MacroCPP.cpp"
 			}
 		}
-		"C:\\Program Files\\Microsoft Visual Studio\\COMMON\\MSDEV98\\MACROS\\SAMPLE.DSM":"0"
-		"C:\\Program Files\\Microsoft Visual Studio\\COMMON\\MSDEV98\\MACROS\\MYMACROS.DSM":"0"
+		"$INSTALLDIR$\\COMMON\\MSDEV98\\MACROS\\SAMPLE.DSM":"0"
 		"Intro":0
 	}
 	"Custom Colors":{
@@ -33,7 +31,6 @@
 	}
 	"Directories":{
 		"WorkspaceDir":"C:\\Temp\\"
-		"Install Dirs":"C:\\Program Files\\Microsoft Visual Studio\\Common\\MSDev98\\Bin"
 	}
 	"Tools":{
 		"UserTool9":{
@@ -63,7 +60,7 @@
 			"AskArgument":0
 		}
 		"UserTool5":{
-			"GUITool":1
+			"GUITool":0
 			"MenuName":"S&py++"
 			"VisibleOnMenu":0
 			"PathName":"$(MVSDir)\\Common\\Tools\\Spy32\\spyxx.exe"
@@ -593,7 +590,7 @@
 			"":"1"
 			"DisplayName":"Visual Assist X Add-in"
 			"Description":"Visual Assist X adds new functionality to the VC++ editor."
-			"Filename":"C:\\Program Files\\Microsoft Visual Studio\\VisualUltimate\\AddIns\\Visual Assist X\\VAssist.dll"
+			"Filename":"..\\..\\..\\VisualUltimate\\AddIns\\Visual Assist X\\VAssist.dll"
 		}
 	}
 	"DataView":{
@@ -621,7 +618,7 @@
 		"Extension":{
 			"Enable":1
 			"State":0
-			"Filename":"C:\\Program Files\\Microsoft Visual Studio\\Common\\MSDev98\\Help\\exthelp.hlp"
+			"Filename":"..\\Help\\exthelp.hlp"
 		}
 	}
 	"Search":{
@@ -937,17 +934,6 @@
 		}
 	}
 	"Recent File List":{
-		"FileCount":4
-		"TypeInfo2":"{2AE27A3C-17F5-11D0-AF1B-00A0C90F9DE6}"
-		"Project1":"C:\\Temp\\kklklk\\VCProject\\kklklk"
-		"File1":"C:\\Temp\\kklklk\\Code\\main.cpp"
-		"TypeInfo3":"{2AE27A3C-17F5-11D0-AF1B-00A0C90F9DE6}"
-		"ProjectCount":4
-		"TypeInfo1":"{2AE27A3C-17F5-11D0-AF1B-00A0C90F9DE6}"
-		"Project2":"C:\\Temp\\fgdf\\VCProject\\fgdf"
-		"File3":"C:\\Temp\\qzeaze\\code\\main.cpp"
-		"File2":"C:\\Temp\\fgdf\\code\\main.cpp"
-		"Project3":"C:\\Temp\\qzeaze\\VCProject\\qzeaze"
 	}
 	"VC6Ultimate":{
 		"Macros":{
@@ -1449,8 +1435,9 @@
 			"Watch_UpperCaseHexa":1
 			"Watch_ChangeStaticArraySize":1
 			"UseAlternateRegisterCPUDisplay":1
+			"Watch_AllowLineJumpInAutoExpr":1
 			"WaitingFunctionList":"WaitForMultipleObjects;WaitForSingleObject;NtWaitForWorkViaWorkerFactory;ZwWaitForMultipleObjects;Sleep;NtWaitForMultipleObjects;NtWaitForSingleObject;NtDelayExecution;DispatchMessageW;ZwWaitForSingleObject"
-			"AutoExpFullFileName":"C:\\Program Files\\Microsoft Visual Studio\\VisualUltimate\\AutoExp.ini"
+			"AutoExpFullFileName":"..\\..\\..\\VisualUltimate\\AutoExp.ini"
 			"Watch_ShowCharsModifiedOnly":1
 			"Watch_TranslateUTF8String":1
 			"FixWin7ProcessHanging":1
@@ -1813,9 +1800,6 @@
 		"SortDefList":1
 		"Custom":{
 			"AdditionalInclude":""
-			"Library Dirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\MsC\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\LIB;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\LIB"
-			"SystemInclude":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\StdLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\LibC\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\ATL\\include"
-			"GotoSourceDirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\SRC;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\ATL\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\CRT\\SRC"
 		}
 		"FiWDlg2ColWidth0":213
 		"ParseFilesInDirectoryIfExternalFileOpened":"hex:00"
@@ -1937,14 +1921,11 @@
 		"MethodsInFile_Properties":"hex:01"
 		"Win32 (x86)":{
 			"AdditionalInclude":""
-			"Library Dirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\MsC\\Lib;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\LIB;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\LIB;"
-			"SystemInclude":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\WinLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MsSDK\\StdLib\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\LibC\\Include;C:\\Program Files\\Microsoft Visual Studio\\VC98\\ATL\\include;"
-			"GotoSourceDirs":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\SRC;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\MFC\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\ATL\\INCLUDE;C:\\Program Files\\Microsoft Visual Studio\\VC98\\vc6\\CRT\\SRC;"
 		}
 		"MiniHelpAtTop":"hex:01"
 		"OverrideRepairCase1":"hex:01"
 		"InitColoringOptions":"No"
-		"InstalledDir":"c:\\program files\\microsoft visual studio\\visualultimate\\addins\\visual assist x\\"
+		"InstalledDir":"$INSTALLDIR$\\visualultimate\\addins\\visual assist x\\"
 		"ShowBraceMismatches":"hex:01"
 		"MarkCurrentLine":"hex:00"
 		"VaViewGotoDefinition":"hex:01"
@@ -2176,9 +2157,8 @@
 		"AppWindow":"80,0"
 		"WindowMenuSorted":1
 		"PinGoToDlg":0
-		"MFCPath32Bit":"C:\\Program Files\\Microsoft Visual Studio\\VC98\\MFC"
+		"MFCPath32Bit":"$INSTALLDIR$\\VC98\\MFC"
 		"MaximizeDoc":1
-		"LastSplashScreen":"tumblr_oxthkmr5dZ1qhoe3vo1_640.gif"
 		"MRUListsOnFileMenu":0
 		"ToolTipKeys":1
 		"Tip of the Day":0
