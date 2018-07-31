@@ -25,8 +25,8 @@ See [VC6 Ultimate's homepage](http://vc6.ultim.pw) for a whole lot of VC6 Ultima
 
 ## Installation
 
-* Execute "create_shortcuts.js". It will create two shortcut to launch VC6 Ultimate, one with the VC7.1 compiler and one with the VC6 Compiler.
-* If you want to enable Visual Assist X, open a cmd with administrator rights. Cd to directory "VisualUltimate/AddIns/Visual Assist X" and execute the following command: "regsvr32 VAssist.dll". Visual Assist X is shipped with VC6 Ultimate but obviously without a purchased license. Please note that VC6 Ultimate is only compatible with this exact version of Visual Assist X.
+* Execute "create_shortcuts.js". It will create two shortcuts to launch VC6 Ultimate, one with the VC7.1 compiler and one with the VC6 Compiler.
+* If you want to enable Visual Assist X, open a cmd with administrator rights. Go in "VisualUltimate/AddIns/Visual Assist X" and execute "regsvr32 VAssist.dll". Visual Assist X is shipped with VC6 Ultimate but obviously without a purchased license. Please note that VC6 Ultimate is only compatible with this exact version of Visual Assist X.
 
 ## Features List
 
