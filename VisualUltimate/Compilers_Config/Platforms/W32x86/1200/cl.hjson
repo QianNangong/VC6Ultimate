@@ -17,7 +17,6 @@
 		%BaseDir%\Common\TOOLS
 		%BaseDir%\VisualUltimate\TOOLS
 		%BaseDir%\Common\TOOLS\WINNT
-		%BaseDir%\VisualUltimate\system32
 		%BaseDir%\VC98\BIN
 	]
 

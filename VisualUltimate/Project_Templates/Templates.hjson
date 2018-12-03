@@ -138,78 +138,6 @@
 						}
 					]
 				}
-				{
-					Name: A GX VIEWER application.
-					MainFileName: code/main.cpp
-					Folders:[
-						"VCProject"
-						"Res"
-						"Shaders"
-						"Code"
-					]
-					Files:[
-						{
-							Source: GxViewer/App.dsp
-							Target: $$root$$.dsp
-							TargetFolder: VCProject
-						}
-						{
-							Source: GxViewer/shaders.cpp
-							Target: $$root$$_Shaders.cpp
-							TargetFolder: Shaders
-						}
-						{
-							Source: GxViewer/shaders.h
-							Target: $$root$$_Shaders.h
-							TargetFolder: Shaders
-						}
-						{
-							Source: GxViewer/Default.glsl
-							Target: Default.glsl
-							TargetFolder: Shaders
-						}
-						{
-							Source: GxViewer/App.shader_project
-							Target: $$root$$.shader_project
-							TargetFolder: Shaders
-						}
-						{
-							Source: GxViewer/main.cpp
-							Target: main.cpp
-							TargetFolder: Code
-						}
-					]
-				}
-				{
-					Name: A Simple Generic Viewer application.
-					MainFileName: code/main.cpp
-					Folders:[
-						"VCProject"
-						"Code"
-					]
-					Files:[
-						{
-							Source: GenericViewerTemplate/App.dsw
-							Target: $$root$$.dsw
-							TargetFolder: VCProject
-						}
-						{
-							Source: GenericViewerTemplate/App.dsp
-							Target: $$root$$.dsp
-							TargetFolder: VCProject
-						}
-						{
-							Source: GenericViewerTemplate/main.cpp
-							Target: main.cpp
-							TargetFolder: Code
-						}
-						{
-							Source: GenericViewerTemplate/App.settings
-							Target: $$root$$.settings
-							TargetFolder: VCProject
-						}
-					]
-				}
 			]
 		},
 		{
@@ -324,7 +252,7 @@
 				}
 				{
 					Name: A DLL that exports some symbols.
-					MainFileName: code/main.cpp
+					MainFileName: code/$$root$$.cpp
 					Folders:[
 						"VCProject"
 						"Res"
@@ -332,8 +260,13 @@
 					]
 					Files:[
 						{
+							Source: Dll/Prj_3.DSP
+							Target: $$root$$.dsp
+							TargetFolder: VCProject
+						}
+						{
 							Source: Dll/main_3.cpp
-							Target: code/$$root$$.cpp
+							Target: $$root$$.cpp
 							TargetFolder: Code
 						}
 						{

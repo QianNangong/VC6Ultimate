@@ -1,0 +1,8 @@
+Environment:{
+  _MSC_VER:"1800"
+  _COMPILER:"clang"
+  _PLATFORM:"W32x86"
+}
+
+use file config : "Compilers_Config/Platforms/${_PLATFORM}/${_MSC_VER}/${_COMPILER}.hjson"
+Here : "Compilers_Config/Platforms/W32x86/1800/clang.hjson"

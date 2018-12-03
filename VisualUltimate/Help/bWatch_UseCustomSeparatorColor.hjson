@@ -1,0 +1,12 @@
+{
+	Image:WatchSeparatorColor
+	Palette:{
+		StdWatchTextBackground:0x00FF00
+		StdWatchTextForeground:0xFF00FF
+		StdWatchHighlightBackground:0x800000
+		StdWatchHighlightForeground:0xFF0000
+		StdWatchTextSelectionBackground:0x0000FF
+		StdWatchTextSelectionForeground:0x00FFFF
+		WatchSeparatorColor:0xFFD700
+	}
+}

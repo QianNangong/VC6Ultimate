@@ -17,13 +17,12 @@
 	]
 
 	Path:[
+		%BaseDir%\VC98\BIN\%CompilerFolder%
 		%BaseDir%\Common\MSDev98\Bin
 		%BaseDir%\VC98\BIN
 		%BaseDir%\Common\TOOLS
 		%BaseDir%\VisualUltimate\TOOLS
 		%BaseDir%\Common\TOOLS\WINNT
-		%BaseDir%\VisualUltimate\system32
-		%BaseDir%\VC98\BIN\%CompilerFolder%
 	]
 
 	Lib:[

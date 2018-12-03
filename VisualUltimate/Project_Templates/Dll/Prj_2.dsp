@@ -46,7 +46,7 @@ $$<WIN32>$$
 BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
-# ADD LINK32 /nologo /dll /pdb:none /machine:I386
+# ADD LINK32 /nologo /dll /pdb:none /machine:I386 /out:"C:/temp/R/$$root$$.dll"
 
 !ELSEIF  "$(CFG)" == "$$root$$ - Win32 Debug"
 
@@ -104,7 +104,7 @@ LINK32=link.exe
 BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
-# ADD LINK32 bufferoverflowu.lib /nologo /dll /pdb:none /machine:AMD64
+# ADD LINK32 bufferoverflowu.lib /nologo /dll /pdb:none /machine:AMD64 /out:"C:/temp/R64/$$root$$.dll"
 
 $$</WIN64>$$
 !ENDIF 

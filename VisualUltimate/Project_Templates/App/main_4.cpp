@@ -68,11 +68,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
 //-------------------------------------------------------------------------------------------------------------
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE, char* lpCmdLine, int nCmdShow){
 
-	WNDCLASSEXA wcex={sizeof(WNDCLASSEXA), CS_HREDRAW|CS_VREDRAW, WndProc, 0, 0, 0, LoadIconA(hInstance, (char const*)IDI_MEDIUM), LoadCursorA(NULL, MAKEINTRESOURCEA(IDC_ARROW)), (HBRUSH)(COLOR_3DFACE+1),0,"LMKL", LoadIconA(wcex.hInstance, (char const*)IDI_SMALL)};
+	WNDCLASSEXA wcex={sizeof(WNDCLASSEXA), CS_HREDRAW|CS_VREDRAW, WndProc, 0, 0, 0, LoadIconA(hInstance, (char const*)IDI_MEDIUM), LoadCursorA(NULL, MAKEINTRESOURCEA(IDC_ARROW)), (HBRUSH)(COLOR_3DFACE+1),0,"MAINDLG", LoadIconA(wcex.hInstance, (char const*)IDI_SMALL)};
 	ATOM atom=RegisterClassExA(&wcex);
 
 	// Perform application initialization:
-  HWND hWnd = CreateWindowExA(0, (char*)atom, "lmkl", WS_OVERLAPPEDWINDOW,CW_USEDEFAULT, 0, 200, 200, NULL, NULL, hInstance, NULL);
+  HWND hWnd = CreateWindowExA(0, (char*)atom, "Window Name", WS_OVERLAPPEDWINDOW,CW_USEDEFAULT, 0, 200, 200, NULL, NULL, hInstance, NULL);
   if (!hWnd)
 		return FALSE;
 

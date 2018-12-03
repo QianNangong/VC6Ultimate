@@ -1,6 +1,4 @@
 #include "resource.h"
-
-#include "resource.h"
 #include <win/DialogStyle.h>
 #include <win/stdwindows_styles.h>
 #include <win/CommonControls/Static.h>

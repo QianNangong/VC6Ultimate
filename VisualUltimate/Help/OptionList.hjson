@@ -162,6 +162,13 @@
 						}
 						{
 							Type:boolean
+							Variable:bWatchTooltip_TryToExpandTooltipContentSelection
+							DefaultValue:false
+							Title:"Try to expand tooltip content selection"
+							Section:"Tooltip"
+						}
+						{
+							Type:boolean
 							Variable:bChangeTooltipTimerSpeed
 							DefaultValue:false
 							Title:"Tooltip Delay (ms) (default:600)"
@@ -1284,7 +1291,7 @@
 											DefaultValue:true
 											Title:"Highlight Odd Lines Background"
 										}
-									
+
 									]
 								}
 								{
@@ -1300,7 +1307,7 @@
 											DefaultValue:true
 											Title:"Highlight Odd Lines Background"
 										}
-									
+
 									]
 								}
 								{
@@ -1316,7 +1323,7 @@
 											DefaultValue:true
 											Title:"Highlight Odd Lines Background"
 										}
-									
+
 									]
 								}
 								{
@@ -1332,7 +1339,7 @@
 											DefaultValue:true
 											Title:"Highlight Odd Lines Background"
 										}
-									
+
 									]
 								}
 								{
@@ -1348,7 +1355,7 @@
 											DefaultValue:true
 											Title:"Highlight Odd Lines Background"
 										}
-									
+
 									]
 								}
 								{
@@ -1364,7 +1371,7 @@
 											DefaultValue:true
 											Title:"Highlight Odd Lines Background"
 										}
-									
+
 									]
 								}
 								{
@@ -1380,7 +1387,7 @@
 											DefaultValue:true
 											Title:"Highlight Odd Lines Background"
 										}
-									
+
 									]
 								}
 								{
@@ -1555,7 +1562,7 @@
 							Title:"Gray Out Disabled Lines (#if 0)"
 							Section:"Highlights"
 						}
-					]					
+					]
 				}
 				{
 					Name:"Enhanced Display 1/2"
@@ -1650,6 +1657,14 @@
 							DefaultValue:false
 							Title:"Enable image popups (@IMG)"
 							Section:"Comments"
+							Params:[
+								{
+									Type:boolean
+									Variable:bEnableImagePopupCheckExistence
+									Title:"Check if image file exists"
+									DefaultValue:false
+								}
+							]
 						}
 						{
 							Type:boolean
@@ -1858,6 +1873,13 @@
 							Title:"Preprocessor Symbols Color"
 							Section:"EnhancedDisplay"
 						}
+						{
+							Type:boolean
+							Variable:bCheckIncludedFileExistence
+							DefaultValue:false
+							Title:"Underline non found included files"
+							Section:"EnhancedDisplay"
+						}
 
 // 						{
 // 							Type:boolean
@@ -1873,7 +1895,7 @@
 // 								}
 // 							]
 // 						}
-					]					
+					]
 				}
 				{
 					Name:"Enhanced Display 2/2"
@@ -1918,7 +1940,7 @@
 								}
 							]
 						}
-					]					
+					]
 				}
 				{
 					Name:"Context Menu"
@@ -1965,7 +1987,7 @@
 							Title:"Display Containing Project into 'Insert File Into Project'"
 							Section:"ContextMenu"
 						}
-					]					
+					]
 				}
 				{
 					Name:"Fonts"
@@ -2001,7 +2023,7 @@
 								}
 							]
 						}
-					]					
+					]
 				}
 				{
 					Name:"C++ Parsing"
@@ -2069,7 +2091,7 @@
 					Title:"Auto Set Debug Tab as Current"
 					Section:"OutputWindow"
 				}
-			]					
+			]
 
 			Folders:[
 				{
@@ -2202,7 +2224,67 @@
 										}
 									]
 								}
-							]							
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ResultStyleForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Style"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ResultStyleBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ResultPerformanceForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Performance"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ResultPerformanceBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ResultInformationForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Information"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ResultInformationBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+								{
+									Type:color
+									Banner:"Text Color"
+									Variable:"ResultPortabilityForegroundColor"
+									DefaultValue:CLR_DEFAULT
+									Title:"Portability"
+									Params:[
+										{
+											Type:color
+											Banner:"Background"
+											Variable:"ResultPortabilityBackgroundColor"
+											DefaultValue:CLR_DEFAULT
+										}
+									]
+								}
+							]
 						}
 					]
 				}
@@ -2375,7 +2457,7 @@
 							]
 							Display:horizontal
 						}
-					]					
+					]
 				}
 				{
 					Name:"Advanced Options"
@@ -2527,8 +2609,8 @@
 					Section:"Resources"
 				}
 //LTEXT           "Colunm index for numeric values in #define lines :",IDC_STATIC,15,33,156,8
-//IDC_DEFINE_VALUE_COLUMN_INDEX,174,32,40,12,ES_AUTOHSCROLL | ES_NUMBER				
-			]			
+//IDC_DEFINE_VALUE_COLUMN_INDEX,174,32,40,12,ES_AUTOHSCROLL | ES_NUMBER
+			]
 		}
 		{
 			Name:"Debug"
@@ -2546,7 +2628,7 @@
 							DefaultValue:false
 							Title:"Function Name only"
 						}
-					]							
+					]
 				}
 				{
 					Type:boolean
@@ -2743,6 +2825,13 @@
 								}
 							]
 						}
+						{
+							Type:boolean
+							Variable:bFixGoToDisassembly
+							DefaultValue:false
+							Title:"Fix : GoTo Disassembly - Jumps at mouse position (not caret position)"
+							Section:"Assembly View"
+						}
 					]
 				}
 				{
@@ -2790,7 +2879,7 @@
 							Title:"Increase breakpoints list height"
 							Section:"Breakpoints"
 						}
-					]			
+					]
 				}
 				{
 					Name:"Watch 1/2"
@@ -2845,23 +2934,17 @@
 						}
 						{
 							Type:boolean
-							Variable:bUseCustomAutoExp
-							DefaultValue:false
-							Title:"Custom AutoExp.dat path"
+							Variable:bWatch_UseCustomSeparatorColor
+							DefaultValue:0
+							Title:"Separator Color"
 							Section:"Debug"
 							Params:[
 								{
-									Type:path
-									Variable:AutoExpFullFileName
+									Type:color
+									Variable:WatchSeparatorColor
+									DefaultValue:0xFFFFFF
 								}
-							]							
-						}
-						{
-							Type:boolean
-							Variable:bAutoReloadAutoExp
-							DefaultValue:false
-							Title:"Auto Reload AutoExp.dat when modified"
-							Section:"Debug"
+							]
 						}
 						{
 							Type:boolean
@@ -2876,21 +2959,7 @@
 									DefaultValue:0
 									Title:"Exclude from Copy"
 								}
-							]							
-						}
-						{
-							Type:boolean
-							Variable:bUsePerProjectAutoExpand
-							DefaultValue:false
-							Title:"Use a specific AutoExp.ini file per Project"
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bEditableWatchType
-							DefaultValue:false
-							Title:"Edit AutoExp directly from Watch Window"
-							Section:"Debug"
+							]
 						}
 						{
 							Type:boolean
@@ -2903,7 +2972,7 @@
 							Type:boolean
 							Variable:bAllowWatchMultiLine
 							DefaultValue:false
-							Title:"Allow Multiline Watches (/mb#, /ma#, ...)"
+							Title:"Allow Multiline Watches (\",mb#\", \",ma#\", ...)"
 							Section:"Debug"
 						}
 						{
@@ -2924,7 +2993,21 @@
 							Type:boolean
 							Variable:bWatch_TranslateUTF8String
 							DefaultValue:false
-							Title:"Add /sU format to display UTF-8 strings"
+							Title:"Add \",sU\" format to display UTF-8 strings"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_AllowToSetVariableWidthAndPrecision
+							DefaultValue:false
+							Title:"Allow to specify variable width and precision (\",.#s\", \",@.#f\") where # is the variable precision and @ is the width"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_AllowVariablePrecisionAsVariable
+							DefaultValue:false
+							Title:"Allow to specify variable precision using a variable (f.e: \",.{Len}s\", \",.{Len}f\" where 'Len' is a variable)"
 							Section:"Debug"
 						}
 						{
@@ -2938,14 +3021,7 @@
 							Type:boolean
 							Variable:bWatch_TranslateBinaryInt
 							DefaultValue:0
-							Title:"Add /b format to display binary representations"
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bWatch_TranslateColor
-							DefaultValue:0
-							Title:"Add /bgr and /rgb format to display colors (and @RGB{}/@BGR{} in type format)"
+							Title:"Add \",b\" format to display binary representations"
 							Section:"Debug"
 						}
 						{
@@ -2960,6 +3036,157 @@
 							Variable:bWatch_SimplifyDraggedExpression
 							DefaultValue:0
 							Title:"Simplify dragged & dropped Expressions"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_TranslateVirtualKey
+							DefaultValue:0
+							Title:"Add \",vk\" format to translate Virtual keys"
+							Section:"Debug"
+						}
+					]
+				}
+				{
+					Name:"Watch 2/2"
+					Options:[
+						{
+							Type:boolean
+							Variable:bWatch_RemoveTrailingCarriageReturnOnCopy
+							DefaultValue:0
+							Title:"Remove trailing carriage return on Watch copy"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_AddSignOnWatchedForModification
+							DefaultValue:0
+							Title:"Add Sign on Watched for modification fields"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ExpandTabs
+							DefaultValue:0
+							Title:"Expand tab characters when displaying strings"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ShowCharsModifiedOnly
+							DefaultValue:0
+							Title:"In modes \",mb\" and \",ma\", only highlight modified chars"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_ImproveMessageNames
+							DefaultValue:0
+							Title:"Improve message names \",wm\""
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_DisplayGreyedEmptyTabs
+							DefaultValue:0
+							Title:"Display empty watch tabs with grayed title"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_DisplayPreviousValue
+							DefaultValue:0
+							Title:"Display a shadowed version of the previous watch value"
+							Section:"Debug"
+							Params:[
+								{
+									Type:integer
+									Variable:Watch_PreviousValueTransparency
+									DefaultValue:90
+									Title:"Transparency (%)"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bWatch_DisplayUnkPointerAsMemory
+							DefaultValue:false
+							Title:"Display unknown pointers as memory"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_AvoidEnlargingEditedLine
+							DefaultValue:false
+							Title:"Avoid the currently edited watch line to be enlarged"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_AllowSubItemCountAsVariable
+							DefaultValue:false
+							Title:"Allow to use variable instead of number for subitem count (f.e: \"Data,{Count}\")"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_BringWatchWindowToFront
+							DefaultValue:false
+							Title:"Bring watch window to front when adding new watch"
+							Section:"Debug"
+						}
+
+//						{
+//							Type:boolean
+//							Variable:bWatch_HideStringAddress
+//							DefaultValue:0
+//							Title:"Hide string address int watch"
+//							Section:"Debug"
+//						}
+					]
+				}
+				{
+					Name:"Watch Auto Expressions"
+					Options:[
+						{
+							Type:boolean
+							Variable:bUseCustomAutoExp
+							DefaultValue:false
+							Title:"Custom AutoExp.dat path"
+							Section:"Debug"
+							Params:[
+								{
+									Type:path
+									Variable:AutoExpFullFileName
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bAutoReloadAutoExp
+							DefaultValue:false
+							Title:"Auto Reload AutoExp.dat when modified"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bUsePerProjectAutoExpand
+							DefaultValue:false
+							Title:"Use a specific AutoExp.ini file per Project"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bEditableWatchType
+							DefaultValue:false
+							Title:"Edit AutoExp directly from Watch Window"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_TranslateColor
+							DefaultValue:0
+							Title:"Add \",bgr\" and \",rgb\" format to display colors (and @RGB{}/@BGR{}/@RGBf{} in type format)"
 							Section:"Debug"
 						}
 						{
@@ -2993,70 +3220,9 @@
 						}
 						{
 							Type:boolean
-							Variable:bWatch_RemoveTrailingCarriageReturnOnCopy
-							DefaultValue:0
-							Title:"Remove trailing carriage return on Watch copy"
-							Section:"Debug"
-						}
-					]			
-				}
-				{
-					Name:"Watch 2/2"
-					Options:[
-						{
-							Type:boolean
-							Variable:bWatch_AddSignOnWatchedForModification
-							DefaultValue:0
-							Title:"Add Sign on Watched for modification fields"
-							Section:"Debug"
-						}
-						{
-							Type:boolean
 							Variable:bWatch_ExtendedAutoExpFormat
 							DefaultValue:0
 							Title:"Use Extended AutoExp Format (e.g. \"<right> <= <left>\", \"$right $(left,d)\", \"Price:$(price)\\$\""
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bWatch_ExpandTabs
-							DefaultValue:0
-							Title:"Expand tab characters when displaying strings"
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bWatch_ShowCharsModifiedOnly
-							DefaultValue:0
-							Title:"In modes /mb and /ma, only highlight modified chars"
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bWatch_ImproveMessageNames
-							DefaultValue:0
-							Title:"Improve message names \",wm\""
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bWatch_DisplayGreyedEmptyTabs
-							DefaultValue:0
-							Title:"Display empty watch tabs with grayed title"
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bWatch_DisplayPreviousValue
-							DefaultValue:0
-							Title:"Display a shadowed version of the previous watch value"
-							Section:"Debug"
-						}
-						{
-							Type:boolean
-							Variable:bWatch_DisplayUnkPointerAsMemory
-							DefaultValue:false
-							Title:"Display unknown pointers as memory"
 							Section:"Debug"
 						}
 						{
@@ -3066,15 +3232,20 @@
 							Title:"Allow Line Jump '\\n' in Watch Expression"
 							Section:"Debug"
 						}
-
-
-//						{
-//							Type:boolean
-//							Variable:bWatch_HideStringAddress
-//							DefaultValue:0
-//							Title:"Hide string address int watch"
-//							Section:"Debug"
-//						}
+						{
+							Type:boolean
+							Variable:bWatch_AddPointerContentFormat
+							DefaultValue:0
+							Title:"Add \",*\" Format to a display a pointer content (remove address display)"
+							Section:"Debug"
+						}
+						{
+							Type:boolean
+							Variable:bWatch_SkipAutoExpDisplayOfNullPointer
+							DefaultValue:0
+							Title:"Skip the AutoExp display of null pointers"
+							Section:"Debug"
+						}
 					]
 				}
 			]
@@ -3228,7 +3399,7 @@
 							Banner:"Background"
 							Title:"Matching Pattern"
 						}
-					]					
+					]
 				}
 			]
 		}
@@ -3286,7 +3457,14 @@
 					Title:"Save ReplaceAll Dialog's Position per computer"
 					Section:"FindReplace"
 				}
-			]			
+				{
+					Type:boolean
+					Variable:bFind_AddSelectAllButton
+					DefaultValue:false
+					Title:"Add 'Select All' Button"
+					Section:"FindReplace"
+				}
+			]
 		}
 		{
 			Name:"Notifications"
@@ -3364,7 +3542,7 @@
 							DefaultValue:false
 							Title:"Only if not focused"
 						}
-					]					
+					]
 				}
 				{
 					Type:boolean
@@ -3383,7 +3561,7 @@
 							DefaultValue:false
 							Title:"Only if not focused"
 						}
-					]					
+					]
 				}
 				{
 					Type:boolean
@@ -3402,7 +3580,7 @@
 							DefaultValue:false
 							Title:"Only if not focused"
 						}
-					]					
+					]
 				}
 				{
 					Type:boolean
@@ -3421,7 +3599,7 @@
 							DefaultValue:false
 							Title:"Only if not focused"
 						}
-					]					
+					]
 				}
 				{
 					Type:boolean
@@ -3435,9 +3613,9 @@
 							Variable:MaxExpansionWithoutConfirmation
 							DefaultValue:1000
 						}
-					]					
+					]
 				}
-			]			
+			]
 		}
 		{
 			Name:"Main Window"
@@ -3498,7 +3676,30 @@
 					Title:"Fix Status Bar on Big Screens"
 					Section:"MainWindow"
 				}
-			]			
+				{
+					Type:boolean
+					Variable:bFillSushiBarWithDebugStateColor
+					DefaultValue:false
+					Title:"Fill SushiBar with Debug State Color"
+					Section:"MainWindow"
+					Params:[
+						{
+							Type:color
+							Banner:"Paused"
+							Variable:FillSushiBarWithDebugStatePausedColor
+							DefaultValue:0
+							DefaultValue:0x0080FF
+						}
+						{
+							Type:color
+							Banner:"Running"
+							Variable:FillSushiBarWithDebugStateRunningColor
+							DefaultValue:0
+							DefaultValue:0x00C000
+						}
+					]
+				}
+			]
 		}
 		{
 			Name:"Sub Windows"
@@ -3553,6 +3754,13 @@
 				}
 				{
 					Type:boolean
+					Variable:bLinkToHotkeyCommand
+					DefaultValue:false
+					Title:"Create Link on existing hotkey action"
+					Section:"Hotkeys"
+				}
+				{
+					Type:boolean
 					Variable:bDisableAppsKeyDefaultAction
 					DefaultValue:false
 					Title:"Disable the Default Action (i.e. Context Menu) of Apps Key"
@@ -3565,7 +3773,27 @@
 					Title:"Always Display the active Window Icon in the Toolbar"
 					Section:"SubWindowsAndToolbars"
 				}
-			]			
+				{
+					Type:boolean
+					Variable:bUseCustomImages
+					DefaultValue:false
+					Title:"Use external ImageList for Custom Icon Images"
+					Section:"SubWindowsAndToolbars"
+					Params:[
+						{
+							Type:path
+							Variable:CustomImageFileName
+						}
+					]
+				}
+				{
+					Type:boolean
+					Variable:bAllowDisplayMenuWithImageOnly
+					DefaultValue:false
+					Title:"Allows menus to be displayed with one image only"
+					Section:"SubWindowsAndToolbars"
+				}
+			]
 		}
 		{
 			Name:"Workspace Window"
@@ -3647,7 +3875,14 @@
 					Title:"Add 'Dependencies' menu item in project context menu"
 					Section:"WorkspaceView"
 				}
-			]			
+				{
+					Type:boolean
+					Variable:bEnableFolderRenamingInWorkspaceViewFolderContextMenu
+					DefaultValue:false
+					Title:"Enable folder renaming in 'Workspace View' folder context menu"
+					Section:"WorkspaceView"
+				}
+			]
 		}
 		{
 			Name:"Dependencies Scan"
@@ -3700,7 +3935,7 @@
 					Title:"Fix date file set in the future"
 					Section:"FileSystem"
 				}
-			]			
+			]
 		}
 		{
 			Name:"Window Tabs"
@@ -3720,7 +3955,7 @@
 							DefaultValue:0x000000
 						}
 					]
-					
+
 				}
 				{
 					Type:color
@@ -3745,7 +3980,7 @@
 					Title:"Auto Update"
 					Section:"WndTabs"
 				}
-			]			
+			]
 		}
 		{
 			Name:"Macros"
@@ -3771,7 +4006,7 @@
 					Title:"Skip VBScript Exceptions"
 					Section:"Macros"
 				}
-			]			
+			]
 		}
 		{
 			Name:"Build"
@@ -3788,6 +4023,13 @@
 					Variable:bAllowToCompileSourceFromNonActiveProject
 					DefaultValue:false
 					Title:"Allow to compile source from non-active project (BuildCompile / Ctrl + F7)"
+					Section:"Compile"
+				}
+				{
+					Type:boolean
+					Variable:bIntrinsicAllowedInAnyOptimization
+					DefaultValue:false
+					Title:"Allow to activate 'Generate Intrinsic Functions' optimization in any optimization profile"
 					Section:"Compile"
 				}
 				{
@@ -3896,7 +4138,7 @@
 						}
 					]
 				}
-			]			
+			]
 		}
 		{
 			Name:"Advanced"
@@ -4049,7 +4291,28 @@
 						}
 					]
 				}
-			]			
+				{
+					Type:boolean
+					Variable:bTranslateToolsConfigInTooltip
+					DefaultValue:false
+					Title:"Translate Tools Config in Tooltip"
+					Section:"Tools"
+				}
+				{
+					Type:boolean
+					Variable:bCleanTrailingWhiteSpaceAtSave
+					DefaultValue:false
+					Title:"Automatically clean trailing whitespace at file save"
+					Section:"File"
+				}
+				{
+					Type:boolean
+					Variable:bFixCallingToolDuringBuild
+					DefaultValue:false
+					Title:"Fix Tool Launch during Build"
+					Section:"Tools"
+				}
+			]
 		}
 		{
 			Name:"Portable Settings"
@@ -4096,7 +4359,7 @@
 						}
 					]
 				}
-			]			
+			]
 		}
 
 		{
@@ -4116,7 +4379,7 @@
 #					Title:Save Settings
 #					IDC_SAVE_SETTINGS
 #				}
-			]			
+			]
 		}
 		{
 			Name:"<WIP>"
@@ -4225,7 +4488,7 @@
 					Section:"Completion"
 					State:WIP
 				}
-			]			
+			]
 		}
 	]
 }
