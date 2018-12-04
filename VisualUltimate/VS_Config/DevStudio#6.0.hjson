@@ -8,7 +8,6 @@
 				"SourceFile":"MacroC++\\Code\\MacroCPP.cpp"
 			}
 		}
-		"$INSTALLDIR$\\COMMON\\MSDEV98\\MACROS\\SAMPLE.DSM":"0"
 		"Intro":0
 	}
 	"Custom Colors":{
@@ -874,6 +873,8 @@
 		}
 	}
 	"Recent File List":{
+		"FileCount":10
+		"ProjectCount":10
 	}
 	"VC6Ultimate":{
 		"Macros":{
@@ -1608,6 +1609,12 @@
 			"FixAndImproveGotoMatchBrace":1
 		}
 	}
+	"FindInFiles":{
+		"FIF_Advanced":1
+		"FIF_IncludePath":0
+		"FIF_SourcePath":1
+		"FIF_SearchSubfolders":1
+	}
 	"Graphics Editor":{
 		"TileGridSize":"16,15"
 		"DefaultScreenColor":"0,128,128"
@@ -2096,6 +2103,9 @@
 	"Source Control":{
 		"Disabled":1
 	}
+	"Workspace":{
+		"LastProject":""
+	}
 	"Layout":{
 		"FullScreen":0
 		"FullScreenRect":"x:16863233, y:1342177616, w:5156864, h:637619889"
@@ -2134,7 +2144,7 @@
 		"Tip of the Day":0
 		"WorkspaceAuto":1
 		"PropertiesWindow":"-1002,975"
-		"PackageCount":20
+		"PackageCount":19
 		"TraditionalMenu":0
 	}
 }

@@ -1,13 +1,9 @@
 # VC6 Ultimate
 
-VC6 Ultimate is a non-official collection of 500+ fixes, tweaks and new features for Visual C++ 6.0. These improvements make VC6 Ultimate an outstanding C++ IDE.
-
-Let's celebrate VC6's 20th anniversary by sharing them to the world.
-
-## Why improving upon Visual C++ 6.0?
-
-We think Visual C++ 6.0 was the best dev env ever made.
-It does have weaknesses though, so we kept improving it with over 500 bugfixes, tweaks and new features.
+We think Visual C++ 6.0 was the best dev env ever made, but it had some weaknesses, so we kept improving it.  
+[VC6 Ultimate](http://vc6.ultim.pw) is a non-official collection of 500+ fixes, tweaks and new features for Visual C++ 6.0.   
+These improvements make VC6 Ultimate an outstanding C++ IDE.  
+Let's celebrate VC6's 20th anniversary by sharing it to the world.
 
 ## Main Features
 
@@ -17,20 +13,18 @@ It does have weaknesses though, so we kept improving it with over 500 bugfixes, 
 * Real multicursor editing
 * Improved UX and UI, including DarkSkin Theme
 * Free (as in free beer)
-* Every change has a toggle
+* Every feature/change has a toggle
+* Perfectly integrates with Whole Tomato's [Visual Assist X](https://www.wholetomato.com).
+* More at [VC6 Ultimate's homepage](http://vc6.ultim.pw) and below.
 
-It also perfectly integrates with Whole Tomato's [Visual Assist X](https://www.wholetomato.com).
+## Getting Started
 
-See [VC6 Ultimate's homepage](http://vc6.ultim.pw) for a whole lot of VC6 Ultimate eye candy.
-
-## Installation
-
-* Execute "create_shortcuts.js". It will create two shortcuts to launch VC6 Ultimate, one with the VC7.1 compiler and one with the VC6 Compiler.
-* If you want to enable Visual Assist X, open a cmd with administrator rights. Go in "VisualUltimate/AddIns/Visual Assist X" and execute "regsvr32 VAssist.dll". Visual Assist X is shipped with VC6 Ultimate but obviously without a purchased license. Please note that VC6 Ultimate is only compatible with this exact version of Visual Assist X.
+1. Execute "create_shortcuts.js". It will create two shortcuts to launch VC6 Ultimate, one with the VC7.1 compiler and one with the VC6 Compiler.
+2. If you want to enable Visual Assist X, open a cmd with administrator rights. Go in "VisualUltimate/AddIns/Visual Assist X" and execute "regsvr32 VAssist.dll". Visual Assist X is shipped with VC6 Ultimate but obviously without a purchased license. Please note that VC6 Ultimate is only compatible with this exact version of Visual Assist X.
 
 ## Features List
 
-Each feature can be enabled or disabled. Only take what you like, but be aware we cannot check every combination.
+Each feature can be enabled or disabled. Only take what you like, but be aware we can not check every combination.
 
 It's an internal spare time project so don't expect everything to work in every setup, but feel free to [reach out](mailto:vc6@ultim.pw) or report any issue you may encounter.
 

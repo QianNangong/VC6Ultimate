@@ -3,22 +3,22 @@
 	MenuItems: [
 		{
 			CmdID: "New",
-			State: "S20|S200",
+			State: "TEXT|IMAGE",
 			Width: 0,
 		}
 		{
 			CmdID: "VU_NewProject",
-			State: "S20|S200",
+			State: "TEXT|IMAGE",
 			Width: 0,
 		}
 		{
 			CmdID: "FileOpen",
-			State: "S20|S200",
+			State: "TEXT|IMAGE",
 			Width: 0,
 		}
 		{
 			CmdID: "FileClose",
-			State: "S20",
+			State: "TEXT",
 			Width: 0,
 		}
 		{
@@ -26,17 +26,17 @@
 		}
 		{
 			CmdID: "WorkspaceOpen",
-			State: "S20",
+			State: "TEXT",
 			Width: 0,
 		}
 		{
 			CmdID: "WorkspaceSave",
-			State: "S20",
+			State: "TEXT",
 			Width: 0,
 		}
 		{
 			CmdID: "WorkspaceClose",
-			State: "S20",
+			State: "TEXT",
 			Width: 0,
 		}
 		{
@@ -44,17 +44,17 @@
 		}
 		{
 			CmdID: "FileSave",
-			State: "S20|S200",
+			State: "TEXT|IMAGE",
 			Width: 0,
 		}
 		{
 			CmdID: "FileSaveAs",
-			State: "S20",
+			State: "TEXT",
 			Width: 0,
 		}
 		{
 			CmdID: "FileSaveAll",
-			State: "S20|S200",
+			State: "TEXT|IMAGE",
 			Width: 0,
 		}
 		{
@@ -62,12 +62,12 @@
 		}
 		{
 			CmdID: "FilePrintPageSetup",
-			State: "S20",
+			State: "TEXT",
 			Width: 0,
 		}
 		{
 			CmdID: "FilePrint",
-			State: "S20|S200",
+			State: "TEXT|IMAGE",
 			Width: 0,
 		}
 		{
@@ -75,12 +75,12 @@
 		}
 		{
 			CmdID: "MenuFileMRU",
-			State: "S20|S80",
+			State: "TEXT|MENU",
 			Width: 0,
 		}
 		{
 			CmdID: "MenuWorkspaceMRU",
-			State: "S20|S80",
+			State: "TEXT|MENU",
 			Width: 0,
 		}
 		{
@@ -88,7 +88,7 @@
 		}
 		{
 			CmdID: "ApplicationExit",
-			State: "S20",
+			State: "TEXT",
 			Width: 0,
 		}
 	]

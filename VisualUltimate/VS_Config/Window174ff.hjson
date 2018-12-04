@@ -3,7 +3,7 @@
 	MenuItems: [
 		{
 			CmdID: "New",
-			State: "S200",
+			State: "IMAGE",
 			Width: 0,
 		}
 	]
