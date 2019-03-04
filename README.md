@@ -1,8 +1,8 @@
 # VC6 Ultimate
 
-We think Visual C++ 6.0 was the best dev env ever made, but it had some weaknesses, so we kept improving it.  
-[VC6 Ultimate](http://vc6.ultim.pw) is a non-official collection of 500+ fixes, tweaks and new features for Visual C++ 6.0.   
-These improvements make VC6 Ultimate an outstanding C++ IDE.  
+We think Visual C++ 6.0 was the best dev env ever made, but it had some weaknesses, so we kept improving it.
+[VC6 Ultimate](http://vc6.ultim.pw) is a non-official collection of 500+ fixes, tweaks and new features for Visual C++ 6.0.
+These improvements make VC6 Ultimate an outstanding C++ IDE.
 Let's celebrate VC6's 20th anniversary by sharing it to the world.
 
 ## Main Features
@@ -21,12 +21,11 @@ Let's celebrate VC6's 20th anniversary by sharing it to the world.
 
 1. Execute "create_shortcuts.js". It will create two shortcuts to launch VC6 Ultimate, one with the VC7.1 compiler and one with the VC6 Compiler.
 2. If you want to enable Visual Assist X, open a cmd with administrator rights. Go in "VisualUltimate/AddIns/Visual Assist X" and execute "regsvr32 VAssist.dll". Visual Assist X is shipped with VC6 Ultimate but obviously without a purchased license. Please note that VC6 Ultimate is only compatible with this exact version of Visual Assist X.
+3. It's an internal spare time project so don't expect everything to work in every setup, but feel free to reach out by [email](mailto:vc6@ultim.pw), [discord](https://discord.gg/PkCU2rP), or to [report any issue](https://gitlab.com/VC6Ultimate/VC6Ultimate/issues) you may encounter.
 
 ## Features List
 
 Each feature can be enabled or disabled. Only take what you like, but be aware we can not check every combination.
-
-It's an internal spare time project so don't expect everything to work in every setup, but feel free to [reach out](mailto:vc6@ultim.pw) or report any issue you may encounter.
 
 ### Source Code - Current Line
 
