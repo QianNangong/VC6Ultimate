@@ -1,19 +1,5 @@
 #include "MacroCPP.h"
 //---------------------------------------------------------------------------------------------
-BOOL APIENTRY DllMain( HANDLE hModule, DWORD  ul_reason_for_call, void* lpReserved){
-	switch (ul_reason_for_call){
-		case DLL_PROCESS_ATTACH:
-			(void*&)GetApp = GetProcAddress(GetModuleHandleW(0), "?GetApp@@YIPAXXZ");
-			SpAssert(GetApp);
-			break;
-		case DLL_THREAD_ATTACH:
-		case DLL_THREAD_DETACH:
-		case DLL_PROCESS_DETACH:
-			break;
-  }
-  return TRUE;
-}
-//---------------------------------------------------------------------------------------------
 TextDocument GetActiveTextDoc(){
 	IApplication& Application = gApp();
 	GenericDocument Doc = Application.ActiveDocument;
@@ -181,7 +167,7 @@ _bstr_t GetRCFileName(WCHAR* DspName){
 			ActiveDocument.Selection.CharRight(dsMove, 7);
 			ActiveDocument.Selection.EndOfLine(dsExtend);
 			_bstr_t RCName = ActiveDocument.Selection.Text;
-			if (Left(RCName, 2) == L".\\") { 
+			if (Left(RCName, 2) == L".\\") {
 				RCName = Mid(RCName, 3);
 			}
 	 		Application.ActiveWindow.Close(dsSaveChangesPrompt);
@@ -391,12 +377,12 @@ void IncreaseVersionInFile(WCHAR* Filename){
 
 		// Replace file entry
 		strSelection.Text = strNewFileVersion;
-		oDoc.Selection.StartOfLine(); 
+		oDoc.Selection.StartOfLine();
 		oDoc.Selection.EndOfLine();
 		WCHAR Buffer[1024];
 		swprintf(Buffer, L"\"%s\" => \"%s\"", (WCHAR const*)strOldLine, (WCHAR const*)oDoc.Selection.Text);
 		Application.PrintToOutputWindow(Buffer);
-	} 
+	}
 
 	//---------------------------------------------------------------------------------------
 
@@ -417,12 +403,12 @@ void IncreaseVersionInFile(WCHAR* Filename){
 		swprintf(strNewFileVersion, L"%d", strOldFileVersion + 1);
 
 		oDoc.Selection.Text = strNewFileVersion;
-		oDoc.Selection.StartOfLine(); 
+		oDoc.Selection.StartOfLine();
 		oDoc.Selection.EndOfLine(dsExtend);
 		WCHAR Buffer[1024];
 		swprintf(Buffer, L"%s => %s", (WCHAR const*)strOldLine, (WCHAR const*)oDoc.Selection.Text);
 		Application.PrintToOutputWindow(Buffer);
-	} 
+	}
 
 	//---------------------------------------------------------------------------------------
 
@@ -444,7 +430,7 @@ void IncreaseVersionInFile(WCHAR* Filename){
 			WCHAR Buffer[1024];
 			swprintf(Buffer, L"VALUE \"SpecialBuild\", \"%s\"", (WCHAR const*)CStr(Now()));
 		}
-	} 
+	}
 	//---------------------------------------------------------------------------------------
 	oDoc.Save();
 #endif
@@ -499,7 +485,7 @@ EXPORT IncResVersion(){
 	//-------------------------------
 
 // 	if (WindowCount==0) {
-// 		if (Windows.Count!=0) 
+// 		if (Windows.Count!=0)
 // 			ActiveWindow.Close(dsSaveChangesPrompt);
 // 	else if (ActiveWindow!=OldActiveWindow) {
 // 		ActiveWindow.Close(dsSaveChangesPrompt);
@@ -522,7 +508,7 @@ EXPORT ShowAllBreakpoints(){
 	}
 }
 //-------------------------------------------------------------------------
-//Allows the user to make sure the current header file is included only once. 
+//Allows the user to make sure the current header file is included only once.
 EXPORT OneTimeInclude(){
 //DESCRIPTION: Adds code to the current header file so it is included only once per c/cpp file.
 	IApplication& Application = gApp();
@@ -558,7 +544,7 @@ EXPORT OneTimeInclude(){
 			//ControlVarName = Examp;
 			//ControlVarName = InputBox("What should the control variable be?" + vbLf + vbLf + "Example: #ifdef " + Examp, "One time header include protection", Examp)
 			//If ValidId(ControlVarName) == True Then
-				TextDoc.Selection.Text = 
+				TextDoc.Selection.Text =
 					L"#pragma once\r\n"
 					L"//-------------------------------------------------------------------------------------------------\r\n";
 				//ActiveDocument.Selection = "#ifndef " + ControlVarName + vbLf + "#define " + ControlVarName + vbLf + "//-------------------------------------------------------------------------------------------------" + vbLf
@@ -682,7 +668,7 @@ EXPORT CleanComments(){
 	doc.Selection.FindText(L"/*");
 	doc.Selection.EndOfLine();
 	doc.Selection.CharLeft(dsExtend, 2);
-	if (doc.Selection.Text == L"*/") { 
+	if (doc.Selection.Text == L"*/") {
 		doc.Selection.Delete();
 		doc.Selection.FindText(L"/*", dsMatchBackward);
 		doc.Selection.Text = L"//";
@@ -1129,10 +1115,10 @@ EXPORT SmartCapitalize(){
 			b = true;
 		} else {
 			b = (c == L'_');
-		} 
+		}
 		txt += c;
 	}
-	 
+
 	ActiveDocument.Selection.Text = txt;
 
 }
@@ -1298,5 +1284,17 @@ EXPORT MoveSplashscreenToTooHot(){
 	ActiveDocument.Selection.Text = FileName;
 }
 //---------------------------------------------------------------------------------------------
-
-
+BOOL APIENTRY DllMain( HANDLE hModule, DWORD  ul_reason_for_call, void* lpReserved){
+	switch (ul_reason_for_call){
+		case DLL_PROCESS_ATTACH:
+			(void*&)GetApp = GetProcAddress(GetModuleHandleW(0), "?GetApp@@YIPAXXZ");
+			SpAssert(GetApp);
+			break;
+		case DLL_THREAD_ATTACH:
+		case DLL_THREAD_DETACH:
+		case DLL_PROCESS_DETACH:
+			break;
+  }
+  return TRUE;
+}
+//---------------------------------------------------------------------------------------------

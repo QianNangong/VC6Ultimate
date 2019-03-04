@@ -61,6 +61,29 @@
 						}
 						{
 							Type:boolean
+							Variable:bAutoScrollTextToKeepBottomCursorVisibility
+							DefaultValue:false
+							Title:"Auto Scroll Text to Keep some visibility below the caret position"
+							Section:"CurrentLine"
+							Params:[
+								{
+									Type:integer
+									Variable:AutoScrollTextMargin
+									DefaultValue:5
+									Title:"Margin"
+
+								}
+							]
+						}
+						{
+							Type:integer
+							Variable:RepeatSkipLineCount
+							DefaultValue:1
+							Title:"Skipped Line Count during repeated line up/down actions"
+							Section:"CurrentLine"
+						}
+						{
+							Type:boolean
 							Variable:bEndOfLineRightTrim
 							DefaultValue:false
 							Title:"LineEnd command ignores trailing whitespaces on first call (toggling this setting can corrupt existing macros)"
@@ -2045,6 +2068,74 @@
 						}
 					]
 				}
+				{
+					Name:"Formating"
+					Options:[
+						{
+							Type:boolean
+							Variable:bSmartIndent_FixSmartIndent
+							DefaultValue:false
+							Title:"Fix Smart Auto Indent"
+							Section:"C++ Formating"
+						}
+						{
+							Type:boolean
+							Variable:bSmartIndent_UseUltimateIndent
+							DefaultValue:false
+							Title:"Use Ultimate Smart Indent"
+							Section:"C++ Formating"
+							Params:[
+								{
+									Type:boolean
+									Variable:bSmartIndent_HalfIndentAccessSpecifiers
+									DefaultValue:false
+									Title:"Use an half indentation for Access Specifiers (public: protected: private:)"
+								}
+								{
+									Type:boolean
+									Variable:bSmartIndent_IndentCases
+									DefaultValue:false
+									Title:"Indent Cases from Switch keyword"
+								}
+							]
+						}
+						{
+							Type:boolean
+							Variable:bSurroundSelectionOnSlash
+							DefaultValue:false
+							Title:"Surround selection on /  "
+							Section:"Completion"
+						}
+						{
+							Type:boolean
+							Variable:bSurroundSelectionOnStar
+							DefaultValue:false
+							Title:"Surround selection on *  "
+							Section:"Completion"
+						}
+						{
+							Type:boolean
+							Variable:bSurroundSelectionOnParenthese
+							DefaultValue:false
+							Title:"Surround selection on (  "
+							Section:"Completion"
+						}
+						{
+							Type:boolean
+							Variable:bSurroundSelectionOnBrace
+							DefaultValue:false
+							Title:"Surround selection on {  "
+							Section:"Completion"
+						}
+						{
+							Type:boolean
+							Variable:bSurroundSelectionOnSharp
+							DefaultValue:false
+							Title:"Surround selection on #  "
+							Section:"Completion"
+						}
+					]
+				}
 			]
 		}
 		{
@@ -3452,7 +3543,7 @@
 				}
 				{
 					Type:boolean
-					Variable:bReplaceSavePosPerComputer
+					Variable:bReplaceAllSavePosPerComputer
 					DefaultValue:false
 					Title:"Save ReplaceAll Dialog's Position per computer"
 					Section:"FindReplace"
@@ -4307,6 +4398,13 @@
 				}
 				{
 					Type:boolean
+					Variable:bCheckCrc32AtSave
+					DefaultValue:false
+					Title:"Check $crc32() at file save"
+					Section:"File"
+				}
+				{
+					Type:boolean
 					Variable:bFixCallingToolDuringBuild
 					DefaultValue:false
 					Title:"Fix Tool Launch during Build"
@@ -4359,6 +4457,13 @@
 						}
 					]
 				}
+				{
+					Type:boolean
+					Variable:bWriteMRUToVolatileRegistry
+					DefaultValue:false
+					Title:"Save/Load MRU Settings to 'volatile' virtual registry"
+					Section:"PortableSettings"
+				}
 			]
 		}
 
@@ -4372,7 +4477,7 @@
 				}
 				{
 					Type:title
-					Title:"Copyright Dr. Hoiby 2016 - http://www.dr-hoiby.com"
+					Title:"Copyright Dr. Hoiby 2018 - http://www.dr-hoiby.com"
 				}
 #				{
 #					Type:button
@@ -4445,46 +4550,6 @@
 					Variable:bAutoCompleteApostrophes
 					DefaultValue:false
 					Title:"Insert closing ' after '  "
-					Section:"Completion"
-					State:WIP
-				}
-				{
-					Type:boolean
-					Variable:bSurroundSelectionOnSlash
-					DefaultValue:false
-					Title:"Surround selection on /  "
-					Section:"Completion"
-					State:WIP
-				}
-				{
-					Type:boolean
-					Variable:bSurroundSelectionOnStar
-					DefaultValue:false
-					Title:"Surround selection on *  "
-					Section:"Completion"
-					State:WIP
-				}
-				{
-					Type:boolean
-					Variable:bSurroundSelectionOnParenthese
-					DefaultValue:false
-					Title:"Surround selection on (  "
-					Section:"Completion"
-					State:WIP
-				}
-				{
-					Type:boolean
-					Variable:bSurroundSelectionOnBrace
-					DefaultValue:false
-					Title:"Surround selection on {  "
-					Section:"Completion"
-					State:WIP
-				}
-				{
-					Type:boolean
-					Variable:bSurroundSelectionOnSharp
-					DefaultValue:false
-					Title:"Surround selection on #  "
 					Section:"Completion"
 					State:WIP
 				}
