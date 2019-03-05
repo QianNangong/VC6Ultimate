@@ -23,6 +23,15 @@ Let's celebrate VC6's 20th anniversary by sharing it to the world.
 2. If you want to enable Visual Assist X, open a cmd with administrator rights. Go in "VisualUltimate/AddIns/Visual Assist X" and execute "regsvr32 VAssist.dll". Visual Assist X is shipped with VC6 Ultimate but obviously without a purchased license. Please note that VC6 Ultimate is only compatible with this exact version of Visual Assist X.
 3. It's an internal spare time project so don't expect everything to work in every setup, but feel free to reach out by [email](mailto:vc6@ultim.pw), [discord](https://discord.gg/PkCU2rP), or to [report any issue](https://gitlab.com/VC6Ultimate/VC6Ultimate/issues) you may encounter.
 
+## VC6 Licencing
+For convenience, **VC6 Ultimate includes a pre-installed Visual C++ 6.0 Enterprise Edition**. You could also apply VC6 Ultimate as a patch on your original VC6 distribution. 
+
+If you are seeking for the original VC6 files (you lost the original installation CDs), the following external links can help:
+ * Original CDS [here](https://winworldpc.com/product/microsoft-visual-stu/60) or [here](https://archive.org/details/VS6enCDs)
+ * [Instructions to install on modern windows](http://nuke.vbcorner.net/Articles/VB60/VisualStudio6Installer/tabid/93/language/en-US/Default.aspx)
+ * [MSDN Library for VC6](https://docs.google.com/document/d/1XXTZuiQV1DFd2Zupj9zTPVNz-G-Zb2efVwnQjdjiXuM/mobilebasic)
+ * [VC6 Service Pack](https://www.microsoft.com/en-us/download/details.aspx?id=9183)
+
 ## Features List
 
 Each feature can be enabled or disabled. Only take what you like, but be aware we can not check every combination.
