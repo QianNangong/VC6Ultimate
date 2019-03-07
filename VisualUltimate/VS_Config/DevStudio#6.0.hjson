@@ -256,6 +256,7 @@
 					"Macro_Prefix":"LIB32"
 					"Input_Spec":"*.obj;*.res;*.lib"
 					"Deferred":0
+					"Version":"6.00"
 					"Output_Spec":""
 					"Executable Path":"link.exe -lib"
 					"Perform_If_Able":0
@@ -647,6 +648,7 @@
 			"Alt+VK_LEFT":"47103, VAssistXNavigateBack"
 			"Ctrl+Shift+VK_HOME":"24542, DocumentStartExtend"
 			"Ctrl+'q'":"48136, VU_QuickSkipCurrent"
+			"Ctrl+Win+'d'":"48180, VU_DuplicateCurrentLine"
 			"Ctrl+Shift+'e'":"28506, GoToMatchBraceExtend"
 			"Ctrl+Shift+VK_LEFT":"48094, VU_WordStartCurrentExtend"
 			"Ctrl+Shift+'d'":"48135, VU_QuickAddAll"
@@ -900,6 +902,12 @@
 			"IncreaseBreakpointListHeight":1
 			"BUGFixAutoBreakpointGetLocation":1
 		}
+		"C++ Formating":{
+			"SmartIndent_FixSmartIndent":1
+			"SmartIndent_UseUltimateIndent":1
+			"SmartIndent_IndentCases":1
+			"SmartIndent_HalfIndentAccessSpecifiers":1
+		}
 		"Project":{
 			"EnableSETTINGSFileLoading":1
 			"EnableSETTINGSFileCreation":1
@@ -992,12 +1000,15 @@
 			"LineCutAutoToggle":1
 			"EndOfLineRightTrim":1
 			"ChangeCaretInInsertMode":1
+			"AutoScrollTextToKeepBottomCursorVisibility":1
 			"HighlightCurrentLineType":0
 			"HighlightCurrentLine":1
 			"HighlightCurrentLineBackgroundColor":"40,40,40,0"
 			"HighlightMargin":1
 			"UseScrollLock":0
+			"AutoScrollTextMargin":8
 			"CurrentLineMarginBackgroundColor":"40,40,40,0"
+			"RepeatSkipLineCount":1
 		}
 		"Tools":{
 			"TranslateToolsConfigInTooltip":1
@@ -1008,6 +1019,8 @@
 			"PreserveToolHotkeysAfterToolListModifications":1
 		}
 		"FindReplace":{
+			"ReplaceAllSavePosPerComputer":1
+			"Find_AddSelectAllButton":1
 			"Replace_RestoreSizeNPosDialog":1
 			"Find_ResizableDialog":1
 			"Find_FindNextWordStayInPlace":1
@@ -1035,11 +1048,11 @@
 			"AutoCompleteParentheses":0
 			"AutoCompleteBraces":0
 			"SurroundSelectionOnStar":1
-			"SurroundSelectionOnSharp":0
-			"SurroundSelectionOnParenthese":0
+			"SurroundSelectionOnSharp":1
+			"SurroundSelectionOnParenthese":1
 			"AutoCompleteQuotationMarks":0
 			"AutoCompleteApostrophes":0
-			"SurroundSelectionOnBrace":0
+			"SurroundSelectionOnBrace":1
 			"AutoCompleteBrackets":0
 		}
 		"Help":{
@@ -1102,6 +1115,7 @@
 			"IntrinsicAllowedInAnyOptimization":1
 			"BuildActionDontInterruptCurrentBuilding":1
 			"AllowToCompileSourceFromNonActiveProject":1
+			"EnableMultipleProcessesCompilation":1
 			"BlockExcludeFromBuildCompilation":1
 		}
 		"ConsoleMode":{
@@ -1466,6 +1480,7 @@
 			"ReplaceCurrentStatementSignArrow":1
 		}
 		"File":{
+			"CheckCrc32AtSave":1
 			"CleanTrailingWhiteSpaceAtSave":1
 		}
 		"KeyboardMenu":{
@@ -1479,6 +1494,7 @@
 			"SaveDataViewInLocalIni":1
 			"SaveDebugInLocalIni":1
 			"SaveGeneralSettingsInLocalIni":0
+			"WriteMRUToVolatileRegistry":1
 			"CheckDockWorkerPosition":1
 			"SaveProjectsNameAndPathInLocalIni":1
 			"SaveDialogEditorInLocalIni":1
@@ -1593,7 +1609,6 @@
 			"ShowOutputDebugStringFormatColor":1
 			"OtherFileLineLinesForegroundColor":"192,255,255,0"
 			"ResultWarningBackgroundColor":"0,0,0,0"
-			"Group1_WindowHeight":1009
 			"ErrorLinesBackgroundColor":"0,0,0,0"
 			"FormFeedClearOutput":1
 			"WarningLinesBackgroundColor":"40,40,40,0"
@@ -1742,7 +1757,7 @@
 		"DisassemblyCodeBytes":1
 		"CPUFloatingPoint":1
 		"UnicodeStrings":1
-		"QuickWatchColWidth":0
+		"QuickWatchColWidth":50
 		"Just in Time":{
 			"Debugger":"C:\\DrMinGW\\drmingw-0.6.0-win32\\bin\\drmingw.exe -p %ld -e %ld -v"
 			"Auto":0
@@ -1762,7 +1777,7 @@
 		"EditAndContinueDebugging":0
 		"ENCRelink":1
 		"ENCLoadIdbFiles":1
-		"WatchColWidth":247
+		"WatchColWidth":50
 		"DebugMode":0
 		"ShowDataTips":1
 		"ShowReturnValues":1
