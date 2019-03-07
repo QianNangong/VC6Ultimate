@@ -28,6 +28,7 @@
 #ifndef _INCLUDED_MM2
 #define _INCLUDED_MM2
 
+
 /*
  * the m64 type is required for the integer Streaming SIMD Extensions intrinsics
  */
@@ -52,25 +53,9 @@ typedef long long __m128;
 #else
 
 #if _MSC_VER >= 1300
-
-#if _MSC_FULL_VER < 140040310
 typedef struct __declspec(intrin_type) __declspec(align(16)) __m128 {
     float       m128_f32[4];
 } __m128;
-#else
-typedef union __declspec(intrin_type) __declspec(align(16)) __m128 {
-     float               m128_f32[4];	
-     unsigned __int64    m128_u64[2];		
-     __int8              m128_i8[16];	
-     __int16             m128_i16[8];	
-     __int32             m128_i32[4];	
-     __int64             m128_i64[2];
-     unsigned __int8     m128_u8[16];
-     unsigned __int16    m128_u16[8];
-     unsigned __int32    m128_u32[4];
- } __m128;
-#endif
-
 #endif
 
 #ifndef _INC_MALLOC

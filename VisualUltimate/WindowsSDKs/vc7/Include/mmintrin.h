@@ -104,7 +104,7 @@ __m64 _m_pcmpgtw(__m64 m1, __m64 m2);
 __m64 _m_pcmpgtd(__m64 m1, __m64 m2);
 
 /* Utility intrinsics */
-__m64 _mm_setzero_si64(void);
+__m64 _mm_setzero_si64();
 __m64 _mm_set_pi32(int i1, int i0);
 __m64 _mm_set_pi16(short s3, short s2, short s1, short s0);
 __m64 _mm_set_pi8(char b7, char b6, char b5, char b4,
