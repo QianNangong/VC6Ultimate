@@ -1,0 +1,258 @@
+//+--------------------------------------------------------------------------
+//
+// Microsoft Windows
+// Copyright (C) Microsoft Corporation, 1996 - 1999
+//
+// File:        certcli.idl
+//
+// Contents:    IDL source for certcli.dll
+//
+//---------------------------------------------------------------------------
+
+// This file will be processed by the MIDL tool to produce the type library
+// (certcli.tlb) and marshalling code.
+
+import "wtypes.idl";
+import "certif.idl";
+
+//+--------------------------------------------------------------------------
+// ICertGetConfig class -- local COM interface, local implementation
+//+--------------------------------------------------------------------------
+
+[
+    object,
+    uuid(c7ea09c0-ce17-11d0-8833-00a0c903b83c),
+    dual,
+    helpstring("ICertGetConfig Interface"),
+    pointer_default(unique)
+]
+
+interface ICertGetConfig: IDispatch
+{
+    import "oaidl.idl";
+
+    HRESULT GetConfig(
+		[in] LONG Flags,
+		[out, retval] BSTR *pstrOut);
+};
+
+
+//+--------------------------------------------------------------------------
+// ICertConfig::GetField()
+// strFieldName parameter values:
+
+     cpp_quote("#define wszCONFIG_COMMONNAME 		L\"CommonName\"")
+     cpp_quote("#define wszCONFIG_ORGUNIT 		L\"OrgUnit\"")
+     cpp_quote("#define wszCONFIG_ORGANIZATION 		L\"Organization\"")
+     cpp_quote("#define wszCONFIG_LOCALITY 		L\"Locality\"")
+     cpp_quote("#define wszCONFIG_STATE			L\"State\"")
+     cpp_quote("#define wszCONFIG_COUNTRY		L\"Country\"")
+     cpp_quote("#define wszCONFIG_CONFIG		L\"Config\"")
+     cpp_quote("#define wszCONFIG_EXCHANGECERTIFICATE	L\"ExchangeCertificate\"")
+     cpp_quote("#define wszCONFIG_SIGNATURECERTIFICATE	L\"SignatureCertificate\"")
+     cpp_quote("#define wszCONFIG_DESCRIPTION		L\"Description\"")
+     cpp_quote("#define wszCONFIG_COMMENT		L\"Comment\" // obsolete: use Description")
+     cpp_quote("#define wszCONFIG_SERVER 		L\"Server\"")
+     cpp_quote("#define wszCONFIG_AUTHORITY 		L\"Authority\"")
+     cpp_quote("#define wszCONFIG_SANITIZEDNAME		L\"SanitizedName\"")
+     cpp_quote("#define wszCONFIG_SHORTNAME		L\"ShortName\"")
+     cpp_quote("#define wszCONFIG_SANITIZEDSHORTNAME	L\"SanitizedShortName\"")
+     cpp_quote("#define wszCONFIG_FLAGS			L\"Flags\"")
+
+
+// Flags setting
+const LONG CAIF_DSENTRY           = 0x00000001;	// bit set for CA from DS
+const LONG CAIF_SHAREDFOLDERENTRY = 0x00000002;	// bit set for CA from
+                                                // shared folder
+
+//+--------------------------------------------------------------------------
+// ICertConfig class -- local COM interface, local implementation
+//+--------------------------------------------------------------------------
+
+[
+    object,
+    uuid(372fce34-4324-11d0-8810-00a0c903b83c),
+    dual,
+    helpstring("ICertConfig Interface"),
+    pointer_default(unique)
+]
+
+interface ICertConfig: IDispatch
+{
+    import "oaidl.idl";
+
+    HRESULT Reset(
+		[in] LONG Index,
+		[out, retval] LONG *pCount);
+
+    HRESULT Next(
+		[out, retval] LONG *pIndex);
+
+    HRESULT GetField(
+		[in] BSTR const strFieldName,
+		[out, retval] BSTR *pstrOut);
+
+    HRESULT GetConfig(
+		[in] LONG Flags,
+		[out, retval] BSTR *pstrOut);
+};
+
+
+//+--------------------------------------------------------------------------
+// ICertRequest::Submit()
+// Flags for request and attributes encoding and type:
+
+const LONG CR_IN_BASE64HEADER = 0x00000000;	// BASE64 with begin/end
+const LONG CR_IN_BASE64 =       0x00000001;	// BASE64 w/o begin/end
+const LONG CR_IN_BINARY =       0x00000002;	// binary request
+const LONG CR_IN_ENCODEANY =	0x000000ff; 	// Could be any of the above
+const LONG CR_IN_ENCODEMASK =	0x000000ff;	// request encoding mask
+
+const LONG CR_IN_FORMATANY =	0x00000000; 	// Could be any of the below
+const LONG CR_IN_PKCS10 =	0x00000100; 	// PKCS 10 request
+const LONG CR_IN_KEYGEN =	0x00000200; 	// Keygen request
+const LONG CR_IN_PKCS7 =	0x00000300; 	// PKCS 7 renewal request
+const LONG CR_IN_FORMATMASK =	0x0000ff00;	// request format mask
+
+const LONG CR_IN_RPC =          0x00020000;	// Use RPC instead of DCOM
+
+// Flags for GetConfig flag
+const LONG CC_DEFAULTCONFIG = 0x00000000; // ask to get 1st pingable CA config
+const LONG CC_UIPICKCONFIG  = 0x00000001; // invoke a UI to pick CA config
+const LONG CC_FIRSTCONFIG  = 0x00000002; // pick first CA config
+
+//+--------------------------------------------------------------------------
+// ICertRequest::Submit(), ICertRequest::RetrievePending() and
+// returned Disposition:
+
+const LONG CR_DISP_INCOMPLETE =		0x00000000; // request did not complete
+const LONG CR_DISP_ERROR =		0x00000001; // request failed
+const LONG CR_DISP_DENIED =		0x00000002; // request denied
+const LONG CR_DISP_ISSUED =		0x00000003; // cert issued
+const LONG CR_DISP_ISSUED_OUT_OF_BAND = 0x00000004; // cert issued separately
+const LONG CR_DISP_UNDER_SUBMISSION =   0x00000005; // taken under submission
+const LONG CR_DISP_REVOKED =	        0x00000006; // issued and revoked
+
+
+//+--------------------------------------------------------------------------
+// ICertRequest::GetCACertificate(), ICertRequest::GetCertificate() and
+// ICertAdmin::GetCRL()
+// Flags for certificate encoding:
+
+const LONG CR_OUT_BASE64HEADER = 0x00000000;	// BASE64 with begin/end
+const LONG CR_OUT_BASE64 =       0x00000001;	// BASE64 w/o begin/end
+const LONG CR_OUT_BINARY =       0x00000002;	// binary certificate
+const LONG CR_OUT_ENCODEMASK =	 0x000000ff;	// certificate encoding mask
+const LONG CR_OUT_CHAIN =	 0x00000100;	// return certificate chain
+const LONG CR_OUT_DELTACRL =	 0x00000200;	// ICertAdmin::GetCRL() only
+
+
+
+//+--------------------------------------------------------------------------
+// ICertRequest class -- local COM interface, implementation uses DCOM
+//+--------------------------------------------------------------------------
+
+[
+    object,
+    uuid(014e4840-5523-11d0-8812-00a0c903b83c),
+    dual,
+    helpstring("ICertRequest Interface"),
+    pointer_default(unique)
+]
+
+interface ICertRequest: IDispatch
+{
+    import "oaidl.idl";
+
+    HRESULT Submit(
+		[in] LONG Flags,
+		[in] BSTR const strRequest,
+		[in] BSTR const strAttributes,
+		[in] BSTR const strConfig,
+		[out, retval] LONG *pDisposition);
+
+    HRESULT RetrievePending(
+		[in] LONG RequestId,
+		[in] BSTR const strConfig,
+		[out, retval] LONG *pDisposition);
+
+    HRESULT GetLastStatus(
+		[out, retval] LONG *pStatus);
+
+    HRESULT GetRequestId(
+		[out, retval] LONG *pRequestId);
+
+    HRESULT GetDispositionMessage(
+		[out, retval] BSTR *pstrDispositionMessage);
+
+    HRESULT GetCACertificate(
+		[in] LONG fExchangeCertificate,
+		[in] BSTR const strConfig,
+		[in] LONG Flags,
+		[out, retval] BSTR *pstrCertificate);
+
+    HRESULT GetCertificate(
+		[in] LONG Flags,
+		[out, retval] BSTR *pstrCertificate);
+};
+
+
+//+--------------------------------------------------------------------------
+// certcli Type library
+//+--------------------------------------------------------------------------
+
+[
+    uuid(372fce32-4324-11d0-8810-00a0c903b83c),
+    version(1.0),
+    helpstring("CertCli 1.0 Type Library")
+]
+
+library CERTCLIENTLib
+{
+    importlib("stdole2.tlb");
+
+    [
+	uuid(c6cc49b0-ce17-11d0-8833-00a0c903b83c),
+	helpstring("CertGetConfig Class")
+    ]
+    coclass CCertGetConfig
+    {
+	[default] interface ICertGetConfig;
+    };
+
+    [
+	uuid(372fce38-4324-11d0-8810-00a0c903b83c),
+	helpstring("CertConfig Class")
+    ]
+    coclass CCertConfig
+    {
+	[default] interface ICertConfig;
+    };
+
+    [
+	uuid(98aff3f0-5524-11d0-8812-00a0c903b83c),
+	helpstring("CertRequest Class")
+    ]
+    coclass CCertRequest
+    {
+	[default] interface ICertRequest;
+    };
+
+    [
+	uuid(aa000926-ffbe-11cf-8800-00a0c903b83c),
+	helpstring("CertServerPolicy Class")
+    ]
+    coclass CCertServerPolicy
+    {
+	[default] interface ICertServerPolicy;
+    };
+
+    [
+	uuid(4c4a5e40-732c-11d0-8816-00a0c903b83c),
+	helpstring("CertServerExit Class")
+    ]
+    coclass CCertServerExit
+    {
+	[default] interface ICertServerExit;
+    };
+};

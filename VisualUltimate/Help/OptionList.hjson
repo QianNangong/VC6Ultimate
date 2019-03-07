@@ -4111,6 +4111,13 @@
 				}
 				{
 					Type:boolean
+					Variable:bEnableMultipleProcessesCompilation
+					DefaultValue:false
+					Title:"Enable Multiple Processes Compilation"
+					Section:"Compile"
+				}
+				{
+					Type:boolean
 					Variable:bAllowToCompileSourceFromNonActiveProject
 					DefaultValue:false
 					Title:"Allow to compile source from non-active project (BuildCompile / Ctrl + F7)"

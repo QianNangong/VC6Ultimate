@@ -1,0 +1,8 @@
+;************************************************************************
+;
+; This is the .DEF file for the Microsoft Visual C++ Run-Time Library DLL
+; The release version is SAMPLE_P.DLL and the debug version SAMPLD_P.DLL.
+;
+;************************************************************************
+LIBRARY SAMPLD_P
+EXPORTS

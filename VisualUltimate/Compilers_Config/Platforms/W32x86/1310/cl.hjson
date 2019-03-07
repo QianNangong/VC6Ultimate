@@ -7,14 +7,15 @@
 			CompilerFolder:vc7
 		}
 		{
-			SDKFolder:%BaseDir%\VisualUltimate\WindowsSDKs\%CompilerFolder%
+			SDKFolder:%BaseDir%\VisualUltimate\WindowsSDKs\vc7
 		}
 	]
 
 	Include:[
-		%SDKFolder%\Include
-		%SDKFolder%\Include\atl
-		%SDKFolder%\Include\crt
+		%SDKFolder%\include
+		%SDKFolder%\atlmfc\include
+		%SDKFolder%\PlatformSDK\Include
+		%SDKFolder%\DIA SDK\include
 	]
 
 	Path:[
@@ -27,12 +28,15 @@
 	]
 
 	Lib:[
-		%SDKFolder%\LIB
+		%SDKFolder%\lib
+		%SDKFolder%\atlmfc\lib
+		%SDKFolder%\PlatformSDK\Lib
+		%SDKFolder%\PlatformSDK\Misc\Icmp\Lib
+		%SDKFolder%\DIA SDK\lib
 	]
 
 	Sources:[
-		%SDKFolder%\SRC\ATL
-		%SDKFolder%\SRC\CRT
-		%SDKFolder%\SRC\MFC
+		%SDKFolder%\atlmfc\src
+		%SDKFolder%\crt\src
 	]
 }
